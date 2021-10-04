@@ -4,12 +4,12 @@
 
 // Labo ADDRESSES
 
-const LaboBusdAddr = '0x306223ae4cd16a7623e9ff93bde461a60c5dcaf8'
-const LaboBnbAddr = '0xf36067d88a49682d89638a3ed75431181585dbf4'
-const LaboBusdAddrV2 = '0x306223ae4cd16a7623e9ff93bde461a60c5dcaf8'
-const LaboBnbAddrV2 = '0xf36067d88a49682d89638a3ed75431181585dbf4'
-const LaboAddr = '0xc078b878ae6BB14a8734d8a788F496984Cc7dde2'
-const masterChef = '0x21262941bd12FB01218afCF64AD0E23655E9F5f9'
+const LaboUstAddr = '0xfe01836ab9ee630266184cd11bd21edab4b6e2ec'
+const LaboBnbAddr = '0x62287501af0b35e5c818ff95fe789218a9aa156d'
+const LaboUstAddrV2 = '0xfe01836ab9ee630266184cd11bd21edab4b6e2ec'
+const LaboBnbAddrV2 = '0x62287501af0b35e5c818ff95fe789218a9aa156d'
+const LaboAddr = '0x86C602B59fe35e18f22eD4d7557BF75ec53E9C1f'
+const masterChef = '0x0c1A3bd0F18801A4F114F5bb445Ea23AcEe8d310'
 // testnet addresses
 const LaboBusdAddrTestnet = '0xf73dc3652b3619312ddd3de7dbf3f354eb5c00b5' // MIS-BUSD LP
 const LaboBnbAddrTestnet = '0x31222d37568bd54be95ece3749f0559c45a85634' // MIS-WONE LP
@@ -20,7 +20,7 @@ const masterChefTestnet = '0xDd62435ca34666f65c32ED62eA5331b2128ED262' // MIS MA
 
 // Labo RELATED PIDS
 
-const pidLaboBusd = 0
+const pidLaboUst = 0
 const pidLaboBnb = 1
 const pidLabo = 2
 
@@ -66,9 +66,9 @@ const showFarmInfoModal = true;
 
 const labo = {
     addr: {
-        LaboBusdAddr,
+        LaboUstAddr,
         LaboBnbAddr,
-        LaboBusdAddrV2,
+        LaboUstAddrV2,
         LaboBnbAddrV2,
         LaboAddr,
         masterChef,
@@ -80,12 +80,12 @@ const labo = {
         masterChefTestnet,
     },
     pids: {
-        pidLaboBusd, 
+        pidLaboUst, 
         pidLaboBnb,
         pidLabo,
         pidBnbBusd,
         pidList: [
-            pidLaboBusd, // Labo-BUSD LP [0]
+            pidLaboUst, // Labo-BUSD LP [0]
             pidLaboBnb, // Labo-BNB LP [1]
             pidLabo, // Labo [2]
             pidBnbBusd, // BNB-BUSD LP [3]

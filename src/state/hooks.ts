@@ -145,7 +145,7 @@ export const usePriceCakeBusd = (): BigNumber => {
   // const farm = useFarmFromPid(pid)
   // return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
   // const dispatch = useDispatch()
-  const pid = labo.pids.pidLaboBusd; // EGG-BUSD LP
+  const pid = labo.pids.pidLaboUst; // EGG-BUSD LP
   const farm = useFarmFromPid(pid);
   // dispatch(fetchLaboPriceAsync());
   // const price = useSelector((state: State) => state.farms.price)
