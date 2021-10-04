@@ -1,6 +1,6 @@
-# The Lab Frontend
+# Artemis Protocol Frontend
 
-https://thelab.finance
+https://app.artemisprotocol.one
 
 #### Build
 
