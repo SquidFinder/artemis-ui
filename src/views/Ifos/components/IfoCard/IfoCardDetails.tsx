@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
 import { Text, LinkExternal, Link } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
+import { FaBook, FaLink } from 'react-icons/fa'
 
 export interface IfoCardDetailsProps {
   launchDate: string
@@ -14,6 +15,18 @@ export interface IfoCardDetailsProps {
   raisingAmount: BigNumber
   totalAmount: BigNumber
 }
+
+
+
+const Divider = styled.div`
+background-color: #4c68ef;
+height: 3px;
+margin-left: 100;
+margin-right: 0px;
+margin-top: 5px;
+margin-bottom: 5px;
+width: 100%;
+`
 
 const StyledIfoCardDetails = styled.div`
   margin-bottom: 24px;
@@ -59,12 +72,14 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
             </Link>
           </Text>
         </Item>
+        <Divider />
         <Item>
-          <Display bold>{TranslateString(584, 'For Sale')}</Display>
+          
+          <Display bold>{TranslateString(5824, 'Tokens For Sale')}</Display>
           <Text>{saleAmount}</Text>
         </Item>
         <Item>
-          <Display bold>{TranslateString(999, 'To Raise ($USD)')}</Display>
+          <Display bold>{TranslateString(999, 'USD To Raise')}</Display>
           <Text>{raiseAmount}</Text>
         </Item>
 
@@ -76,14 +91,14 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
         </Item>
         */}
         <Item>
-          <Display bold>{TranslateString(999, 'Total Raised (% of Target)')}</Display>
+          <Display bold>{TranslateString(999, 'Total Raised')}</Display>
           <Text>{`${totalAmount.div(raisingAmount).times(100).toFixed(1)}%`}</Text>
         </Item>
 
 
       </StyledIfoCardDetails>
       <LinkExternal href={projectSiteUrl} style={{ margin: 'auto' }}>
-        {TranslateString(4012, 'Research Project')}
+      <FaBook/>{TranslateString(4012, ' Research Project')}
       </LinkExternal>
 
 

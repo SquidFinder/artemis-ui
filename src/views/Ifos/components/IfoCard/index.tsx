@@ -70,9 +70,10 @@ const getStatus = (currentBlock: number, startBlock: number, endBlock: number): 
 }
 
 const getRibbonComponent = (status: IfoStatus, TranslateString: (translationId: number, fallback: string) => any) => {
-  if (status === 'coming_soon') {
+  // eslint-disable-next-line no-lone-blocks
+  { /* if (status === 'coming_soon') {
     return <CardRibbon variantColor="textDisabled" text={TranslateString(999, 'Coming Soon')} />
-  }
+  } */ }
 
   return null
 }

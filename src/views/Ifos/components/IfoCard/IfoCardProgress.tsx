@@ -7,13 +7,14 @@ interface IfoCardProgressProps {
 }
 
 const StyledProgress = styled.div`
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 `
 
 const IfoCardProgress: React.FC<IfoCardProgressProps> = ({ progress }) => {
   return (
     <StyledProgress>
       <Progress primaryStep={progress} />
+      
     </StyledProgress>
   )
 }

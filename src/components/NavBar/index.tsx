@@ -167,12 +167,12 @@ const NavBar = (props) => {
                             <ul className="dropdown-content dropdown-items">
                               <li>
                                 <Link to="/farms" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                                  <span className="dditem">POOLS</span>
+                                <FaExclamationTriangle/><span className="dditem">POOLS</span>
                                 </Link>
                               </li>
                               <li>
                                 <Link to="/pools" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                                  <span className="dditem">STAKING</span>
+                                <FaExclamationTriangle/><span className="dditem">STAKING</span>
                                 </Link>
                               </li> 
                             </ul>
