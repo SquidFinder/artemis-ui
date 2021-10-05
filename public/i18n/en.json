@@ -435,19 +435,19 @@
     {
       "data": {
         "stringId": 454,
-        "text": "%num% ART Available"
+        "text": "%num% MIS Available"
       }
     },
     {
       "data": {
         "stringId": 456,
-        "text": "Your amount must be a multiple of 10 ART"
+        "text": "Your amount must be a multiple of 10 MIS"
       }
     },
     {
       "data": {
         "stringId": 458,
-        "text": "1 Ticket = 10 ART"
+        "text": "1 Ticket = 10 MIS"
       }
     },
     {
