@@ -29,9 +29,11 @@ const ContributeModal: React.FC<Props> = ({ currency, contract, currencyAddress,
         onSelectMax={() => setValue(balance.toString())}
       />
       <Flex justifyContent="space-between" mb="24px">
+
         <Button fullWidth variant="secondary" onClick={onDismiss} mr="8px">
           Cancel
         </Button>
+
         <Button
           fullWidth
           disabled={pendingTx}
@@ -46,13 +48,16 @@ const ContributeModal: React.FC<Props> = ({ currency, contract, currencyAddress,
         >
           Confirm
         </Button>
+
       </Flex>
+
       <LinkExternal
-        href="https://viperswap.one"
+        href="https://app.sushi.com/swap?outputCurrency=0xcf664087a5bb0237a0bad6742852ec6c8d69a27a"
         style={{ margin: 'auto' }}
       >
         {`Get ${currency}`}
       </LinkExternal>
+
     </Modal>
   )
 }
