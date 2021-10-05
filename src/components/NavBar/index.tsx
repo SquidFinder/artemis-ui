@@ -308,14 +308,14 @@ const NavBar = (props) => {
               </nav>
               <ul className="nav-tabs outsideMainNav">
               <li className="web3li">
-                    <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href={ `https://viperswap.one/#/swap?outputCurrency=${labo.addr.LaboAddrTestnet}` } className="nav-links connect">
+                    <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href={ `https://app.defikingdoms.com/#/marketplace/swap?outputCurrency=${labo.addr.LaboAddrTestnet}` } className="nav-links connect">
                       <Button style={{'fontSize': '15px', 'borderRadius': '15px', 'width': '100% !important'}}>
                         <b>Swap</b>
                       </Button>
                     </a>
                   </li>
                 <li className="web3li">
-                  <a target="_blank" rel="noreferrer" href="https://viperswap.one/#/" className="nav-links price">
+                  <a target="_blank" rel="noreferrer" href="/" className="nav-links price">
                   <Price
                     style={{ 
                       marginRight: '0px',

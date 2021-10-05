@@ -24,10 +24,10 @@ const StyledIfoCard = styled(Card)<{ ifoId: string }>`
   background-image: ${({ ifoId }) => `url('/images/ifos/${ifoId}-bg.svg')`};
   background-repeat: no-repeat;
   background-size: contain;
-  padding-top: 112px;
+  padding-top: 100px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 437px;
+  max-width: 420px;
   width: 100%;
 `
 

@@ -50,7 +50,7 @@ const IfoCardTime: React.FC<IfoCardTimeProps> = ({ isLoading, status, secondsUnt
     <Details>
       <Countdown>{`${timeUntil.days}d, ${timeUntil.hours}h, ${timeUntil.minutes}m until ${suffix}`}</Countdown>
       <Link href={`https://explorer.harmony.one/block/countdown/${block}`} target="blank" rel="noopener noreferrer" ml="8px">
-        (blocks)
+        | Explorer
       </Link>
     </Details>
   )

@@ -77,16 +77,13 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
         */}
         <Item>
           <Display bold>{TranslateString(999, 'Total Raised (% of Target)')}</Display>
-          <Text>{`${totalAmount.div(raisingAmount).times(100).toFixed(2)}%`}</Text>
+          <Text>{`${totalAmount.div(raisingAmount).times(100).toFixed(1)}%`}</Text>
         </Item>
 
-        <LinkExternal href="https://viper.exchange/#/swap?outputCurrency=0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a" mr="16px">
-            {TranslateString(999, 'Apply for Launch')}
-      </LinkExternal>
 
       </StyledIfoCardDetails>
       <LinkExternal href={projectSiteUrl} style={{ margin: 'auto' }}>
-        {TranslateString(4012, 'Read Artemis Docs')}
+        {TranslateString(4012, 'Research Project')}
       </LinkExternal>
 
 

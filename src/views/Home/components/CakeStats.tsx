@@ -6,7 +6,7 @@ import { getBalanceNumber } from 'utils/formatBalance'
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
 import { getCakeAddress } from 'utils/addressHelpers'
-import { FaBroadcastTower, FaLock, FaScroll } from 'react-icons/fa'
+import { FaBroadcastTower, FaExchangeAlt, FaLock, FaScroll } from 'react-icons/fa'
 import { useTotalRewards } from 'hooks/useTickets'
 import CardValue from './CardValue'
 import { useFarms, usePriceCakeBusd, useTotalValue } from '../../../state/hooks'
@@ -96,14 +96,17 @@ const CakeStats = () => {
         <Title>
           <span><FaScroll/> Overview</span>
         </Title>
+        <Row style={{'marginBottom': '0 !important'}}>
+          <LinkExternal href='https://app.defikingdoms.com/#/'> Swap | Defi Kingdoms</LinkExternal><FaExchangeAlt />
+          </Row>
           <Row>
-            <Sub>Price</Sub>
+            <Sub>MIS Price</Sub>
             <Sub className="lightColor">
               <CardValue value={misPrice.toNumber()} decimals={2} prefix="$" />
             </Sub>
           </Row>
           <Row>
-            <Sub>Total Supply</Sub>
+            <Sub>Current Supply</Sub>
             <Sub className="lightColor">
               {cakeSupply && <CardValue value={cakeSupply} decimals={0} />}
             </Sub>
@@ -113,7 +116,7 @@ const CakeStats = () => {
             <Sub className="lightColor">{ !marketCap.isZero() ? <CardValue value={getBalanceNumber(marketCap)} decimals={0} prefix="$" /> : '...loading' }</Sub>
           </Row>
           <Row>
-            <Sub>Total Burned</Sub>
+            <Sub>Total MIS Burnt</Sub>
             <Sub className="lightColor">
               <CardValue value={getBalanceNumber(burnedBalance)} decimals={0} />
             </Sub>
@@ -124,6 +127,8 @@ const CakeStats = () => {
               {vikingPerBlock}
             </Sub>
           </Row>
+
+
 
           <Divider />
 
@@ -138,8 +143,6 @@ const CakeStats = () => {
             <LinkExternal href='https://bridge.terra.money/'> Terra Bridge</LinkExternal>
 
         </Row>
-
-
 
         </Wrapper>
       </CardBody>
