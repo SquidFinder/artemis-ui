@@ -51,6 +51,7 @@ const App: React.FC = () => {
             <Route path="/farms">
               <Farms />
             </Route>
+            {/*
             <Route path="/incubator">
               <Pools />
             </Route>
@@ -60,15 +61,18 @@ const App: React.FC = () => {
             <Route path="/wheel">
               <MoneyWheel />
             </Route>
+          */}
             {/* <Route path="/onewheel">
               <MoneyWheel2 />
             </Route> */}
             {/* <Route path="/nft">
               <Nft/>
             </Route> */}
+            {/*
             <Route path="/lottery">
               <Lottery />
             </Route>
+            */}
             <Route path="/Launchpad">
             <Ifos />
             </Route>
@@ -79,9 +83,11 @@ const App: React.FC = () => {
             <Route path="/staking">
             <Redirect to="/pools" /> 
             </Route> 
+            {/*
            <Route path="/syrup">
             <Redirect to="/pools" />
             </Route>
+            */}
             {/* 404 */}
             <Route component={NotFound} />
           </Switch>
