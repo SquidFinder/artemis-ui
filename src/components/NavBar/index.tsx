@@ -266,7 +266,7 @@ const NavBar = (props) => {
                  </ul>
                  <ul className="web3buttons">
                  <li className="web3li insideMainNav">
-                   <a target="_blank" rel="noreferrer" href="https://viperswap.one/#/" className="nav-links price">
+                   <a target="_blank" rel="noreferrer" href="https://app.defikingdoms.com/" className="nav-links price">
                   <Price
                     style={{ marginRight: '4px',
                             backgroundColor: 'transparent' }}
@@ -275,7 +275,9 @@ const NavBar = (props) => {
                     <p>{ ( !cakePriceUsd.isNaN() ? cakePriceUsd.toNumber().toFixed(5).concat("$") : '...loading') }</p></Price>
                   </a></li>
                   <li className="web3li insideMainNav">
-                    <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href={ `https://app.defikingdoms.com/#/marketplace/swap?outputCurrency=${labo.addr.LaboAddr}` } className="nav-links connect">
+                    <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} 
+                    href='https://app.defikingdoms.com/' 
+                    className="nav-links connect">
                       <Button style={{'fontSize': '15px', 'borderRadius': '16px', 'width': '100% !important'}}>
                         <b>Swap</b>
                       </Button>
@@ -308,7 +310,7 @@ const NavBar = (props) => {
               </nav>
               <ul className="nav-tabs outsideMainNav">
               <li className="web3li">
-                    <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href={ `https://app.defikingdoms.com/#/marketplace/swap?outputCurrency=${labo.addr.LaboAddr}` } className="nav-links connect">
+                    <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href='https://app.defikingdoms.com/' className="nav-links connect">
                       <Button style={{'fontSize': '15px', 'borderRadius': '15px', 'width': '100% !important'}}>
                         <b>Swap</b>
                       </Button>
