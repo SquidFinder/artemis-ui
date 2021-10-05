@@ -6,11 +6,13 @@ import { getBalanceNumber } from 'utils/formatBalance'
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
 import { getCakeAddress } from 'utils/addressHelpers'
-import { FaLock, FaScroll } from 'react-icons/fa'
+import { FaBroadcastTower, FaLock, FaScroll } from 'react-icons/fa'
 import { useTotalRewards } from 'hooks/useTickets'
 import CardValue from './CardValue'
 import { useFarms, usePriceCakeBusd, useTotalValue } from '../../../state/hooks'
 import './index.css'
+
+
 
 const Divider = styled.div`
 background-color: #4c68ef;
@@ -131,9 +133,11 @@ const CakeStats = () => {
           </Row>
 
           <Row style={{'marginBottom': '0 !important'}}>
-            <LinkExternal href='https://mysteria.one/faucet/'>Testnet ONE Faucet</LinkExternal>
-          </Row>
+          
+            <LinkExternal href='https://bridge.harmony.one/erc20'> Horizon</LinkExternal>
+            <LinkExternal href='https://bridge.harmony.one/erc20'> Terra Bridge</LinkExternal>
 
+          </Row>
 
         </Wrapper>
       </CardBody>

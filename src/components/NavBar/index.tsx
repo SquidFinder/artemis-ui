@@ -162,7 +162,7 @@ const NavBar = (props) => {
 
                           <li className="nav-tab dropdown" id="farmToggleDesktop">
                             <Link to="/farms" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                              <FaSeedling /> <span className="dditem">EARN</span>
+                              <FaSeedling /> <span className="dditem">ARTEMIS EARN</span>
                             </Link>
                             <ul className="dropdown-content dropdown-items">
                               <li>
@@ -185,13 +185,13 @@ const NavBar = (props) => {
                             
                             <ul className="dropdown-content dropdown-items" >
                             <li className="nav-tab">
-                            <Link to="/incubator" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                              <span className="dditem">INCUBATOR</span>
+                            <Link to="/mainnet" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                              <FaExclamationTriangle/><span className="dditem">INCUBATOR</span>
                             </Link>
                           </li>
                              <li>
-                                <Link to="/mainnet" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                                  <FaExclamationTriangle/><span className="dditem">ARTEMISPAD</span>
+                                <Link to="/launchpad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                                  <span className="dditem">ARTEMISPAD</span>
                                 </Link>
                              </li>
                             </ul>
@@ -200,17 +200,17 @@ const NavBar = (props) => {
 
                           <li className="nav-tab dropdown" id="wheelToggleDesktop">
                             <Link to="/lottery" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                              <FaTicketAlt /> <span className="dditem">GAMES</span>
+                              <FaTicketAlt/> <span className="dditem">GAMES</span>
                             </Link>
                             
                             <ul className="dropdown-content dropdown-items">
                             <li className="nav-tab">
-                            <Link to="/lottery" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                              <span className="dditem">LOTTERY</span>
+                            <Link to="/mainnet" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                            <FaExclamationTriangle/><span className="dditem">LOTTERY</span>
                             </Link>
                           </li>
                              <li>
-                                <Link to="mainnet" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                                <Link to="/mainnet" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                                 <FaExclamationTriangle/><span className="dditem">WHEEL</span>
                                 </Link>
                               </li>
