@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
 import { Text, LinkExternal, Link } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
-import { FaBook, FaLink } from 'react-icons/fa'
+import { FaBook, FaClock, FaLink } from 'react-icons/fa'
 
 export interface IfoCardDetailsProps {
   launchDate: string
@@ -58,7 +58,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
     <>
       <StyledIfoCardDetails>
         <Item>
-          <Display bold>{TranslateString(582, 'Launch Time')}</Display>
+          <Display bold><FaClock/> {TranslateString(5822, 'Presale Launch')}</Display>
           <Text>
             {launchDate},
             <Link
@@ -91,7 +91,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
         </Item>
         */}
         <Item>
-          <Display bold>{TranslateString(999, 'Total Raised')}</Display>
+          <Display bold>{TranslateString(999, 'USD Raised')}</Display>
           <Text>{`${totalAmount.div(raisingAmount).times(100).toFixed(1)}%`}</Text>
         </Item>
 

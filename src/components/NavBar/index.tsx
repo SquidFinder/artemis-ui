@@ -102,7 +102,7 @@ const NavBar = (props) => {
                   </a>
                 </li>
                 <li>
-                  <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/" className="nav-links">
+                  <a target="_blanK" rel="noreferrer" href="https://artemisprotocol.gitbook.io/artemis/" className="nav-links">
                     <FaBook /> <span className="dditem">DOCS</span>
                   </a>
                 </li>
@@ -235,7 +235,7 @@ const NavBar = (props) => {
                                 </a>
                               </li>
                             <li>
-                                <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis-protocol/" className="nav-links">
+                                <a target="_blanK" rel="noreferrer" href="https://artemisprotocol.gitbook.io/artemis/" className="nav-links">
                                 <FaBook /> <span className="dditem">DOCS</span>
                                 </a>
                               </li>
@@ -275,7 +275,7 @@ const NavBar = (props) => {
                     <p>{ ( !cakePriceUsd.isNaN() ? cakePriceUsd.toNumber().toFixed(5).concat("$") : '...loading') }</p></Price>
                   </a></li>
                   <li className="web3li insideMainNav">
-                    <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href={ `https://viperswap.one/#/swap?outputCurrency=${labo.addr.LaboAddrTestnet}` } className="nav-links connect">
+                    <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href={ `https://app.defikingdoms.com/#/marketplace/swap?outputCurrency=${labo.addr.LaboAddr}` } className="nav-links connect">
                       <Button style={{'fontSize': '15px', 'borderRadius': '16px', 'width': '100% !important'}}>
                         <b>Swap</b>
                       </Button>
@@ -308,7 +308,7 @@ const NavBar = (props) => {
               </nav>
               <ul className="nav-tabs outsideMainNav">
               <li className="web3li">
-                    <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href={ `https://app.defikingdoms.com/#/marketplace/swap?outputCurrency=${labo.addr.LaboAddrTestnet}` } className="nav-links connect">
+                    <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href={ `https://app.defikingdoms.com/#/marketplace/swap?outputCurrency=${labo.addr.LaboAddr}` } className="nav-links connect">
                       <Button style={{'fontSize': '15px', 'borderRadius': '15px', 'width': '100% !important'}}>
                         <b>Swap</b>
                       </Button>
