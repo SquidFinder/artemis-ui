@@ -210,8 +210,13 @@ const NavBar = (props) => {
                             </Link>
                           </li>
                              <li>
+<<<<<<< Updated upstream
                                 <Link to="/mainnet" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                                 <FaExclamationTriangle/><span className="dditem">WHEEL</span>
+=======
+                                <Link to="/wheel" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                                <span className="dditem">WHEEL</span>
+>>>>>>> Stashed changes
                                 </Link>
                               </li>
                               <li>

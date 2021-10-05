@@ -8,8 +8,9 @@ const LaboUstAddr = '0xfe01836ab9ee630266184cd11bd21edab4b6e2ec'
 const LaboBnbAddr = '0x62287501af0b35e5c818ff95fe789218a9aa156d'
 const LaboUstAddrV2 = '0xfe01836ab9ee630266184cd11bd21edab4b6e2ec'
 const LaboBnbAddrV2 = '0x62287501af0b35e5c818ff95fe789218a9aa156d'
-const LaboAddr = '0x86C602B59fe35e18f22eD4d7557BF75ec53E9C1f'
-const masterChef = '0x0c1A3bd0F18801A4F114F5bb445Ea23AcEe8d310'
+const LaboAddr = '0xD74433B187Cf0ba998Ad9Be3486B929c76815215'
+const masterChef = '0x59C777cd749b307Be910f15c54A3116ff88f9706'
+const misWheel = '0x9F310757333e6083372d2603CFbd3B61c0F21C54'
 // testnet addresses
 const LaboBusdAddrTestnet = '0xf73dc3652b3619312ddd3de7dbf3f354eb5c00b5' // MIS-BUSD LP
 const LaboBnbAddrTestnet = '0x31222d37568bd54be95ece3749f0559c45a85634' // MIS-WONE LP
@@ -72,6 +73,7 @@ const labo = {
         LaboBnbAddrV2,
         LaboAddr,
         masterChef,
+        misWheel,
         LaboBusdAddrTestnet,
         LaboBnbAddrTestnet,
         LaboBusdAddrV2Testnet,
