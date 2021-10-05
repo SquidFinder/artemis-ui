@@ -135,9 +135,11 @@ const CakeStats = () => {
           <Row style={{'marginBottom': '0 !important'}}>
           
             <LinkExternal href='https://bridge.harmony.one/erc20'> Horizon</LinkExternal>
-            <LinkExternal href='https://bridge.harmony.one/erc20'> Terra Bridge</LinkExternal>
+            <LinkExternal href='https://bridge.terra.money/'> Terra Bridge</LinkExternal>
 
-          </Row>
+        </Row>
+
+
 
         </Wrapper>
       </CardBody>
