@@ -41,7 +41,7 @@ const Cards = styled(BaseLayout)`
 
   & > div {
     grid-column: span 10;
-    width: 115%;
+    width: 120%;
     height: 100%;
 
   }
@@ -79,24 +79,24 @@ const Home: React.FC = () => {
   return (
     <div>
     <HomePage>
-    {( !labo.isFullyConfigured ? (
-        <div className="warningAlert">
-        <Alert title="" variant="warning">
-        <p>Farms will open after the presale is completed on <a target="_blank" rel="noreferrer" style={{"color": "#0073ff"}} href="https://unicrypt.network/amm/pancake/ilo/0x6745D62C59f0fB5E135867f68090168221e337cb">UniCrypt</a></p>
-      </Alert>
-    </div>
-      ) : "" )}
-      <FlowRow>
-      <Cards className="CardsLayout">
-                <FarmStakingCard/>
-                <CakeStats />
 
-                
+      <FlowRow>
+
+
+        <Cards className="CardsLayout">
+            <FarmStakingCard/>    
         </Cards>
-        <Hero>
-            <object type="image/svg+xml" data="images/labhero.svg" className="labhero">&nbsp;</object>
-        </Hero>
+
+        <Cards className="CardsLayout">
+          <CakeStats />    
+        </Cards>
+
+          {/* <Hero>
+              <object type="image/svg+xml" data="images/labhero.svg" className="labhero">&nbsp;</object>
+          </Hero> */}
+
       </FlowRow>
+
     </HomePage>
     </div>
   )

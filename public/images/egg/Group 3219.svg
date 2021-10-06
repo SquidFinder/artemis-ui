@@ -3,11 +3,11 @@
 <rect width="2333" height="111" fill="url(#paint1_linear)"/>
 <defs>
 <linearGradient id="paint0_linear" x1="2333" y1="2046.08" x2="-0.02316" y2="2049.99" gradientUnits="userSpaceOnUse">
-<stop stop-color="#1F2237"/>
+<stop stop-color="#161616"/>
 </linearGradient>
 <linearGradient id="paint1_linear" x1="1.43757e-06" y1="55.9992" x2="2333" y2="55.9993" gradientUnits="userSpaceOnUse">
-<stop stop-color="#171717"/>
-<stop offset="0.492708" stop-color="#141414"/>
+<stop stop-color="#0E0E0E"/>
+<stop offset="0.492708" stop-color="#0D0D0D"/>
 <stop offset="1" stop-color="#222222"/>
 </linearGradient>
 </defs>

@@ -142,9 +142,7 @@ const NavBar = (props) => {
       <header>
           <div className="nav-wrapper">
 
-              <div className="logo-container">
-                  <img  alt=""/><Logo>&nbsp;Artemis Protocol</Logo>
-              </div>
+
               <nav>
                   <input className="hidden" type="checkbox" checked={isChecked} id="menuToggle"/>
                   <button type="button" className="menu-btn" onClick={()=>{setIsChecked(!isChecked)}}>
@@ -160,42 +158,24 @@ const NavBar = (props) => {
                             </Link>
                           </li>
 
-                          <li className="nav-tab dropdown" id="farmToggleDesktop">
-                            <Link to="/farms" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                              <FaSeedling /> <span className="dditem">ARTEMIS EARN</span>
+                          <li className="nav-tab">
+                            <Link to="/launch" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                            <FaSeedling /><span className="dditem">ARTEMIS EARN</span>
                             </Link>
-                            <ul className="dropdown-content dropdown-items">
-                              <li>
-                                <Link to="/farms" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                                <FaExclamationTriangle/><span className="dditem">POOLS</span>
-                                </Link>
-                              </li>
-                              <li>
-                                <Link to="/pools" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                                <FaExclamationTriangle/><span className="dditem">STAKING</span>
-                                </Link>
-                              </li> 
-                            </ul>
+                          </li>
+
+                          <li className="nav-tab">
+                            <Link to="/launch" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                            <FaExclamationTriangle/><span className="dditem">INCUBATOR</span>
+                            </Link>
+                          </li>
+
+                          <li className="nav-tab">
+                            <Link to="/launchpad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                            <FaRocket/><span className="dditem">ARTEMISPAD</span>
+                            </Link>
                           </li>
                           
-                          <li className="nav-tab dropdown" id="wheelToggleDesktop">
-                            <Link to="/incubator" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                              <FaLayerGroup /> <span className="dditem">LAUNCHPAD</span>
-                            </Link>
-                            
-                            <ul className="dropdown-content dropdown-items" >
-                            <li className="nav-tab">
-                            <Link to="/launch" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                              <FaExclamationTriangle/><span className="dditem">INCUBATOR</span>
-                            </Link>
-                          </li>
-                             <li>
-                                <Link to="/launchpad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                                  <span className="dditem">ARTEMISPAD</span>
-                                </Link>
-                             </li>
-                            </ul>
-                          </li>
 
 
                           <li className="nav-tab dropdown" id="wheelToggleDesktop">
@@ -309,13 +289,17 @@ const NavBar = (props) => {
                   </div>
               </nav>
               <ul className="nav-tabs outsideMainNav">
+
+               { /* 
               <li className="web3li">
                     <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href='https://app.defikingdoms.com/' className="nav-links connect">
                       <Button style={{'fontSize': '15px', 'borderRadius': '15px', 'width': '100% !important'}}>
                         <b>Swap</b>
                       </Button>
                     </a>
-                  </li>
+               </li> */}
+
+
                 <li className="web3li">
                   <a target="_blank" rel="noreferrer" href="/" className="nav-links price">
                   <Price

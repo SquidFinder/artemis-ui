@@ -19,7 +19,7 @@ const NotFound = () => {
     <Page>
       <StyledNotFound>
         <object type="image/svg+xml" data="images/ppltalking.svg" height="370px">&nbsp;</object>
-        <Heading size="xl" mt='20px' mb='25px'  >Live on October 7</Heading>
+        <Heading size="xl" mt='20px' mb='25px' color='whi' >Live on October 7</Heading>
         <Button as="a" href="/" size="md">
           {TranslateString(999, 'Back to My Page')}
         </Button>
