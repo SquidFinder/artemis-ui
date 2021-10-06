@@ -2050,9 +2050,9 @@
     eslint-plugin-react "^7.21.5"
     eslint-plugin-react-hooks "^4.0.0"
 
-"@pancakeswap-libs/uikit@https://github.com/snappycreeper/artemis-uikit.git#8c34eec16182ac74aee97ba6ff9a9d3a6fc53410":
+"@pancakeswap-libs/uikit@https://github.com/snappycreeper/artemis-uikit.git":
   version "0.10.2"
-  resolved "https://github.com/snappycreeper/artemis-uikit.git#8c34eec16182ac74aee97ba6ff9a9d3a6fc53410"
+  resolved "https://github.com/snappycreeper/artemis-uikit.git#b7e01bf482084f52cab774fac2c40d4f79ef1fa1"
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"
