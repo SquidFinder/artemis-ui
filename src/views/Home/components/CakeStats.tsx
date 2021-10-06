@@ -15,7 +15,7 @@ import './index.css'
 
 
 const Divider = styled.div`
-background-color: #4c68ef;
+background-color: #FAFAFA;
 height: 3px;
 margin-left: auto;
 margin-right: auto;

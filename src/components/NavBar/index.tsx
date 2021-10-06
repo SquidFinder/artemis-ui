@@ -57,7 +57,7 @@ const Logo = styled.p`
 `
 
 const Sub = styled.p`
-  font-size: 10px;
+  font-size: 13px;
   color: #1F2237;
 `
 
