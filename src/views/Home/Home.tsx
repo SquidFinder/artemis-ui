@@ -29,7 +29,7 @@ const FlowRow = styled.div`
 
   @media all and (min-width: 1000px) {
     flex-flow: row-reverse;
-    justify-content: space-between
+    justify-content: center;
    }
 
 
@@ -41,8 +41,9 @@ const Cards = styled(BaseLayout)`
 
   & > div {
     grid-column: span 10;
-    width: 120%;
+    width: 115%;
     height: 100%;
+
 
   }
 
@@ -81,22 +82,24 @@ const Home: React.FC = () => {
     <HomePage>
 
       <FlowRow>
+        
+ 
+
+      <Cards className="CardsLayout">
+          <FarmStakingCard/>    
+      </Cards>
+
+      <Cards className="CardsLayout">
+        <CakeStats />    
+      </Cards>
 
 
-        <Cards className="CardsLayout">
-            <FarmStakingCard/>    
-        </Cards>
 
-        <Cards className="CardsLayout">
-          <CakeStats />    
-        </Cards>
-
-          {/* <Hero>
-              <object type="image/svg+xml" data="images/labhero.svg" className="labhero">&nbsp;</object>
-          </Hero> */}
-
+        
+        {/* <Hero>
+            <object type="image/svg+xml" data="images/labhero.svg" className="labhero">&nbsp;</object>
+        </Hero> */}
       </FlowRow>
-
     </HomePage>
     </div>
   )
