@@ -87,15 +87,15 @@ const Home: React.FC = () => {
     </div>
       ) : "" )}
       <FlowRow>
-        <Hero>
-            <object type="image/svg+xml" data="images/labhero.svg" className="labhero">&nbsp;</object>
-        </Hero>
-        <Cards className="CardsLayout">
+      <Cards className="CardsLayout">
                 <FarmStakingCard/>
                 <CakeStats />
 
                 
         </Cards>
+        <Hero>
+            <object type="image/svg+xml" data="images/labhero.svg" className="labhero">&nbsp;</object>
+        </Hero>
       </FlowRow>
     </HomePage>
     </div>
