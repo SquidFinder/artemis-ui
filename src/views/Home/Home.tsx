@@ -41,7 +41,7 @@ const Cards = styled(BaseLayout)`
 
   & > div {
     grid-column: span 10;
-    width: 115%;
+    width: 118%;
     height: 100%;
 
 
@@ -61,14 +61,14 @@ const Cards = styled(BaseLayout)`
 `
 const Hero = styled.div`
   @media all and (min-width: 1200px) {
-    padding: 47px 12px 0 0;
+    padding: 0px 12px 20px 0;
    }
 
   @media all and (max-width: 1200px) { 
     padding: 0 12px 47px 12px;
     display: flex;
     justify-content: center;
-    max-width: 93%
+    max-width: 90%
   }
   
 `
@@ -76,32 +76,31 @@ const Hero = styled.div`
 const Home: React.FC = () => {
   const TranslateString = useI18n()
 
-
   return (
     <div>
-    <HomePage>
+      <HomePage>
 
-      <FlowRow>
-        
- 
+        <Hero>
+          <object type="image/svg+xml" data="images/banner.svg" className="labhero">&nbsp;</object>
+        </Hero>
 
-      <Cards className="CardsLayout">
-          <FarmStakingCard/>    
-      </Cards>
+        <FlowRow>
 
-      <Cards className="CardsLayout">
-        <CakeStats />    
-      </Cards>
+        <Hero>
+          <object type="image/svg+xml" data="images/Nan.svg" className="labhero">&nbsp;</object>
+        </Hero>
 
+          <Cards className="CardsLayout">
+              <FarmStakingCard/>    
+          </Cards>
 
+          <Cards className="CardsLayout">
+            <CakeStats />    
+          </Cards>
+        </FlowRow>
 
-        
-        {/* <Hero>
-            <object type="image/svg+xml" data="images/labhero.svg" className="labhero">&nbsp;</object>
-        </Hero> */}
-      </FlowRow>
-    </HomePage>
-    </div>
+      </HomePage>
+  </div>
   )
 }
 

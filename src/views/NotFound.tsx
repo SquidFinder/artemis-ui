@@ -11,6 +11,12 @@ const StyledNotFound = styled.div`
   height: calc(100vh - 64px);
   justify-content: center;
 `
+const Sub = styled.p`
+  font-size: 30px;
+  color: #fafafa;
+  margin-top: 50px;
+  margin-bottom: 30px;
+`
 
 const NotFound = () => {
   const TranslateString = useI18n()
@@ -19,8 +25,8 @@ const NotFound = () => {
     <Page>
       <StyledNotFound>
         <object type="image/svg+xml" data="images/ppltalking.svg" height="370px">&nbsp;</object>
-        <Heading size="xl" mt='20px' mb='25px' color='whi' >Live on October 7</Heading>
-        <Button as="a" href="/" size="md">
+        <Sub >{TranslateString(999, 'Live on October 07')}</Sub>
+        <Button as="a" variant='secondary' href="/" size="md">
           {TranslateString(999, 'Back to My Page')}
         </Button>
       </StyledNotFound>
