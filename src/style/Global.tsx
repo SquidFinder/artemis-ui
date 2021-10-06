@@ -9,7 +9,7 @@ declare module 'styled-components' {
 
 const GlobalStyle = createGlobalStyle`
   * {
-    font-family: 'Kanit' !important;
+    font-family: 'Inter' !important;
     font-weight: 700;
     
   }
@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   div {
-    color: #7D7D7D !important;
+    color: #FAFAFA !important;
     font-size: 1em !important
   }
 
@@ -40,11 +40,11 @@ const GlobalStyle = createGlobalStyle`
 
 
   button{
-    box-shadow: 0 0 0 0px #FFF;
+    box-shadow: 0 0 0 0px #FAFAFA;
   }
 
   a{
-    color: #4c68ef;
+    color: #FAFAFA;
   }
 
   a:hover{
@@ -52,7 +52,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .nav-links:hover{
-    color: #4c68ef;
+    color: #FAFAFA;
   }
 
   .nav-links.price button:hover{
@@ -60,7 +60,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   svg{
-    fill: #4c68ef;
+    fill: #FAFAFA;
   }
 
 
@@ -75,30 +75,30 @@ const GlobalStyle = createGlobalStyle`
 
 
 #wallet-connect-metamask{
-  background-color: #FFF !important;
+  background-color: #3D3D3D !important;
   border: 1px solid #3D3D3D
 }
 
 #wallet-connect-metamask:hover{
-  background-color: #f2f2f2 !important;
+  background-color: #3D3D3D !important;
 }
 
 #wallet-connect-trustwallet{
-  background-color: #FFF !important;
-  border: 1px solid #f2f2f2
+  background-color: #3D3D3D !important;
+  border: 1px solid #3D3D3D
 }
 
 #wallet-connect-trustwallet:hover{
-  background-color: #f2f2f2 !important;
+  background-color: #3D3D3D !important;
 }
 
 #wallet-connect-mathwallet{
-  background-color: #FFF !important;
-  border: 1px solid #f2f2f2
+  background-color: #3D3D3D !important;
+  border: 1px solid #3D3D3D
 }
 
 #wallet-connect-mathwallet:hover{
-  background-color: #f2f2f2 !important;
+  background-color: #3D3D3D !important;
 }
 
 #wallet-connect-tokenpocket{
@@ -111,12 +111,12 @@ const GlobalStyle = createGlobalStyle`
 }
 
 #wallet-connect-walletconnect{
-  background-color: #FFF !important;
-  border: 1px solid #f2f2f2
+  background-color: #3D3D3D !important;
+  border: 1px solid #3D3D3D
 }
 
 #wallet-connect-walletconnect:hover{
-  background-color: #f2f2f2 !important;
+  background-color: #3D3D3D !important;
 }
 
 button[id='wallet-connect-binance chain wallet']{
