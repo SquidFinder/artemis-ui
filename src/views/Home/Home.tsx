@@ -86,9 +86,6 @@ const Home: React.FC = () => {
 
         <FlowRow>
 
-        <Hero>
-          <object type="image/svg+xml" data="images/Nan.svg" className="labhero">&nbsp;</object>
-        </Hero>
 
           <Cards className="CardsLayout">
               <FarmStakingCard/>    
