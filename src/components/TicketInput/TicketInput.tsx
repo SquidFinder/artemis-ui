@@ -32,7 +32,7 @@ const TicketInput: React.FC<TokenInputProps> = ({ max, symbol, availableSymbol, 
         placeholder="0"
         value={value}
       />
-      <StyledMaxText>{TranslateString(454, `${max.toLocaleString()} ${availableSymbol} Available`)}</StyledMaxText>
+      <StyledMaxText>{TranslateString(999, `${max.toLocaleString()} ${availableSymbol} Available`)}</StyledMaxText>
     </StyledTokenInput>
   )
 }

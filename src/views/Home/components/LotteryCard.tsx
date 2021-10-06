@@ -8,15 +8,28 @@ import useGetLotteryHasDrawn from 'hooks/useGetLotteryHasDrawn'
 import useTokenBalance from 'hooks/useTokenBalance'
 import { useMultiClaimLottery } from 'hooks/useBuyLottery'
 import { useTotalClaim } from 'hooks/useTickets'
+import { FaScroll, FaTicketAlt } from 'react-icons/fa'
 import BuyModal from 'views/Lottery/components/TicketCard/BuyTicketModal'
 import CakeWinnings from './CakeWinnings'
 import LotteryJackpot from './LotteryJackpot'
 
 const StyledLotteryCard = styled(Card)`
-  background-image: url('/images/ticket-bg.svg');
   background-repeat: no-repeat;
   background-position: top right;
   min-height: 376px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 14px;
+`
+// background-image: url('/images/ticket-bg.svg'); ^^^
+const Divider = styled.div`
+background-color: #4c68ef;
+height: 3px;
+margin-left: auto;
+margin-right: auto;
+margin-top: 30px;
+margin-bottom: 5px;
+width: 100%;
 `
 
 const Block = styled.div`
@@ -30,6 +43,12 @@ const CardImage = styled.img`
 const Label = styled.div`
   color: ${({ theme }) => theme.colors.textSubtle};
   font-size: 14px;
+`
+
+const Title = styled.p`
+  font-size: 1.4em;
+  margin-bottom: 21px;
+
 `
 
 const Actions = styled.div`
@@ -66,18 +85,19 @@ const FarmedStakingCard = () => {
   return (
     <StyledLotteryCard>
       <CardBody>
-        <Heading size="xl" mb="24px">
-          {TranslateString(550, 'Your Lottery Winnings')}
-        </Heading>
+        <Title>
+          <span><FaTicketAlt/> Lottery</span>
+        </Title>
         <CardImage src="/images/ticket.svg" alt="cake logo" width={64} height={64} />
         <Block>
           <CakeWinnings />
-          <Label>{TranslateString(552, 'CAKE to Collect')}</Label>
+          <Label>{TranslateString(999, 'MIS to Collect')}</Label>
         </Block>
         <Block>
           <LotteryJackpot />
-          <Label>{TranslateString(554, 'Total jackpot this round')}</Label>
+          <Label>{TranslateString(999, 'Total MIS jackpot this round')}</Label>
         </Block>
+        <Divider />
         <Actions>
           <Button
             id="dashboard-collect-winnings"

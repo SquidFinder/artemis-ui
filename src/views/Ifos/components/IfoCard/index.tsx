@@ -162,8 +162,8 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
     <StyledIfoCard ifoId={id} ribbon={Ribbon} isActive={isActive}>
       <CardBody>
         <Column>
-        <IfoCardHeader ifoId={id} name={name} subTitle={subTitle} />
-        <IfoCardProgress progress={state.progress} />
+        <IfoCardHeader ifoId={id} name={name} subTitle={subTitle} projectSiteUrl={projectSiteUrl} />
+        <IfoCardProgress progress={state.progress} launchDate={launchDate} launchTime={launchTime}/>
         <IfoCardTime
           isLoading={state.isLoading}
           status={state.status}
@@ -172,6 +172,14 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
           block={isActive || isFinished ? state.endBlockNum : state.startBlockNum}
         />
         </Column>
+        <IfoCardDescription description={description} />
+        <IfoCardDetails
+          saleAmount={saleAmount}
+          raiseAmount={raiseAmount}
+          cakeToBurn={cakeToBurn}
+          raisingAmount={state.raisingAmount}
+          totalAmount={state.totalAmount}
+        />
         {!account && <UnlockButton fullWidth />}
         {(isActive || isFinished) && (
           <IfoCardContribute
@@ -184,17 +192,6 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
             tokenDecimals={tokenDecimals}
           />
         )}
-        <IfoCardDescription description={description} />
-        <IfoCardDetails
-          launchDate={launchDate}
-          launchTime={launchTime}
-          saleAmount={saleAmount}
-          raiseAmount={raiseAmount}
-          cakeToBurn={cakeToBurn}
-          projectSiteUrl={projectSiteUrl}
-          raisingAmount={state.raisingAmount}
-          totalAmount={state.totalAmount}
-        />
       </CardBody>
     </StyledIfoCard>
   )

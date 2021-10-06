@@ -26,7 +26,9 @@ const Countdown = styled.div`
   font-size: 20px;
   font-weight: 600;
   text-align: center;
+  margin-top: 30px;
 `
+
 
 const IfoCardTime: React.FC<IfoCardTimeProps> = ({ isLoading, status, secondsUntilStart, secondsUntilEnd, block }) => {
   const TranslateString = useI18n()
@@ -48,12 +50,14 @@ const IfoCardTime: React.FC<IfoCardTimeProps> = ({ isLoading, status, secondsUnt
 
   return (
     <Details>
-      <Countdown>{`${timeUntil.days}d, ${timeUntil.hours}h, ${timeUntil.minutes}m Until ${suffix}`}</Countdown>
-
-      <Link href={`https://explorer.harmony.one/block/${block}`} target="blank" rel="noopener noreferrer" ml="5px">
-        | Explorer
-      </Link>
-      
+      <div>
+       <Countdown>{`${timeUntil.days}d, ${timeUntil.hours}h, ${timeUntil.minutes}m`}</Countdown>
+       <div>
+        <Link href={`https://explorer.harmony.one/block/${block}`} target="blank" rel="noopener noreferrer" ml="20px" mt="5px">
+          Explorer
+        </Link>
+       </div>
+      </div>
     </Details>
   )
 }

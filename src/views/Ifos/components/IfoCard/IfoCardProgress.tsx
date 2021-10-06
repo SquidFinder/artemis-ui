@@ -1,18 +1,49 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Progress } from '@pancakeswap-libs/uikit'
+import { Link, Progress, Text } from '@pancakeswap-libs/uikit'
+import { FaClock } from 'react-icons/fa'
+import useI18n from 'hooks/useI18n'
 
 interface IfoCardProgressProps {
   progress: number
+  launchDate: string
+  launchTime: string
 }
 
 const StyledProgress = styled.div`
   margin-bottom: 14px;
 `
 
-const IfoCardProgress: React.FC<IfoCardProgressProps> = ({ progress }) => {
+const Item = styled.div`
+  align-items: center;
+  color: ${({ theme }) => theme.colors.secondary};
+  display: flex;
+  margin-bottom: 10px;
+`
+
+const Display = styled(Text)`
+  flex: 1;
+`
+
+const IfoCardProgress: React.FC<IfoCardProgressProps> = ({ progress, launchDate, launchTime }) => {
+  const TranslateString = useI18n()
   return (
     <StyledProgress>
+      <Item>
+          <Display bold><FaClock/> {TranslateString(5822, 'Presale Launch')}</Display>
+          <Text>
+            {launchDate},
+            <Link
+              href="https://www.timeanddate.com/worldclock/timezone/utc"
+              target="blank"
+              rel="noopener noreferrer"
+              ml="4px"
+              style={{ display: 'inline' }}
+            >
+              {launchTime}
+            </Link>
+          </Text>
+        </Item>
       <Progress primaryStep={progress} />
       
     </StyledProgress>

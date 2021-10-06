@@ -14,7 +14,7 @@ const ButtonWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   border: solid 1px;
-  border-radius: ${({ theme }) => theme.radii.default};
+  border-radius: 7px;
   border-color: ${({ theme }) => theme.colors.borderColor};
   padding-left: 16px;
 `

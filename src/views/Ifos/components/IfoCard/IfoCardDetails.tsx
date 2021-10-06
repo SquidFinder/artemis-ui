@@ -6,12 +6,9 @@ import useI18n from 'hooks/useI18n'
 import { FaBook, FaClock, FaLink } from 'react-icons/fa'
 
 export interface IfoCardDetailsProps {
-  launchDate: string
-  launchTime: string
   saleAmount: string
   raiseAmount: string
   cakeToBurn: string
-  projectSiteUrl: string
   raisingAmount: BigNumber
   totalAmount: BigNumber
 }
@@ -43,12 +40,9 @@ const Display = styled(Text)`
 `
 
 const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
-  launchDate,
-  launchTime,
   saleAmount,
   raiseAmount,
   cakeToBurn,
-  projectSiteUrl,
   raisingAmount,
   totalAmount,
 }) => {
@@ -57,21 +51,6 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
   return (
     <>
       <StyledIfoCardDetails>
-        <Item>
-          <Display bold><FaClock/> {TranslateString(5822, 'Presale Launch')}</Display>
-          <Text>
-            {launchDate},
-            <Link
-              href="https://www.timeanddate.com/worldclock/timezone/utc"
-              target="blank"
-              rel="noopener noreferrer"
-              ml="4px"
-              style={{ display: 'inline' }}
-            >
-              {launchTime}
-            </Link>
-          </Text>
-        </Item>
         <Divider />
         <Item>
           
@@ -97,9 +76,6 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
 
 
       </StyledIfoCardDetails>
-      <LinkExternal href={projectSiteUrl} style={{ margin: 'auto' }}>
-      <FaBook/>{TranslateString(4012, ' Research Project')}
-      </LinkExternal>
 
 
     </>
