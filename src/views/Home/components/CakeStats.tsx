@@ -45,13 +45,13 @@ const Title = styled.p`
 `
 const Sub = styled.p`
   font-size: 0.97em;
-  color: #555;
+  color: #7D7D7D;
 `
 
 const Sub2 = styled.p`
   margin-top: 20px;
   font-size: 0.97em;
-  color: #555;
+  color: #7D7D7D;
 `
 
 

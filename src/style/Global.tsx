@@ -21,13 +21,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   div {
-    color: #3D3D3D !important;
+    color: #7D7D7D !important;
     font-size: 1em !important
   }
 
 
   h2 {
-    color: #3D3D3D !important;
+    color: #A4A4A4 !important;
   }
 
   button {
