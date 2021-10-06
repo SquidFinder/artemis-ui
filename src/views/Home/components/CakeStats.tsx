@@ -96,9 +96,7 @@ const CakeStats = () => {
         <Title>
           <span><FaScroll/> Overview</span>
         </Title>
-        <Row style={{'marginBottom': '0 !important'}}>
-          <LinkExternal href='https://app.defikingdoms.com/#/'> Swap | Defi Kingdoms</LinkExternal><FaExchangeAlt />
-          </Row>
+
           <Row>
             <Sub>MIS Price</Sub>
             <Sub className="lightColor">

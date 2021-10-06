@@ -56,6 +56,12 @@ const Logo = styled.p`
   }
 `
 
+const Sub = styled.p`
+  font-size: 10px;
+  color: #1F2237;
+`
+
+
 const NavBar = (props) => {
   const { account, connect, reset } = useWallet()
   const cakePriceUsd = usePriceCakeBusd()
@@ -186,17 +192,17 @@ const NavBar = (props) => {
                             <ul className="dropdown-content dropdown-items">
                             <li className="nav-tab">
                             <Link to="/launch" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                            <FaExclamationTriangle/><span className="dditem">LOTTERY</span>
+                            <FaExclamationTriangle/><Sub className="dditem">LOTTERY</Sub>
                             </Link>
                           </li>
                              <li>
                                 <Link to="/launch" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                                <FaExclamationTriangle/><span className="dditem">WHEEL</span>
+                                <FaExclamationTriangle/><Sub className="dditem">WHEEL</Sub>
                                 </Link>
                               </li>
                               <li>
                                 <Link to="/launch" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                                <FaExclamationTriangle/><span className="dditem">CRATES</span>
+                                <FaExclamationTriangle/><Sub className="dditem">CRATES</Sub>
                                 </Link>
                               </li>
                             </ul>
@@ -211,32 +217,32 @@ const NavBar = (props) => {
                             <ul className="dropdown-content dropdown-items">
                             <li>
                                 <a target="_blanK" rel="noreferrer" href="https://bridge.harmony.one/" className="nav-links">
-                                <FaBroadcastTower /> <span className="dditem">BRIDGE</span>
+                                <FaBroadcastTower /> <Sub className="dditem">BRIDGE</Sub>
                                 </a>
                               </li>
                             <li>
                                 <a target="_blanK" rel="noreferrer" href="https://artemisprotocol.gitbook.io/artemis/" className="nav-links">
-                                <FaBook /> <span className="dditem">DOCS</span>
+                                <FaBook /> <Sub className="dditem">DOCS</Sub>
                                 </a>
                               </li>
                               <li>
                                 <a target="_blanK" rel="noreferrer" href="https://github.com/ArtemisProtocol" className="nav-links">
-                                  <FaCode /> <span className="dditem">CODE</span>
+                                  <FaCode /> <Sub className="dditem">CODE</Sub>
                                 </a>
                               </li>
                               <li>
                                 <a target="_blanK" rel="noreferrer" href="https://twitter.com/ArtemisProtoco1" className="nav-links">
-                                <FaTwitter />  <span className="dditem">TWITTER</span>
+                                <FaTwitter />  <Sub className="dditem">TWITTER</Sub>
                                 </a>
                               </li>
                               <li>
                                 <a target="_blanK" rel="noreferrer" href="https://t.me/protocolartemis" className="nav-links">
-                                <FaTelegramPlane /> <span className="dditem">TELEGRAM</span>
+                                <FaTelegramPlane /> <Sub className="dditem">TELEGRAM</Sub>
                                 </a>
                               </li>
                               <li>
                                 <a target="_blanK" rel="noreferrer" href="https://discord.gg/7z5qQgnZHE" className="nav-links">
-                                <FaDiscord />  <span className="dditem">DISCORD</span>
+                                <FaDiscord />  <Sub className="dditem">DISCORD</Sub>
                                 </a>
                               </li>
 

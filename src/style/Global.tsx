@@ -9,7 +9,7 @@ declare module 'styled-components' {
 
 const GlobalStyle = createGlobalStyle`
   * {
-    font-family: 'Inter' !important;
+    font-family: 'Inter Sans' !important;
     font-weight: 700;
     
   }
