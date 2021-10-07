@@ -5,9 +5,9 @@
 // Labo ADDRESSES
 
 const LaboUstAddr = '0xfc417a0368263140c59b7aab646d4a270c37d8cb'
-const LaboBnbAddr = '0x62287501af0b35e5c818ff95fe789218a9aa156d'
+const LaboBnbAddr = '0x60e0d939d4b0c71918088278bcf600470a6c8f26'
 const LaboUstAddrV2 = '0xfc417a0368263140c59b7aab646d4a270c37d8cb'
-const LaboBnbAddrV2 = '0x62287501af0b35e5c818ff95fe789218a9aa156d'
+const LaboBnbAddrV2 = '0x60e0d939d4b0c71918088278bcf600470a6c8f26'
 const LaboAddr = '0xD74433B187Cf0ba998Ad9Be3486B929c76815215'
 const masterChef = '0x59C777cd749b307Be910f15c54A3116ff88f9706'
 const misWheel = '0x9F310757333e6083372d2603CFbd3B61c0F21C54'
@@ -22,12 +22,12 @@ const masterChefTestnet = '0xDd62435ca34666f65c32ED62eA5331b2128ED262' // MIS MA
 // Labo RELATED PIDS
 
 const pidLaboUst = 0
-const pidLaboBnb = 1
-const pidLabo = 2
+const pidLaboBnb = 2
+const pidLabo = 10
 
 // OTHER PIDS THAT ARE REFERENCED THROUGHOUT THE CODE
 
-const pidBnbBusd = 3
+const pidBnbBusd = 1
 
 // SET countBack TO TRUE TO COUNT BACK AS FAR AS countLength
 
@@ -87,10 +87,10 @@ const labo = {
         pidLabo,
         pidBnbBusd,
         pidList: [
-            pidLaboUst, // Labo-BUSD LP [0]
-            pidLaboBnb, // Labo-BNB LP [1]
-            pidLabo, // Labo [2]
-            pidBnbBusd, // BNB-BUSD LP [3]
+            pidLaboUst, // MIS-UST LP [0]
+            pidBnbBusd, // Labo-BNB LP [1]
+            pidLaboBnb, // Labo [2]
+            3, // BNB-BUSD LP [3]
             4, // ONE-1ETH LP [4]
             /* 2, // BTCB-BNB LP [4]
             3, // ETH-BNB LP [5]

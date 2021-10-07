@@ -5,9 +5,12 @@ import { Image, Card, CardBody } from '@pancakeswap-libs/uikit'
 import { useWinningNumbers, useMatchingRewardLength } from 'hooks/useTickets'
 import useI18n from 'hooks/useI18n'
 import useGetLotteryHasDrawn from 'hooks/useGetLotteryHasDrawn'
+import { useLottery } from 'hooks/useContract'
+import { getLotteryAddress } from 'utils/addressHelpers'
 
 const WinningNumbers: React.FC = () => {
   const { account } = useWallet()
+  const lotteryAddr = getLotteryAddress()
   const winNumbers = useWinningNumbers()
   const lotteryHasDrawn = useGetLotteryHasDrawn()
   const MatchedNumber4 = useMatchingRewardLength(4)
@@ -100,8 +103,8 @@ const WinningNumbers: React.FC = () => {
                 </CenteredTextWithPadding>
               </RowNoPadding>
             </Column>
-            <Link href="https://gatsby-labo-api-jet.vercel.app/api/lottery?page=0&pageSize=25" target="_blank">
-              {TranslateString(448, 'Export recent winning numbers')}
+            <Link href={`https://explorer.harmony.one/address/${lotteryAddr}`} target="_blank">
+              {TranslateString(999, 'View on Explorer')}
             </Link>
           </StyledCardContentInner>
         </CardBody>

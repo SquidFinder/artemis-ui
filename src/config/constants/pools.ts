@@ -1,7 +1,7 @@
 import { PoolConfig, QuoteToken, PoolCategory } from './types'
 
 const pools: PoolConfig[] = [
-  {
+  /* {
     tokenName: 'WONE',
     stakingTokenName: QuoteToken.MISONE,
     stakingTokenAddress: '0x31222d37568BD54be95eCE3749f0559c45a85634',
@@ -18,7 +18,7 @@ const pools: PoolConfig[] = [
     startBlock: 15499711,
     endBlock: 20499711,
     tokenDecimals: 18,
-   }, 
+   }, */
   // {
   //   sousId: 1,
   //   tokenName: 'TWT',

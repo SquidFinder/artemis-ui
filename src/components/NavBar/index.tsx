@@ -161,13 +161,13 @@ const NavBar = (props) => {
                           </li>
 
                           <li className="nav-tab">
-                            <Link to="/launch" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                            <Link to="/earn" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                             <FaSeedling /><span className="dditem">ARTEMIS EARN</span>
                             </Link>
                           </li>
 
                           <li className="nav-tab">
-                            <Link to="/launch" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                            <Link to="/incubator" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                             <FaLayerGroup/><span className="dditem">INCUBATOR</span>
                             </Link>
                           </li>
@@ -181,18 +181,18 @@ const NavBar = (props) => {
 
 
                           <li className="nav-tab dropdown" id="wheelToggleDesktop">
-                            <Link to="/lottery" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                            <Link to="/" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                               <FaGamepad/> <span className="dditem">GAMES</span>
                             </Link>
                             
                             <ul className="dropdown-content dropdown-items">
                             <li className="nav-tab">
-                            <Link to="/launch" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                            <Link to="/lottery" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                             <FaExclamationTriangle/><span className="dditem">LOTTERY</span>
                             </Link>
                           </li>
                              <li>
-                                <Link to="/launch" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                                <Link to="/wheel" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                                 <FaExclamationTriangle/><span className="dditem">WHEEL</span>
                                 </Link>
                               </li>
