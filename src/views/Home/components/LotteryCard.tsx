@@ -110,7 +110,7 @@ const FarmedStakingCard = () => {
         </Block>
 
         <Block>
-          <LinkExternal fontSize='14px' href='https://app.defikingdoms.com/#/marketplace'>{TranslateString(999, 'Add Liquidity')}</LinkExternal>
+          <LinkExternal fontSize='14px' href='https://app.defikingdoms.com/#/add/ONE'>{TranslateString(999, 'Add Liquidity')}</LinkExternal>
         </Block>
 
 

@@ -95,12 +95,12 @@ const NavBar = (props) => {
   function InfoToggle() {
     return (
       <Accordion id="infoToggleMobile">
-        <Card style={{"backgroundColor": "white0", "border": "0"}}>
-          <Card.Header style={{"backgroundColor": "white", "border": "0"}}>
+        <Card style={{"backgroundColor": "#161616", "border": "0"}}>
+          <Card.Header style={{"backgroundColor": "#161616", "border": "0"}}>
             <CustomToggle eventKey="0" />
           </Card.Header>
           <Accordion.Collapse eventKey="0">
-            <Card.Body style={{"backgroundColor": "white", "border": "0"}}>
+            <Card.Body style={{"backgroundColor": "#161616", "border": "0"}}>
             <ul className="dropdown-items">
                 <li>
                   <a target="_blanK" rel="noreferrer" href="https://bridge.harmony.one/erc20" className="nav-links">

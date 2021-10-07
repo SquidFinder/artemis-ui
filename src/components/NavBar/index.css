@@ -74,7 +74,7 @@ h1 {
 .dropdown-content {
 	display: none;
 	position: absolute;
-	background-color: white;
+	background-color: #161616;
 	min-width: 160px;
 	z-index: 1;
 	padding: 15px 24px 15px 12px;
@@ -169,7 +169,7 @@ h1 {
 		right: 0;
 		width: 222px;
 		height: 100%;
-        background-color: #FFF;
+        background-color: #161616;
 		flex-flow: column;
 	}
 
