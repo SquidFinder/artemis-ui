@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link, Text } from '@pancakeswap-libs/uikit'
+import { Link, LinkExternal, Text } from '@pancakeswap-libs/uikit'
 import { IfoStatus } from 'config/constants/types'
 import getTimePeriods from 'utils/getTimePeriods'
 import useI18n from 'hooks/useI18n'
@@ -11,6 +11,7 @@ export interface IfoCardTimeProps {
   secondsUntilStart: number
   secondsUntilEnd: number
   block: number
+  address: string
 }
 
 const Details = styled.div`
@@ -30,7 +31,7 @@ const Countdown = styled.div`
 `
 
 
-const IfoCardTime: React.FC<IfoCardTimeProps> = ({ isLoading, status, secondsUntilStart, secondsUntilEnd, block }) => {
+const IfoCardTime: React.FC<IfoCardTimeProps> = ({ isLoading, status, secondsUntilStart, secondsUntilEnd, block, address }) => {
   const TranslateString = useI18n()
   const countdownToUse = status === 'coming_soon' ? secondsUntilStart : secondsUntilEnd
   const timeUntil = getTimePeriods(countdownToUse)
@@ -52,10 +53,13 @@ const IfoCardTime: React.FC<IfoCardTimeProps> = ({ isLoading, status, secondsUnt
     <Details>
       <div>
        <Countdown>{`${timeUntil.days}d, ${timeUntil.hours}h, ${timeUntil.minutes}m`}</Countdown>
-       <div>
-        <Link href={`https://explorer.harmony.one/block/${block}`} target="blank" rel="noopener noreferrer" ml="20px" mt="5px">
+       <div style={{display: 'flex', justifyContent: 'center'}}>
+        <LinkExternal href={`https://explorer.harmony.one/block/${block}`} target="blank" rel="noopener noreferrer" mt="10px">
           Explorer
-        </Link>
+        </LinkExternal>
+        <LinkExternal href={`https://explorer.harmony.one/address/${address}`} target="blank" rel="noopener noreferrer" mt="10px" ml="10px">
+          View Contract
+        </LinkExternal>
        </div>
       </div>
     </Details>

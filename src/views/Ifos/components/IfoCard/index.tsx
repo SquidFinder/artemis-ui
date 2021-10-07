@@ -170,6 +170,7 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
           secondsUntilStart={state.secondsUntilStart}
           secondsUntilEnd={state.secondsUntilEnd}
           block={isActive || isFinished ? state.endBlockNum : state.startBlockNum}
+          address={address}
         />
         </Column>
         <IfoCardDescription description={description} />
