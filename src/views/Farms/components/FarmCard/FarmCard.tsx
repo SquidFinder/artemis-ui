@@ -241,9 +241,9 @@ const FarmCard: React.FC<FarmCardProps> = ({
       <Flex justifyContent="left">
         <StyledLinkExternal external href={
           farm.isTokenOnly ?
-            `https://viperswap.one/swap?inputCurrency=${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
+            `https://app.defikingdoms.com/#/marketplace?inputCurrency=${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
             :
-            `https://viperswap.one/#/add/${liquidityUrlPathParts}`
+            `https://app.defikingdoms.com/#/add/${liquidityUrlPathParts}`
         }>
           <span><FaGhost/> Get LP Tokens</span>
         </StyledLinkExternal>

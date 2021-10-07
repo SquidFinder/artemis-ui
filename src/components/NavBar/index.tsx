@@ -102,11 +102,7 @@ const NavBar = (props) => {
           <Accordion.Collapse eventKey="0">
             <Card.Body style={{"backgroundColor": "#161616", "border": "0"}}>
             <ul className="dropdown-items">
-                <li>
-                  <a target="_blanK" rel="noreferrer" href="https://bridge.harmony.one/erc20" className="nav-links">
-                    <FaBroadcastTower /> <span className="dditem">BRIDGE</span>
-                  </a>
-                </li>
+
                 <li>
                   <a target="_blanK" rel="noreferrer" href="https://artemisprotocol.gitbook.io/artemis/" className="nav-links">
                     <FaBook /> <span className="dditem">DOCS</span>
@@ -177,7 +173,7 @@ const NavBar = (props) => {
                           </li>
 
                           <li className="nav-tab">
-                            <Link to="/launchpad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                            <Link to="/ArtemisPad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                             <FaRocket/><span className="dditem">ARTEMISPAD</span>
                             </Link>
                           </li>
@@ -215,11 +211,7 @@ const NavBar = (props) => {
                               ABOUT
                             </Link>
                             <ul className="dropdown-content dropdown-items">
-                            <li>
-                                <a target="_blanK" rel="noreferrer" href="https://bridge.harmony.one/" className="nav-links">
-                                <FaBroadcastTower /> <Sub className="dditem">BRIDGE</Sub>
-                                </a>
-                              </li>
+
                             <li>
                                 <a target="_blanK" rel="noreferrer" href="https://artemisprotocol.gitbook.io/artemis/" className="nav-links">
                                 <FaBook /> <Sub className="dditem">DOCS</Sub>

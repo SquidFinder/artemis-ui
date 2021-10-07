@@ -92,11 +92,11 @@ const FarmedStakingCard = () => {
         </Title>
 
         <Block>
-          <LinkExternal fontSize='14px' href='https://bridge.terra.money/'>{TranslateString(999, 'Horizon Bridge')}</LinkExternal>
+          <LinkExternal fontSize='14px' href='https://bridge.harmony.one/erc20'>{TranslateString(999, 'Horizon Bridge')}</LinkExternal>
         </Block>
 
         <Block>
-          <LinkExternal fontSize='14px' href='https://bridge.harmony.one/erc20'>{TranslateString(999, 'Terra Bridge')}</LinkExternal>
+          <LinkExternal fontSize='14px' href='https://bridge.terra.money/'>{TranslateString(999, 'Terra Bridge')}</LinkExternal>
         </Block>
 
         <Divider />

@@ -256,6 +256,7 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.UST,
     quoteTokenAdresses: contracts.ust,
   },
+  
   {
     pid:labo.pids.pidList[3],
     risk: 3,

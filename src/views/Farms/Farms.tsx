@@ -159,7 +159,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
   <div className="warningAlert" style={{'display': ( modalOpen ? 'block' : 'none' )}}>
       <Alert title="" variant="warning" onClick={handleModal}>
-        <p>Artemis Protocol is Live on Harmony <a target="_blank" rel="noreferrer" style={{"color": "#0073ff"}} href="https://docs.harmony.one/home/network/wallets/browser-extensions-wallets/metamask-wallet">Testnet.</a> Stay tuned for Mainnet Launch!</p>
+        <p>Artemis Earn rewards will begin on October 09.</p>
       </Alert>
     </div>    
 
