@@ -188,17 +188,17 @@ const NavBar = (props) => {
                             <ul className="dropdown-content dropdown-items">
                             <li className="nav-tab">
                             <Link to="/launch" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                            <FaExclamationTriangle/><Sub className="dditem">LOTTERY</Sub>
+                            <FaExclamationTriangle/><span className="dditem">LOTTERY</span>
                             </Link>
                           </li>
                              <li>
                                 <Link to="/launch" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                                <FaExclamationTriangle/><Sub className="dditem">WHEEL</Sub>
+                                <FaExclamationTriangle/><span className="dditem">WHEEL</span>
                                 </Link>
                               </li>
                               <li>
                                 <Link to="/launch" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                                <FaExclamationTriangle/><Sub className="dditem">CRATES</Sub>
+                                <FaExclamationTriangle/><span className="dditem">CRATES</span>
                                 </Link>
                               </li>
                             </ul>
@@ -214,27 +214,27 @@ const NavBar = (props) => {
 
                             <li>
                                 <a target="_blanK" rel="noreferrer" href="https://artemisprotocol.gitbook.io/artemis/" className="nav-links">
-                                <FaBook /> <Sub className="dditem">DOCS</Sub>
+                                <FaBook /> <span className="dditem">DOCS</span>
                                 </a>
                               </li>
                               <li>
                                 <a target="_blanK" rel="noreferrer" href="https://github.com/ArtemisProtocol" className="nav-links">
-                                  <FaCode /> <Sub className="dditem">CODE</Sub>
+                                  <FaCode /> <span className="dditem">CODE</span>
                                 </a>
                               </li>
                               <li>
                                 <a target="_blanK" rel="noreferrer" href="https://twitter.com/ArtemisProtoco1" className="nav-links">
-                                <FaTwitter />  <Sub className="dditem">TWITTER</Sub>
+                                <FaTwitter />  <span className="dditem">TWITTER</span>
                                 </a>
                               </li>
                               <li>
                                 <a target="_blanK" rel="noreferrer" href="https://t.me/protocolartemis" className="nav-links">
-                                <FaTelegramPlane /> <Sub className="dditem">TELEGRAM</Sub>
+                                <FaTelegramPlane /> <span className="dditem">TELEGRAM</span>
                                 </a>
                               </li>
                               <li>
                                 <a target="_blanK" rel="noreferrer" href="https://discord.gg/7z5qQgnZHE" className="nav-links">
-                                <FaDiscord />  <Sub className="dditem">DISCORD</Sub>
+                                <FaDiscord />  <span className="dditem">DISCORD</span>
                                 </a>
                               </li>
 
