@@ -61,7 +61,7 @@ const Cards = styled(BaseLayout)`
 `
 const Hero = styled.div`
   @media all and (min-width: 1200px) {
-    padding: 0px 12px 20px 0;
+    padding: 0px 15px 30px 0;
    }
 
   @media all and (max-width: 1200px) { 
@@ -87,13 +87,22 @@ const Home: React.FC = () => {
         <FlowRow>
 
 
+
           <Cards className="CardsLayout">
               <FarmStakingCard/>    
           </Cards>
 
           <Cards className="CardsLayout">
+            <FarmedStakingCard />    
+          </Cards>
+
+          <Cards className="CardsLayout">
             <CakeStats />    
           </Cards>
+
+
+
+
         </FlowRow>
 
       </HomePage>

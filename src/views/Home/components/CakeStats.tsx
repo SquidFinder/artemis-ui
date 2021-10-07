@@ -135,12 +135,7 @@ const CakeStats = () => {
             <Sub2><CardValue value={totalValue.toNumber()} prefix="$" decimals={2} /></Sub2>  
           </Row>
 
-          <Row style={{'marginBottom': '0 !important'}}>
-          
-            <LinkExternal href='https://bridge.harmony.one/erc20'> Horizon</LinkExternal>
-            <LinkExternal href='https://bridge.terra.money/'> Terra Bridge</LinkExternal>
 
-        </Row>
 
         </Wrapper>
       </CardBody>

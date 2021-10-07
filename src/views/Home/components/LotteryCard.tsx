@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Button, useModal } from '@pancakeswap-libs/uikit'
+import { Heading, Card, CardBody, Button, useModal, LinkExternal } from '@pancakeswap-libs/uikit'
 import { getCakeAddress } from 'utils/addressHelpers'
 import { getBalanceNumber } from 'utils/formatBalance'
 import useI18n from 'hooks/useI18n'
@@ -8,7 +8,7 @@ import useGetLotteryHasDrawn from 'hooks/useGetLotteryHasDrawn'
 import useTokenBalance from 'hooks/useTokenBalance'
 import { useMultiClaimLottery } from 'hooks/useBuyLottery'
 import { useTotalClaim } from 'hooks/useTickets'
-import { FaScroll, FaTicketAlt } from 'react-icons/fa'
+import { FaBroadcastTower, FaExchangeAlt, FaScroll, FaTicketAlt } from 'react-icons/fa'
 import BuyModal from 'views/Lottery/components/TicketCard/BuyTicketModal'
 import CakeWinnings from './CakeWinnings'
 import LotteryJackpot from './LotteryJackpot'
@@ -16,19 +16,21 @@ import LotteryJackpot from './LotteryJackpot'
 const StyledLotteryCard = styled(Card)`
   background-repeat: no-repeat;
   background-position: top right;
-  min-height: 376px;
+  min-height: 300px;
+  min-width: 250px;
+
   margin-left: auto;
   margin-right: auto;
   border-radius: 14px;
 `
 // background-image: url('/images/ticket-bg.svg'); ^^^
 const Divider = styled.div`
-background-color: #4c68ef;
+background-color: #FAFAFA;
 height: 3px;
 margin-left: auto;
 margin-right: auto;
-margin-top: 30px;
-margin-bottom: 5px;
+margin-top: 10px;
+margin-bottom: 10px;
 width: 100%;
 `
 
@@ -86,31 +88,32 @@ const FarmedStakingCard = () => {
     <StyledLotteryCard>
       <CardBody>
         <Title>
-          <span><FaTicketAlt/> Lottery</span>
+          <span><FaBroadcastTower/> Bridge</span>
         </Title>
-        <CardImage src="/images/ticket.svg" alt="cake logo" width={64} height={64} />
+
         <Block>
-          <CakeWinnings />
-          <Label>{TranslateString(999, 'MIS to Collect')}</Label>
+          <LinkExternal href='https://bridge.terra.money/'>{TranslateString(999, 'Horizon Bridge')}</LinkExternal>
         </Block>
+
         <Block>
-          <LotteryJackpot />
-          <Label>{TranslateString(999, 'Total MIS jackpot this round')}</Label>
+          <LinkExternal href='https://bridge.harmony.one/erc20'>{TranslateString(999, 'Terra Bridge')}</LinkExternal>
         </Block>
+
         <Divider />
-        <Actions>
-          <Button
-            id="dashboard-collect-winnings"
-            disabled={getBalanceNumber(claimAmount) === 0 || requesteClaim}
-            onClick={handleClaim}
-            style={{ marginRight: '8px' }}
-          >
-            {TranslateString(556, 'Collect Winnings')}
-          </Button>
-          <Button id="dashboard-buy-tickets" variant="secondary" onClick={onPresentBuy} disabled={lotteryHasDrawn}>
-            {TranslateString(558, 'Buy Tickets')}
-          </Button>
-        </Actions>
+
+        <Title>
+          <span><FaExchangeAlt/> Swap</span>
+        </Title>
+
+        <Block>
+          <LinkExternal href='https://app.defikingdoms.com/#/marketplace'>{TranslateString(999, 'Defi Kingdoms')}</LinkExternal>
+        </Block>
+
+        <Block>
+          <LinkExternal href='https://app.defikingdoms.com/#/marketplace'>{TranslateString(999, 'Add Liquidity')}</LinkExternal>
+        </Block>
+
+
       </CardBody>
     </StyledLotteryCard>
   )
