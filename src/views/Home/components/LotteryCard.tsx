@@ -29,8 +29,8 @@ background-color: #FAFAFA;
 height: 3px;
 margin-left: auto;
 margin-right: auto;
-margin-top: 10px;
-margin-bottom: 10px;
+margin-top: 20px;
+margin-bottom: 20px;
 width: 100%;
 `
 
@@ -92,11 +92,11 @@ const FarmedStakingCard = () => {
         </Title>
 
         <Block>
-          <LinkExternal href='https://bridge.terra.money/'>{TranslateString(999, 'Horizon Bridge')}</LinkExternal>
+          <LinkExternal fontSize='14px' href='https://bridge.terra.money/'>{TranslateString(999, 'Horizon Bridge')}</LinkExternal>
         </Block>
 
         <Block>
-          <LinkExternal href='https://bridge.harmony.one/erc20'>{TranslateString(999, 'Terra Bridge')}</LinkExternal>
+          <LinkExternal fontSize='14px' href='https://bridge.harmony.one/erc20'>{TranslateString(999, 'Terra Bridge')}</LinkExternal>
         </Block>
 
         <Divider />
@@ -106,11 +106,11 @@ const FarmedStakingCard = () => {
         </Title>
 
         <Block>
-          <LinkExternal href='https://app.defikingdoms.com/#/marketplace'>{TranslateString(999, 'Defi Kingdoms')}</LinkExternal>
+          <LinkExternal fontSize='14px' href='https://app.defikingdoms.com/#/marketplace'>{TranslateString(999, 'Defi Kingdoms')}</LinkExternal>
         </Block>
 
         <Block>
-          <LinkExternal href='https://app.defikingdoms.com/#/marketplace'>{TranslateString(999, 'Add Liquidity')}</LinkExternal>
+          <LinkExternal fontSize='14px' href='https://app.defikingdoms.com/#/marketplace'>{TranslateString(999, 'Add Liquidity')}</LinkExternal>
         </Block>
 
 

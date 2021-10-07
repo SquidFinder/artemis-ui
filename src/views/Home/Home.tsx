@@ -59,16 +59,14 @@ const Cards = styled(BaseLayout)`
     }
   }
 `
-const Hero = styled.div`
-  @media all and (min-width: 1200px) {
-    padding: 0px 15px 30px 0;
-   }
+const SvgHero = styled.div`
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  padding: 22px 1px;
 
-  @media all and (max-width: 1200px) { 
-    padding: 0 12px 47px 12px;
-    display: flex;
-    justify-content: center;
-    max-width: 90%
+  @media and all (max-width: 1000px) {
+    max-width: 80%;
   }
   
 `
@@ -80,29 +78,22 @@ const Home: React.FC = () => {
     <div>
       <HomePage>
 
-        <Hero>
+        <SvgHero>
           <object type="image/svg+xml" data="images/banner.svg" className="labhero">&nbsp;</object>
-        </Hero>
+        </SvgHero>
 
         <FlowRow>
-
-
+          <Cards className="CardsLayout">
+            <FarmedStakingCard />    
+          </Cards>
 
           <Cards className="CardsLayout">
               <FarmStakingCard/>    
           </Cards>
 
           <Cards className="CardsLayout">
-            <FarmedStakingCard />    
-          </Cards>
-
-          <Cards className="CardsLayout">
             <CakeStats />    
           </Cards>
-
-
-
-
         </FlowRow>
 
       </HomePage>
