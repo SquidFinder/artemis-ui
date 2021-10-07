@@ -87,6 +87,8 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
     description,
     launchDate,
     launchTime,
+    endDate,
+    endTime,
     saleAmount,
     raiseAmount,
     cakeToBurn,
@@ -163,7 +165,7 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
       <CardBody>
         <Column>
         <IfoCardHeader ifoId={id} name={name} subTitle={subTitle} projectSiteUrl={projectSiteUrl} />
-        <IfoCardProgress progress={state.progress} launchDate={launchDate} launchTime={launchTime}/>
+        <IfoCardProgress progress={state.progress} launchDate={launchDate} launchTime={launchTime} endDate={endDate} endTime={endTime} />
         <IfoCardTime
           isLoading={state.isLoading}
           status={state.status}

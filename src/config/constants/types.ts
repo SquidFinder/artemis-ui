@@ -9,6 +9,8 @@ export interface Ifo {
   description?: string
   launchDate: string
   launchTime: string
+  endDate?: string
+  endTime?: string
   saleAmount: string
   raiseAmount: string
   cakeToBurn: string
