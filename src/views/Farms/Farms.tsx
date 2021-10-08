@@ -10,7 +10,7 @@ import { Image, Heading, Alert, LinkExternal } from '@pancakeswap-libs/uikit'
 import { BLOCKS_PER_YEAR, CAKE_PER_BLOCK, CAKE_POOL_PID } from 'config'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
-import { useFarms, usePriceBnbBusd, usePriceCakeBusd } from 'state/hooks'
+import {getTotalValueFromQuoteTokens, useFarms, usePriceBnbBusd, usePriceCakeBusd, usePrices} from 'state/hooks'
 import useRefresh from 'hooks/useRefresh'
 import { fetchFarmUserDataAsync } from 'state/actions'
 import { QuoteToken } from 'config/constants/types'
@@ -81,6 +81,7 @@ const FeatureLink = styled.a`
 const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const { path } = useRouteMatch()
   const TranslateString = useI18n()
+  const prices = usePrices()
   const farmsLP = useFarms()
   const cakePrice = usePriceCakeBusd()
   const bnbPrice = usePriceBnbBusd()
@@ -123,15 +124,9 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         const cakeRewardPerBlock = new BigNumber(farm.vikingPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
 
-        let apy = cakePrice.times(cakeRewardPerYear);
+        let apy = prices.MIS.times(cakeRewardPerYear);
 
-        let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0);
-
-        // if (process.env.REACT_APP_DEBUG === "true") console.log(farm.poolWeight, 'hey')
-
-        if (farm.quoteTokenSymbol === QuoteToken.BNB) {
-          totalValue = totalValue.times(bnbPrice);
-        }
+        const totalValue = getTotalValueFromQuoteTokens(farm.quoteTokenAmount, farm.quoteTokenSymbol, prices);
 
         if(totalValue.comparedTo(0) > 0){
           apy = apy.div(totalValue);
@@ -144,14 +139,14 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           key={farm.pid}
           farm={farm}
           removed={removed}
-          bnbPrice={bnbPrice}
-          cakePrice={cakePrice}
+          bnbPrice={prices.ONE}
+          cakePrice={prices.MIS}
           ethereum={ethereum}
           account={account}
         />
       ))
     },
-    [bnbPrice, account, cakePrice, ethereum],
+    [prices, account, ethereum],
   )
 
   return (

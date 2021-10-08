@@ -13,6 +13,7 @@ import DetailsSection from './DetailsSection'
 import CardHeading from './CardHeading'
 import CardActionsContainer from './CardActionsContainer'
 import ApyButton from './ApyButton'
+import {getTotalValueFromQuoteTokens, usePrices} from "../../../../state/hooks";
 
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber
@@ -145,27 +146,13 @@ const FarmCard: React.FC<FarmCardProps> = ({
   const lpLabel = ( farm.version ? `${farm.lpSymbol} V${farm.version}` : `${farm.lpSymbol}` )
   const earnLabel = 'MIS'
   const TranslateString = useI18n()
+  const prices = usePrices()
   const [showExpandableSection, setShowExpandableSection] = useState(false)
   const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses, risk } = farm
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses, quoteTokenSymbol, tokenAddresses })
   const farmImage = farm.isTokenOnly ? farm.tokenSymbol.toLowerCase() : `${farm.tokenSymbol.toLowerCase()}-${farm.quoteTokenSymbol.toLowerCase()}`
   
-  const totalValue: BigNumber = useMemo(() => {
-      if (farm.pid === 2) {
-        // MIS Pool
-        return cakePrice.times(farm.tokenAmount)
-      }
-      if (farm.pid === 0 || farm.pid === 3) {
-          // These all have quote symbol as a stablecoin
-          return new BigNumber(2).times(farm.quoteTokenAmount)
-      }
-      if (farm.pid === 1 || farm.pid === 4) {
-          // One as quote token
-          return new BigNumber(2).times(bnbPrice).times(farm.quoteTokenAmount)
-      }
-      console.log("No price found for pid = ", farm.pid)
-      return new BigNumber(0)
-  }, [bnbPrice, cakePrice, farm])
+  const totalValue = getTotalValueFromQuoteTokens(farm.quoteTokenAmount, farm.quoteTokenSymbol, prices)
 
   const totalValueFormated = totalValue
     ? `$${Number(totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
