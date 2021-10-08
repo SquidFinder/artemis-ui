@@ -70,7 +70,7 @@ const Coming: React.FC = () => {
         <Label2><FaTools/> {TranslateString(4216, "Let's build, together. ")}</Label2>
         
         <Divider />
-        <LinkExternal href="https://artemis-protocol.gitbook.io/artemis/the-protocol/launchpad-1/incubator" mr="16px" mt='20px'>
+        <LinkExternal href="https://artemisprotocol.gitbook.io/artemis/the-protocol/launchpad-1/incubator" mr="16px" mt='20px'>
               {TranslateString(999, 'Read More')}
         </LinkExternal>
         
@@ -79,7 +79,7 @@ const Coming: React.FC = () => {
         <Button
           variant="secondary"
           as="a"
-          href="https://forms.gle/EcY6KfGz8yhDbMX67"
+          href="https://kv2i2vx5rwe.typeform.com/to/yEQE9cV9"
           external
           fullWidth
           mb="0px"

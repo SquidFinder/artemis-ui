@@ -4,6 +4,7 @@ import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { ResetCSS } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js'
 import { useFetchPublicData } from 'state/hooks'
+import Pools from 'views/Pools'
 import GlobalStyle from './style/Global'
 import NavBar from './components/NavBar'
 import NftGlobalNotification from './views/Nft/components/NftGlobalNotification'
@@ -52,7 +53,8 @@ const App: React.FC = () => {
             <Route path="/Earn">
               <Farms />
             </Route>
-            {/* <Route path="/incubator">
+            
+            <Route path="/Incubator">
               <Pools />
             </Route>
             {/*

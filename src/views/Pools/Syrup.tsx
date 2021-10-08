@@ -155,7 +155,7 @@ const Farm: React.FC = () => {
       <Divider />
       <ActionsWrapper>
         <Blablabla >
-          <FaQuestionCircle/> Learn how to earn with the Incubator <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/"><GuideLink>here</GuideLink></a>
+          <FaQuestionCircle/> Learn how to earn with the Incubator <a target="_blanK" rel="noreferrer" href="https://artemisprotocol.gitbook.io/artemis/guides/how-to-use-artemis-earn"><GuideLink>here</GuideLink></a>
         </Blablabla>
         </ActionsWrapper>
 
@@ -179,9 +179,10 @@ const Farm: React.FC = () => {
           <Feature >
             <FaExchangeAlt /><br />
 
+{/*
             <LinkExternal href='https://app.defikingdoms.com/#/swap'>Defi Kingdoms</LinkExternal>
             <LinkExternal href='https://viperswap.one/#/swap'>Viperswap</LinkExternal>
-
+*/}
           </Feature>
       </FlexLayout>
           
