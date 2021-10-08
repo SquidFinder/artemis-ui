@@ -42,28 +42,9 @@ export const useFarmTokensToUsd = (pid, farmTokens) => {
   // farmTokens is the # of LP tokens, or just the number of tokens for single staking pools
   // All price logic should go here for farms
   const farm = useFarmFromPid(pid)
-  const onePrice = usePriceBnbBusd()
-  const misPrice = usePriceCakeBusd()
-
-  if (pid === 2) {
-    // MIS Pool
-    return new BigNumber(misPrice).times(farmTokens).div(TEN_POW_18)
-  }
-  if (pid === 0 || pid === 3) {
-    // These all have quote symbol as a stablecoin
-    return new BigNumber(2).times(farm.quoteTokenPerLp).times(farmTokens).div(TEN_POW_18)
-  }
-  if (pid === 1 || pid === 4) {
-    // One as quote token
-    return new BigNumber(2).times(onePrice).times(farm.quoteTokenPerLp).times(farmTokens).div(TEN_POW_18)
-  }
-  if (pid === 2) {
-    // This is MIS Single staking
-    return  (misPrice).times(farmTokens).div(TEN_POW_18)
-  }
-
-  console.log("No price found for pid = ", pid)
-  return new BigNumber(0)
+  const prices = usePrices()
+  const quoteTokenAmount = new BigNumber(farm.quoteTokenPerLp).times(farmTokens)
+  return getTotalValueFromQuoteTokens(quoteTokenAmount, farm.quoteTokenSymbol, prices)
 }
 
 export const useFarmUser = (pid) => {
@@ -157,26 +138,46 @@ export const usePriceCakeBusd = (): BigNumber => {
   return new BigNumber(farm.tokenPriceVsQuote);
 }
 
+export const usePrices = () => {
+  const misPrice = usePriceCakeBusd()
+  const onePrice = usePriceBnbBusd()
+
+  return {
+    MIS: misPrice,
+    CAKE: misPrice,
+    ONE: onePrice
+  }
+}
+
+export const getTotalValueFromQuoteTokens = (quoteTokenAmount, quoteToken, prices) => {
+  // WARNING: Needs to be updated for single-staking pools
+  // First handle all stable-coins
+  if (quoteToken === QuoteToken.UST || quoteToken === QuoteToken.BUSD) {
+    return new BigNumber(2).times(quoteTokenAmount)
+  }
+  if (quoteToken === QuoteToken.ONE) {
+    return new BigNumber(2).times(quoteTokenAmount).times(prices.ONE)
+  }
+  if (quoteToken === QuoteToken.MIS) {
+    return new BigNumber(2).times(quoteTokenAmount).times(prices.MIS)
+  }
+  console.log("ERROR: NO PRICE FOUND FOR QuoteToken:", quoteToken)
+  return new BigNumber(0)
+}
+
+
 export const useTotalValue = (): BigNumber => {
   const farms = useFarms();
-  const bnbPrice = usePriceBnbBusd();
-  const cakePrice = usePriceCakeBusd();
+  const prices = usePrices();
+
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
     if (farm.lpTotalInQuoteToken) {
       let val = new BigNumber(0);
-      if (farm.pid === 0 || farm.pid === 3) {
-        // These all have quote symbol as a stablecoin
-        val = new BigNumber(2).times(farm.quoteTokenAmount)
-      }
-      if (farm.pid === 1 || farm.pid === 4) {
-        // One as quote token
-        val = new BigNumber(2).times(bnbPrice).times(farm.quoteTokenAmount)
-      }
-      // console.log("TVL", farm.pid, val && val.toNumber())
+      val = getTotalValueFromQuoteTokens(farm.quoteTokenAmount, farm.quoteTokenSymbol, prices)
+      // console.log("useTotalValue", farm.pid, val && val.toNumber(), farm)
       value = value.plus(val);
-
     }
   }
   return value;
