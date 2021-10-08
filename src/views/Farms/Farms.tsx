@@ -196,7 +196,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         <Feature >
           <FaHistory /><br />
 
-          <p>The base emission rate is currently 5 MIS per block.</p>
+          <p>The base emission rate is currently 0 MIS per block.</p>
         </Feature>
           
         </FlexLayout>

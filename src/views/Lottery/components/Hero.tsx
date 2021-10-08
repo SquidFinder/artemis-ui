@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Heading, LinkExternal, Text } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import Container from 'components/layout/Container'
-import LotteryProgress from './LotteryProgress'
 
 const Title = styled(Heading).attrs({ as: 'h1', size: 'xl' })`
   color: ${({ theme }) => theme.colors.primary};
@@ -72,12 +71,10 @@ const Hero = () => {
         <LeftWrapper>
           <Title>Lottery</Title>
           <Blurb>Get tickets with MIS</Blurb>
-          <LinkExternal href='https://artemis-protocol.gitbook.io/artemis/the-protocol/gamefi/lottery' >How the lottery works</LinkExternal>
+          <LinkExternal href='https://artemisprotocol.gitbook.io/artemis/the-protocol/gamefi/lottery' >How the lottery works</LinkExternal>
           
           </LeftWrapper>
-        <RightWrapper>
-          <LotteryProgress />
-        </RightWrapper>
+
       </StyledContainer>
     </StyledHero>
   )

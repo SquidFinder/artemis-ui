@@ -66,14 +66,14 @@ const App: React.FC = () => {
 
             {/* <Route path="/onewheel">
               <MoneyWheel2 />
-            </Route> */}
-            {/* <Route path="/nft">
+            </Route>
+             <Route path="/nft">
               <Nft/>
             </Route> 
-
-            <Route path="/lottery">
+*/}
+            <Route path="/Lottery">
               <Lottery />
-            </Route> */}
+            </Route> 
 
             <Route path="/ArtemisPad">
             <Ifos />
