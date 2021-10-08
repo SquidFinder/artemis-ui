@@ -244,7 +244,7 @@ const NavBar = (props) => {
                  </ul>
                  <ul className="web3buttons">
                  <li className="web3li insideMainNav">
-                   <a target="_blank" rel="noreferrer" href="https://app.defikingdoms.com/" className="nav-links price">
+                   <a target="_blank" rel="noreferrer" href="https://info.defikingdoms.com/token/0xd74433b187cf0ba998ad9be3486b929c76815215" className="nav-links price">
                   <Price
                     style={{ marginRight: '4px',
                             backgroundColor: 'transparent' }}
@@ -299,7 +299,7 @@ const NavBar = (props) => {
 
 
                 <li className="web3li">
-                  <a target="_blank" rel="noreferrer" href="/" className="nav-links price">
+                  <a target="_blank" rel="noreferrer" href="https://info.defikingdoms.com/token/0xd74433b187cf0ba998ad9be3486b929c7681521" className="nav-links price">
                   <Price
                     style={{ 
                       marginRight: '0px',

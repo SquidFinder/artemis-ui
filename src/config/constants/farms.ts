@@ -192,6 +192,22 @@ const farms: FarmConfig[] = [
     version: 2
   }, */
   {
+    pid:labo.pids.pidList[2],
+    risk: 5,
+    lpSymbol: 'MIS-ONE LP',
+    lpAddresses: {
+      1666700000: labo.addr.LaboBnbAddrTestnet,
+      1666600000: labo.addr.LaboBnbAddr, // ( MIS-ONE LP ) 
+    },
+    tokenSymbol: 'ONE',
+    tokenAddresses: {
+      1666700000: '0x7466d7d0c21fa05f32f5a0fa27e12bdc06348ce2',
+      1666600000: '0xcf664087a5bb0237a0bad6742852ec6c8d69a27a',
+    },
+    quoteTokenSymbol: QuoteToken.MIS,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
     pid:labo.pids.pidList[0],
     risk: 5,
     lpSymbol: 'MIS-UST LP',
@@ -224,22 +240,6 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
   }, */
-  {
-    pid:labo.pids.pidList[2],
-    risk: 5,
-    lpSymbol: 'MIS-ONE LP',
-    lpAddresses: {
-      1666700000: labo.addr.LaboBnbAddrTestnet,
-      1666600000: labo.addr.LaboBnbAddr, // ( MIS-ONE LP ) 
-    },
-    tokenSymbol: 'ONE',
-    tokenAddresses: {
-      1666700000: '0x7466d7d0c21fa05f32f5a0fa27e12bdc06348ce2',
-      1666600000: '0xcf664087a5bb0237a0bad6742852ec6c8d69a27a',
-    },
-    quoteTokenSymbol: QuoteToken.MIS,
-    quoteTokenAdresses: contracts.cake,
-  },
   /* {
     pid:labo.pids.pidList[2],
     risk: 3,

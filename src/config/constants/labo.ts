@@ -82,8 +82,8 @@ const labo = {
         masterChefTestnet,
     },
     pids: {
-        pidLaboUst, 
         pidLaboBnb,
+        pidLaboUst, 
         pidLabo,
         pidBnbBusd,
         pidList: [
