@@ -27,7 +27,7 @@ const UserTicketsModal: React.FC<UserTicketsModalProps> = ({ myTicketNumbers, on
 
   const listItems = myTicketNumbers.map((number, index) => {
     if (rewardMatch(number[0]) > 1 && from !== 'buy') {
-      const emoji = new Array(rewardMatch(number[0]) + 1).join('🤑')
+      const emoji = new Array(rewardMatch(number[0]) + 1).join('')
       return (
         // eslint-disable-next-line react/no-array-index-key
         <RewardP key={index}>
@@ -42,7 +42,7 @@ const UserTicketsModal: React.FC<UserTicketsModalProps> = ({ myTicketNumbers, on
   })
 
   return (
-    <Modal title={TranslateString(490, `My Tickets (Total: ${myTicketNumbers.length})`)} onDismiss={onDismiss}>
+    <Modal title={TranslateString(4902, `Tickets: ${myTicketNumbers.length}`)} onDismiss={onDismiss}>
       <TicketsList>
         <h2>{listItems}</h2>
       </TicketsList>

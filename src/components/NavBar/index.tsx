@@ -187,7 +187,7 @@ const NavBar = (props) => {
                             
                             <ul className="dropdown-content dropdown-items">
                             <li className="nav-tab">
-                            <Link to="/launch" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                            <Link to="/lottery" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                             <FaTicketAlt/><span className="dditem">LOTTERY</span>
                             </Link>
                           </li>

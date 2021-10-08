@@ -66,7 +66,7 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
     return +amount * 10
   }
   return (
-    <Modal title={TranslateString(450, 'Enter amount of tickets to buy')} onDismiss={onDismiss}>
+    <Modal title={TranslateString(450, 'Enter an Amount of Tickets to Buy')} onDismiss={onDismiss}>
       <TicketInput
         value={val}
         onSelectMax={handleSelectMax}
@@ -75,17 +75,9 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
         symbol="TICKET"
         availableSymbol="MIS"
       />
+
       <div>
-        <Tips>{TranslateString(456, 'Your amount must be a multiple of 10 MIS')}</Tips>
-        <Tips>{TranslateString(458, '1 Ticket = 10 MIS')}</Tips>
-      </div>
-      <div>
-        <Announce>
-          {TranslateString(
-            478,
-            'Ticket purchases are final. Your MIS cannot be returned to you after buying tickets.',
-          )}
-        </Announce>
+
         <Final>{TranslateString(460, `You will spend: ${cakeCosts(val)} MIS`)}</Final>
       </div>
       <ModalActions>
