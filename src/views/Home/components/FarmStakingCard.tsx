@@ -99,7 +99,7 @@ const FarmedStakingCard = () => {
           <span><FaUserClock/> Dashboard</span>
         </Title>
         <FlowRow>
-          <object type="image/svg+xml" data="images/labo.svg" width="97px">&nbsp;</object>
+          <object type="image/svg+xml" data="images/mishero.svg" width="97px">&nbsp;</object>
           <FlowCol>
             <div style={{'display':'inline-block', 'paddingLeft': '15px', 'lineHeight': '19px', 'marginBottom': '5px', 'marginTop': '20px'}}>
                 <Block>

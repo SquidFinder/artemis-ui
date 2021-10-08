@@ -78,9 +78,10 @@ const Home: React.FC = () => {
     <div>
       <HomePage>
 
+        {/*
         <SvgHero>
           <object type="image/svg+xml" data="images/banner.svg" className="labhero">&nbsp;</object>
-        </SvgHero>
+        </SvgHero> */}
 
         <FlowRow>
           <Cards className="CardsLayout">
