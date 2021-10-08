@@ -78,7 +78,8 @@ const CakeStats = () => {
   // const data = useGetStats()
   const totalValue = useTotalValue();
   const lotteryPrizeAmount = useTotalRewards()
-
+  
+  const cakePriceUsd = usePriceCakeBusd()
   const misPrice = usePriceCakeBusd();
   const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0);
   const cakeSupply = getBalanceNumber(circSupply);
@@ -100,7 +101,7 @@ const CakeStats = () => {
           <Row>
             <Sub>MIS Price</Sub>
             <Sub className="lightColor">
-              <CardValue value={misPrice.toNumber()} decimals={2} prefix="$" />
+              <CardValue value={cakePriceUsd.toNumber()} decimals={2} prefix="$" />
             </Sub>
           </Row>
           <Row>
