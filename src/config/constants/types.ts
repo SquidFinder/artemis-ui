@@ -54,6 +54,8 @@ export enum QuoteToken {
   'ONEETH' = 'ONEETH',
   'ONE' = 'ONE',
   'MISONE' = 'MIS-ONE',
+  'MISXYA' = 'MIS-XYA',
+  'MISUST' = 'MIS-UST',
 }
 
 export enum PoolCategory {
@@ -98,6 +100,8 @@ export interface PoolConfig {
   stakingTokenName: QuoteToken
   stakingLimit?: number
   stakingTokenAddress?: string
+  tokenPoolAddress?: string
+  quoteTokenPoolAddress?: string
   contractAddress: Address
   poolCategory: PoolCategory
   projectLink: string
