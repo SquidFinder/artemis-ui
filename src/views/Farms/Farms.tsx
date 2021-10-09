@@ -81,6 +81,7 @@ const FeatureLink = styled.a`
 const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const { path } = useRouteMatch()
   const TranslateString = useI18n()
+  const farms = useFarms();
   const prices = usePrices()
   const farmsLP = useFarms()
   const cakePrice = usePriceCakeBusd()
@@ -109,7 +110,11 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const stakedOnlyFarms = activeFarms.filter(
     (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
   )
-
+  let vikingPerBlock = 0;
+  if (process.env.REACT_APP_DEBUG === "true"){ console.log(farms[0], 'testing viking per block') }
+  if(farms && farms[0] && farms[0].vikingPerBlock){
+    vikingPerBlock = new BigNumber(farms[0].vikingPerBlock).div(new BigNumber(10).pow(18)).toNumber();
+  }
   // /!\ This function will be removed soon
   // This function compute the APY for each farm and will be replaced when we have a reliable API
   // to retrieve assets prices against USD
@@ -123,7 +128,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
         const cakeRewardPerBlock = new BigNumber(farm.vikingPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
-
+      
         let apy = prices.MIS.times(cakeRewardPerYear);
 
         const totalValue = getTotalValueFromQuoteTokens(farm.quoteTokenAmount, farm.quoteTokenSymbol, prices);
@@ -196,7 +201,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         <Feature >
           <FaHistory /><br />
 
-          <p>The base emission rate is currently 0 MIS per block.</p>
+          <p>The base emission rate is currently {vikingPerBlock} MIS per block.</p>
         </Feature>
           
         </FlexLayout>
