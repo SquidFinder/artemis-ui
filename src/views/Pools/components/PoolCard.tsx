@@ -282,6 +282,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       </div>
 
       <CardFooter
+        tokenName={tokenName}
         projectLink={projectLink}
         totalStaked={totalStaked}
         blocksRemaining={blocksRemaining}

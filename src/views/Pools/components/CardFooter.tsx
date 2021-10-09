@@ -9,6 +9,7 @@ import { CommunityTag, CoreTag, BinanceTag } from 'components/Tags'
 import { PoolCategory, QuoteToken } from 'config/constants/types'
 import { Flex, LinkExternal } from '@pancakeswap-libs/uikit'
 import ExpandableSectionButton from 'components/ExpandableSectionButton'
+import { FaBitcoin, FaCoins, FaCube, FaTractor } from 'react-icons/fa'
 
 const tags = {
   [PoolCategory.BINANCE]: BinanceTag,
@@ -17,6 +18,7 @@ const tags = {
 }
 
 interface Props {
+  tokenName: string
   projectLink: string
   totalStaked: BigNumber
   blocksRemaining: number
@@ -82,6 +84,7 @@ const Quote = styled.p`
 `
 
 const CardFooter: React.FC<Props> = ({
+  tokenName,
   projectLink,
   totalStaked,
   blocksRemaining,
@@ -113,6 +116,15 @@ const CardFooter: React.FC<Props> = ({
 
         <Details>
 
+          <Flex justifyContent='space-between' marginTop='10px'>
+          <span><FaCoins/> Total {tokenName} </span>
+          <Balance fontSize="16px" value={200000} />
+          </Flex>
+          <Flex justifyContent='space-between' marginTop='10px'>
+          <span><FaCube/> {tokenName} per block </span>
+          <Balance fontSize="16px" value={0.21} />
+          </Flex>
+
           <LinkExternal href={projectLink} target="_blank">
             {TranslateString(4212, 'About the Project')}
           </LinkExternal>
@@ -120,7 +132,7 @@ const CardFooter: React.FC<Props> = ({
           <LinkExternal href={`https://app.defikingdoms.com/#/add/${tokenPoolAddress}/${quoteTokenPoolAddress}`} target="_blank">
             {TranslateString(4212, 'Get LP Tokens')}
           </LinkExternal>
-        
+
         </Details>
       )}
     </StyledFooter>
