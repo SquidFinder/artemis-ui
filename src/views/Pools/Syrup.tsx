@@ -156,11 +156,11 @@ const Farm: React.FC = () => {
   return (
     <Page>
 
-    <div className="warningAlert" style={{'display': ( modalOpen ? 'block' : 'none' )}}>
+    {/* <div className="warningAlert" style={{'display': ( modalOpen ? 'block' : 'none' )}}>
       <Alert title="" variant="warning" onClick={handleModal}>
         <p>Incubator rewards will begin on <a target="_blank" rel="noreferrer" style={{"color": "#0073ff"}} href="https://explorer.harmony.one/block/17996500">Block 17996500.</a></p>
       </Alert>
-    </div>    
+      </div>    */} 
       <SvgHero>
         <object type="image/svg+xml" data="images/incubator.svg" width="600x">&nbsp;</object>
       </SvgHero>

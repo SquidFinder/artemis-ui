@@ -10,7 +10,7 @@ export default {
     1666700000: labo.addr.masterChefTestnet,
   },
   sousChef: {
-    1666600000: '0x5aaf4bbECFf610186aeA98218f697029D5a77597', // cambiar
+    1666600000: '0xC2B1FC77e49BE0a99520EAd73da3a76AF533482D', // cambiar
     1666700000: '0x736E9c99cb9f9c39e25eF61181eeC83d484F9120',
   },
   wheel: {

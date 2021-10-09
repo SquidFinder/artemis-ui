@@ -157,11 +157,11 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   return (
     <Page>
 
-  <div className="warningAlert" style={{'display': ( modalOpen ? 'block' : 'none' )}}>
+  {/* <div className="warningAlert" style={{'display': ( modalOpen ? 'block' : 'none' )}}>
       <Alert title="" variant="warning" onClick={handleModal}>
         <p>Artemis Earn rewards will begin on <a target="_blank" rel="noreferrer" style={{"color": "#0073ff"}} href="https://explorer.harmony.one/block/17996500">October 9th.</a></p>
       </Alert>
-    </div>    
+      </div>    */}
 
       <Hero>
         {tokenMode ? 
