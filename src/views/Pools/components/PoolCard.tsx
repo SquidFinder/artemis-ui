@@ -78,6 +78,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     isFinished,
     userData,
     stakingLimit,
+    tokenPoolAddress,
+    quoteTokenPoolAddress,
   } = pool
   // Pools using native BNB behave differently than pools using a token
   const isBnbPool = poolCategory === PoolCategory.BINANCE
@@ -144,8 +146,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       {isFinished && sousId !== 0 && <PoolFinishedSash />}
 
       <div style={{padding: '34px'}}>
-        
-        <Image src="/images/pools/wone.svg" width={300} height={140}>w</Image>
+
+        <Image src={`/images/pools/${tokenName}.svg`} width={300} height={140}>w</Image>
 
         <Divider2/>
 
@@ -286,6 +288,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         isFinished={isFinished}
         blocksUntilStart={blocksUntilStart}
         poolCategory={poolCategory}
+        tokenPoolAddress={tokenPoolAddress}
+        quoteTokenPoolAddress={quoteTokenPoolAddress}
       />
     </Card>
   )

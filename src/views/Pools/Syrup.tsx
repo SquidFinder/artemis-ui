@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Route, useRouteMatch } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
-import { Heading, LinkExternal } from '@pancakeswap-libs/uikit'
+import { Heading, LinkExternal, Alert } from '@pancakeswap-libs/uikit'
 import { BLOCKS_PER_YEAR } from 'config'
 import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
@@ -109,6 +109,10 @@ const Farm: React.FC = () => {
   const pools = usePools(account)
   const bnbPriceUSD = usePriceBnbBusd()
   const block = useBlock()
+  const [modalOpen, setModalOpen] = useState(true) 
+  const handleModal = async () => {
+    setModalOpen(!modalOpen)
+  }  
 
   const priceToBnb = (tokenName: string, tokenPrice: BigNumber, quoteToken: QuoteToken): BigNumber => {
     const tokenPriceBN = new BigNumber(tokenPrice)
@@ -147,8 +151,16 @@ const Farm: React.FC = () => {
 
   const [finishedPools, openPools] = partition(poolsWithApy, (pool) => pool.isFinished)
 
+
+  
   return (
     <Page>
+
+    <div className="warningAlert" style={{'display': ( modalOpen ? 'block' : 'none' )}}>
+      <Alert title="" variant="warning" onClick={handleModal}>
+        <p>Incubator rewards will begin on <a target="_blank" rel="noreferrer" style={{"color": "#0073ff"}} href="https://explorer.harmony.one/block/17996500">Block 17996500.</a></p>
+      </Alert>
+    </div>    
       <SvgHero>
         <object type="image/svg+xml" data="images/incubator.svg" width="600x">&nbsp;</object>
       </SvgHero>
