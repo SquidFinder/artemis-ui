@@ -27,6 +27,11 @@ export const useFarms = (): Farm[] => {
   return farms
 }
 
+export const usePoolsPublic = (): Pool[] => {
+  const pools = useSelector((state: State) => state.pools.data)
+  return pools
+}
+
 export const useFarmFromPid = (pid): Farm => {
   const farm = useSelector((state: State) => state.farms.data.find((f) => f.pid === pid))
   return farm
@@ -182,6 +187,7 @@ export const getTotalValueFromQuoteTokens = (quoteTokenAmount, quoteToken, price
 export const useTotalValue = (): BigNumber => {
   const farms = useFarms();
   const prices = usePrices();
+  const pools = usePoolsPublic()
 
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
@@ -193,5 +199,20 @@ export const useTotalValue = (): BigNumber => {
       value = value.plus(val);
     }
   }
+  
+  // Do incubator pools
+  for (let i = 0; i < pools.length; i++) {
+    const pool = pools[i]
+
+    const quoteTokens = new BigNumber(pool.quoteTokenPerLp).times(pool.totalStaked).div(new BigNumber(10).pow(18))
+    const val = getTotalValueFromQuoteTokens(quoteTokens, pool.quoteTokenSymbol, prices)
+
+    if (val) {
+      // console.log("useTotalValue", farm.pid, val && val.toNumber(), farm)
+      value = value.plus(val);
+    }
+
+  }
+
   return value;
 }
