@@ -9,6 +9,7 @@ import { CommunityTag, CoreTag, BinanceTag } from 'components/Tags'
 import { PoolCategory, QuoteToken } from 'config/constants/types'
 import { Flex, LinkExternal } from '@pancakeswap-libs/uikit'
 import ExpandableSectionButton from 'components/ExpandableSectionButton'
+import { FaBitcoin, FaCoins, FaCube, FaTractor } from 'react-icons/fa'
 
 const tags = {
   [PoolCategory.BINANCE]: BinanceTag,
@@ -17,12 +18,15 @@ const tags = {
 }
 
 interface Props {
+  tokenName: string
   projectLink: string
   totalStaked: BigNumber
   blocksRemaining: number
   isFinished: boolean
   blocksUntilStart: number
   poolCategory: PoolCategory
+  tokenPoolAddress: string
+  quoteTokenPoolAddress: string
 }
 
 const StyledFooter = styled.div<{ isFinished: boolean }>`
@@ -80,12 +84,15 @@ const Quote = styled.p`
 `
 
 const CardFooter: React.FC<Props> = ({
+  tokenName,
   projectLink,
   totalStaked,
   blocksRemaining,
   isFinished,
   blocksUntilStart,
   poolCategory,
+  tokenPoolAddress,
+  quoteTokenPoolAddress,
 }) => {
 
   const [isOpen, setIsOpen] = useState(false)
@@ -109,14 +116,20 @@ const CardFooter: React.FC<Props> = ({
 
         <Details>
 
+          <Flex justifyContent='space-between' marginTop='10px'>
+            <span><FaCube/> {tokenName}/Block </span>
+            <Balance fontSize="16px" value={0.21} />
+          </Flex>
+
+
           <LinkExternal href={projectLink} target="_blank">
             {TranslateString(4212, 'About the Project')}
           </LinkExternal>
 
-          <LinkExternal href='https://viperswap.one/#/add/0xF2f587fD8A423880037F39828d593d4cE1961A98' target="_blank">
+          <LinkExternal href={`https://app.defikingdoms.com/#/add/${tokenPoolAddress}/${quoteTokenPoolAddress}`} target="_blank">
             {TranslateString(4212, 'Get LP Tokens')}
           </LinkExternal>
-        
+
         </Details>
       )}
     </StyledFooter>

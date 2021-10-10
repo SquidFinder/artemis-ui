@@ -78,6 +78,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     isFinished,
     userData,
     stakingLimit,
+    tokenPoolAddress,
+    quoteTokenPoolAddress,
   } = pool
   // Pools using native BNB behave differently than pools using a token
   const isBnbPool = poolCategory === PoolCategory.BINANCE
@@ -144,8 +146,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       {isFinished && sousId !== 0 && <PoolFinishedSash />}
 
       <div style={{padding: '34px'}}>
-        
-        <Image src={`/images/pools/${tokenName}.png`} width={300} height={140}>w</Image>
+
+        <Image src={`/images/pools/${tokenName}.svg`} width={300} height={140}>w</Image>
 
         <Divider2/>
 
@@ -163,15 +165,17 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         */}
 
 
-        <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaFire/> Deposit Fee</span>
-          <Quote>{TranslateString(10006, '0%')}</Quote>
-        </Flex>   
+
+
+          <Flex justifyContent='space-between' marginTop='6px'>
+          <span><FaCubes/> Ends In</span>
+          <Quote>{blocksRemaining} Blocks</Quote>
+        </Flex>
 
         <Divider />
 
         <Flex justifyContent='space-between' marginTop='25px'>
-          <span><FaTractor/> Your Stake</span>
+          <span><FaTractor/> Deposited LP</span>
           <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
         </Flex>
 
@@ -186,10 +190,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
                 onClick={onPresentCompound}/>)} 
         </Flex>
 
-        <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaCubes/> Blocks Remaining</span>
-          <Quote>{blocksRemaining}</Quote>
-        </Flex>
+
 
         {/* {!isOldSyrup ? (
           <BalanceAndCompound>
@@ -244,7 +245,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
               </>
             ))}
 
-<div style={{ marginTop: '17px', display: 'flex', alignItems: 'center', marginLeft:'15px' }}>
+<div style={{ marginTop: '20px', display: 'flex', alignItems: 'center', marginLeft:'15px' }}>
           {account && harvest && !isOldSyrup && (
             <Button
               disabled={!earnings.toNumber() || pendingTx}
@@ -255,8 +256,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
               }}
               style={{
                 'borderRadius': '5px',
-                'height': '42px',
-                'width': '103px',
+                'height': '46px',
+                'width': '110px',
                 'color': 'white'
               }}
             >
@@ -280,12 +281,15 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       </div>
 
       <CardFooter
+        tokenName={tokenName}
         projectLink={projectLink}
         totalStaked={totalStaked}
         blocksRemaining={blocksRemaining}
         isFinished={isFinished}
         blocksUntilStart={blocksUntilStart}
         poolCategory={poolCategory}
+        tokenPoolAddress={tokenPoolAddress}
+        quoteTokenPoolAddress={quoteTokenPoolAddress}
       />
     </Card>
   )

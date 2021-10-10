@@ -8,7 +8,7 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import UnlockButton from 'components/UnlockButton'
 import {Accordion, Button, Card, useAccordionToggle} from 'react-bootstrap';
-import { FaChartLine, FaTelegramPlane, FaTwitter, FaDiscord, FaFileAlt, FaGithub, FaTicketAlt, FaChartBar, FaMoneyBillAlt, FaTractor, FaHome, FaPrescriptionBottleAlt, FaTumblrSquare, FaCode, FaFlask, FaBook, FaReddit, FaRocketchat, FaRocket, FaBroadcastTower, FaLayerGroup, FaSeedling, FaExclamationTriangle, FaBootstrap, FaLandmark, FaGamepad, FaCircle, FaParachuteBox } from 'react-icons/fa';
+import { FaChartLine, FaTelegramPlane, FaTwitter, FaDiscord, FaFileAlt, FaGithub, FaTicketAlt, FaChartBar, FaMoneyBillAlt, FaTractor, FaHome, FaPrescriptionBottleAlt, FaTumblrSquare, FaCode, FaFlask, FaBook, FaReddit, FaRocketchat, FaRocket, FaBroadcastTower, FaLayerGroup, FaSeedling, FaExclamationTriangle, FaBootstrap, FaLandmark, FaGamepad, FaCircle, FaParachuteBox, FaVoteYea, FaProjectDiagram } from 'react-icons/fa';
 import ReactTooltip from 'react-tooltip';
 import labo from 'config/constants/labo';
 
@@ -162,23 +162,22 @@ const NavBar = (props) => {
 
                           <li className="nav-tab">
                             <Link to="/earn" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                            <FaSeedling /><span className="dditem">ARTEMIS EARN</span>
+                            <FaSeedling /><span className="dditem">EARN</span>
                             </Link>
                           </li>
 
                           <li className="nav-tab">
                             <Link to="/incubator" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                            <FaLayerGroup/><span className="dditem">INCUBATOR</span>
+                            <FaProjectDiagram/><span className="dditem">INCUBATOR</span>
                             </Link>
                           </li>
 
                           <li className="nav-tab">
-                            <Link to="/ArtemisPad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                            <Link to="/artemispad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                             <FaRocket/><span className="dditem">ARTEMISPAD</span>
                             </Link>
                           </li>
-                          
-
+                        
 
                           <li className="nav-tab dropdown" id="wheelToggleDesktop">
                             <Link to="/" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
@@ -204,7 +203,11 @@ const NavBar = (props) => {
                             </ul>
                           </li>
 
-
+                          <li className="nav-tab">
+                            <Link to="/governance" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                            <FaVoteYea/><span className="dditem">VOTE</span>
+                            </Link>
+                          </li>
 
                           <li className="nav-tab dropdown" id="infoToggleDesktop">
                             <Link to="/" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>

@@ -14,7 +14,7 @@ import { useFarms, usePriceBnbBusd, usePools } from 'state/hooks'
 import { QuoteToken, PoolCategory } from 'config/constants/types'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
-import { FaQuestionCircle , FaUserCheck, FaLock, FaHistory, FaExchangeAlt } from 'react-icons/fa'
+import { FaQuestionCircle , FaUserCheck, FaLock, FaHistory, FaExchangeAlt, FaWater, FaProjectDiagram } from 'react-icons/fa'
 import Coming from './components/Coming'
 import PoolCard from './components/PoolCard'
 import PoolTabButtons from './components/PoolTabButtons'
@@ -149,6 +149,7 @@ const Farm: React.FC = () => {
 
   return (
     <Page>
+      
       <SvgHero>
         <object type="image/svg+xml" data="images/incubator.svg" width="600x">&nbsp;</object>
       </SvgHero>
@@ -177,12 +178,11 @@ const Farm: React.FC = () => {
 
       <FlexLayout>
           <Feature >
-            <FaExchangeAlt /><br />
+            <FaProjectDiagram /><br />
 
-{/*
-            <LinkExternal href='https://app.defikingdoms.com/#/swap'>Defi Kingdoms</LinkExternal>
-            <LinkExternal href='https://viperswap.one/#/swap'>Viperswap</LinkExternal>
-*/}
+
+
+
           </Feature>
       </FlexLayout>
           
