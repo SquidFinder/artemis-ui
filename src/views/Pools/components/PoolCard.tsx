@@ -92,6 +92,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const { onUnstake } = useSousUnstake(sousId)
   const { onReward } = useSousHarvest(sousId, isBnbPool)
 
+  console.log("PoolCard", pool)
   const [requestedApproval, setRequestedApproval] = useState(false)
   const [pendingTx, setPendingTx] = useState(false)
 
@@ -139,7 +140,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     }
   }, [onApprove, setRequestedApproval])
 
-
+  const APR = apy && apy.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 2 })
+  const TVL = pool.tvl && pool.tvl.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 })
 
   return (
     <Card isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
@@ -166,7 +168,15 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
 
 
 
+        <Flex justifyContent='space-between' marginTop='6px'>
+          <span><FaCubes/> APR</span>
+          <Quote>{APR}%</Quote>
+        </Flex>
 
+        <Flex justifyContent='space-between' marginTop='6px'>
+        <span><FaCubes/> TVL</span>
+        <Quote>${TVL}</Quote>
+      </Flex>
           <Flex justifyContent='space-between' marginTop='6px'>
           <span><FaCubes/> Ends In</span>
           <Quote>{blocksRemaining} Blocks</Quote>

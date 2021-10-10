@@ -96,6 +96,7 @@ export interface PoolConfig {
   sousId?: number
   image?: string
   tokenName: string
+  quoteTokenSymbol: QuoteToken
   stakingTokenName: QuoteToken
   stakingLimit?: number
   stakingTokenAddress?: string
