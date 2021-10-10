@@ -273,6 +273,38 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.cake,
   },
   {
+    pid:labo.pids.pidList[4],
+    risk: 5,
+    lpSymbol: 'MIS-WBTC LP',
+    lpAddresses: {
+      1666700000: '0x40e10c0edf8d412ce9d62cfe98cc0958eefaea94',
+      1666600000: '0x40e10c0edf8d412ce9d62cfe98cc0958eefaea94', // ( MIS-UST LP)
+    },
+    tokenSymbol: 'WBTC',
+    tokenAddresses: {
+      1666700000: '0x3095c7557bcb296ccc6e363de01b760ba031f2d9',
+      1666600000: '0x3095c7557bcb296ccc6e363de01b760ba031f2d9',
+    },
+    quoteTokenSymbol: QuoteToken.MIS,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
+    pid:labo.pids.pidList[5],
+    risk: 5,
+    lpSymbol: 'MIS-JEWEL LP',
+    lpAddresses: {
+      1666700000: '0x751606585fcaa73bf92cf823b7b6d8a0398a1c99',
+      1666600000: '0x751606585fcaa73bf92cf823b7b6d8a0398a1c99', // ( MIS-UST LP)
+    },
+    tokenSymbol: 'JEWEL',
+    tokenAddresses: {
+      1666700000: '0x72cb10c6bfa5624dd07ef608027e366bd690048f',
+      1666600000: '0x72cb10c6bfa5624dd07ef608027e366bd690048f',
+    },
+    quoteTokenSymbol: QuoteToken.MIS,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
     pid:labo.pids.pidList[1],
     risk: 3,
     lpSymbol: 'ONE-UST LP',
