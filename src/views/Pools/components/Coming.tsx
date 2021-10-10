@@ -88,7 +88,7 @@ const Coming: React.FC = () => {
             'borderRadius': '5px'
           }}
         >
-          {TranslateString(418, 'Apply Now')}
+          {TranslateString(4128, 'Apply')}
         </Button>
 
 
