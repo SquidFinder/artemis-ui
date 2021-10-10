@@ -16,7 +16,7 @@ import { useSousHarvest } from 'hooks/useHarvest'
 import Balance from 'components/Balance'
 import { QuoteToken, PoolCategory } from 'config/constants/types'
 import { Pool } from 'state/types'
-import { FaClock, FaCube, FaCubes, FaFire, FaFlask, FaLightbulb, FaLock, FaMountain, FaTractor } from 'react-icons/fa'
+import { FaClock, FaCube, FaCubes, FaFire, FaFlask, FaLightbulb, FaLock, FaMountain, FaScroll, FaTractor } from 'react-icons/fa'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
 import CompoundModal from './CompoundModal'
@@ -169,12 +169,12 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
 
 
         <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaCubes/> APR</span>
+          <span><FaMountain/> APR</span>
           <Quote>{APR}%</Quote>
         </Flex>
 
         <Flex justifyContent='space-between' marginTop='6px'>
-        <span><FaCubes/> TVL</span>
+        <span><FaScroll/> TVL</span>
         <Quote>${TVL}</Quote>
       </Flex>
           <Flex justifyContent='space-between' marginTop='6px'>

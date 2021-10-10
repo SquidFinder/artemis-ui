@@ -118,6 +118,8 @@ const CardFooter: React.FC<Props> = ({
 
         <Details>
 
+
+
           <Flex justifyContent='space-between' marginTop='10px'>
             <span><FaCube/> {tokenName}/Block </span>
             <Balance fontSize="16px" value={0.22} />
