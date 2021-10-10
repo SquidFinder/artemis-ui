@@ -24,6 +24,7 @@ interface Props {
   blocksRemaining: number
   isFinished: boolean
   blocksUntilStart: number
+  tokenPerBlock?: number
   poolCategory: PoolCategory
   tokenPoolAddress: string
   quoteTokenPoolAddress: string
@@ -90,6 +91,7 @@ const CardFooter: React.FC<Props> = ({
   blocksRemaining,
   isFinished,
   blocksUntilStart,
+  tokenPerBlock,
   poolCategory,
   tokenPoolAddress,
   quoteTokenPoolAddress,
@@ -118,7 +120,7 @@ const CardFooter: React.FC<Props> = ({
 
           <Flex justifyContent='space-between' marginTop='10px'>
             <span><FaCube/> {tokenName}/Block </span>
-            <Balance fontSize="16px" value={0.21} />
+            <Balance fontSize="16px" value={0.22} />
           </Flex>
 
 

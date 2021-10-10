@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit'
 import poolsConfig from 'config/constants/pools'
-import { fetchPoolsBlockLimits, fetchPoolsTotalStatking } from './fetchPools'
+import {fetchPoolsBlockLimits, fetchPoolsQuoteTokenPerLp, fetchPoolsTotalStatking} from './fetchPools'
 import {
   fetchPoolsAllowance,
   fetchUserBalances,
@@ -45,13 +45,16 @@ export const { setPoolsPublicData, setPoolsUserData, updatePoolsUserData } = Poo
 export const fetchPoolsPublicDataAsync = () => async (dispatch) => {
   const blockLimits = await fetchPoolsBlockLimits()
   const totalStakings = await fetchPoolsTotalStatking()
+  const quoteTokenPerLps = await fetchPoolsQuoteTokenPerLp()
 
   const liveData = poolsConfig.map((pool) => {
     const blockLimit = blockLimits.find((entry) => entry.sousId === pool.sousId)
     const totalStaking = totalStakings.find((entry) => entry.sousId === pool.sousId)
+    const quoteTokenPerLp = quoteTokenPerLps.find((entry) => entry.sousId === pool.sousId)
     return {
       ...blockLimit,
       ...totalStaking,
+      ...quoteTokenPerLp
     }
   })
 

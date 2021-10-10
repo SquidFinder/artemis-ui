@@ -38,6 +38,36 @@ export const fetchPoolsBlockLimits = async () => {
   })
 }
 
+export const fetchPoolsQuoteTokenPerLp = async () => {
+  const nonBnbPools = poolsConfig.filter((p) => p.stakingTokenName !== QuoteToken.BNB)
+
+  const callsNonBnbPools = nonBnbPools.map((poolConfig) => {
+    return {
+      address: poolConfig.quoteTokenPoolAddress,
+      name: 'balanceOf',
+      params: [poolConfig.stakingTokenAddress],
+    }
+  })
+  const callsTotalSupply = nonBnbPools.map((poolConfig) => {
+    return {
+      address: poolConfig.stakingTokenAddress,
+      name: 'totalSupply',
+      params: [],
+    }
+  })
+
+  const nonBnbPoolsTotalStaked = await multicall(cakeABI, callsNonBnbPools)
+  const totalSupplys = await multicall(cakeABI, callsTotalSupply)
+
+  return [
+    ...nonBnbPools.map((p, index) => ({
+      sousId: p.sousId,
+      quoteTokenPerLp: new BigNumber(nonBnbPoolsTotalStaked[index]).div(totalSupplys[index]).toJSON(),
+    })),
+  ]
+}
+
+
 export const fetchPoolsTotalStatking = async () => {
   const nonBnbPools = poolsConfig.filter((p) => p.stakingTokenName !== QuoteToken.BNB)
   const bnbPool = poolsConfig.filter((p) => p.stakingTokenName === QuoteToken.BNB)

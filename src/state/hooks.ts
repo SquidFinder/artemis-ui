@@ -16,7 +16,7 @@ export const useFetchPublicData = () => {
   const { slowRefresh } = useRefresh()
   useEffect(() => {
     dispatch(fetchFarmsPublicDataAsync())
-    // dispatch(fetchPoolsPublicDataAsync())
+    dispatch(fetchPoolsPublicDataAsync())
   }, [dispatch, slowRefresh])
 }
 
@@ -119,6 +119,19 @@ export const usePriceBnbBusd = (): BigNumber => {
 
 //   return new BigNumber(3);
 // }
+
+export const usePriceTranq = (): BigNumber => {
+  const priceMis = usePriceCakeBusd();
+  const farm = useFarmFromPid(3);
+  // dispatch(fetchLaboPriceAsync());
+  // const price = useSelector((state: State) => state.farms.price)
+  // if (!labo.fetch.fetchAutomatic){
+  //   return ( !labo.fetch.fetchPriceCustom ? new BigNumber(farm.tokenPriceVsQuote) : new BigNumber(price))
+  // }
+
+  // return ( !( price ? price.isFinite : false ) ? new BigNumber(farm.tokenPriceVsQuote) : new BigNumber(price))
+  return new BigNumber(priceMis).times(farm.tokenPriceVsQuote);
+}
 
 export const usePriceCakeBusd = (): BigNumber => {
   // const pid = 1 // CAKE-BNB LP
