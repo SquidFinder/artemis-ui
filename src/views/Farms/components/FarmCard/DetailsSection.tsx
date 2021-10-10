@@ -78,7 +78,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
       </Flex>
 
       <Flex justifyContent="flex-start">
-        <StyledLinkExternal external href='https://vfat.tools/harmony/' bold={false} style={{"color": "#4c68ef"}}>
+        <StyledLinkExternal external href='https://vfat.tools/harmony/artemisprotocol/' bold={false} style={{"color": "#4c68ef"}}>
           {TranslateString(999, 'More on VFAT')}
         </StyledLinkExternal>
       </Flex>
