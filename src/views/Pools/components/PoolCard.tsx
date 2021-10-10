@@ -165,10 +165,12 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         */}
 
 
-        <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaFire/> Deposit Fee</span>
-          <Quote>{TranslateString(10006, '0%')}</Quote>
-        </Flex>   
+
+
+          <Flex justifyContent='space-between' marginTop='6px'>
+          <span><FaCubes/> Blocks Remaining</span>
+          <Quote>{blocksRemaining}</Quote>
+        </Flex>
 
         <Divider />
 
@@ -188,10 +190,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
                 onClick={onPresentCompound}/>)} 
         </Flex>
 
-        <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaCubes/> Blocks Remaining</span>
-          <Quote>{blocksRemaining}</Quote>
-        </Flex>
+
 
         {/* {!isOldSyrup ? (
           <BalanceAndCompound>

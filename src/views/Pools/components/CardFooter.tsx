@@ -117,13 +117,10 @@ const CardFooter: React.FC<Props> = ({
         <Details>
 
           <Flex justifyContent='space-between' marginTop='10px'>
-          <span><FaCoins/> Total {tokenName} </span>
-          <Balance fontSize="16px" value={200000} />
+            <span><FaCube/> {tokenName} per block </span>
+            <Balance fontSize="16px" value={0.21} />
           </Flex>
-          <Flex justifyContent='space-between' marginTop='10px'>
-          <span><FaCube/> {tokenName} per block </span>
-          <Balance fontSize="16px" value={0.21} />
-          </Flex>
+
 
           <LinkExternal href={projectLink} target="_blank">
             {TranslateString(4212, 'About the Project')}
