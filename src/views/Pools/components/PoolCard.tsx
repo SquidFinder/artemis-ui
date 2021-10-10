@@ -168,14 +168,14 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
 
 
           <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaCubes/> Blocks Remaining</span>
-          <Quote>{blocksRemaining}</Quote>
+          <span><FaCubes/> Ends In</span>
+          <Quote>{blocksRemaining} Blocks</Quote>
         </Flex>
 
         <Divider />
 
         <Flex justifyContent='space-between' marginTop='25px'>
-          <span><FaTractor/> Your Stake</span>
+          <span><FaTractor/> Deposited LP</span>
           <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
         </Flex>
 
@@ -245,7 +245,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
               </>
             ))}
 
-<div style={{ marginTop: '17px', display: 'flex', alignItems: 'center', marginLeft:'15px' }}>
+<div style={{ marginTop: '20px', display: 'flex', alignItems: 'center', marginLeft:'15px' }}>
           {account && harvest && !isOldSyrup && (
             <Button
               disabled={!earnings.toNumber() || pendingTx}
@@ -256,8 +256,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
               }}
               style={{
                 'borderRadius': '5px',
-                'height': '42px',
-                'width': '103px',
+                'height': '46px',
+                'width': '110px',
                 'color': 'white'
               }}
             >

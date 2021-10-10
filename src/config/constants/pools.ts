@@ -13,7 +13,7 @@ const pools: PoolConfig[] = [
       1666700000: '0xC2B1FC77e49BE0a99520EAd73da3a76AF533482D',
       1666600000: '0xC2B1FC77e49BE0a99520EAd73da3a76AF533482D',
     },
-    poolCategory: PoolCategory.COMMUNITY,
+    poolCategory: PoolCategory.CORE,
     projectLink: 'https://www.tranquil.finance/',
     harvest: true,
     tokenPerBlock: '0.22',
