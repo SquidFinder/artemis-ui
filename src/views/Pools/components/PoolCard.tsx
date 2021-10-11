@@ -190,7 +190,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         </Flex>
 
         <Flex marginTop='2px' justifyContent='space-between'>
-          <span><FaMountain/> Pending {tokenName}</span>
+          <span><FaSeedling/> Pending {tokenName}</span>
           <Balance value={getBalanceNumber(earnings, tokenDecimals)} isDisabled={isFinished} />
 
           {sousId === 0 && account && harvest && (
@@ -226,7 +226,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           {account &&
             (needsApproval && !isOldSyrup ? (
               <div style={{ flex: 1 }}>
-                <Button disabled={isFinished || requestedApproval} marginTop='12px' onClick={handleApprove} fullWidth >
+                <Button disabled={isFinished || requestedApproval} marginTop='20px' onClick={handleApprove} fullWidth >
                   Approve
                 </Button>
               </div>

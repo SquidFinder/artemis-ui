@@ -107,7 +107,7 @@ const CardFooter: React.FC<Props> = ({
     <StyledFooter isFinished={isFinished}>
       <Row>
         <FlexFull>
-          <Tag />
+          {poolCategory} Pool
         </FlexFull>
         <ExpandableSectionButton onClick={handleClick}>
           {isOpen ? 'Details' : 'Details'} <Icon />
@@ -128,9 +128,8 @@ const CardFooter: React.FC<Props> = ({
           <LinkExternal href={projectLink} target="_blank">
             {TranslateString(4212, 'About the Project')}
           </LinkExternal>
-
           <LinkExternal href={`https://app.defikingdoms.com/#/add/${tokenPoolAddress}/${quoteTokenPoolAddress}`} target="_blank">
-            {TranslateString(4212, 'Get LP Tokens')}
+            {TranslateString(4212, 'Get')} MIS-{tokenName}
           </LinkExternal>
 
         </Details>
