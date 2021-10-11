@@ -184,7 +184,7 @@ const Farm: React.FC = () => {
 
       <FlexLayout>
           <Feature >
-            <FaProjectDiagram /><br />
+            <FaProjectDiagram /><br /> Artemis Incubator
 
 
 

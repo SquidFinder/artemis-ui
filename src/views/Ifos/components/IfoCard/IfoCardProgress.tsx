@@ -46,6 +46,8 @@ const IfoCardProgress: React.FC<IfoCardProgressProps> = ({ progress, launchDate,
             </Link>
           </Text>
         </Item>
+        
+        {/*
         <Item>
         <Display bold><FaHourglassEnd/> {TranslateString(5822, 'Presale End')}</Display>
            <Text>
@@ -61,6 +63,7 @@ const IfoCardProgress: React.FC<IfoCardProgressProps> = ({ progress, launchDate,
              </Link>
           </Text>
         </Item>
+        */}
       <Progress primaryStep={progress} />
       
     </StyledProgress>

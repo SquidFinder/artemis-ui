@@ -11,6 +11,7 @@ import { getBalanceNumber } from 'utils/formatBalance'
 import LabelButton from './LabelButton'
 import ContributeModal from './ContributeModal'
 
+
 export interface Props {
   address: string
   currency: string
@@ -94,7 +95,7 @@ const IfoCardContribute: React.FC<Props> = ({
       <LabelButton
         disabled={pendingTx || userInfo.claimed}
         buttonLabel={isFinished ? 'Claim' : 'Contribute'}
-        label={isFinished ? 'Your tokens to claim' : `Your contribution (${currency})`}
+        label={isFinished ? '' : ``}
         value={
           // eslint-disable-next-line no-nested-ternary
           isFinished
@@ -107,8 +108,8 @@ const IfoCardContribute: React.FC<Props> = ({
       />
       <Text fontSize="14px" color="textSubtle">
         {isFinished
-          ? `You'll be refunded any excess tokens when you claim`
-          : `${percentOfUserContribution.toFixed(5)}% of total`}
+          ? ``
+          : `Your Contribution (${currency}) - ${percentOfUserContribution.toFixed(5)}% Of Total`}
       </Text>
     </>
   )
