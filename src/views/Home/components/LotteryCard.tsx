@@ -106,7 +106,7 @@ const FarmedStakingCard = () => {
         </Title>
 
         <Block>
-          <LinkExternal fontSize='14px' href='https://game.defikingdoms.com/#/marketplace?outputCurrency=0xd74433b187cf0ba998ad9be3486b929c76815215'>{TranslateString(999, 'Defi Kingdoms')}</LinkExternal>
+          <LinkExternal fontSize='14px' href='https://app.defikingdoms.com/#/marketplace?outputCurrency=0xd74433b187cf0ba998ad9be3486b929c76815215'>{TranslateString(999, 'Defi Kingdoms')}</LinkExternal>
         </Block>
 
         <Block>
