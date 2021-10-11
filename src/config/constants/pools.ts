@@ -2,7 +2,7 @@ import { PoolConfig, QuoteToken, PoolCategory } from './types'
 
 const pools: PoolConfig[] = [
   {
-    sousId: 0,
+    sousId: 1,
     tokenName: 'TRANQ',
     quoteTokenSymbol: QuoteToken.MIS,
     stakingTokenName: QuoteToken.MISTRANQ,
@@ -15,7 +15,7 @@ const pools: PoolConfig[] = [
       1666700000: '0xC2B1FC77e49BE0a99520EAd73da3a76AF533482D',
       1666600000: '0xC2B1FC77e49BE0a99520EAd73da3a76AF533482D',
     },
-    poolCategory: PoolCategory.CORE,
+    poolCategory: PoolCategory.COMMUNITY,
     projectLink: 'https://www.tranquil.finance/',
     harvest: true,
     tokenPerBlock: '0.22',
@@ -25,8 +25,8 @@ const pools: PoolConfig[] = [
     endBlock: 18903700,
     tokenDecimals: 18,
    },
-   /* {
-     sousId: 1,
+   {
+    sousId: 2,
     tokenName: 'XYA',
     quoteTokenSymbol: QuoteToken.MIS,
     stakingTokenName: QuoteToken.MISXYA,
@@ -43,12 +43,12 @@ const pools: PoolConfig[] = [
     projectLink: 'https://www.freyala.com/',
     harvest: true,
     tokenPerBlock: '0.1',
-    sortOrder: 4,
+    sortOrder: 0,
     isFinished: false,
     startBlock: 17953943,
     endBlock: 18554800,
     tokenDecimals: 18,
-   }, */
+   }, 
 ]
 
 export default pools
