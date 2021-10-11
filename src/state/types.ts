@@ -23,6 +23,9 @@ export interface Pool extends PoolConfig {
   totalStaked?: BigNumber
   tvl?: BigNumber
   quoteTokenPerLp?: BigNumber
+  quoteTokenAmount?: BigNumber
+  tokenAmount?: BigNumber
+  tokenPriceVsQuote?: BigNumber
   startBlock?: number
   endBlock?: number
   userData?: {
