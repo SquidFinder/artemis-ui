@@ -10,7 +10,15 @@ import partition from 'lodash/partition'
 import useI18n from 'hooks/useI18n'
 import useBlock from 'hooks/useBlock'
 import { getBalanceNumber } from 'utils/formatBalance'
-import {useFarms, usePriceBnbBusd, usePools, usePrices, getTotalValueFromQuoteTokens, usePriceTranq} from 'state/hooks'
+import {
+  useFarms,
+  usePriceBnbBusd,
+  usePools,
+  usePrices,
+  getTotalValueFromQuoteTokens,
+  usePriceTranq,
+  lookupPrice
+} from 'state/hooks'
 import { QuoteToken, PoolCategory } from 'config/constants/types'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
@@ -123,22 +131,17 @@ const Farm: React.FC = () => {
   }
 
   const poolsWithApy = pools.map((pool) => {
-    // const isBnbPool = pool.poolCategory === PoolCategory.BINANCE
-    const rewardTokenFarm = farms.find((f) => f.tokenSymbol === pool.tokenName)
-    const stakingTokenFarm = farms.find((s) => s.tokenSymbol === pool.stakingTokenName)
 
-
-    // console.log("priceTranq", priceTranq && priceTranq.toNumber())
     const quoteTokens = new BigNumber(pool.quoteTokenPerLp).times(pool.totalStaked).div(new BigNumber(10).pow(18))
     const tvl = getTotalValueFromQuoteTokens(quoteTokens, pool.quoteTokenSymbol, prices)
 
-    // TODO - this won't work for other pools
-    // TODO - but we do have code that can find this already in the usePrices. Will do later.
-    const rewardTokenPrice = priceTranq
+    const rewardTokenPrice = lookupPrice(pool.tokenName, prices)
+    // console.log("price", pool.tokenName, rewardTokenPrice && rewardTokenPrice.toNumber())
 
     const totalRewardPricePerYear = rewardTokenPrice.times(pool.tokenPerBlock).times(BLOCKS_PER_YEAR)
     // const totalStakingTokenInPool = stakingTokenPriceInBNB.times(getBalanceNumber(pool.totalStaked))
     const apy = totalRewardPricePerYear.div(tvl).times(100)
+    // console.log("TVL", pool.stakingTokenName, tvl && tvl.toNumber(), apy && apy.toNumber())
 
     return {
       ...pool,

@@ -56,6 +56,8 @@ export enum QuoteToken {
   'MISONE' = 'MIS-ONE',
   'MISTRANQ' = 'MIS-TRANQ',
   'MISXYA' = 'MIS-XYA',
+  'TRANQ' = 'TRANQ',
+  'XYA' = 'XYA'
 }
 
 export enum PoolCategory {

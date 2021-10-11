@@ -1,12 +1,11 @@
 import BigNumber from 'bignumber.js'
-import { useEffect, useMemo } from 'react'
-import labo  from 'config/constants/labo'
-import { useQuery, gql } from '@apollo/client';
-import { useSelector, useDispatch } from 'react-redux'
+import {useEffect} from 'react'
+import labo from 'config/constants/labo'
+import {useDispatch, useSelector} from 'react-redux'
 import useRefresh from 'hooks/useRefresh'
-import { fetchFarmsPublicDataAsync, fetchPoolsPublicDataAsync, fetchPoolsUserDataAsync, fetchLaboPriceAsync } from './actions'
-import { State, Farm, Pool } from './types'
-import { QuoteToken } from '../config/constants/types'
+import {fetchFarmsPublicDataAsync, fetchPoolsPublicDataAsync, fetchPoolsUserDataAsync} from './actions'
+import {Farm, Pool, State} from './types'
+import {QuoteToken} from '../config/constants/types'
 
 const ZERO = new BigNumber(0)
 const TEN_POW_18 = new BigNumber(10).pow(18)
@@ -138,6 +137,12 @@ export const usePriceTranq = (): BigNumber => {
   return new BigNumber(priceMis).times(farm.tokenPriceVsQuote);
 }
 
+export const usePriceXya = (): BigNumber => {
+  const priceMis = usePriceCakeBusd();
+  const pool = usePoolFromPid(2)
+  return new BigNumber(priceMis).times(pool.tokenPriceVsQuote);
+}
+
 export const usePriceCakeBusd = (): BigNumber => {
   // const pid = 1 // CAKE-BNB LP
   // const bnbPriceUSD = usePriceBnbBusd()
@@ -159,13 +164,28 @@ export const usePriceCakeBusd = (): BigNumber => {
 export const usePrices = () => {
   const misPrice = usePriceCakeBusd()
   const onePrice = usePriceBnbBusd()
+  const tranqPrice = usePriceTranq()
+  const xyaPrice = usePriceXya()
 
-  return {
-    MIS: misPrice,
-    CAKE: misPrice,
-    ONE: onePrice
-  }
+  return [
+      {name: QuoteToken.MIS, price: misPrice},
+      {name: QuoteToken.CAKE, price: misPrice},
+      {name: QuoteToken.ONE, price: onePrice},
+      {name: QuoteToken.TRANQ, price: tranqPrice},
+      {name: QuoteToken.XYA, price: xyaPrice},
+  ]
 }
+
+export const lookupPrice = (tokenName, prices) => {
+  // lookup a specific price from usePrices output
+  const tokenPrice = prices.find(f => f.name === tokenName)
+  if (tokenPrice) {
+    return tokenPrice.price
+  }
+  console.log("ERROR: No price found for", tokenName)
+  return new BigNumber(0)
+}
+
 
 export const getTotalValueFromQuoteTokens = (quoteTokenAmount, quoteToken, prices) => {
   // WARNING: Needs to be updated for single-staking pools
@@ -174,10 +194,12 @@ export const getTotalValueFromQuoteTokens = (quoteTokenAmount, quoteToken, price
     return new BigNumber(2).times(quoteTokenAmount)
   }
   if (quoteToken === QuoteToken.ONE) {
-    return new BigNumber(2).times(quoteTokenAmount).times(prices.ONE)
+    const price = lookupPrice(QuoteToken.ONE, prices)
+    return new BigNumber(2).times(quoteTokenAmount).times(price)
   }
   if (quoteToken === QuoteToken.MIS) {
-    return new BigNumber(2).times(quoteTokenAmount).times(prices.MIS)
+    const price = lookupPrice(QuoteToken.MIS, prices)
+    return new BigNumber(2).times(quoteTokenAmount).times(price)
   }
   console.log("ERROR: NO PRICE FOUND FOR QuoteToken:", quoteToken)
   return new BigNumber(0)
