@@ -321,6 +321,22 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.cake,
   },
   {
+    pid:labo.pids.pidList[7],
+    risk: 5,
+    lpSymbol: 'MIS-FOX LP',
+    lpAddresses: {
+      1666700000: '0xe9425769e13d3f928c483726de841999648e9cfd',
+      1666600000: '0xe9425769e13d3f928c483726de841999648e9cfd', // ( MIS-UST LP)
+    },
+    tokenSymbol: 'FOX',
+    tokenAddresses: {
+      1666700000: '0x0159ed2e06ddcd46a25e74eb8e159ce666b28687',
+      1666600000: '0x0159ed2e06ddcd46a25e74eb8e159ce666b28687',
+    },
+    quoteTokenSymbol: QuoteToken.MIS,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
     pid:labo.pids.pidList[1],
     risk: 3,
     lpSymbol: 'ONE-UST LP',

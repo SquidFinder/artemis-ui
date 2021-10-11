@@ -93,12 +93,12 @@ const labo = {
             3, // BNB-BUSD LP [3]
             4, // ONE-1ETH LP [4]
             5, // BTCB-BNB LP [4]
-            6, /* 3, // ETH-BNB LP [5]
-            4, // DAI-BUSD LP [6]
-            5, // USDC-BUSD LP [7]
-            6, // DOT-BNB LP [8]
-            7, // CAKE-BUSD LP [9]
-            8, // CAKE-BNB LP [10] */
+            6, // ETH-BNB LP [5]
+            7, // DAI-BUSD LP [6]
+            8, // USDC-BUSD LP [7]
+            9, // DOT-BNB LP [8]
+            10, // CAKE-BUSD LP [9]
+            11, // CAKE-BNB LP [10] */
             // pidLabo, // Labo [3]
             /* 10, // BUSD [12]
             11, // WBNB [13]
