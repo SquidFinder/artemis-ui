@@ -295,14 +295,14 @@ const NavBar = (props) => {
               <li className="web3li">
                     <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href='https://game.defikingdoms.com/#/marketplace?outputCurrency=0xd74433b187cf0ba998ad9be3486b929c76815215' className="nav-links connect">
                       <Button style={{'fontSize': '15px', 'borderRadius': '15px', 'width': '100% !important'}}>
-                        <b>Get MIS</b>
+                        <b>Swap</b>
                       </Button>
                     </a>
                </li>
 
 
                 <li className="web3li">
-                  <a target="_blank" rel="noreferrer" href="https://info.defikingdoms.com/token/0xd74433b187cf0ba998ad9be3486b929c7681521" className="nav-links price">
+                  <a target="_blank" rel="noreferrer" href="https://info.defikingdoms.com/token/0xd74433b187cf0ba998ad9be3486b929c76815215" className="nav-links price">
                   <Price
                     style={{ 
                       marginRight: '0px',
