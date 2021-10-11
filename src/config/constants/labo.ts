@@ -93,7 +93,7 @@ const labo = {
             3, // BNB-BUSD LP [3]
             4, // ONE-1ETH LP [4]
             5, // BTCB-BNB LP [4]
-            /* 3, // ETH-BNB LP [5]
+            6, /* 3, // ETH-BNB LP [5]
             4, // DAI-BUSD LP [6]
             5, // USDC-BUSD LP [7]
             6, // DOT-BNB LP [8]
