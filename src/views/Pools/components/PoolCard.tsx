@@ -16,7 +16,7 @@ import { useSousHarvest } from 'hooks/useHarvest'
 import Balance from 'components/Balance'
 import { QuoteToken, PoolCategory } from 'config/constants/types'
 import { Pool } from 'state/types'
-import { FaClock, FaCube, FaCubes, FaFire, FaFlask, FaLightbulb, FaLock, FaMountain, FaScroll, FaTractor } from 'react-icons/fa'
+import { FaClock, FaCube, FaCubes, FaFire, FaFlask, FaLightbulb, FaLock, FaMountain, FaScroll, FaSeedling, FaTractor } from 'react-icons/fa'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
 import CompoundModal from './CompoundModal'
@@ -149,7 +149,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
 
       <div style={{padding: '34px'}}>
 
-        <Image src={`/images/pools/${tokenName}.svg`} width={300} height={140}>w</Image>
+          <Image src={`/images/Incubator/${tokenName}.svg`} width={300} height={140}>w</Image>
 
         <Divider2/>
 
