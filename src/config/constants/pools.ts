@@ -18,7 +18,7 @@ const pools: PoolConfig[] = [
     poolCategory: PoolCategory.COMMUNITY,
     projectLink: 'https://www.tranquil.finance/',
     harvest: true,
-    tokenPerBlock: '0.22',
+    tokenPerBlock: '0.21',
     sortOrder: 1,
     isFinished: false,
     startBlock: 17996500,
@@ -31,10 +31,10 @@ const pools: PoolConfig[] = [
     quoteTokenSymbol: QuoteToken.MIS,
     stakingTokenName: QuoteToken.MISXYA,
     stakingTokenAddress: '0xE22297CC3452aae66cEE6ED1cb437e96219c3319',
-     // this is XYA
-     tokenPoolAddress: '0x9b68bf4bf89c115c721105eaf6bd5164afcc51e4',
      // this is MIS
      quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is XYA
+     tokenPoolAddress: '0x9b68bf4bf89c115c721105eaf6bd5164afcc51e4',
     contractAddress: {
       1666700000: '0x5aaf4bbECFf610186aeA98218f697029D5a77597',
       1666600000: '0x5aaf4bbECFf610186aeA98218f697029D5a77597',
