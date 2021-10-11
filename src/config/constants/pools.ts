@@ -2,6 +2,7 @@ import { PoolConfig, QuoteToken, PoolCategory } from './types'
 
 const pools: PoolConfig[] = [
   {
+    sousId: 0,
     tokenName: 'TRANQ',
     quoteTokenSymbol: QuoteToken.MIS,
     stakingTokenName: QuoteToken.MISTRANQ,
@@ -25,14 +26,15 @@ const pools: PoolConfig[] = [
     tokenDecimals: 18,
    },
    /* {
+     sousId: 1,
     tokenName: 'XYA',
     quoteTokenSymbol: QuoteToken.MIS,
     stakingTokenName: QuoteToken.MISXYA,
     stakingTokenAddress: '0xE22297CC3452aae66cEE6ED1cb437e96219c3319',
-    // this is XYA
-    quoteTokenPoolAddress: '0x9b68bf4bf89c115c721105eaf6bd5164afcc51e4',
-    // this is MIS
-    tokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is MIS
+     tokenPoolAddress: '0x9b68bf4bf89c115c721105eaf6bd5164afcc51e4',
+     // this is XYA
+     quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
     contractAddress: {
       1666700000: '0x5aaf4bbECFf610186aeA98218f697029D5a77597',
       1666600000: '0x5aaf4bbECFf610186aeA98218f697029D5a77597',
