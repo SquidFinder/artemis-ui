@@ -104,7 +104,7 @@ const NavBar = (props) => {
             <ul className="dropdown-items">
 
                 <li>
-                  <a target="_blanK" rel="noreferrer" href="https://artemisprotocol.gitbook.io/artemis/" className="nav-links">
+                  <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/" className="nav-links">
                     <FaBook /> <span className="dditem">DOCS</span>
                   </a>
                 </li>
@@ -216,7 +216,7 @@ const NavBar = (props) => {
                             <ul className="dropdown-content dropdown-items">
 
                             <li>
-                                <a target="_blanK" rel="noreferrer" href="https://artemisprotocol.gitbook.io/artemis/" className="nav-links">
+                                <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/" className="nav-links">
                                 <FaBook /> <span className="dditem">DOCS</span>
                                 </a>
                               </li>
@@ -295,7 +295,7 @@ const NavBar = (props) => {
               <li className="web3li">
                     <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href='https://game.defikingdoms.com/#/marketplace?outputCurrency=0xd74433b187cf0ba998ad9be3486b929c76815215' className="nav-links connect">
                       <Button style={{'fontSize': '15px', 'borderRadius': '15px', 'width': '100% !important'}}>
-                        <b>Swap</b>
+                        <b>Get MIS</b>
                       </Button>
                     </a>
                </li>
