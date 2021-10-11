@@ -129,7 +129,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         const cakeRewardPerBlock = new BigNumber(farm.vikingPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
       
-        let apy = prices.MIS.times(cakeRewardPerYear);
+        let apy = new BigNumber(cakePrice).times(cakeRewardPerYear);
 
         const totalValue = getTotalValueFromQuoteTokens(farm.quoteTokenAmount, farm.quoteTokenSymbol, prices);
 
@@ -144,14 +144,14 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           key={farm.pid}
           farm={farm}
           removed={removed}
-          bnbPrice={prices.ONE}
-          cakePrice={prices.MIS}
+          bnbPrice={bnbPrice}
+          cakePrice={cakePrice}
           ethereum={ethereum}
           account={account}
         />
       ))
     },
-    [prices, account, ethereum],
+    [prices, cakePrice, bnbPrice, account, ethereum],
   )
 
   return (
