@@ -1,9 +1,9 @@
 import React from 'react'
-import { Route, useRouteMatch } from 'react-router-dom'
+import { Route, useRouteMatch, Link } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
-import { Heading, LinkExternal } from '@pancakeswap-libs/uikit'
+import { ButtonMenu, ButtonMenuItem, Heading, LinkExternal } from '@pancakeswap-libs/uikit'
 import { BLOCKS_PER_YEAR } from 'config'
 import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
@@ -152,6 +152,8 @@ const Farm: React.FC = () => {
   })
 
   const [finishedPools, openPools] = partition(poolsWithApy, (pool) => pool.isFinished)
+  const { url, isExact } = useRouteMatch()
+  const TranslateString = useI18n()
 
   return (
     <Page>
@@ -159,6 +161,16 @@ const Farm: React.FC = () => {
       <SvgHero>
         <object type="image/svg+xml" data="images/incubator.svg" width="600x">&nbsp;</object>
       </SvgHero>
+      <Wrapper>
+      <ButtonMenu activeIndex={isExact ? 0 : 1} size="sm">
+          <ButtonMenuItem as={Link} to={`${url}`} >
+            {TranslateString(698, 'Active')}
+          </ButtonMenuItem>
+          <ButtonMenuItem as={Link} to={`${url}/history`}>
+            {TranslateString(700, 'Inactive')}
+          </ButtonMenuItem>
+        </ButtonMenu>
+      </Wrapper>
       <Divider />
       <ActionsWrapper>
         <Blablabla >
@@ -201,6 +213,15 @@ const Hero = styled.div`
   flex-flow: row;
   justify-content: center;
   padding-bottom: 33px;
+`
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  margin-bottom: 25px;
+  
 `
 
 export default Farm
