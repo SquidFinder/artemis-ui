@@ -102,7 +102,11 @@ const NavBar = (props) => {
           <Accordion.Collapse eventKey="0">
             <Card.Body style={{"backgroundColor": "#161616", "border": "0"}}>
             <ul className="dropdown-items">
-
+            <li>
+                                <a target="_blanK" rel="noreferrer" href="https://artemischarts.northeurope.cloudapp.azure.com/" className="nav-links">
+                                <FaChartBar />  <span className="dditem">CHARTS</span>
+                                </a>
+                              </li>
                 <li>
                   <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/" className="nav-links">
                     <FaBook /> <span className="dditem">DOCS</span>
@@ -214,7 +218,11 @@ const NavBar = (props) => {
                               ABOUT
                             </Link>
                             <ul className="dropdown-content dropdown-items">
-
+                            <li>
+                                <a target="_blanK" rel="noreferrer" href="https://artemischarts.northeurope.cloudapp.azure.com/" className="nav-links">
+                                <FaChartBar />  <span className="dditem">CHARTS</span>
+                                </a>
+                              </li>
                             <li>
                                 <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/" className="nav-links">
                                 <FaBook /> <span className="dditem">DOCS</span>
@@ -302,7 +310,7 @@ const NavBar = (props) => {
 
 
                 <li className="web3li">
-                  <a target="_blank" rel="noreferrer" href="https://info.defikingdoms.com/token/0xd74433b187cf0ba998ad9be3486b929c76815215" className="nav-links price">
+                  <a target="_blank" rel="noreferrer" href="https://artemischarts.northeurope.cloudapp.azure.com/" className="nav-links price">
                   <Price
                     style={{ 
                       marginRight: '0px',
