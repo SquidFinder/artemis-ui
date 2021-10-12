@@ -65,7 +65,7 @@ const pools: PoolConfig[] = [
       1666600000: '0x5439dE99DF8e4279a87F1775601ba3Aaa952b4cb',
     },
     poolCategory: PoolCategory.COMMUNITY,
-    projectLink: 'https://www.freyala.com/',
+    projectLink: 'https://cosmicguild.one/',
     harvest: true,
     tokenPerBlock: '0.08',
     sortOrder: 0,
