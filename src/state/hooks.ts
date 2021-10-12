@@ -91,6 +91,12 @@ export const usePriceBnbBusd = (): BigNumber => {
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
 }
 
+export const usePriceMagic = (): BigNumber => {
+  const priceMis = usePriceCakeBusd();
+  const pool = usePoolFromPid(3)
+  return new BigNumber(priceMis).times(pool.tokenPriceVsQuote);
+}
+
 // export const fetchLaboPrice = (): BigNumber => {
 //   const query = `
 //   {ethereum(network: bsc){
@@ -126,7 +132,7 @@ export const usePriceBnbBusd = (): BigNumber => {
 
 export const usePriceTranq = (): BigNumber => {
   const priceMis = usePriceCakeBusd();
-  const farm = useFarmFromPid(3);
+  const farm = useFarmFromPid(1);
   // dispatch(fetchLaboPriceAsync());
   // const price = useSelector((state: State) => state.farms.price)
   // if (!labo.fetch.fetchAutomatic){
@@ -166,6 +172,7 @@ export const usePrices = () => {
   const onePrice = usePriceBnbBusd()
   const tranqPrice = usePriceTranq()
   const xyaPrice = usePriceXya()
+  const magicPrice = usePriceMagic()
 
   return [
       {name: QuoteToken.MIS, price: misPrice},
@@ -173,6 +180,7 @@ export const usePrices = () => {
       {name: QuoteToken.ONE, price: onePrice},
       {name: QuoteToken.TRANQ, price: tranqPrice},
       {name: QuoteToken.XYA, price: xyaPrice},
+      {name: QuoteToken.MAGIC, price: magicPrice},
   ]
 }
 
