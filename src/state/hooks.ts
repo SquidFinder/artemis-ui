@@ -97,6 +97,12 @@ export const usePriceMagic = (): BigNumber => {
   return new BigNumber(priceMis).times(pool.tokenPriceVsQuote);
 }
 
+export const usePriceLblox = (): BigNumber => {
+  const priceMis = usePriceCakeBusd();
+  const pool = usePoolFromPid(5)
+  return new BigNumber(priceMis).times(pool.tokenPriceVsQuote);
+}
+
 // export const fetchLaboPrice = (): BigNumber => {
 //   const query = `
 //   {ethereum(network: bsc){
@@ -174,6 +180,7 @@ export const usePrices = () => {
   const xyaPrice = usePriceXya()
   const magicPrice = usePriceMagic()
   const wonePrice = usePriceBnbBusd()
+  const lbloxPrice = usePriceLblox()
 
   return [
       {name: QuoteToken.MIS, price: misPrice},
@@ -183,6 +190,7 @@ export const usePrices = () => {
       {name: QuoteToken.XYA, price: xyaPrice},
       {name: QuoteToken.MAGIC, price: magicPrice},
       {name: QuoteToken.WONE, price: wonePrice},
+      {name: QuoteToken.LBLOX, price: lbloxPrice},
   ]
 }
 

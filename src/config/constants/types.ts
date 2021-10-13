@@ -61,6 +61,8 @@ export enum QuoteToken {
   'COSMIC' = 'COSMIC',
   'MISMAGIC' = 'MIS-MAGIC',
   'MAGIC' = 'MAGIC',
+  'MISLBLOX' = 'MIS-LBLOX',
+  'LBLOX' = 'LBLOX',
 }
 
 export enum PoolCategory {

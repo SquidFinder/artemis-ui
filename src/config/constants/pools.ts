@@ -93,12 +93,37 @@ const pools: PoolConfig[] = [
     projectLink: 'https://www.harmony.one/',
     harvest: true,
     tokenPerBlock: '0.076',
-    sortOrder: 9,
+    sortOrder: 0,
     isFinished: false,
     startBlock: 18132634,
     endBlock: 19039000,
     tokenDecimals: 18,
-   }, 
+   },
+   {
+    sousId: 5,
+    tokenName: 'LBLOX',
+    quoteTokenSymbol: QuoteToken.MIS,
+    stakingTokenName: QuoteToken.MISLBLOX,
+    // this is MIS-LBLOX
+    stakingTokenAddress: '0xde0cb446c75f05a87f8784fc2738a654ba6d81f3',
+     // this is MIS
+     quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is LBLOX
+     tokenPoolAddress: '0xd62bD801A1cb65532DeF9908c67B8C00f432C1bb',
+    contractAddress: {
+      1666700000: '0x5c75cBb9896e21b1A21118Fad5845D9139A7bff4',
+      1666600000: '0x5c75cBb9896e21b1A21118Fad5845D9139A7bff4',
+    },
+    poolCategory: PoolCategory.COMMUNITY,
+    projectLink: 'https://lootblocks.one/',
+    harvest: true,
+    tokenPerBlock: '33000',
+    sortOrder: 8,
+    isFinished: false,
+    startBlock: 18176482,
+    endBlock: 18781282,
+    tokenDecimals: 18,
+   },
 ]
 
 export default pools
