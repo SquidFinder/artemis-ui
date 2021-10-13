@@ -74,7 +74,7 @@ const pools: PoolConfig[] = [
     endBlock: 19002100,
     tokenDecimals: 18,
    },
-   /* {
+   {
     sousId: 4,
     tokenName: 'WONE',
     quoteTokenSymbol: QuoteToken.MIS,
@@ -98,7 +98,7 @@ const pools: PoolConfig[] = [
     startBlock: 18132634,
     endBlock: 19039000,
     tokenDecimals: 18,
-   }, */
+   }, 
 ]
 
 export default pools
