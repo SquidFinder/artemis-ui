@@ -132,9 +132,15 @@ const Farm: React.FC = () => {
 
   const poolsWithApy = pools.map((pool) => {
 
-    const quoteTokens = new BigNumber(pool.quoteTokenPerLp).times(pool.totalStaked).div(new BigNumber(10).pow(18))
+    let quoteTokens = new BigNumber(pool.quoteTokenPerLp).times(pool.totalStaked).div(new BigNumber(10).pow(18))
+    if (pool.sousId === 4 || pool.tokenName === pool.quoteTokenSymbol) {
+        // Handle single staking pools
+        quoteTokens = new BigNumber(pool.totalStaked).div(new BigNumber(10).pow(18)).div(2)
+    }
+
     const tvl = getTotalValueFromQuoteTokens(quoteTokens, pool.quoteTokenSymbol, prices)
 
+    // console.log("APY", pool, tvl && tvl.toNumber())
     const rewardTokenPrice = lookupPrice(pool.tokenName, prices)
     // console.log("price", pool.tokenName, rewardTokenPrice && rewardTokenPrice.toNumber())
 
