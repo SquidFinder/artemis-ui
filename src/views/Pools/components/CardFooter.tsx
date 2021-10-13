@@ -128,8 +128,9 @@ const CardFooter: React.FC<Props> = ({
           <LinkExternal href={projectLink} target="_blank">
             {TranslateString(4212, 'About the Project')}
           </LinkExternal>
+          
           <LinkExternal href={`https://app.defikingdoms.com/#/add/${tokenPoolAddress}/${quoteTokenPoolAddress}`} target="_blank">
-            {TranslateString(4212, 'Get')} MIS-{tokenName}
+            {TranslateString(4212, 'Get Tokens')}
           </LinkExternal>
 
         </Details>

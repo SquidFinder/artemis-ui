@@ -185,7 +185,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         <Divider />
 
         <Flex justifyContent='space-between' marginTop='25px'>
-          <span><FaTractor/> Deposited LP</span>
+          <span><FaTractor/> Deposited</span>
           <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
         </Flex>
 

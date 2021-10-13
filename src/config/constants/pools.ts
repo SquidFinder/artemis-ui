@@ -89,7 +89,7 @@ const pools: PoolConfig[] = [
       1666700000: '0xfA25b3b7060b2588eb95a396Ab72bDd99cEc556f',
       1666600000: '0xfA25b3b7060b2588eb95a396Ab72bDd99cEc556f',
     },
-    poolCategory: PoolCategory.COMMUNITY,
+    poolCategory: PoolCategory.CORE,
     projectLink: 'https://www.harmony.one/',
     harvest: true,
     tokenPerBlock: '0.076',
