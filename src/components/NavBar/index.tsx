@@ -103,6 +103,12 @@ const NavBar = (props) => {
             <Card.Body style={{"backgroundColor": "#161616", "border": "0"}}>
             <ul className="dropdown-items">
             <li>
+               <a target="_blanK" rel="noreferrer" href="https://gov.harmony.one/#/artemis" className="nav-links">
+                <FaVoteYea />  <span className="dditem">VOTE</span>
+               </a>
+           </li>
+
+            <li>
                                 <a target="_blanK" rel="noreferrer" href="https://artemischarts.northeurope.cloudapp.azure.com/" className="nav-links">
                                 <FaChartBar />  <span className="dditem">CHARTS</span>
                                 </a>
@@ -166,7 +172,7 @@ const NavBar = (props) => {
 
                           <li className="nav-tab">
                             <Link to="/earn" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                            <FaSeedling /><span className="dditem">EARN</span>
+                            <FaSeedling /><span className="dditem">ARTEMIS EARN</span>
                             </Link>
                           </li>
 
@@ -181,8 +187,8 @@ const NavBar = (props) => {
                             <FaRocket/><span className="dditem">ARTEMISPAD</span>
                             </Link>
                           </li>
-                        
 
+                        
                           <li className="nav-tab dropdown" id="wheelToggleDesktop">
                             <Link to="/" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                               <FaGamepad/> <span className="dditem">GAMES</span>
@@ -207,17 +213,18 @@ const NavBar = (props) => {
                             </ul>
                           </li>
 
-                          <li className="nav-tab">
-                            <Link to="/governance" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                            <FaVoteYea/><span className="dditem">VOTE</span>
-                            </Link>
-                          </li>
+
 
                           <li className="nav-tab dropdown" id="infoToggleDesktop">
                             <Link to="/" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                               ABOUT
                             </Link>
                             <ul className="dropdown-content dropdown-items">
+                            <li>
+                                <a target="_blanK" rel="noreferrer" href="https://gov.harmony.one/#/artemis" className="nav-links">
+                                <FaVoteYea />  <span className="dditem">VOTE</span>
+                                </a>
+                              </li>
                             <li>
                                 <a target="_blanK" rel="noreferrer" href="https://artemischarts.northeurope.cloudapp.azure.com/" className="nav-links">
                                 <FaChartBar />  <span className="dditem">CHARTS</span>

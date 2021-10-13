@@ -8,7 +8,7 @@ import useGetLotteryHasDrawn from 'hooks/useGetLotteryHasDrawn'
 import useTokenBalance from 'hooks/useTokenBalance'
 import { useMultiClaimLottery } from 'hooks/useBuyLottery'
 import { useTotalClaim } from 'hooks/useTickets'
-import { FaBroadcastTower, FaExchangeAlt, FaScroll, FaTicketAlt } from 'react-icons/fa'
+import { FaBroadcastTower, FaChartBar, FaExchangeAlt, FaScroll, FaTicketAlt, FaVoteYea } from 'react-icons/fa'
 import BuyModal from 'views/Lottery/components/TicketCard/BuyTicketModal'
 import CakeWinnings from './CakeWinnings'
 import LotteryJackpot from './LotteryJackpot'
@@ -102,16 +102,17 @@ const FarmedStakingCard = () => {
         <Divider />
 
         <Title>
-          <span><FaExchangeAlt/> Swap</span>
+          <span><FaVoteYea /> MISC</span>
         </Title>
-
         <Block>
-          <LinkExternal fontSize='14px' href='https://app.defikingdoms.com/#/marketplace?outputCurrency=0xd74433b187cf0ba998ad9be3486b929c76815215'>{TranslateString(999, 'Defi Kingdoms')}</LinkExternal>
+        <LinkExternal href='https://gov.harmony.one/#/artemis'> Governance</LinkExternal>
+        </Block>
+        <Block>
+        <LinkExternal href='https://artemischarts.northeurope.cloudapp.azure.com/'> Charts</LinkExternal>
         </Block>
 
-        <Block>
-          <LinkExternal fontSize='14px' href='https://app.defikingdoms.com/#/add/ONE'>{TranslateString(999, 'Add Liquidity')}</LinkExternal>
-        </Block>
+
+
 
 
       </CardBody>
