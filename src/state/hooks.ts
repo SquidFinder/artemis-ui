@@ -173,6 +173,7 @@ export const usePrices = () => {
   const tranqPrice = usePriceTranq()
   const xyaPrice = usePriceXya()
   const magicPrice = usePriceMagic()
+  const wonePrice = usePriceBnbBusd()
 
   return [
       {name: QuoteToken.MIS, price: misPrice},
@@ -181,6 +182,7 @@ export const usePrices = () => {
       {name: QuoteToken.TRANQ, price: tranqPrice},
       {name: QuoteToken.XYA, price: xyaPrice},
       {name: QuoteToken.MAGIC, price: magicPrice},
+      {name: QuoteToken.WONE, price: wonePrice},
   ]
 }
 
