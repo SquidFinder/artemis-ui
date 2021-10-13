@@ -102,7 +102,7 @@ const FarmedStakingCard = () => {
         <Divider />
 
         <Title>
-          <span><FaVoteYea /> MISC</span>
+          <span><FaVoteYea /> Misc</span>
         </Title>
         <Block>
         <LinkExternal href='https://gov.harmony.one/#/artemis'> Governance</LinkExternal>
