@@ -206,9 +206,9 @@ const NavBar = (props) => {
                                 </Link>
                               </li>
                               <li>
-                                <Link to="/launch" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                                <FaParachuteBox/><span className="dditem">CRATES</span>
-                                </Link>
+                                <a target="_blanK" rel="noreferrer" href="https://lootblocks.one/0x39B5Ef29332AFC37D618efE918A7e13c38358f94/11" className="nav-links">
+                                <FaParachuteBox />  <span className="dditem">CRATES</span>
+                                </a>
                               </li>
                             </ul>
                           </li>
