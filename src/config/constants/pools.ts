@@ -124,6 +124,31 @@ const pools: PoolConfig[] = [
     endBlock: 18781282,
     tokenDecimals: 18,
    },
+   {
+    sousId: 6,
+    tokenName: 'MIS',
+    quoteTokenSymbol: QuoteToken.MIS,
+    stakingTokenName: QuoteToken.MISCOINK,
+    // this is MIS-COINK
+    stakingTokenAddress: '0x7c0e36ca3d1ae25d26e259c3f19fef610f4a2ed2',
+     // this is MIS
+     quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is COINK
+     tokenPoolAddress: '0x4970417a897cc7ae812b9b8db34bb44833c26739',
+    contractAddress: {
+      1666700000: '0x483878Ce16745d5A9403faE2dF521997724E683B',
+      1666600000: '0x483878Ce16745d5A9403faE2dF521997724E683B',
+    },
+    poolCategory: PoolCategory.COMMUNITY,
+    projectLink: 'https://piggybank.farm/#/',
+    harvest: true,
+    tokenPerBlock: '0.00247',
+    sortOrder: 7,
+    isFinished: false,
+    startBlock: 18179363,
+    endBlock: 19388863,
+    tokenDecimals: 18,
+   },
 ]
 
 export default pools
