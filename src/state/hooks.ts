@@ -161,6 +161,12 @@ export const usePriceTroll = (): BigNumber => {
   return new BigNumber(priceMis).times(pool.tokenPriceVsQuote);
 }
 
+export const usePriceBtc = (): BigNumber => {
+  const priceMis = usePriceCakeBusd();
+  const pool = usePoolFromPid(8)
+  return new BigNumber(priceMis).times(pool.tokenPriceVsQuote);
+}
+
 export const usePriceCakeBusd = (): BigNumber => {
   // const pid = 1 // CAKE-BNB LP
   // const bnbPriceUSD = usePriceBnbBusd()
@@ -188,6 +194,7 @@ export const usePrices = () => {
   const wonePrice = usePriceBnbBusd()
   const lbloxPrice = usePriceLblox()
   const trollPrice = usePriceTroll()
+  const btcPrice = usePriceBtc()
 
   return [
       {name: QuoteToken.MIS, price: misPrice},
@@ -199,6 +206,7 @@ export const usePrices = () => {
       {name: QuoteToken.WONE, price: wonePrice},
       {name: QuoteToken.LBLOX, price: lbloxPrice},
       {name: QuoteToken.TROLL, price: trollPrice},
+      {name: QuoteToken.WBTC, price: btcPrice},
   ]
 }
 

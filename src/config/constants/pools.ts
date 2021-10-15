@@ -174,6 +174,31 @@ const pools: PoolConfig[] = [
     endBlock: 20640795,
     tokenDecimals: 18,
    },
+   /* {
+    sousId: 8,
+    tokenName: 'WBTC',
+    quoteTokenSymbol: QuoteToken.MIS,
+    stakingTokenName: QuoteToken.MIS,
+    // this is MIS
+    stakingTokenAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is MIS
+     quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is WBTC
+     tokenPoolAddress: '0x3095c7557bcb296ccc6e363de01b760ba031f2d9',
+    contractAddress: {
+      1666700000: '0x5A5A5f66b6a2513D61bb8539f8127D6F9664Ab1f',
+      1666600000: '0x5A5A5f66b6a2513D61bb8539f8127D6F9664Ab1f',
+    },
+    poolCategory: PoolCategory.CORE,
+    projectLink: 'https://www.bitcoin.com/',
+    harvest: true,
+    tokenPerBlock: '0.000000333',
+    sortOrder: 0,
+    isFinished: false,
+    startBlock: 18264298,
+    endBlock: 18864225,
+    tokenDecimals: 18,
+   }, */
 ]
 
 export default pools
