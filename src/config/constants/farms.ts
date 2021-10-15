@@ -352,6 +352,22 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.UST,
     quoteTokenAdresses: contracts.ust,
   },
+  {
+    pid:labo.pids.pidList[8],
+    risk: 5,
+    lpSymbol: '1USDC-UST LP',
+    lpAddresses: {
+      1666700000: '0x7a16b6d01f96fdc5dd085c686806ba20aece99ea',
+      1666600000: '0x7a16b6d01f96fdc5dd085c686806ba20aece99ea', // ( MIS-UST LP)
+    },
+    tokenSymbol: 'USDC',
+    tokenAddresses: {
+      1666700000: '0x985458e523db3d53125813ed68c274899e9dfab4',
+      1666600000: '0x985458e523db3d53125813ed68c274899e9dfab4',
+    },
+    quoteTokenSymbol: QuoteToken.UST,
+    quoteTokenAdresses: contracts.ust,
+  },
   /* {
     pid:labo.pids.pidList[3],
     risk: 3,

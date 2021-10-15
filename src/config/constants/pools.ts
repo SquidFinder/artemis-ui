@@ -151,7 +151,7 @@ const pools: PoolConfig[] = [
    },
    {
     sousId: 7,
-    tokenName: QuoteToken.TROLL,
+    tokenName: 'TROLL',
     quoteTokenSymbol: QuoteToken.MIS,
     stakingTokenName: QuoteToken.MISTROLL,
     // this is MIS-TROLL
