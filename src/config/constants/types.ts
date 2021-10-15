@@ -64,6 +64,8 @@ export enum QuoteToken {
   'MISLBLOX' = 'MIS-LBLOX',
   'LBLOX' = 'LBLOX',
   'MISCOINK' = 'MIS-COINK',
+  'TROLL' = 'TROLL',
+  'MISTROLL' = 'MIS-TROLL',
 }
 
 export enum PoolCategory {

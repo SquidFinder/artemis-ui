@@ -89,7 +89,7 @@ const pools: PoolConfig[] = [
       1666700000: '0xfA25b3b7060b2588eb95a396Ab72bDd99cEc556f',
       1666600000: '0xfA25b3b7060b2588eb95a396Ab72bDd99cEc556f',
     },
-    poolCategory: PoolCategory.COMMUNITY,
+    poolCategory: PoolCategory.CORE,
     projectLink: 'https://www.harmony.one/',
     harvest: true,
     tokenPerBlock: '0.076',
@@ -147,6 +147,31 @@ const pools: PoolConfig[] = [
     isFinished: false,
     startBlock: 18179363,
     endBlock: 19388863,
+    tokenDecimals: 18,
+   },
+   {
+    sousId: 7,
+    tokenName: QuoteToken.TROLL,
+    quoteTokenSymbol: QuoteToken.MIS,
+    stakingTokenName: QuoteToken.MISTROLL,
+    // this is MIS-TROLL
+    stakingTokenAddress: '0xc18772c8cb3e9091f8205512594a1eca7d462535',
+     // this is MIS
+     quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is XYA
+     tokenPoolAddress: '0x25dcee96fcd63ad88b812cce02b3fcf7d1504f2d',
+    contractAddress: {
+      1666700000: '0x0f182FB2bD1DA8217E0d7A71702CEbb61b50BE39',
+      1666600000: '0x0f182FB2bD1DA8217E0d7A71702CEbb61b50BE39',
+    },
+    poolCategory: PoolCategory.COMMUNITY,
+    projectLink: 'https://lootswap.finance/guilds/troll',
+    harvest: true,
+    tokenPerBlock: '0.33',
+    sortOrder: 6,
+    isFinished: false,
+    startBlock: 18221784,
+    endBlock: 20640795,
     tokenDecimals: 18,
    },
 ]
