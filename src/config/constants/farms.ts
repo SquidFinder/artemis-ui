@@ -337,6 +337,22 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.cake,
   },
   {
+    pid:labo.pids.pidList[9],
+    risk: 5,
+    lpSymbol: 'MIS-LUNA LP',
+    lpAddresses: {
+      1666700000: '0x5456fd0cfbc4cdd9a08c89da9cf09a6afc73dc28',
+      1666600000: '0x5456fd0cfbc4cdd9a08c89da9cf09a6afc73dc28', // ( MIS-UST LP)
+    },
+    tokenSymbol: 'LUNA',
+    tokenAddresses: {
+      1666700000: '0x95ce547d730519a90def30d647f37d9e5359b6ae',
+      1666600000: '0x95ce547d730519a90def30d647f37d9e5359b6ae',
+    },
+    quoteTokenSymbol: QuoteToken.MIS,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
     pid:labo.pids.pidList[1],
     risk: 3,
     lpSymbol: 'ONE-UST LP',

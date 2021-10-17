@@ -66,8 +66,8 @@ export enum QuoteToken {
   'MISCOINK' = 'MIS-COINK',
   'TROLL' = 'TROLL',
   'MISTROLL' = 'MIS-TROLL',
-  'WBTC' = 'WBTC',
-  'MISWBTC' = 'MIS-WBTC',
+  'MISLUNA' = 'MIS-LUNA',
+  'LUNA' = 'LUNA',
 }
 
 export enum PoolCategory {

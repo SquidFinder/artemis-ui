@@ -19,7 +19,7 @@ const pools: PoolConfig[] = [
     projectLink: 'https://www.tranquil.finance/',
     harvest: true,
     tokenPerBlock: '0.21',
-    sortOrder: 2,
+    sortOrder: 12,
     isFinished: false,
     startBlock: 17996500,
     endBlock: 18903700,
@@ -43,7 +43,7 @@ const pools: PoolConfig[] = [
     projectLink: 'https://www.freyala.com/',
     harvest: true,
     tokenPerBlock: '0.1',
-    sortOrder: 1,
+    sortOrder: 11,
     isFinished: false,
     startBlock: 17953943,
     endBlock: 18554800,
@@ -174,31 +174,31 @@ const pools: PoolConfig[] = [
     endBlock: 20640795,
     tokenDecimals: 18,
    },
-   /* {
+   {
     sousId: 8,
-    tokenName: 'WBTC',
+    tokenName: 'LUNA',
     quoteTokenSymbol: QuoteToken.MIS,
     stakingTokenName: QuoteToken.MIS,
     // this is MIS
     stakingTokenAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
      // this is MIS
      quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
-     // this is WBTC
-     tokenPoolAddress: '0x3095c7557bcb296ccc6e363de01b760ba031f2d9',
+     // this is LUNA
+     tokenPoolAddress: '0x95ce547d730519a90def30d647f37d9e5359b6ae',
     contractAddress: {
-      1666700000: '0x5A5A5f66b6a2513D61bb8539f8127D6F9664Ab1f',
-      1666600000: '0x5A5A5f66b6a2513D61bb8539f8127D6F9664Ab1f',
+      1666700000: '0xea3224D190c861aF3b867d30E7e07dD97a698294',
+      1666600000: '0xea3224D190c861aF3b867d30E7e07dD97a698294',
     },
     poolCategory: PoolCategory.CORE,
-    projectLink: 'https://www.bitcoin.com/',
+    projectLink: 'https://www.terra.money/',
     harvest: true,
-    tokenPerBlock: '0.000000333',
+    tokenPerBlock: '0.000346', // 0.000346
     sortOrder: 0,
     isFinished: false,
-    startBlock: 18264298,
-    endBlock: 18864225,
+    startBlock: 18337525,
+    endBlock: 19244225,
     tokenDecimals: 18,
-   }, */
+   }, 
 ]
 
 export default pools

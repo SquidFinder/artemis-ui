@@ -161,6 +161,12 @@ export const usePriceTroll = (): BigNumber => {
   return new BigNumber(priceMis).times(pool.tokenPriceVsQuote);
 }
 
+export const usePriceLuna = (): BigNumber => {
+  const pid = 9 // BUSD-BNB LP
+  const farm = useFarmFromPid(pid)
+  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
+} 
+
 
 
 export const usePriceCakeBusd = (): BigNumber => {
@@ -190,6 +196,7 @@ export const usePrices = () => {
   const wonePrice = usePriceBnbBusd()
   const lbloxPrice = usePriceLblox()
   const trollPrice = usePriceTroll()
+  const lunaPrice = usePriceLuna()
 
 
   return [
@@ -202,6 +209,7 @@ export const usePrices = () => {
       {name: QuoteToken.WONE, price: wonePrice},
       {name: QuoteToken.LBLOX, price: lbloxPrice},
       {name: QuoteToken.TROLL, price: trollPrice},
+      {name: QuoteToken.LUNA, price: lunaPrice},
 
   ]
 }
