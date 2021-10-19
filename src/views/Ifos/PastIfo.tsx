@@ -4,7 +4,7 @@ import { Ifo } from 'config/constants/types'
 import IfoCard from './components/IfoCard'
 import IfoCards from './components/IfoCards'
 
-const inactiveIfo: Ifo[] = ifosConfig.filter((ifo) => !ifo.isActive2)
+const inactiveIfo: Ifo[] = ifosConfig.filter((ifo) => !ifo.isActive)
 
 const PastIfo = () => {
   return (

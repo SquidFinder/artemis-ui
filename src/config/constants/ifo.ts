@@ -58,7 +58,7 @@ const ifos: Ifo[] = [
     tokenDecimals: 18,
     releaseBlockNumber: 3483883,
   }, */
-  {
+  /* {
     id: 'chad',
     address: '0xC2b647A4Ebcdd31f350206eCb66C41984d0E1ca8',
     isActive: false,
@@ -79,12 +79,11 @@ const ifos: Ifo[] = [
     currencyAddress: '0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a',
     tokenDecimals: 18,
     releaseBlockNumber: 3771926,
-  },
+  }, */
   {
     id: 'artemis',
     address: '0x94849f8A43E2Eb3949Fe98e80C7E65E0967FDfE5',
     isActive: true,
-    isActive2: true,
     name: 'Artemis Protocol',
     subTitle: 'Multi-product DeFi protocol',
     description:
