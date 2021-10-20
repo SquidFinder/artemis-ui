@@ -4,7 +4,7 @@ import { BaseLayout, Button, Card, CardBody, Link, LinkExternal  } from '@pancak
 import BigNumber from 'bignumber.js'
 import Page from 'components/layout/Page'
 import useTokenBalance from 'hooks/useTokenBalance'
-import { FaUserCheck, FaLock, FaHistory, FaScroll, FaMonument, FaCloud, FaFire, FaMapMarkedAlt, FaMap, FaUserClock } from 'react-icons/fa';
+import { FaUserCheck, FaLock, FaHistory, FaScroll, FaMonument, FaCloud, FaFire, FaMapMarkedAlt, FaMap, FaUserClock, FaUserSecret } from 'react-icons/fa';
 import HomePage from 'components/layout/HomePage'
 import { usePriceCakeBusd } from 'state/hooks'
 import { useAllHarvest } from 'hooks/useHarvest'
@@ -15,6 +15,7 @@ import useI18n from 'hooks/useI18n'
 import CakeHarvestBalance from 'views/Home/components/CakeHarvestBalance'
 import UnlockButton from 'components/UnlockButton'
 import CakeWalletBalance from 'views/Home/components/CakeWalletBalance'
+import CardValue from 'views/Home/components/CardValue'
 import { getCakeAddress, getOneAddress } from '../../utils/addressHelpers'
 
 const Price = styled.button`
@@ -177,6 +178,9 @@ const MoneyWheel: React.FC = () => {
 
   const { onReward } = useAllHarvest(balancesWithValue.map((farmWithBalance) => farmWithBalance.pid))
 
+  const cakePriceUsd = usePriceCakeBusd()
+  const misPrice = usePriceCakeBusd();
+
   const harvestAllFarms = useCallback(async () => {
     setPendingTx(true)
     try {
@@ -193,9 +197,6 @@ const MoneyWheel: React.FC = () => {
     <Page>
 
 
-
-
-
     <StyledCakeStats style={{"boxShadow":"0px 2px 12px -8px rgba(25, 19, 38, 0.1), 0px 1px 1px rgba(25, 19, 38, 0.05)"}}>
       <CardBody>
       
@@ -209,7 +210,9 @@ const MoneyWheel: React.FC = () => {
 
                   <Sub className="nav-links connect">
                   { account != null && account.length > 1? 
-                    <Price>User: {account.substring(0,8).concat("...")} <p style={{'color': '#4c68ef'}}> ✓</p></Price>:
+                    <Price>
+                      User: {account.substring(0,8)}...
+                    </Price>:
                   <UnlockButton style={{
                     backgroundColor: 'rgb(22, 35, 73) !important',
                     border: '0px',
@@ -257,6 +260,16 @@ const MoneyWheel: React.FC = () => {
                   }
                 </Block>
             </div>
+
+            <div style={{'display':'inline-block', 'paddingLeft': '15px', 'lineHeight': '19px', 'marginBottom': '5px'}}>
+                <Block>
+                <CardValue value={cakePriceUsd.toNumber()} decimals={3} prefix="$" />
+                <Sub>MIS Price</Sub>
+                  
+                </Block>
+            </div>
+
+
           </FlowCol>
           </CardBody>
 
