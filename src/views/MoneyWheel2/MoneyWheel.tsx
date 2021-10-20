@@ -269,6 +269,26 @@ const MoneyWheel: React.FC = () => {
                 </Block>
             </div>
 
+            <Actions>
+              {account ? (
+                <Button
+                  id="harvest-all"
+                  disabled={balancesWithValue.length <= 0 || pendingTx}
+                  onClick={harvestAllFarms}
+                  variant='primary'
+                  fullWidth
+                  style={{'color': 'white',  'borderRadius': '10px !important', 
+                  'background': '#2D3041', 'marginLeft': '1  0px', 'borderBlockEndColor': '#151621' }}
+                >
+                  {pendingTx
+                    ? TranslateString(999, 'Settling MIS')
+                    : TranslateString(999, `Settle All (${balancesWithValue.length})`)}
+                </Button>
+              ) : (
+                <UnlockButton fullWidth/>
+              )}
+            </Actions>
+
 
           </FlowCol>
           </CardBody>
