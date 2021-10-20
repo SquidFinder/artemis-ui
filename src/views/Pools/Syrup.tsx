@@ -101,6 +101,8 @@ width: 20%;
 const SvgHero = styled.div`
   display: flex;
   flex-flow: row;
+  flex-wrap: wrap;
+
   justify-content: center;
   padding: 42px 12px;
 
