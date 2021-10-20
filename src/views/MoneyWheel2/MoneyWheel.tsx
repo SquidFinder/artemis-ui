@@ -209,7 +209,7 @@ const MoneyWheel: React.FC = () => {
 
                   <Sub className="nav-links connect">
                   { account != null && account.length > 1? 
-                    <Price>{account.substring(0,8).concat("...")} <p style={{'color': '#4c68ef'}}> ✓</p></Price>:
+                    <Price>User: {account.substring(0,8).concat("...")} <p style={{'color': '#4c68ef'}}> ✓</p></Price>:
                   <UnlockButton style={{
                     backgroundColor: 'rgb(22, 35, 73) !important',
                     border: '0px',
