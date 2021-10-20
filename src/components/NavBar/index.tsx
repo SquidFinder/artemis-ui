@@ -170,6 +170,7 @@ const NavBar = (props) => {
                             </Link>
                           </li>
 
+
                           <li className="nav-tab dropdown" id="wheelToggleDesktop">
                             <Link to="/earn" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                               <FaSeedling/> <span className="dditem">EARN</span>

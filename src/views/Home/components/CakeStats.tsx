@@ -6,7 +6,7 @@ import { getBalanceNumber } from 'utils/formatBalance'
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
 import { getCakeAddress } from 'utils/addressHelpers'
-import { FaBroadcastTower, FaChartBar, FaExchangeAlt, FaLock, FaScroll, FaVoteYea } from 'react-icons/fa'
+import { FaBroadcastTower, FaChartBar, FaExchangeAlt, FaKickstarter, FaLock, FaNetworkWired, FaScroll, FaUserClock, FaUserShield, FaVoteYea } from 'react-icons/fa'
 import { useTotalRewards } from 'hooks/useTickets'
 import CardValue from './CardValue'
 import { useFarms, usePriceCakeBusd, useTotalValue } from '../../../state/hooks'
@@ -136,7 +136,10 @@ const CakeStats = () => {
             <Sub2><CardValue value={totalValue.toNumber()} prefix="$" decimals={2} /></Sub2>  
           </Row>
 
-
+          <Row style={{'marginBottom': '0 !important'}}>
+            <FaNetworkWired />
+            <LinkExternal href='/earn' >User Dashboard</LinkExternal> 
+          </Row>
 
         </Wrapper>
       </CardBody>

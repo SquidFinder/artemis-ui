@@ -96,7 +96,7 @@ const FarmedStakingCard = () => {
       <CardBody>
         <Wrapper>
         <Title>
-          <span><FaUserClock/> Dashboard</span>
+          <span><FaUserClock/> Pending Rewards</span>
         </Title>
         <FlowRow>
           <object type="image/svg+xml" data="images/mishero.svg" width="97px">&nbsp;</object>
