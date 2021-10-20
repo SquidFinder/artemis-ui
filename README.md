@@ -2,22 +2,8 @@
 
 https://app.artemisprotocol.one
 
-#### Build
+#### Install dependencies and run locally
 
-    yarn install  
+    yarn
 
-    yarn run build  
-
-#### Run locally
-
-	yarn run start  
-
-#### Build prerequisites
-```
-nvm use v16.3.0
-
-npm install -g yarn
-
-yarn --version
-1.22.10
-```
+    yarn start  
