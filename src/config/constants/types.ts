@@ -68,9 +68,16 @@ export enum QuoteToken {
   'MISTROLL' = 'MIS-TROLL',
   'MISLUNA' = 'MIS-LUNA',
   'LUNA' = 'LUNA',
+  'TRANQB' = 'TRANQB',
 }
 
 export enum PoolCategory {
+  'COMMUNITY' = 'Community',
+  'CORE' = 'Core',
+  'BINANCE' = 'Binance', // Pools using native BNB behave differently than pools using a token
+}
+
+export enum Pool2Category {
   'COMMUNITY' = 'Community',
   'CORE' = 'Core',
   'BINANCE' = 'Binance', // Pools using native BNB behave differently than pools using a token
@@ -106,6 +113,28 @@ export interface CoinPriceConfig {
 }
 
 export interface PoolConfig {
+  sousId?: number
+  image?: string
+  tokenName: string
+  quoteTokenSymbol: QuoteToken
+  stakingTokenName: QuoteToken
+  stakingLimit?: number
+  stakingTokenAddress?: string
+  tokenPoolAddress?: string
+  quoteTokenPoolAddress?: string
+  contractAddress: Address
+  poolCategory: PoolCategory
+  projectLink: string
+  tokenPerBlock: string
+  startBlock?: number
+  endBlock?: number
+  sortOrder?: number
+  harvest?: boolean
+  isFinished?: boolean
+  tokenDecimals: number
+}
+
+export interface Pool2Config {
   sousId?: number
   image?: string
   tokenName: string

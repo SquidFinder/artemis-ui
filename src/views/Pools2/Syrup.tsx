@@ -13,13 +13,14 @@ import { getBalanceNumber } from 'utils/formatBalance'
 import {
   useFarms,
   usePriceBnbBusd,
-  usePools,
+  usePools2,
   usePrices,
   getTotalValueFromQuoteTokens,
   usePriceTranq,
   lookupPrice,
+  usePriceTranqb
 } from 'state/hooks'
-import { QuoteToken, PoolCategory } from 'config/constants/types'
+import { QuoteToken, Pool2Category } from 'config/constants/types'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
 import { FaQuestionCircle , FaUserCheck, FaLock, FaHistory, FaExchangeAlt, FaWater, FaProjectDiagram } from 'react-icons/fa'
@@ -113,10 +114,10 @@ const Farm: React.FC = () => {
   const { path } = useRouteMatch()
   const { account } = useWallet()
   const farms = useFarms()
-  const pools = usePools(account)
+  const pools2 = usePools2(account)
   const bnbPriceUSD = usePriceBnbBusd()
   const prices = usePrices()
-  const priceTranq = usePriceTranq()
+  const priceTranq = usePriceTranqb()
   const block = useBlock()
 
   const priceToBnb = (tokenName: string, tokenPrice: BigNumber, quoteToken: QuoteToken): BigNumber => {
@@ -130,38 +131,38 @@ const Farm: React.FC = () => {
     return tokenPriceBN
   }
 
-  const poolsWithApy = pools.map((pool) => {
+  const poolsWithApy = pools2.map((pool2) => {
 
-    let quoteTokens = new BigNumber(pool.quoteTokenPerLp).times(pool.totalStaked).div(new BigNumber(10).pow(18))
-    if (pool.sousId === 4 || pool.tokenName === pool.quoteTokenSymbol) {
+    let quoteTokens = new BigNumber(pool2.quoteTokenPerLp).times(pool2.totalStaked).div(new BigNumber(10).pow(18))
+    if (pool2.sousId === 4 || pool2.tokenName === pool2.quoteTokenSymbol) {
         // Handle single staking pools
-        quoteTokens = new BigNumber(pool.totalStaked).div(new BigNumber(10).pow(18)).div(2)
+        quoteTokens = new BigNumber(pool2.totalStaked).div(new BigNumber(10).pow(18)).div(2)
     }
-     if (pool.sousId === 8 || pool.tokenName === pool.quoteTokenSymbol) {
+     if (pool2.sousId === 8 || pool2.tokenName === pool2.quoteTokenSymbol) {
       // Handle single staking pools
-      quoteTokens = new BigNumber(pool.totalStaked).div(new BigNumber(10).pow(18)).div(2)
+      quoteTokens = new BigNumber(pool2.totalStaked).div(new BigNumber(10).pow(18)).div(2)
     } 
 
-    const tvl = getTotalValueFromQuoteTokens(quoteTokens, pool.quoteTokenSymbol, prices)
+    const tvl = getTotalValueFromQuoteTokens(quoteTokens, pool2.quoteTokenSymbol, prices)
 
-    // console.log("APY", pool, tvl && tvl.toNumber())
-    const rewardTokenPrice = lookupPrice(pool.tokenName, prices)
-    // console.log("price", pool.tokenName, rewardTokenPrice && rewardTokenPrice.toNumber())
+    // console.log("APY", pool2, tvl && tvl.toNumber())
+    const rewardTokenPrice = lookupPrice(pool2.tokenName, prices)
+    // console.log("price", pool2.tokenName, rewardTokenPrice && rewardTokenPrice.toNumber())
 
-    const totalRewardPricePerYear = rewardTokenPrice.times(pool.tokenPerBlock).times(BLOCKS_PER_YEAR)
-    // const totalStakingTokenInPool = stakingTokenPriceInBNB.times(getBalanceNumber(pool.totalStaked))
+    const totalRewardPricePerYear = rewardTokenPrice.times(pool2.tokenPerBlock).times(BLOCKS_PER_YEAR)
+    // const totalStakingTokenInPool = stakingTokenPriceInBNB.times(getBalanceNumber(pool2.totalStaked))
     const apy = totalRewardPricePerYear.div(tvl).times(100)
-    // console.log("TVL", pool.stakingTokenName, tvl && tvl.toNumber(), apy && apy.toNumber())
+    // console.log("TVL", pool2.stakingTokenName, tvl && tvl.toNumber(), apy && apy.toNumber())
 
     return {
-      ...pool,
-      isFinished: pool.sousId === 0 ? false : pool.isFinished || block > pool.endBlock,
+      ...pool2,
+      isFinished: pool2.sousId === 0 ? false : pool2.isFinished || block > pool2.endBlock,
       apy,
       tvl
     }
   })
 
-  const [finishedPools, openPools] = partition(poolsWithApy, (pool) => pool.isFinished)
+  const [finishedPools, openPools] = partition(poolsWithApy, (pool2) => pool2.isFinished)
   const { url, isExact } = useRouteMatch()
   const TranslateString = useI18n()
 
@@ -191,15 +192,15 @@ const Farm: React.FC = () => {
       <FlexLayout>
         <Route exact path={`${path}`}>
           <>
-            {orderBy(openPools, ['sortOrder']).map((pool) => (
-              <PoolCard key={pool.sousId} pool={pool} />
+            {orderBy(openPools, ['sortOrder']).map((pool2) => (
+              <PoolCard key={pool2.sousId} pool2={pool2} />
             ))}
             <Coming />
           </>
         </Route>
         <Route path={`${path}/history`}>
-          {orderBy(finishedPools, ['sortOrder']).map((pool) => (
-            <PoolCard key={pool.sousId} pool={pool} />
+          {orderBy(finishedPools, ['sortOrder']).map((pool2) => (
+            <PoolCard key={pool2.sousId} pool2={pool2} />
           ))}
         </Route>
       </FlexLayout>

@@ -181,6 +181,12 @@ const NavBar = (props) => {
                             <FaProjectDiagram/><span className="dditem">INCUBATOR</span>
                             </Link>
                           </li>
+                          
+                          {/* <li className="nav-tab">
+                            <Link to="/burnpools" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                            <FaProjectDiagram/><span className="dditem">BURN POOLS</span>
+                            </Link>
+                          </li> */}
 
                           <li className="nav-tab">
                             <Link to="/artemispad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
@@ -269,7 +275,7 @@ const NavBar = (props) => {
                     style={{ marginRight: '4px',
                             backgroundColor: 'transparent' }}
                   >
-                    <Token src="images/icon.svg" alt='1' width="30px" height="30px"/>
+                    <Token src="images/icon.png" alt='1' width="30px" height="30px"/>
                     <p>{ ( !cakePriceUsd.isNaN() ? cakePriceUsd.toNumber().toFixed(5).concat("$") : '...loading') }</p></Price>
                   </a></li>
                   <li className="web3li insideMainNav">

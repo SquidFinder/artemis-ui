@@ -4,8 +4,9 @@ import labo from 'config/constants/labo'
 import {useDispatch, useSelector} from 'react-redux'
 import useRefresh from 'hooks/useRefresh'
 import {fetchFarmsPublicDataAsync, fetchPoolsPublicDataAsync, fetchPoolsUserDataAsync} from './actions'
-import {Farm, Pool, State} from './types'
+import {Farm, Pool, Pool2, State, State2} from './types'
 import {QuoteToken} from '../config/constants/types'
+import { fetchPools2UserDataAsync } from './pools2'
 
 const ZERO = new BigNumber(0)
 const TEN_POW_18 = new BigNumber(10).pow(18)
@@ -29,6 +30,11 @@ export const useFarms = (): Farm[] => {
 export const usePoolsPublic = (): Pool[] => {
   const pools = useSelector((state: State) => state.pools.data)
   return pools
+}
+
+export const usePoolsPublic2 = (): Pool2[] => {
+  const pools2 = useSelector((state: State) => state.pools2.data)
+  return pools2
 }
 
 export const useFarmFromPid = (pid): Farm => {
@@ -76,6 +82,24 @@ export const usePools = (account): Pool[] => {
 
   const pools = useSelector((state: State) => state.pools.data)
   return pools
+}
+
+export const usePools2 = (account): Pool2[] => {
+  const { fastRefresh } = useRefresh()
+  const dispatch = useDispatch()
+  useEffect(() => {
+    if (account) {
+      dispatch(fetchPools2UserDataAsync(account))
+    }
+  }, [account, dispatch, fastRefresh])
+
+  const pools2 = useSelector((state: State) => state.pools2.data)
+  return pools2
+}
+
+export const usePool2FromPid = (sousId): Pool2 => {
+  const pool2 = useSelector((state: State) => state.pools2.data.find((p) => p.sousId === sousId))
+  return pool2
 }
 
 export const usePoolFromPid = (sousId): Pool => {
@@ -149,6 +173,7 @@ export const usePriceTranq = (): BigNumber => {
   return new BigNumber(priceMis).times(farm.tokenPriceVsQuote);
 }
 
+
 export const usePriceXya = (): BigNumber => {
   const priceMis = usePriceCakeBusd();
   const pool = usePoolFromPid(2)
@@ -167,7 +192,11 @@ export const usePriceLuna = (): BigNumber => {
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
 } 
 
-
+export const usePriceTranqb = (): BigNumber => {
+  const priceMis = usePriceCakeBusd();
+  const pool = usePool2FromPid(1)
+  return new BigNumber(priceMis).times(pool.tokenPriceVsQuote);
+}
 
 export const usePriceCakeBusd = (): BigNumber => {
   // const pid = 1 // CAKE-BNB LP
@@ -197,6 +226,7 @@ export const usePrices = () => {
   const lbloxPrice = usePriceLblox()
   const trollPrice = usePriceTroll()
   const lunaPrice = usePriceLuna()
+  const tranqbPrice = usePriceTranqb()
 
 
   return [
@@ -210,6 +240,7 @@ export const usePrices = () => {
       {name: QuoteToken.LBLOX, price: lbloxPrice},
       {name: QuoteToken.TROLL, price: trollPrice},
       {name: QuoteToken.LUNA, price: lunaPrice},
+      {name: QuoteToken.TRANQB, price: tranqbPrice},
 
   ]
 }
@@ -248,6 +279,7 @@ export const useTotalValue = (): BigNumber => {
   const farms = useFarms();
   const prices = usePrices();
   const pools = usePoolsPublic()
+  const pools2 = usePoolsPublic2()
 
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
@@ -266,6 +298,20 @@ export const useTotalValue = (): BigNumber => {
 
     const quoteTokens = new BigNumber(pool.quoteTokenPerLp).times(pool.totalStaked).div(new BigNumber(10).pow(18))
     const val = getTotalValueFromQuoteTokens(quoteTokens, pool.quoteTokenSymbol, prices)
+
+    if (val) {
+      // console.log("useTotalValue", farm.pid, val && val.toNumber(), farm)
+      value = value.plus(val);
+    }
+
+  }
+
+  // Do burn pools
+  for (let i = 0; i < pools2.length; i++) {
+    const pool2 = pools2[i]
+
+    const quoteTokens = new BigNumber(pool2.quoteTokenPerLp).times(pool2.totalStaked).div(new BigNumber(10).pow(18))
+    const val = getTotalValueFromQuoteTokens(quoteTokens, pool2.quoteTokenSymbol, prices)
 
     if (val) {
       // console.log("useTotalValue", farm.pid, val && val.toNumber(), farm)
