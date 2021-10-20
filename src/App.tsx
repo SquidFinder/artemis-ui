@@ -5,6 +5,7 @@ import { ResetCSS } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js'
 import { useFetchPublicData } from 'state/hooks'
 import Pools from 'views/Pools'
+import MoneyWheel from 'views/MoneyWheel2'
 import GlobalStyle from './style/Global'
 import NavBar from './components/NavBar'
 import NftGlobalNotification from './views/Nft/components/NftGlobalNotification'
@@ -51,7 +52,7 @@ const App: React.FC = () => {
               <Home />
             </Route>
             
-            <Route path="/Earn">
+            <Route path="/Elysium">
               <Farms />
             </Route>
             
@@ -62,8 +63,8 @@ const App: React.FC = () => {
             <Route path="/pools">
               <Farms tokenMode/>
              </Route> 
-                       
-            <Route path="/wheel">
+        */}               
+            <Route path="/Earn">
               <MoneyWheel />
             </Route>
 

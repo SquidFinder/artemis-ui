@@ -1,29 +1,99 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-import { BaseLayout  } from '@pancakeswap-libs/uikit'
+import { BaseLayout, Card, CardBody, Link, LinkExternal  } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js'
 import Page from 'components/layout/Page'
 import useTokenBalance from 'hooks/useTokenBalance'
+import { FaUserCheck, FaLock, FaHistory, FaScroll, FaMonument, FaCloud, FaFire, FaMapMarkedAlt, FaMap } from 'react-icons/fa';
+import HomePage from 'components/layout/HomePage'
 import { getCakeAddress, getOneAddress } from '../../utils/addressHelpers'
-import Hero from './components/Hero'
-import WheelCard from './components/WheelCard'
-import BetCard from './components/BetCard'
 
+
+const Divider = styled.div`
+background-color: #FAFAFA;
+height: 3px;
+margin-left: auto;
+margin-right: auto;
+margin-top: 30px;
+margin-bottom: 5px;
+width: 100%;
+`
+
+
+const StyledCakeStats = styled(Card)`
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 14px;
+`
+
+const Row = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+`
+
+const Title = styled.p`
+  font-size: 1.4em;
+  margin-bottom: 21px;
+
+`
+const Sub = styled.p`
+  font-size: 0.97em;
+  color: #7D7D7D;
+`
+
+const Sub2 = styled.p`
+  margin-top: 20px;
+  font-size: 0.97em;
+  color: #7D7D7D;
+`
+
+const Wrapper = styled.div`
+  margin-left: 12px;
+  margin-right: 12px;
+`
+
+const FlowRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @media all and (max-width: 1000px) { 
+    flex-flow: column;
+    align-items: center;
+    padding-bottom: 21px;
+  }
+
+  @media all and (min-width: 1000px) {
+    flex-flow: row-reverse;
+    justify-content: center;
+   }
+
+
+
+  //ADD SPACE BETWEENS
+`
 
 const Cards = styled(BaseLayout)`
-  align-items: start;
-  margin-bottom: 32px;
+
   & > div {
-    grid-column: span 6;
+    grid-column: span 10;
+    width: 118%;
+    height: 100%;
+
+
   }
+
   ${({ theme }) => theme.mediaQueries.sm} {
     & > div {
-      grid-column: span 12;
+      grid-column: span 10;
     }
   }
+
   ${({ theme }) => theme.mediaQueries.lg} {
     & > div {
-      grid-column: span 6;
+      grid-column: span 10;
     }
   }
 `
@@ -38,37 +108,52 @@ const SvgHero = styled.div`
     max-width: 100%;
   }
 `
-
+  
 const MoneyWheel: React.FC = () => {
-  const oneBalance = (useTokenBalance(getOneAddress()))
-  const [mustSpin, setMustSpin] = useState(false);
-  const [prizeNumber, setPrizeNumber] = useState(0);
-
-  const onResult = (lastResult: any) => {
-    setPrizeNumber(lastResult.spin)
-    setMustSpin(true)
-  }
-
-  const onStopping = () => {
-    setMustSpin(false)
-  }
   
   return (
+    <Page>
+
+
+
+    <StyledCakeStats style={{"boxShadow":"0px 2px 12px -8px rgba(25, 19, 38, 0.1), 0px 1px 1px rgba(25, 19, 38, 0.05)"}}>
+      <CardBody>
+        
     <div>
-      <SvgHero>
-        <object type="image/svg+xml" data="images/lotteryhero.svg" width="810px">&nbsp;</object>
-      </SvgHero>
-      <Page>
-        <Cards>
-            <div>
-              <WheelCard prizeNumber={prizeNumber} mustSpin={mustSpin} onStopping={onStopping}/>
-            </div>
-            <div>
-              <BetCard max={new BigNumber(oneBalance)} tokenName="WONE" onResult={onResult}/>
-            </div>
-          </Cards>
-      </Page>
+    <SvgHero>
+      <object type="image/svg+xml" data="images/artemisearn.svg" width="600px">&nbsp;</object>
+    </SvgHero>
     </div>
+        <Wrapper>
+        <Title>
+          <span><FaMap/> Explore Artemis Earn</span>
+        </Title>
+
+          <Row>
+          <LinkExternal href="/elysium" >Elysium Pools</LinkExternal>
+          <Sub className="lightColor">Deposit Liquidity Provider tokens to earn MIS</Sub>
+          </Row>
+
+          <Row style={{'marginBottom': '0 !important'}}>
+
+          <LinkExternal href="/hades" >Hades Pools</LinkExternal>
+
+            <Sub className="lightColor">Burn MIS and earn tokens over a set period of time</Sub>
+          </Row>
+
+
+
+
+        </Wrapper>
+      </CardBody>
+    </StyledCakeStats>
+
+
+
+    </Page>
+
+
+
   )
 }
 

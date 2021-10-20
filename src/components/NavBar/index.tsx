@@ -8,7 +8,7 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import UnlockButton from 'components/UnlockButton'
 import {Accordion, Button, Card, useAccordionToggle} from 'react-bootstrap';
-import { FaChartLine, FaTelegramPlane, FaTwitter, FaDiscord, FaFileAlt, FaGithub, FaTicketAlt, FaChartBar, FaMoneyBillAlt, FaTractor, FaHome, FaPrescriptionBottleAlt, FaTumblrSquare, FaCode, FaFlask, FaBook, FaReddit, FaRocketchat, FaRocket, FaBroadcastTower, FaLayerGroup, FaSeedling, FaExclamationTriangle, FaBootstrap, FaLandmark, FaGamepad, FaCircle, FaParachuteBox, FaVoteYea, FaProjectDiagram, FaShieldAlt } from 'react-icons/fa';
+import { FaChartLine, FaTelegramPlane, FaTwitter, FaDiscord, FaFileAlt, FaGithub, FaTicketAlt, FaChartBar, FaMoneyBillAlt, FaTractor, FaHome, FaPrescriptionBottleAlt, FaTumblrSquare, FaCode, FaFlask, FaBook, FaReddit, FaRocketchat, FaRocket, FaBroadcastTower, FaLayerGroup, FaSeedling, FaExclamationTriangle, FaBootstrap, FaLandmark, FaGamepad, FaCircle, FaParachuteBox, FaVoteYea, FaProjectDiagram, FaShieldAlt, FaFire, FaCloud } from 'react-icons/fa';
 import ReactTooltip from 'react-tooltip';
 import labo from 'config/constants/labo';
 
@@ -170,17 +170,37 @@ const NavBar = (props) => {
                             </Link>
                           </li>
 
-                          <li className="nav-tab">
+                          <li className="nav-tab dropdown" id="wheelToggleDesktop">
                             <Link to="/earn" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                            <FaSeedling /><span className="dditem">ARTEMIS EARN</span>
+                              <FaSeedling/> <span className="dditem">EARN</span>
+                            </Link>
+                            
+                            <ul className="dropdown-content dropdown-items">
+                            <li className="nav-tab">
+                            <Link to="/elysium" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                            <FaCloud/><span className="dditem">ELYSIUM</span>
                             </Link>
                           </li>
+ 
+                              <li>
+                              <Link to="/hades" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                                <FaFire />  <span className="dditem">HADES</span>
+                                </Link>
+
+                              </li>
+                            </ul>
+                          </li>
+
+
+  
 
                           <li className="nav-tab">
                             <Link to="/incubator" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                             <FaProjectDiagram/><span className="dditem">INCUBATOR</span>
                             </Link>
                           </li>
+
+ 
                           
                           {/* <li className="nav-tab">
                             <Link to="/burnpools" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
@@ -206,11 +226,7 @@ const NavBar = (props) => {
                             <FaTicketAlt/><span className="dditem">LOTTERY</span>
                             </Link>
                           </li>
-                             <li>
-                                <Link to="/launch" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                                <FaCircle/><span className="dditem">WHEEL</span>
-                                </Link>
-                              </li>
+ 
                               <li>
                                 <a target="_blanK" rel="noreferrer" href="https://lootblocks.one/0x39B5Ef29332AFC37D618efE918A7e13c38358f94/11" className="nav-links">
                                 <FaParachuteBox />  <span className="dditem">CRATES</span>

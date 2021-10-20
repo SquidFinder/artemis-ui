@@ -166,7 +166,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       <Hero>
         {tokenMode ? 
         <object type="image/svg+xml" data="images/poolhero.svg" height="370px">&nbsp;</object> :
-        <object type="image/svg+xml" data="images/farmhero.svg" width="720px">&nbsp;</object>
+        <object type="image/svg+xml" data="images/farmhero.svg" width="620px">&nbsp;</object>
         }
       </Hero>
       <div>
