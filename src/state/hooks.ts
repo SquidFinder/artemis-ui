@@ -3,10 +3,15 @@ import {useEffect} from 'react'
 import labo from 'config/constants/labo'
 import {useDispatch, useSelector} from 'react-redux'
 import useRefresh from 'hooks/useRefresh'
-import {fetchFarmsPublicDataAsync, fetchPoolsPublicDataAsync, fetchPoolsUserDataAsync} from './actions'
+import {
+  fetchFarmsPublicDataAsync,
+  fetchPoolsPublicDataAsync,
+  fetchPools2PublicDataAsync,
+  fetchPoolsUserDataAsync,
+  fetchPools2UserDataAsync
+} from './actions'
 import {Farm, Pool, Pool2, State, State2} from './types'
 import {QuoteToken} from '../config/constants/types'
-import { fetchPools2UserDataAsync } from './pools2'
 
 const ZERO = new BigNumber(0)
 const TEN_POW_18 = new BigNumber(10).pow(18)
@@ -17,6 +22,7 @@ export const useFetchPublicData = () => {
   useEffect(() => {
     dispatch(fetchFarmsPublicDataAsync())
     dispatch(fetchPoolsPublicDataAsync())
+    dispatch(fetchPools2PublicDataAsync())
   }, [dispatch, slowRefresh])
 }
 
@@ -195,6 +201,7 @@ export const usePriceLuna = (): BigNumber => {
 export const usePriceTranqb = (): BigNumber => {
   const priceMis = usePriceCakeBusd();
   const pool = usePool2FromPid(1)
+  // console.log('usePriceTranqb', pool)
   return new BigNumber(priceMis).times(pool.tokenPriceVsQuote);
 }
 
