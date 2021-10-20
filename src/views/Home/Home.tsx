@@ -18,11 +18,13 @@ const Column = styled.div`
 `
 const FlowRow = styled.div`
   display: flex;
+  flex-wrap: wrap;
+
   justify-content: space-between;
   align-items: flex-start;
 
   @media all and (max-width: 1000px) { 
-    flex-flow: column;
+    flex-wrap: wrap;
     align-items: center;
     padding-bottom: 21px;
   }
@@ -38,11 +40,16 @@ const FlowRow = styled.div`
 `
 
 const Cards = styled(BaseLayout)`
+margin-right: 20px;
 
   & > div {
     grid-column: span 10;
-    width: 118%;
-    height: 100%;
+    width: 115%;
+    height: 90%;
+    margin-top: 30px;
+    flex-wrap: wrap;
+
+
 
 
   }
@@ -50,6 +57,7 @@ const Cards = styled(BaseLayout)`
   ${({ theme }) => theme.mediaQueries.sm} {
     & > div {
       grid-column: span 10;
+      
     }
   }
 

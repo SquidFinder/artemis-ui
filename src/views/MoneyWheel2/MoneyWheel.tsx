@@ -156,6 +156,7 @@ const Cards = styled(BaseLayout)`
 const SvgHero = styled.div`
   display: flex;
   flex-flow: row;
+  flex-wrap: wrap;
   justify-content: center;
   padding: 42px 12px;
 
@@ -197,13 +198,14 @@ const MoneyWheel: React.FC = () => {
     <Page>
 
 
-    <StyledCakeStats style={{"boxShadow":"0px 2px 12px -8px rgba(25, 19, 38, 0.1), 0px 1px 1px rgba(25, 19, 38, 0.05)"}}>
+    <StyledCakeStats style={{'marginTop':'30px', "boxShadow":"0px 2px 12px -8px rgba(25, 19, 38, 0.1), 0px 1px 1px rgba(25, 19, 38, 0.05)"}}>
       <CardBody>
       
     <div>
     <SvgHero>
       <object type="image/svg+xml" data="images/artemisearn.svg" width="600px">&nbsp;</object>
-      <CardBody>
+      <CardBody style={{'marginTop':'00px'}}
+> 
 
           <FlowCol>
          
