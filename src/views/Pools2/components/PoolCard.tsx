@@ -76,6 +76,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
     startBlock,
     endBlock,
     isFinished,
+    isDepositFinished,
     userData,
     stakingLimit,
     tokenPoolAddress,
@@ -231,7 +232,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
           {account &&
             (needsApproval && !isOldSyrup ? (
               <div style={{ flex: 1 }}>
-                <Button disabled={isFinished || requestedApproval} marginTop='20px' onClick={handleApprove} fullWidth >
+                <Button disabled={isFinished || isDepositFinished} marginTop='20px' onClick={handleApprove} fullWidth >
                   Approve
                 </Button>
               </div>
@@ -241,7 +242,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
                 <StyledActionSpacer />
 
                 {!isOldSyrup && (
-                <IconButton marginTop='20px' disabled={isFinished && sousId !== 0} onClick={onPresentDeposit}
+                <IconButton marginTop='20px' disabled={isFinished || isDepositFinished} onClick={onPresentDeposit}
                 style={{
                   'borderRadius': '5px',
                   'height': '46px',

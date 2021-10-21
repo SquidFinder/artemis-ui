@@ -23,6 +23,7 @@ interface Props {
   totalStaked: BigNumber
   blocksRemaining: number
   isFinished: boolean
+  isDepositFinished: boolean
   blocksUntilStart: number
   tokenPerBlock?: number
   poolCategory: PoolCategory
@@ -130,7 +131,7 @@ const CardFooter: React.FC<Props> = ({
             {TranslateString(4212, 'About the Project')}
           </LinkExternal>
           
-          <LinkExternal href={`https://app.defikingdoms.com/#/add/${tokenPoolAddress}/${quoteTokenPoolAddress}`} target="_blank">
+          <LinkExternal href={`https://app.defikingdoms.com/#/marketplace?outputCurrency=${tokenPoolAddress}`} target="_blank">
             {TranslateString(4212, 'Get Tokens')}
           </LinkExternal>
 

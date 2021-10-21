@@ -318,9 +318,9 @@ export const useTotalValue = (): BigNumber => {
     const pool2 = pools2[i]
 
     const quoteTokens = new BigNumber(pool2.quoteTokenPerLp).times(pool2.totalStaked).div(new BigNumber(10).pow(18))
-    const val = getTotalValueFromQuoteTokens(quoteTokens, pool2.quoteTokenSymbol, prices)
+    const val = getTotalValueFromQuoteTokens(quoteTokens.div(2), pool2.quoteTokenSymbol, prices)
 
-    if (val) {
+    if (val && !pool2.isFinished) {
       // console.log("useTotalValue", farm.pid, val && val.toNumber(), farm)
       value = value.plus(val);
     }

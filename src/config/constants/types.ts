@@ -154,6 +154,7 @@ export interface Pool2Config {
   harvest?: boolean
   isFinished?: boolean
   tokenDecimals: number
+  isDepositFinished?: boolean
 }
 
 export type Images = {
