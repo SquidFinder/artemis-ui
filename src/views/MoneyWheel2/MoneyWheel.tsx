@@ -208,7 +208,7 @@ const MoneyWheel: React.FC = () => {
           type="image/svg+xml" 
           data="images/artemisearn.svg" 
           className="labhero" 
-          style={{maxWidth: '600px', marginLeft: '0px'}}
+          style={{maxWidth: '500px', marginLeft: '0px'}}
           >&nbsp;</object>
      <CardBody style={{'marginTop':'00px'}}
 > 
