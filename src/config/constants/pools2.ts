@@ -20,11 +20,11 @@ const pools2: Pool2Config[] = [
     projectLink: 'https://www.app.artemisprotocol.one',
     harvest: true,
     tokenPerBlock: '0.001',
-    sortOrder: 12,
+    sortOrder: 1,
     isFinished: false,
     isDepositFinished: false,
     startBlock: 18474498,
-    endBlock: 18494498,
+    endBlock: 184944980,
     tokenDecimals: 18,
    },
 ]
