@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Route, useRouteMatch, Link } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
-import { ButtonMenu, ButtonMenuItem, Heading, LinkExternal } from '@pancakeswap-libs/uikit'
+import { Alert, ButtonMenu, ButtonMenuItem, Heading, LinkExternal } from '@pancakeswap-libs/uikit'
 import { BLOCKS_PER_YEAR } from 'config'
 import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
@@ -166,10 +166,23 @@ const Farm: React.FC = () => {
 
   const [finishedPools, openPools] = partition(poolsWithApy, (pool2) => pool2.isFinished)
   const { url, isExact } = useRouteMatch()
+
+  
+  const [modalOpen, setModalOpen] = useState(true) 
+
+  const handleModal = async () => {
+    setModalOpen(!modalOpen)
+  }  
+
   const TranslateString = useI18n()
 
   return (
     <Page>
+      <div className="warningAlert" style={{'display': ( modalOpen ? 'block' : 'none' )}}>
+      <Alert title="" variant="warning" onClick={handleModal}>
+        <p>Warning: Hades Pools have a 100% burn fee! <FaFireAlt /></p>
+      </Alert>
+      </div>
        <SvgHero>
           <object 
           type="image/svg+xml" 
@@ -243,3 +256,5 @@ const Wrapper = styled.div`
 `
 
 export default Farm
+
+
