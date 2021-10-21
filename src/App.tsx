@@ -79,7 +79,7 @@ const App: React.FC = () => {
               <Lottery />
             </Route> 
 
-            <Route path="/burnpools">
+            <Route path="/hades">
             <Pools2 />
             </Route>
             <Route path="/ArtemisPad">

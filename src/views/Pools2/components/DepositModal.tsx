@@ -58,7 +58,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
         remaining duration of the pool.
         </Blablabla>
       <Blablabla >
-          <FaQuestionCircle/> Learn more about hades pools <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/the-protocol/launchpad-1/incubator"><GuideLink>here</GuideLink></a>
+          <FaQuestionCircle/> Learn more about Hades Pools <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/the-protocol/launchpad-1/incubator"><GuideLink>here</GuideLink></a>
         </Blablabla>
       <TokenInput
         value={val}

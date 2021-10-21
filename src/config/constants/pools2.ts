@@ -13,18 +13,18 @@ const pools2: Pool2Config[] = [
     // this is MIS
     tokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
     contractAddress: {
-      1666700000: '0xf637FfEf4E6De7120fa7Befa0AA0Ce26fED69192',
-      1666600000: '0xf637FfEf4E6De7120fa7Befa0AA0Ce26fED69192',
+      1666700000: '0x097C88dE6716f374F84381D39aaCc0ec1433928C',
+      1666600000: '0x097C88dE6716f374F84381D39aaCc0ec1433928C',
     },
     poolCategory: PoolCategory.CORE,
     projectLink: 'https://www.app.artemisprotocol.one',
     harvest: true,
-    tokenPerBlock: '0.001',
+    tokenPerBlock: '0.06',
     sortOrder: 1,
     isFinished: false,
     isDepositFinished: false,
-    startBlock: 18474498,
-    endBlock: 184944980,
+    startBlock: 18519057,
+    endBlock: 20939210,
     tokenDecimals: 18,
    },
 ]
