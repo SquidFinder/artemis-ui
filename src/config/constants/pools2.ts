@@ -3,26 +3,27 @@ import { QuoteToken, PoolCategory, Pool2Config } from './types'
 const pools2: Pool2Config[] = [
   {
     sousId: 1,
-    tokenName: 'TRANQB',
+    tokenName: 'MIS',
     quoteTokenSymbol: QuoteToken.MIS,
-    stakingTokenName: QuoteToken.MISTRANQ,
-    stakingTokenAddress: '0xfA45e64Adf9BF3caDC65b737b2B0151C750f414C',
+    stakingTokenName: QuoteToken.MIS,
+    // this is MIS
+    stakingTokenAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
     // this is MIS
     quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
-    // this is TRANQ
-    tokenPoolAddress: '0xcf1709ad76a79d5a60210f23e81ce2460542a836',
+    // this is MIS
+    tokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
     contractAddress: {
-      1666700000: '0xC2B1FC77e49BE0a99520EAd73da3a76AF533482D',
-      1666600000: '0xC2B1FC77e49BE0a99520EAd73da3a76AF533482D',
+      1666700000: '0xf637FfEf4E6De7120fa7Befa0AA0Ce26fED69192',
+      1666600000: '0xf637FfEf4E6De7120fa7Befa0AA0Ce26fED69192',
     },
-    poolCategory: PoolCategory.COMMUNITY,
-    projectLink: 'https://www.tranquil.finance/',
+    poolCategory: PoolCategory.CORE,
+    projectLink: 'https://www.app.artemisprotocol.one',
     harvest: true,
-    tokenPerBlock: '11',
+    tokenPerBlock: '0.001',
     sortOrder: 12,
     isFinished: false,
-    startBlock: 17996500,
-    endBlock: 18903700,
+    startBlock: 18474498,
+    endBlock: 18494498,
     tokenDecimals: 18,
    },
 ]

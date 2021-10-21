@@ -65,7 +65,7 @@ const Coming: React.FC = () => {
         <Image src="/images/incubatorbanner.svg" width={300} height={140} />
 
 
-        <Label>{TranslateString(4216, 'Join Artemis Liquidity as a Service / Incubator program and distribute your token while building liquidity for it. ')}</Label>
+        <Label>{TranslateString(4216, 'Join Artemis Liquidity as a Service / Hades program and distribute your token while building liquidity for it. ')}</Label>
         <Label2>{TranslateString(4216, 'Bear in mind that applications will go through governance and be reviewed by a third party up until permissionless listings are implemented.')}</Label2>
         <Label2><FaTools/> {TranslateString(4216, "Let's build, together. ")}</Label2>
         

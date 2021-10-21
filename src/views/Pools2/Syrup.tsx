@@ -170,7 +170,7 @@ const Farm: React.FC = () => {
     <Page>
       
       <SvgHero>
-        <object type="image/svg+xml" data="images/incubator.svg" width="600x">&nbsp;</object>
+        <object type="image/svg+xml" data="images/hades.svg" width="600x">&nbsp;</object>
       </SvgHero>
       <Wrapper>
       <ButtonMenu activeIndex={isExact ? 0 : 1} size="sm">
@@ -185,7 +185,7 @@ const Farm: React.FC = () => {
       <Divider />
       <ActionsWrapper>
         <Blablabla >
-          <FaQuestionCircle/> Learn more about the Incubator <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/the-protocol/launchpad-1/incubator"><GuideLink>here</GuideLink></a>
+          <FaQuestionCircle/> Learn more about hades pools <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/the-protocol/launchpad-1/incubator"><GuideLink>here</GuideLink></a>
         </Blablabla>
         </ActionsWrapper>
 
@@ -207,7 +207,7 @@ const Farm: React.FC = () => {
 
       <FlexLayout>
           <Feature >
-            <FaProjectDiagram /><br /> Artemis Incubator
+            <FaProjectDiagram /><br /> Artemis Hades Pools
 
 
 

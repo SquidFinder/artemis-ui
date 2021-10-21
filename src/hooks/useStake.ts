@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { useDispatch } from 'react-redux'
 import { fetchFarmUserDataAsync, updateUserStakedBalance, updateUserBalance } from 'state/actions'
-import { stake, sousStake } from 'utils/callHelpers'
+import { stake, sousStake, sousStakeBurn } from 'utils/callHelpers'
 import { useMasterchef, useSousChef, useSousChefBurn } from './useContract'
 
 const useStake = (pid: number) => {
@@ -51,9 +51,9 @@ export const useSousStakeBurn = (sousId, isUsingBnb = false) => {
   const handleSousStake = useCallback(
     async (amount: string) => {
       if (sousId === 0) {
-        await sousStake(sousChefContract, amount, account)
+        await sousStakeBurn(sousChefContract, amount, account)
       } else {
-        await sousStake(sousChefContract, amount, account)
+        await sousStakeBurn(sousChefContract, amount, account)
       }
       dispatch(updateUserStakedBalance(sousId, account))
       dispatch(updateUserBalance(sousId, account))

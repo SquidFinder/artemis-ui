@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { useDispatch } from 'react-redux'
 import { fetchFarmUserDataAsync, updateUserBalance, updateUserPendingReward } from 'state/actions'
-import { soushHarvest, soushHarvestBnb, harvest } from 'utils/callHelpers'
+import { soushHarvest, soushHarvestBnb, harvest, soushHarvestBurn } from 'utils/callHelpers'
 import { useMasterchef, useSousChef, useSousChef2, useSousChefBurn } from './useContract'
 
 export const useHarvest = (farmPid: number) => {
@@ -67,7 +67,7 @@ export const useSousHarvestBurn = (sousId, isUsingBnb = false) => {
     } else if (isUsingBnb) {
       await soushHarvestBnb(sousChefContract, account)
     } else {
-      await soushHarvest(sousChefContract, account)
+      await soushHarvestBurn(sousChefContract, account)
     }
     dispatch(updateUserPendingReward(sousId, account))
     dispatch(updateUserBalance(sousId, account))

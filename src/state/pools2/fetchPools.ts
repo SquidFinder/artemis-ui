@@ -1,5 +1,5 @@
 import poolsConfig2 from 'config/constants/pools2'
-import sousChefABI from 'config/abi/sousChef.json'
+import sousChefABI from 'config/abi/sousChefBurn.json'
 import cakeABI from 'config/abi/cake.json'
 import wbnbABI from 'config/abi/weth.json'
 import { QuoteToken } from 'config/constants/types'
@@ -20,7 +20,7 @@ export const fetchPoolsBlockLimits = async () => {
   const callsEndBlock = poolsWithEnd.map((pool2Config) => {
     return {
       address: pool2Config.contractAddress[CHAIN_ID],
-      name: 'bonusEndBlock',
+      name: 'endBlock',
     }
   })
 
@@ -85,9 +85,9 @@ export const fetchPoolsTotalStatking = async () => {
 
   const callsNonBnbPools = nonBnbPools.map((pool2Config) => {
     return {
-      address: pool2Config.stakingTokenAddress,
-      name: 'balanceOf',
-      params: [pool2Config.contractAddress[CHAIN_ID]],
+      address: pool2Config.contractAddress[CHAIN_ID],
+      name: 'stakedDinos',
+      params: [],
     }
   })
 
@@ -99,7 +99,7 @@ export const fetchPoolsTotalStatking = async () => {
     }
   })
 
-  const nonBnbPoolsTotalStaked = await multicall(cakeABI, callsNonBnbPools)
+  const nonBnbPoolsTotalStaked = await multicall(sousChefABI, callsNonBnbPools)
   const bnbPoolsTotalStaked = await multicall(wbnbABI, callsBnbPools)
 
   return [

@@ -16,7 +16,7 @@ import { useSousHarvestBurn } from 'hooks/useHarvest'
 import Balance from 'components/Balance'
 import { QuoteToken, PoolCategory } from 'config/constants/types'
 import { Pool2 } from 'state/types'
-import { FaClock, FaCube, FaCubes, FaFire, FaFlask, FaLightbulb, FaLock, FaMountain, FaScroll, FaSeedling, FaTractor } from 'react-icons/fa'
+import { FaBurn, FaClock, FaCube, FaCubes, FaFire, FaFlask, FaLightbulb, FaLock, FaMountain, FaScroll, FaSeedling, FaTractor } from 'react-icons/fa'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
 import CompoundModal from './CompoundModal'
@@ -149,7 +149,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
 
       <div style={{padding: '34px'}}>
 
-          <Image src={`/images/Inc/${tokenName}.png`} width={300} height={140}>w</Image>
+          <Image src={`/images/Hades/${tokenName}.png`} width={300} height={140}>w</Image>
 
         <Divider2/>
 
@@ -176,16 +176,21 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
         <Flex justifyContent='space-between' marginTop='6px'>
         <span><FaScroll/> TVL</span>
         <Quote>${TVL}</Quote>
-      </Flex>
+      </Flex> 
           <Flex justifyContent='space-between' marginTop='6px'>
           <span><FaCubes/> Ends In</span>
           <Quote>{blocksRemaining} Blocks</Quote>
         </Flex>
 
+        <Flex justifyContent='space-between' marginTop='6px'>
+          <span><FaBurn/> Burn Fee</span>
+          <Quote>100%</Quote>
+        </Flex>
+
         <Divider />
 
         <Flex justifyContent='space-between' marginTop='25px'>
-          <span><FaTractor/> Deposited</span>
+          <span><FaTractor/> Deposited MIS</span>
           <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
         </Flex>
 
@@ -232,19 +237,6 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
               </div>
             ) : (
               <>
-                <IconButton marginTop='20px'
-                  disabled={stakedBalance.eq(new BigNumber(0)) || pendingTx}
-                  onClick={
-                    isOldSyrup
-                      ? async () => {
-                          setPendingTx(true)
-                          await onUnstake('0')
-                          setPendingTx(false)
-                        }
-                      : onPresentWithdraw
-                  }>
-                <MinusIcon color="background" />
-                </IconButton>
 
                 <StyledActionSpacer />
 

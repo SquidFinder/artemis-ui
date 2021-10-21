@@ -313,7 +313,7 @@ export const useTotalValue = (): BigNumber => {
 
   }
 
-  // Do burn pools
+   // Do burn pools
   for (let i = 0; i < pools2.length; i++) {
     const pool2 = pools2[i]
 
