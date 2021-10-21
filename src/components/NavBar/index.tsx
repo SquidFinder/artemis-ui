@@ -8,7 +8,7 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import UnlockButton from 'components/UnlockButton'
 import {Accordion, Button, Card, useAccordionToggle} from 'react-bootstrap';
-import { FaChartLine, FaTelegramPlane, FaTwitter, FaDiscord, FaFileAlt, FaGithub, FaTicketAlt, FaChartBar, FaMoneyBillAlt, FaTractor, FaHome, FaPrescriptionBottleAlt, FaTumblrSquare, FaCode, FaFlask, FaBook, FaReddit, FaRocketchat, FaRocket, FaBroadcastTower, FaLayerGroup, FaSeedling, FaExclamationTriangle, FaBootstrap, FaLandmark, FaGamepad, FaCircle, FaParachuteBox, FaVoteYea, FaProjectDiagram, FaShieldAlt, FaFire, FaCloud } from 'react-icons/fa';
+import { FaChartLine, FaTelegramPlane, FaTwitter, FaDiscord, FaFileAlt, FaGithub, FaTicketAlt, FaChartBar, FaMoneyBillAlt, FaTractor, FaHome, FaPrescriptionBottleAlt, FaTumblrSquare, FaCode, FaFlask, FaBook, FaReddit, FaRocketchat, FaRocket, FaBroadcastTower, FaLayerGroup, FaSeedling, FaExclamationTriangle, FaBootstrap, FaLandmark, FaGamepad, FaCircle, FaParachuteBox, FaVoteYea, FaProjectDiagram, FaShieldAlt, FaFire, FaCloud, FaPlayCircle } from 'react-icons/fa';
 import ReactTooltip from 'react-tooltip';
 import labo from 'config/constants/labo';
 
@@ -166,26 +166,26 @@ const NavBar = (props) => {
                       <ul className="nav-tabs">
                           <li className="nav-tab">
                             <Link to="/" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                              <span className="dditem">HOME</span>
+                              <span className="dditem">Home</span>
                             </Link>
                           </li>
 
 
                           <li className="nav-tab dropdown" id="wheelToggleDesktop">
                             <Link to="/earn" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                              <FaSeedling/> <span className="dditem">EARN</span>
+                              <FaSeedling/> <span className="dditem">Earn</span>
                             </Link>
                             
                             <ul className="dropdown-content dropdown-items">
                             <li className="nav-tab">
                             <Link to="/elysium" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                            <FaCloud/><span className="dditem">ELYSIUM</span>
+                            <FaCloud/><span className="dditem">Elysium</span>
                             </Link>
                           </li>
  
                               <li>
                               <Link to="/hades" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                                <FaFire />  <span className="dditem">HADES</span>
+                                <FaFire />  <span className="dditem">Hades</span>
                                 </Link>
 
                               </li>
@@ -197,7 +197,7 @@ const NavBar = (props) => {
 
                           <li className="nav-tab">
                             <Link to="/incubator" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                            <FaProjectDiagram/><span className="dditem">INCUBATOR</span>
+                            <FaProjectDiagram/><span className="dditem"> Incubator</span>
                             </Link>
                           </li>
 
@@ -211,26 +211,26 @@ const NavBar = (props) => {
 
                           <li className="nav-tab">
                             <Link to="/artemispad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                            <FaRocket/><span className="dditem">ARTEMISPAD</span>
+                            <FaLayerGroup/><span className="dditem"> ArtemisPad</span>
                             </Link>
                           </li>
 
                         
                           <li className="nav-tab dropdown" id="wheelToggleDesktop">
                             <Link to="/" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                              <FaGamepad/> <span className="dditem">GAMES</span>
+                               <FaGamepad/><span className="dditem" >Games</span>
                             </Link>
                             
                             <ul className="dropdown-content dropdown-items">
                             <li className="nav-tab">
                             <Link to="/lottery" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                            <FaTicketAlt/><span className="dditem">LOTTERY</span>
+                            <FaTicketAlt/><span className="dditem">Lottery</span>
                             </Link>
                           </li>
  
                               <li>
                                 <a target="_blanK" rel="noreferrer" href="https://lootblocks.one/0x39B5Ef29332AFC37D618efE918A7e13c38358f94/11" className="nav-links">
-                                <FaParachuteBox />  <span className="dditem">CRATES</span>
+                                <FaParachuteBox />  <span className="dditem">Crates</span>
                                 </a>
                               </li>
                             </ul>
@@ -240,44 +240,44 @@ const NavBar = (props) => {
 
                           <li className="nav-tab dropdown" id="infoToggleDesktop">
                             <Link to="/" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                              ABOUT
+                              About
                             </Link>
                             <ul className="dropdown-content dropdown-items">
                             <li>
                                 <a target="_blanK" rel="noreferrer" href="https://gov.harmony.one/#/artemis" className="nav-links">
-                                <FaVoteYea />  <span className="dditem">VOTE</span>
+                                <FaVoteYea />  <span className="dditem">Vote</span>
                                 </a>
                               </li>
 
                               <li>
                                 <a target="_blanK" rel="noreferrer" href="https://github.com/TechRate/Smart-Contract-Audits/blob/main/October/Artemis%20Protocol.pdf" className="nav-links">
-                                <FaShieldAlt />  <span className="dditem">AUDIT</span>
+                                <FaShieldAlt />  <span className="dditem">Audit</span>
                                 </a>
                               </li>
 
                             <li>
                                 <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/" className="nav-links">
-                                <FaBook /> <span className="dditem">DOCS</span>
+                                <FaBook /> <span className="dditem">Docs</span>
                                 </a>
                               </li>
                               <li>
                                 <a target="_blanK" rel="noreferrer" href="https://github.com/ArtemisProtocol" className="nav-links">
-                                  <FaCode /> <span className="dditem">CODE</span>
+                                  <FaCode /> <span className="dditem">Code</span>
                                 </a>
                               </li>
                               <li>
                                 <a target="_blanK" rel="noreferrer" href="https://twitter.com/ArtemisProtoco1" className="nav-links">
-                                <FaTwitter />  <span className="dditem">TWITTER</span>
+                                <FaTwitter />  <span className="dditem">Twitter</span>
                                 </a>
                               </li>
                               <li>
                                 <a target="_blanK" rel="noreferrer" href="https://t.me/protocolartemis" className="nav-links">
-                                <FaTelegramPlane /> <span className="dditem">TELEGRAM</span>
+                                <FaTelegramPlane /> <span className="dditem">Telegram</span>
                                 </a>
                               </li>
                               <li>
                                 <a target="_blanK" rel="noreferrer" href="https://discord.gg/7z5qQgnZHE" className="nav-links">
-                                <FaDiscord />  <span className="dditem">DISCORD</span>
+                                <FaDiscord />  <span className="dditem">Discord</span>
                                 </a>
                               </li>
 

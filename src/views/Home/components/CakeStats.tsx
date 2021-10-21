@@ -137,8 +137,9 @@ const CakeStats = () => {
           </Row>
 
           <Row style={{'marginBottom': '0 !important'}}>
+          <LinkExternal href='/earn' >Dashboard</LinkExternal> 
+
             <FaNetworkWired />
-            <LinkExternal href='/earn' >User Dashboard</LinkExternal> 
           </Row>
 
         </Wrapper>

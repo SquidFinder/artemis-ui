@@ -203,8 +203,14 @@ const MoneyWheel: React.FC = () => {
       
     <div>
     <SvgHero>
-      <object type="image/svg+xml" data="images/artemisearn.svg" width="600px">&nbsp;</object>
-      <CardBody style={{'marginTop':'00px'}}
+
+          <object 
+          type="image/svg+xml" 
+          data="images/artemisearn.svg" 
+          className="labhero" 
+          style={{maxWidth: '600px', marginLeft: '0px'}}
+          >&nbsp;</object>
+     <CardBody style={{'marginTop':'00px'}}
 > 
 
           <FlowCol>

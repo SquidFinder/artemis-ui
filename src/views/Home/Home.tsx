@@ -44,14 +44,11 @@ margin-right: 20px;
 
   & > div {
     grid-column: span 10;
-    width: 115%;
-    height: 90%;
-    margin-top: 30px;
+    width: 120%;
+    height: 95%;
+    margin-top: 10px;
     flex-wrap: wrap;
-
-
-
-
+    margin-left: -20px;
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {

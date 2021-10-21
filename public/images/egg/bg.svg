@@ -1,14 +1,5 @@
-<svg width="8133" height="10143" viewBox="0 0 8133 10143" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="8133" height="10143" fill="#1F2237"/>
-<g filter="url(#filter0_f_536:1034)">
-<rect x="52" y="61" width="7997" height="29" fill="#B1ADAD" fill-opacity="0.5"/>
-</g>
-<rect width="8133" height="94" fill="#121212"/>
-<defs>
-<filter id="filter0_f_536:1034" x="24" y="33" width="8053" height="85" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="14" result="effect1_foregroundBlur_536:1034"/>
-</filter>
-</defs>
+<svg width="5001" height="5904" viewBox="0 0 5001 5904" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="100" width="5000" height="5804" fill="#1D2031"/>
+<rect width="5000" height="100" fill="#151515"/>
+<line y1="-0.5" x2="5000" y2="-0.5" transform="matrix(1 2.33333e-05 -0.0837052 0.996491 0 100)" stroke="#6D6D6D" stroke-opacity="0.6"/>
 </svg>

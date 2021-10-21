@@ -78,6 +78,18 @@ const FeatureLink = styled.a`
   color: yellow !important
 `
 
+const SvgHero = styled.div`
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  padding: 22px 1px;
+
+  @media and all (max-width: 1000px) {
+    max-width: 80%;
+  }
+  
+`
+
 const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const { path } = useRouteMatch()
   const TranslateString = useI18n()
@@ -163,12 +175,19 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       </Alert>
       </div>    */}
 
-      <Hero>
+<SvgHero>
         {tokenMode ? 
         <object type="image/svg+xml" data="images/poolhero.svg" height="370px">&nbsp;</object> :
-        <object type="image/svg+xml" data="images/farmhero.svg" width="620px">&nbsp;</object>
+
+        <object 
+        type="image/svg+xml" 
+        data="images/farmhero.svg" 
+        className="labhero" 
+        style={{maxWidth: '600px', marginLeft: '0px'}}
+        >&nbsp;</object>
+
         }
-      </Hero>
+      </SvgHero> 
       <div>
         <FarmTabButtons stakedOnly={stakedOnly} setStakedOnly={setStakedOnly} tokenMode={tokenMode}/>
         <Features>

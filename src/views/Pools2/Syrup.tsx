@@ -103,12 +103,14 @@ const SvgHero = styled.div`
   display: flex;
   flex-flow: row;
   justify-content: center;
-  padding: 42px 12px;
+  padding: 22px 1px;
 
-  @media all and (max-width: 1350px) { 
-    max-width: 100%;
+  @media and all (max-width: 1000px) {
+    max-width: 80%;
   }
+  
 `
+
 
 const Farm: React.FC = () => {
   const { path } = useRouteMatch()
@@ -168,10 +170,15 @@ const Farm: React.FC = () => {
 
   return (
     <Page>
-      
-      <SvgHero>
-        <object type="image/svg+xml" data="images/hades.svg" width="600x">&nbsp;</object>
-      </SvgHero>
+       <SvgHero>
+          <object 
+          type="image/svg+xml" 
+          data="images/hades/hero.svg" 
+          className="labhero" 
+          style={{maxWidth: '600px', marginLeft: '0px'}}
+          >&nbsp;</object>
+        </SvgHero> 
+
       <Wrapper>
       <ButtonMenu activeIndex={isExact ? 0 : 1} size="sm">
           <ButtonMenuItem as={Link} to={`${url}`} >
