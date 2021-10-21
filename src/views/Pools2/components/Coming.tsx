@@ -69,7 +69,7 @@ const Coming: React.FC = () => {
         <Label2>{TranslateString(4216, 'Bear in mind that applications will go through governance and be reviewed by a third party up until permissionless listings are implemented.')}</Label2>
         
         <Divider />
-        <LinkExternal href="https://artemisprotocol.gitbook.io/artemis/the-protocol/launchpad-1/incubator" mr="16px" mt='20px'>
+        <LinkExternal href="https://artemis-protocol.gitbook.io/artemis/the-protocol/artemis-earn/hades-pools" mr="16px" mt='20px'>
               {TranslateString(999, 'Read More')}
         </LinkExternal>
         
