@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Image, Button, LinkExternal } from '@pancakeswap-libs/uikit'
 import { CommunityTag } from 'components/Tags'
 import useI18n from 'hooks/useI18n'
-import { FaBuilding, FaMountain, FaRegBuilding, FaToolbox, FaTools } from 'react-icons/fa'
+import { FaBuilding, FaFire, FaFireAlt, FaMountain, FaRegBuilding, FaToolbox, FaTools } from 'react-icons/fa'
 import Card from './Card'
 import CardTitle from './CardTitle'
 
@@ -65,9 +65,8 @@ const Coming: React.FC = () => {
         <Image src="/images/incubatorbanner.svg" width={300} height={140} />
 
 
-        <Label>{TranslateString(4216, 'Join Artemis Liquidity as a Service / Hades program and distribute your token while building liquidity for it. ')}</Label>
+        <Label>{TranslateString(4216, 'Apply now and distribute your token throw Artemis Hades Pools. ')}</Label>
         <Label2>{TranslateString(4216, 'Bear in mind that applications will go through governance and be reviewed by a third party up until permissionless listings are implemented.')}</Label2>
-        <Label2><FaTools/> {TranslateString(4216, "Let's build, together. ")}</Label2>
         
         <Divider />
         <LinkExternal href="https://artemisprotocol.gitbook.io/artemis/the-protocol/launchpad-1/incubator" mr="16px" mt='20px'>

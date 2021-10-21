@@ -16,7 +16,7 @@ import { useSousHarvestBurn } from 'hooks/useHarvest'
 import Balance from 'components/Balance'
 import { QuoteToken, PoolCategory } from 'config/constants/types'
 import { Pool2 } from 'state/types'
-import { FaBurn, FaClock, FaCube, FaCubes, FaFire, FaFlask, FaLightbulb, FaLock, FaMountain, FaScroll, FaSeedling, FaTractor } from 'react-icons/fa'
+import { FaBurn, FaClock, FaCube, FaCubes, FaFire, FaFireAlt, FaFlask, FaLightbulb, FaLock, FaMountain, FaScroll, FaSeedling, FaTractor } from 'react-icons/fa'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
 import CompoundModal from './CompoundModal'
@@ -149,14 +149,9 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
 
       <div style={{padding: '34px'}}>
 
-          <Image src={`/images/Hades/${tokenName}.png`} width={300} height={140}>w</Image>
+          <Image src={`/images/Hades/${tokenName}.svg`} width={300} height={140}>w</Image>
 
         <Divider2/>
-
-        <Flex justifyContent='space-between'>
-          <span><FaFlask/> Earn</span>
-          <Quote>{tokenName}</Quote>
-        </Flex>
         
 
         {/*
@@ -169,17 +164,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
 
 
         <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaMountain/> APR</span>
+          <span><FaMountain/> Annualized ROI</span>
           <Quote>{APR}%</Quote>
-        </Flex>
-
-        <Flex justifyContent='space-between' marginTop='6px'>
-        <span><FaScroll/> TVL</span>
-        <Quote>${TVL}</Quote>
-      </Flex> 
-          <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaCubes/> Ends In</span>
-          <Quote>{blocksRemaining} Blocks</Quote>
         </Flex>
 
         <Flex justifyContent='space-between' marginTop='6px'>
@@ -187,15 +173,29 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
           <Quote>100%</Quote>
         </Flex>
 
+        <Flex justifyContent='space-between' marginTop='6px'>
+        <span><FaScroll/> Total Burnt</span>
+        <Quote>${TVL}</Quote>
+      </Flex> 
+
+          <Flex justifyContent='space-between' marginTop='6px'>
+          <span><FaCubes/> Ends In</span>
+          <Quote>{blocksRemaining} Blocks</Quote>
+        </Flex>
+
+
+
         <Divider />
 
+
+      
         <Flex justifyContent='space-between' marginTop='25px'>
-          <span><FaTractor/> Deposited MIS</span>
+          <span><FaFireAlt/> Your Burnt MIS</span>
           <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
         </Flex>
 
         <Flex marginTop='2px' justifyContent='space-between'>
-          <span><FaSeedling/> Pending {tokenName}</span>
+          <span><FaSeedling/> Pending Rewards</span>
           <Balance value={getBalanceNumber(earnings, tokenDecimals)} isDisabled={isFinished} />
 
           {sousId === 0 && account && harvest && (
@@ -241,8 +241,14 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
                 <StyledActionSpacer />
 
                 {!isOldSyrup && (
-                <IconButton marginTop='20px' disabled={isFinished && sousId !== 0} onClick={onPresentDeposit}>
-                  <AddIcon color="background" />
+                <IconButton marginTop='20px' disabled={isFinished && sousId !== 0} onClick={onPresentDeposit}
+                style={{
+                  'borderRadius': '5px',
+                  'height': '46px',
+                  'width': '110px',
+                  'color': 'white'
+                }}>
+                  <FaFire color="white" /> Enter
                 </IconButton>)}
               </>
             ))}
@@ -281,7 +287,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
 
 
       </div>
-
+{/*
       <CardFooter
         tokenName={tokenName}
         projectLink={projectLink}
@@ -292,7 +298,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
         poolCategory={poolCategory}
         tokenPoolAddress={tokenPoolAddress}
         quoteTokenPoolAddress={quoteTokenPoolAddress}
-      />
+/> */}
     </Card>
   )
 }

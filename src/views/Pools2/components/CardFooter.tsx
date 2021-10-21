@@ -9,7 +9,7 @@ import { CommunityTag, CoreTag, BinanceTag } from 'components/Tags'
 import { PoolCategory, QuoteToken } from 'config/constants/types'
 import { Flex, LinkExternal } from '@pancakeswap-libs/uikit'
 import ExpandableSectionButton from 'components/ExpandableSectionButton'
-import { FaBitcoin, FaCoins, FaCube, FaTractor } from 'react-icons/fa'
+import { FaBitcoin, FaCoins, FaCube, FaScroll, FaTractor } from 'react-icons/fa'
 
 const tags = {
   [PoolCategory.BINANCE]: BinanceTag,
@@ -124,6 +124,7 @@ const CardFooter: React.FC<Props> = ({
             <Balance fontSize="16px" value={0.22} />
           </Flex>
 */}
+
 
           <LinkExternal href={projectLink} target="_blank">
             {TranslateString(4212, 'About the Project')}
