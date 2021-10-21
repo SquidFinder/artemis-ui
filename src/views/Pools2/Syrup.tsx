@@ -23,7 +23,7 @@ import {
 import { QuoteToken, Pool2Category } from 'config/constants/types'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
-import { FaQuestionCircle , FaUserCheck, FaLock, FaHistory, FaExchangeAlt, FaWater, FaProjectDiagram } from 'react-icons/fa'
+import { FaQuestionCircle , FaUserCheck, FaLock, FaHistory, FaExchangeAlt, FaWater, FaProjectDiagram, FaFireAlt } from 'react-icons/fa'
 import Coming from './components/Coming'
 import PoolCard from './components/PoolCard'
 import PoolTabButtons from './components/PoolTabButtons'
@@ -192,7 +192,7 @@ const Farm: React.FC = () => {
       <Divider />
       <ActionsWrapper>
         <Blablabla >
-          <FaQuestionCircle/> Learn more about hades pools <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/the-protocol/launchpad-1/incubator"><GuideLink>here</GuideLink></a>
+          <FaQuestionCircle/> Learn more about Hades Pools <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/the-protocol/artemis-earn/hades-pools"><GuideLink>here</GuideLink></a>
         </Blablabla>
         </ActionsWrapper>
 
@@ -214,7 +214,7 @@ const Farm: React.FC = () => {
 
       <FlexLayout>
           <Feature >
-            <FaProjectDiagram /><br /> Artemis Hades Pools
+            <FaFireAlt /><br /> Hades
 
 
 

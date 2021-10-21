@@ -149,7 +149,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
 
       <div style={{padding: '34px'}}>
 
-          <Image src={`/images/Hades/${tokenName}.png`} width={300} height={140}>w</Image>
+          <Image src={`/images/Hades/${tokenName}.svg`} width={300} height={140}>w</Image>
 
         <Divider2/>
         
