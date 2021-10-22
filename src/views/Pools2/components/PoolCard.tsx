@@ -140,7 +140,10 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
     }
   }, [onApprove, setRequestedApproval])
 
-  const APR = apy && apy.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 2 })
+  const APR = apy && apy.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 })
+
+  const ROI = apy && apy.div(6).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 })
+
   const TVL = pool2.tvl && pool2.tvl.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 })
 
   return (
@@ -168,19 +171,16 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
         </Flex>
 
         <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaBurn/> Burn Fee</span>
-          <Quote>100%</Quote>
+          <span><FaClock/> ROI</span>
+          <Quote>{ROI}%</Quote>
         </Flex>
 
+        
         <Flex justifyContent='space-between' marginTop='6px'>
         <span><FaScroll/> Total Burnt</span>
         <Quote>${TVL}</Quote>
       </Flex> 
 
-          <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaCubes/> Ends In</span>
-          <Quote>{blocksRemaining} Blocks</Quote>
-        </Flex>
 
 
 

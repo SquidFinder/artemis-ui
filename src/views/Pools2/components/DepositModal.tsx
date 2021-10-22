@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useState } from 'react'
 import { Button, Modal } from '@pancakeswap-libs/uikit'
 import ModalActions from 'components/ModalActions'
 import styled from 'styled-components'
-import { FaQuestionCircle } from 'react-icons/fa'
+import { FaBurn, FaQuestionCircle } from 'react-icons/fa'
 import TokenInput from '../../../components/TokenInput'
 import useI18n from '../../../hooks/useI18n'
 import { getFullDisplayBalance } from '../../../utils/formatBalance'
@@ -49,17 +49,13 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
   return (
     <Modal title={`${TranslateString(999, 'Burn')} ${tokenName} Tokens`} onDismiss={onDismiss}>
       <Blablabla >
-        By entering these pools, you understand
+      <FaBurn/> By entering these pools, you understand and agree that 
         <br />
-        and agree that 100% of your deposited MIS will be burned
+        100% of your deposited MIS will be burned to earn the
         <br />
-        to earn the reward tokens over the
-        <br />
-        remaining duration of the pool.
+        reward tokens over the remaining duration of the pool <FaBurn/>
         </Blablabla>
-      <Blablabla >
-          <FaQuestionCircle/> Learn more about Hades Pools <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/the-protocol/launchpad-1/incubator"><GuideLink>here</GuideLink></a>
-        </Blablabla>
+
       <TokenInput
         value={val}
         onSelectMax={handleSelectMax}
@@ -81,7 +77,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
             onDismiss()
           }}
         >
-          {pendingTx ? TranslateString(488, 'Pending Confirmation') : TranslateString(464, 'Confirm')}
+          {pendingTx ? TranslateString(488, 'Pending Confirmation') : TranslateString(4624, 'Burn')}
         </Button>
       </ModalActions>
     </Modal>
