@@ -80,7 +80,6 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
     stakingLimit,
     tokenPoolAddress,
     quoteTokenPoolAddress,
-    lockBlock,
   } = pool2
   // Pools using native BNB behave differently than pools using a token
   const isBnbPool = poolCategory === PoolCategory.BINANCE
@@ -105,8 +104,6 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
   const blocksUntilStart = Math.max(startBlock - block, 0)
 
   const blocksRemaining = Math.max(endBlock - block, 0)
-
-  const blocksUntilDepositFinished = Math.max(lockBlock - block, 0)
   
   const isOldSyrup = stakingTokenName === QuoteToken.SYRUP
   const accountHasStakedBalance = stakedBalance?.toNumber() > 0
@@ -147,6 +144,9 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
 
   const ROI = apy && apy.div(6).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 })
 
+  const DailyROI = apy && apy.div(6).div(60).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 })
+
+
   const TVL = pool2.tvl && pool2.tvl.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 })
 
   return (
@@ -183,16 +183,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
         <span><FaScroll/> Total Burnt</span>
         <Quote>${TVL}</Quote>
       </Flex> 
-      
-      {/* <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaCubes/> Depositing ends in</span>
-          <Quote>{blocksUntilDepositFinished} Blocks</Quote>
-        </Flex>
 
-      <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaCubes/> Ends In</span>
-          <Quote>{blocksRemaining} Blocks</Quote>
-      </Flex> */}
+
 
 
         <Divider />

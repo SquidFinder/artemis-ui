@@ -106,14 +106,11 @@ const CardFooter: React.FC<Props> = ({
 
   return (
     <StyledFooter isFinished={isFinished}>
-      <Row>
-        <FlexFull>
-          {poolCategory} Pool
-        </FlexFull>
+
         <ExpandableSectionButton onClick={handleClick}>
           {isOpen ? 'Details' : 'Details'} <Icon />
         </ExpandableSectionButton>
-      </Row>
+
 
       {isOpen && (
 

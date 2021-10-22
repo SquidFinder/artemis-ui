@@ -8,7 +8,7 @@ import useI18n from 'hooks/useI18n'
 import ExpandableSectionButton from 'components/ExpandableSectionButton'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { PoolCategory, QuoteToken } from 'config/constants/types'
-import { FaFire, FaFlask, FaGhost, FaLock, FaMountain, } from 'react-icons/fa'
+import { FaClock, FaFire, FaFlask, FaGhost, FaLock, FaMountain, } from 'react-icons/fa'
 import DetailsSection from './DetailsSection'
 import CardHeading from './CardHeading'
 import CardActionsContainer from './CardActionsContainer'
@@ -165,6 +165,11 @@ const FarmCard: React.FC<FarmCardProps> = ({
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })}%` : '...loading' )
+  const Daily = ( farmApyFixed ? ` ${farmApyFixed && farmApyFixed.div(365).toNumber().toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })}%` : '...loading' )
+
     
     // console.log("APY", farm.pid)
     // console.log("rewPerYear", rewPerYear && rewPerYear.toNumber())
@@ -173,7 +178,9 @@ const FarmCard: React.FC<FarmCardProps> = ({
     // console.log("farmAPY", farmAPY)
   
   return (
+    
     <FCard>
+      
       {farm.tokenSymbol === 'MIS' && <StyledCardAccent />}
       <CardHeading
         lpLabel={lpLabel}
@@ -183,21 +190,26 @@ const FarmCard: React.FC<FarmCardProps> = ({
         farmImage={farmImage}
         tokenSymbol={farm.tokenSymbol}
       />
+      
+      <Flex justifyContent='space-between' mt="5px">
+        <span><FaFlask/> Earn</span>
+        <Quote>{TranslateString(10006, 'MIS')}</Quote>
+      </Flex>
 
       {!removed && (
-        <Flex justifyContent='space-between' alignItems='center' mt="5px">
+        <Flex justifyContent='space-between' alignItems='center'  mt="0px"  marginBottom='6px'  >
           <span><FaMountain/> APR</span>
           <APRTEXT style={{ display: 'flex', alignItems: 'center' }}>
             {farm.apy ? (
               <>
-                <ApyButton
+                {/* <ApyButton
                   lpLabel={lpLabel}
                   quoteTokenAdresses={quoteTokenAdresses}
                   quoteTokenSymbol={quoteTokenSymbol}
                   tokenAddresses={tokenAddresses}
                   cakePrice={cakePrice}
                   apy={farm.apy}
-                />
+                /> */}
                 &nbsp;&nbsp;{farmAPY}
               </>
             ) : (
@@ -208,9 +220,10 @@ const FarmCard: React.FC<FarmCardProps> = ({
       )}
 
       <Flex justifyContent='space-between'>
-        <span><FaFlask/> Earn</span>
-        <Quote>{TranslateString(10006, 'MIS + Fees')}</Quote>
+        <span><FaClock/> Daily</span>
+        <Quote>{Daily}</Quote>
       </Flex>
+
 
       {/*
       <Flex justifyContent='space-between'>
