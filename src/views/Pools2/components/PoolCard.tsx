@@ -15,7 +15,7 @@ import { useSousHarvestBurn } from 'hooks/useHarvest'
 import Balance from 'components/Balance'
 import { QuoteToken, PoolCategory } from 'config/constants/types'
 import { Pool2 } from 'state/types'
-import { FaBurn, FaClock, FaCube, FaCubes, FaFire, FaFireAlt, FaFlask, FaLightbulb, FaLock, FaMountain, FaScroll, FaSeedling, FaTractor } from 'react-icons/fa'
+import { FaBurn, FaClock, FaCube, FaCubes, FaFire, FaFireAlt, FaFlask, FaLightbulb, FaLock, FaMonero, FaMountain, FaScroll, FaSeedling, FaTractor, FaTruck } from 'react-icons/fa'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
 import CompoundModal from './CompoundModal'
@@ -167,14 +167,19 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
         */}
 
       <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaClock/> ROI</span>
+          <span><FaTractor/> ROI</span>
           <Quote>{ROI}%</Quote>
         </Flex>
 
         <Flex justifyContent='space-between' marginTop='6px'>
+          <span><FaClock/> Daily ROI</span>
+          <Quote>{DailyROI}%</Quote>
+        </Flex>
+
+        {/* <Flex justifyContent='space-between' marginTop='6px'>
           <span><FaMountain/> Annualized ROI</span>
           <Quote>{APR}%</Quote>
-        </Flex>
+      </Flex> */  }
 
 
 
