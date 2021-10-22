@@ -25,6 +25,7 @@ const pools2: Pool2Config[] = [
     isDepositFinished: false,
     startBlock: 18519057,
     endBlock: 20939210,
+    lockBlock: 19728610,
     tokenDecimals: 18,
    },
 ]
