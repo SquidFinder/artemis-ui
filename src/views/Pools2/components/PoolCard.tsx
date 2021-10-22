@@ -172,7 +172,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
         </Flex>
 
         <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaClock/> Daily ROI</span>
+          <span><FaSeedling/> Daily ROI</span>
           <Quote>{DailyROI}%</Quote>
         </Flex>
 
@@ -184,12 +184,17 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
 
 
         
+
+
+      <Flex justifyContent='space-between' marginTop='6px'>
+          <span><FaClock/> Blocks Remaining</span>
+          <Quote>{blocksRemaining}  </Quote>
+        </Flex>
+
         <Flex justifyContent='space-between' marginTop='6px'>
-        <span><FaScroll/> Total Burnt</span>
-        <Quote>${TVL}</Quote>
+        <span><FaScroll/> ${TVL} Burnt</span>
+
       </Flex> 
-
-
 
 
         <Divider />
@@ -201,7 +206,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
           <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
         </Flex>
 
-        <Flex marginTop='2px' justifyContent='space-between'>
+        <Flex marginTop='0px' justifyContent='space-between'>
           <span><FaSeedling/> Pending Rewards</span>
           <Balance value={getBalanceNumber(earnings, tokenDecimals)} isDisabled={isFinished} />
 
