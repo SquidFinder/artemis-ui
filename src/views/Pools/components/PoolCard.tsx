@@ -144,7 +144,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
 
   return (
     <Card isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
-      {isFinished && sousId !== 0 && <PoolFinishedSash />}
+      {sousId === 0 && <PoolFinishedSash />}
 
       <div style={{padding: '34px'}}>
 
