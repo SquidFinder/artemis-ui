@@ -198,7 +198,7 @@ const MoneyWheel: React.FC = () => {
     <Page>
 
 
-    <StyledCakeStats style={{'marginTop':'30px', "boxShadow":"0px 2px 12px -8px rgba(25, 19, 38, 0.1), 0px 1px 1px rgba(25, 19, 38, 0.05)"}}>
+    <StyledCakeStats style={{'marginTop':'40px', "boxShadow":"0px 2px 12px -8px rgba(25, 19, 38, 0.1), 0px 1px 1px rgba(25, 19, 38, 0.05)"}}>
       <CardBody>
       
     <div>
@@ -303,32 +303,8 @@ const MoneyWheel: React.FC = () => {
 
     </SvgHero>
     </div>
-        <Wrapper>
 
-
-        <Title>
-          <span><FaMap/> Explore Artemis Earn</span>
-        </Title>
-
-          <Row>
-          <LinkExternal href="/elysium" >Elysium Pools</LinkExternal>
-          <Sub className="lightColor">Deposit Liquidity Provider tokens to earn MIS</Sub>
-          </Row>
-
-          <Row style={{'marginBottom': '0 !important'}}>
-
-          <LinkExternal href="/hades" >Hades Pools</LinkExternal>
-
-            <Sub className="lightColor">Burn MIS and earn tokens over a set period of time</Sub>
-          </Row>
-
-
-
-
-        </Wrapper>
       </CardBody>
-
-
 
 
         
@@ -337,9 +313,29 @@ const MoneyWheel: React.FC = () => {
 
     </StyledCakeStats>
 
+  <StyledCakeStats marginTop='20px'>
+    <CardBody>
 
+      <Wrapper>
+          <Title>
+            <span><FaMap/> Explore Artemis Earn</span>
+          </Title>
 
-    </Page>
+          <Row>
+            <LinkExternal href="/elysium" >Elysium Pools</LinkExternal>
+            <Sub className="lightColor">Deposit LP tokens, earn MIS</Sub>
+          </Row>
+
+          <Row style={{'marginBottom': '0 !important'}}>
+            <LinkExternal href="/hades" >Hades Pools</LinkExternal>
+            <Sub className="lightColor">Burn MIS, earn tokens</Sub>
+          </Row>
+
+      </Wrapper>
+
+    </CardBody>
+  </StyledCakeStats>
+</Page>
 
 
 
