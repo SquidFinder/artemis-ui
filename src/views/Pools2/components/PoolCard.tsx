@@ -154,7 +154,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
 
   return (
     <Card isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
-      {sousId !== 0 && <PoolFinishedSash />}
+      {sousId === 0 && <PoolFinishedSash />}
 
       <div style={{padding: '34px'}}>
           <object type="image/svg+xml" data={`/images/burn/${tokenName}.png`} width="300px">&nbsp;</object>
