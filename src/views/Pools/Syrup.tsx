@@ -171,8 +171,15 @@ const Farm: React.FC = () => {
     <Page>
       
       <SvgHero>
-        <object type="image/svg+xml" data="images/incubator.svg" width="600x">&nbsp;</object>
+        <object 
+        type="image/svg+xml" 
+        data="images/incubator.svg"
+        className="labhero" 
+        style={{maxWidth: '600px', marginLeft: '0px'}}
+        >&nbsp;</object>
       </SvgHero>
+
+
 
       <Wrapper>
 

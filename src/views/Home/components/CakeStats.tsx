@@ -101,7 +101,7 @@ const CakeStats = () => {
           <Row>
             <Sub>MIS Price</Sub>
             <Sub className="lightColor">
-              <CardValue value={cakePriceUsd.toNumber()} decimals={2} prefix="$" />
+              <CardValue value={cakePriceUsd.toNumber()} decimals={3} prefix="$" />
             </Sub>
           </Row>
           <Row>
@@ -133,14 +133,10 @@ const CakeStats = () => {
 
           <Row style={{'marginBottom': '0 !important'}}>
             <Sub2>Total Value Locked</Sub2>
-            <Sub2><CardValue value={totalValue.toNumber()} prefix="$" decimals={2} /></Sub2>  
+            <Sub2 className="lightColor"><CardValue value={totalValue.toNumber()} prefix="$" decimals={2} /></Sub2>  
           </Row>
 
-          <Row style={{'marginBottom': '0 !important'}}>
-          <LinkExternal href='/earn' >Dashboard</LinkExternal> 
 
-            <FaNetworkWired />
-          </Row>
 
         </Wrapper>
       </CardBody>

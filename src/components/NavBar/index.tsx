@@ -86,7 +86,7 @@ const NavBar = (props) => {
     return (
         <li className="nav-tab dropdown">
         <Link to="/" className="nav-links" onClick={decoratedOnClick}>
-          ABOUT
+          About
         </Link>
         </li>
     );
@@ -104,40 +104,40 @@ const NavBar = (props) => {
             <ul className="dropdown-items">
             <li>
                <a target="_blanK" rel="noreferrer" href="https://gov.harmony.one/#/artemis" className="nav-links">
-                <FaVoteYea />  <span className="dditem">VOTE</span>
+                <FaVoteYea />  <span className="dditem">Vote</span>
                </a>
            </li>
 
             <li>
                                 <a target="_blanK" rel="noreferrer" href="https://artemischarts.northeurope.cloudapp.azure.com/" className="nav-links">
-                                <FaChartBar />  <span className="dditem">CHARTS</span>
+                                <FaChartBar />  <span className="dditem">Charts</span>
                                 </a>
                               </li>
                 <li>
                   <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/" className="nav-links">
-                    <FaBook /> <span className="dditem">DOCS</span>
+                    <FaBook /> <span className="dditem">Docs</span>
                   </a>
                 </li>
                 <li>
                   <a target="_blanK" rel="noreferrer" href="https://github.com/ArtemisProtocol" className="nav-links">
-                    <FaCode /> <span className="dditem">CODE</span>
+                    <FaCode /> <span className="dditem">Code</span>
                   </a>
                 </li>
 
                 <li>
                   <a target="_blanK" rel="noreferrer" href="https://twitter.com/ArtemisProtoco1" className="nav-links">
-                    <FaTwitter />  <span className="dditem">TWITTER</span>
+                    <FaTwitter />  <span className="dditem">Twitter</span>
                   </a>
                 </li>
 
                 <li>
                   <a target="_blanK" rel="noreferrer" href="https://t.me/ProtocolArtemis" className="nav-links">
-                    <FaTelegramPlane />  <span className="dditem">TELEGRAM</span>
+                    <FaTelegramPlane />  <span className="dditem">Telegram</span>
                   </a>
                 </li>
                 <li>
                   <a target="_blanK" rel="noreferrer" href="https://discord.gg/zqkTCQS8" className="nav-links">
-                    <FaDiscord />  <span className="dditem">DISCORD</span>
+                    <FaDiscord />  <span className="dditem">Disocord</span>
                   </a>
                 </li>
               </ul>
@@ -292,28 +292,32 @@ const NavBar = (props) => {
                           <InfoToggle />
                  </ul>
                  <ul className="web3buttons">
+
+                 <li className="web3li insideMainNav">
+                    <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} 
+                    href='https://app.defikingdoms.com/' 
+                    className="nav-links connect">
+                      <Button style={{'fontSize': '15px', 'borderRadius': '16px', 'width': '100% !important'}}>
+                        <b>Get MIS</b>
+                      </Button>
+                    </a>
+                  </li>
+
+
                  <li className="web3li insideMainNav">
                    <a target="_blank" rel="noreferrer" href="https://info.defikingdoms.com/token/0xd74433b187cf0ba998ad9be3486b929c76815215" className="nav-links price">
                   <Price
                     style={{ marginRight: '4px',
                             backgroundColor: 'transparent' }}
                   >
-                    <Token src="images/icon.png" alt='1' width="30px" height="30px"/>
-                    <p>{ ( !cakePriceUsd.isNaN() ? cakePriceUsd.toNumber().toFixed(5).concat("$") : '...loading') }</p></Price>
+                    <Token src="images/icon.png" alt='1' width="23px" height="23px"/>
+                    <p>{ ( !cakePriceUsd.isNaN() ? cakePriceUsd.toNumber().toFixed(3).concat("$") : '...loading') }</p></Price>
                   </a></li>
-                  <li className="web3li insideMainNav">
-                    <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} 
-                    href='https://app.defikingdoms.com/' 
-                    className="nav-links connect">
-                      <Button style={{'fontSize': '15px', 'borderRadius': '16px', 'width': '100% !important'}}>
-                        <b>Swap</b>
-                      </Button>
-                    </a>
-                  </li>
+   
                 <li className="web3li insideMainNav">
                   <Link to="/" className="nav-links connect">
                   { account != null && account.length > 1? 
-                    <Price>{account.substring(0,( isOnPhone ? 3 : 8)).concat("...")} <p style={{'color': 'blue'}}>Connected</p></Price>:
+                    <Price>{account.substring(0,( isOnPhone ? 8 : 8)).concat("...")} <p style={{'color': 'white'}}> ✓</p></Price>:
                   <UnlockButton style={{
                     backgroundColor: 'rgb(22, 35, 73) !important',
                     border: '0px',
@@ -339,9 +343,9 @@ const NavBar = (props) => {
 
               
               <li className="web3li">
-                    <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href='https://app.defikingdoms.com/#/marketplace?outputCurrency=0xd74433b187cf0ba998ad9be3486b929c76815215' className="nav-links connect">
+                    <a  target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href='https://app.defikingdoms.com/#/marketplace?outputCurrency=0xd74433b187cf0ba998ad9be3486b929c76815215' className="nav-links connect">
                       <Button style={{'fontSize': '15px', 'borderRadius': '15px', 'width': '100% !important'}}>
-                        <b>Swap</b>
+                        <b>Get MIS</b>
                       </Button>
                     </a>
                </li>
@@ -349,7 +353,7 @@ const NavBar = (props) => {
 
                 <li className="web3li">
                   <a target="_blank" rel="noreferrer" href="https://artemischarts.northeurope.cloudapp.azure.com/" className="nav-links price">
-                  <Price
+                  <Price 
                     style={{ 
                       marginRight: '0px',
                       'flexFlow': 'row',
@@ -358,14 +362,14 @@ const NavBar = (props) => {
                     }}
                   >
    
-                    <p>{ ( !cakePriceUsd.isNaN() ? cakePriceUsd.toNumber().toFixed(5).concat("$") : '...loading') }</p></Price>
+                    <p>{ ( !cakePriceUsd.isNaN() ? cakePriceUsd.toNumber().toFixed(2).concat("$") : '...loading') }</p></Price>
                   </a></li>
 
                
                 <li className="web3li">
                   <Link to="/" className="nav-links connect">
                   { account != null && account.length > 1? 
-                    <Price>{account.substring(0,8).concat("...")} <p style={{'color': '#4c68ef'}}> ✓</p></Price>:
+                    <Price>{account.substring(0,7).concat("...")} <p style={{'color': '#4c68ef'}}> ✓</p></Price>:
                   <UnlockButton style={{
                     backgroundColor: 'rgb(22, 35, 73) !important',
                     border: '0px',

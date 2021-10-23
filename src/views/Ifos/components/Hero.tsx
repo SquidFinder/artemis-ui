@@ -36,7 +36,13 @@ const Hero = () => {
 return (
   <>
     <SvgHero  >
-      <object type="image/svg+xml" data="images/launchpad.svg" width="700px">&nbsp;</object>
+
+      <object 
+        type="image/svg+xml" 
+        data="images/launchpad.svg"
+        className="labhero" 
+        style={{maxWidth: '0px', marginLeft: '0px'}}
+        >&nbsp;</object>
     </SvgHero>
     {/* <HowItWorks /> */}
   </>
