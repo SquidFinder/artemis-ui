@@ -233,6 +233,32 @@ const pools: PoolConfig[] = [
     endBlock: 20101500,
     tokenDecimals: 18,
    },
+   {
+    sousId: 10,
+    tokenName: 'SONIC',
+    earnToken: 'SONIC',
+    quoteTokenSymbol: QuoteToken.MIS,
+    stakingTokenName: QuoteToken.MISSONIC,
+    // this is MIS-SONIC
+    stakingTokenAddress: '0xaa9d59ea5b2251b71e548da5ecdc4a7dc010d8fb',
+     // this is MIS
+     quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is SONIC
+     tokenPoolAddress: '0x1e05c8b69e4128949fcef16811a819ef2f55d33e',
+    contractAddress: {
+      1666700000: '0xfa916aE5E3CE8CBabb0345FCd5c7d73f8A116dFe',
+      1666600000: '0xfa916aE5E3CE8CBabb0345FCd5c7d73f8A116dFe',
+    },
+    poolCategory: PoolCategory.COMMUNITY,
+    projectLink: 'https://sonicswap.io/#/',
+    harvest: true,
+    tokenPerBlock: '0.181 ',
+    sortOrder: 201,
+    isFinished: false,
+    startBlock: 18600095,
+    endBlock: 19204815,
+    tokenDecimals: 18,
+   },
 ]
 
 export default pools

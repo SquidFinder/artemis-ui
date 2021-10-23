@@ -70,7 +70,9 @@ export enum QuoteToken {
   'LUNA' = 'LUNA',
   'TRANQB' = 'TRANQB',
   'MISKURO' = 'MIS-KURO',
-  'KURO' = 'KURO'
+  'KURO' = 'KURO',
+  'SONIC' = 'SONIC',
+  'MISSONIC' = 'MIS-SONIC',
 }
 
 export enum PoolCategory {

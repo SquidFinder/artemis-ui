@@ -133,12 +133,6 @@ export const usePriceLblox = (): BigNumber => {
   return new BigNumber(priceMis).times(pool.tokenPriceVsQuote);
 }
 
-export const usePriceKuro = (): BigNumber => {
-  const priceMis = usePriceCakeBusd();
-  const pool = usePoolFromPid(9)
-  return new BigNumber(priceMis).times(pool.tokenPriceVsQuote);
-}
-
 // export const fetchLaboPrice = (): BigNumber => {
 //   const query = `
 //   {ethereum(network: bsc){
@@ -198,6 +192,12 @@ export const usePriceTroll = (): BigNumber => {
   return new BigNumber(priceMis).times(pool.tokenPriceVsQuote);
 }
 
+export const usePriceSonic = (): BigNumber => {
+  const priceMis = usePriceCakeBusd();
+  const pool = usePoolFromPid(10)
+  return new BigNumber(priceMis).times(pool.tokenPriceVsQuote);
+}
+
 export const usePriceLuna = (): BigNumber => {
   const pid = 9 // BUSD-BNB LP
   const farm = useFarmFromPid(pid)
@@ -240,7 +240,7 @@ export const usePrices = () => {
   const trollPrice = usePriceTroll()
   const lunaPrice = usePriceLuna()
   const tranqbPrice = usePriceTranqb()
-  const kuroPrice = usePriceKuro()
+  const sonicPrice = usePriceSonic()
 
 
   return [
@@ -255,8 +255,7 @@ export const usePrices = () => {
       {name: QuoteToken.TROLL, price: trollPrice},
       {name: QuoteToken.LUNA, price: lunaPrice},
       {name: QuoteToken.TRANQB, price: tranqbPrice},
-      {name: QuoteToken.KURO, price: kuroPrice},
-
+      {name: QuoteToken.SONIC, price: sonicPrice},
   ]
 }
 
