@@ -4,6 +4,7 @@ const pools: PoolConfig[] = [
   {
     sousId: 1,
     tokenName: QuoteToken.TRANQ,
+    earnToken: QuoteToken.TRANQ,
     quoteTokenSymbol: QuoteToken.MIS,
     stakingTokenName: QuoteToken.MISTRANQ,
     stakingTokenAddress: '0xfA45e64Adf9BF3caDC65b737b2B0151C750f414C',
@@ -28,6 +29,7 @@ const pools: PoolConfig[] = [
    {
     sousId: 2,
     tokenName: QuoteToken.XYA,
+    earnToken: QuoteToken.XYA,
     quoteTokenSymbol: QuoteToken.MIS,
     stakingTokenName: QuoteToken.MISXYA,
     stakingTokenAddress: '0xE22297CC3452aae66cEE6ED1cb437e96219c3319',
@@ -52,6 +54,7 @@ const pools: PoolConfig[] = [
    {
     sousId: 3,
     tokenName: 'MAGIC',
+    earnToken: 'MAGIC',
     quoteTokenSymbol: QuoteToken.MIS,
     stakingTokenName: QuoteToken.MISMAGIC,
     // this is MIS-MAGIC
@@ -77,6 +80,7 @@ const pools: PoolConfig[] = [
    {
     sousId: 4,
     tokenName: 'WONE',
+    earnToken: 'WONE',
     quoteTokenSymbol: QuoteToken.MIS,
     stakingTokenName: QuoteToken.MIS,
     // this is MIS
@@ -102,6 +106,7 @@ const pools: PoolConfig[] = [
    {
     sousId: 5,
     tokenName: 'LBLOX',
+    earnToken: 'LBLOX',
     quoteTokenSymbol: QuoteToken.MIS,
     stakingTokenName: QuoteToken.MISLBLOX,
     // this is MIS-LBLOX
@@ -127,6 +132,7 @@ const pools: PoolConfig[] = [
    {
     sousId: 6,
     tokenName: 'MIS',
+    earnToken: 'MISCOINK',
     quoteTokenSymbol: QuoteToken.MIS,
     stakingTokenName: QuoteToken.MISCOINK,
     // this is MIS-COINK
@@ -152,6 +158,7 @@ const pools: PoolConfig[] = [
    {
     sousId: 7,
     tokenName: 'TROLL',
+    earnToken: 'TROLL',
     quoteTokenSymbol: QuoteToken.MIS,
     stakingTokenName: QuoteToken.MISTROLL,
     // this is MIS-TROLL
@@ -177,6 +184,7 @@ const pools: PoolConfig[] = [
    {
     sousId: 8,
     tokenName: 'LUNA',
+    earnToken: 'LUNA',
     quoteTokenSymbol: QuoteToken.MIS,
     stakingTokenName: QuoteToken.MIS,
     // this is MIS
@@ -198,7 +206,33 @@ const pools: PoolConfig[] = [
     startBlock: 18337525,
     endBlock: 19244225,
     tokenDecimals: 18,
-   }, 
+   },
+   {
+    sousId: 9,
+    tokenName: 'MIS',
+    earnToken: 'MISKURO',
+    quoteTokenSymbol: QuoteToken.MIS,
+    stakingTokenName: QuoteToken.MISKURO,
+    // this is MIS-KURO
+    stakingTokenAddress: '0x8996880455c51b87e1821201155207f7e3f4cf53',
+     // this is MIS
+     quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is KURO
+     tokenPoolAddress: '0x3e018675c0ef63eb361b9ef4bfea3a3294c74c7b',
+    contractAddress: {
+      1666700000: '0xE5203362A7cc8208fDaC0cDC807d7521B1E40eF2',
+      1666600000: '0xE5203362A7cc8208fDaC0cDC807d7521B1E40eF2',
+    },
+    poolCategory: PoolCategory.COMMUNITY,
+    projectLink: 'https://www.kuroshiba.one/',
+    harvest: true,
+    tokenPerBlock: '0.0065', // 0.0065
+    sortOrder: 200,
+    isFinished: false,
+    startBlock: 18589529,
+    endBlock: 20101500,
+    tokenDecimals: 18,
+   },
 ]
 
 export default pools

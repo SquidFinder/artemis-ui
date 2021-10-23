@@ -69,6 +69,8 @@ export enum QuoteToken {
   'MISLUNA' = 'MIS-LUNA',
   'LUNA' = 'LUNA',
   'TRANQB' = 'TRANQB',
+  'MISKURO' = 'MIS-KURO',
+  'KURO' = 'KURO'
 }
 
 export enum PoolCategory {
@@ -132,6 +134,7 @@ export interface PoolConfig {
   harvest?: boolean
   isFinished?: boolean
   tokenDecimals: number
+  earnToken?: string
 }
 
 export interface Pool2Config {

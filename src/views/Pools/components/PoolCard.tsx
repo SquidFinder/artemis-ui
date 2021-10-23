@@ -77,6 +77,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     stakingLimit,
     tokenPoolAddress,
     quoteTokenPoolAddress,
+    earnToken,
   } = pool
   // Pools using native BNB behave differently than pools using a token
   const isBnbPool = poolCategory === PoolCategory.BINANCE
@@ -148,7 +149,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
 
       <div style={{padding: '34px'}}>
 
-          <Image src={`/images/Inc/${tokenName}.png`} width={300} height={140}>w</Image>
+          <Image src={`/images/Inc/${earnToken}.png`} width={300} height={140}>w</Image>
 
         <Divider2/>
 {/*
