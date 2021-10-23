@@ -8,7 +8,7 @@ import useI18n from 'hooks/useI18n'
 import ExpandableSectionButton from 'components/ExpandableSectionButton'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { PoolCategory, QuoteToken } from 'config/constants/types'
-import { FaClock, FaFire, FaFlask, FaGhost, FaLock, FaMountain, } from 'react-icons/fa'
+import { FaClock, FaFire, FaFlask, FaGhost, FaLock, FaMountain, FaSeedling, FaTractor, FaTruck, } from 'react-icons/fa'
 import DetailsSection from './DetailsSection'
 import CardHeading from './CardHeading'
 import CardActionsContainer from './CardActionsContainer'
@@ -162,7 +162,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
   const rewPerYear = new BigNumber(farm.vikingPerBlock).times(farm.poolWeight) .div(new BigNumber(10).pow(18)).times(BLOCKS_PER_YEAR)
   const farmApyFixed = rewPerYear.times(cakePrice).div(totalValue).times(100)
   const farmAPY = ( farmApyFixed ? ` ${farmApyFixed && farmApyFixed.toNumber().toLocaleString(undefined, {
-    minimumFractionDigits: 2,
+    minimumFractionDigits: 0,
     maximumFractionDigits: 2,
   })}%` : '...loading' )
   const Daily = ( farmApyFixed ? ` ${farmApyFixed && farmApyFixed.div(365).toNumber().toLocaleString(undefined, {
@@ -190,15 +190,11 @@ const FarmCard: React.FC<FarmCardProps> = ({
         farmImage={farmImage}
         tokenSymbol={farm.tokenSymbol}
       />
-      
-      <Flex justifyContent='space-between' mt="5px">
-        <span><FaFlask/> Earn</span>
-        <Quote>{TranslateString(10006, 'MIS')}</Quote>
-      </Flex>
+
 
       {!removed && (
-        <Flex justifyContent='space-between' alignItems='center'  mt="0px"  marginBottom='6px'  >
-          <span><FaMountain/> APR</span>
+        <Flex justifyContent='space-between' alignItems='center'  mt="15px"  marginBottom='6px'  >
+          <span><FaTractor/> APR</span>
           <APRTEXT style={{ display: 'flex', alignItems: 'center' }}>
             {farm.apy ? (
               <>
@@ -220,7 +216,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
       )}
 
       <Flex justifyContent='space-between'>
-        <span><FaClock/> Daily</span>
+        <span><FaSeedling /> Daily Returns</span>
         <Quote>{Daily}</Quote>
       </Flex>
 
@@ -245,7 +241,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
             :
             `https://app.defikingdoms.com/#/add/${liquidityUrlPathParts}`
         }>
-          <span><FaGhost/> Get LP Tokens</span>
+          <span ><FaGhost/> Add Liquidity</span>
         </StyledLinkExternal>
       </Flex>
       

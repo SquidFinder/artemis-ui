@@ -176,6 +176,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       </div>    */}
 
 <SvgHero>
+  
         {tokenMode ? 
         <object type="image/svg+xml" data="images/poolhero.svg" height="370px">&nbsp;</object> :
 
@@ -188,8 +189,11 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
         }
       </SvgHero> 
+
       <div>
+
         <FarmTabButtons stakedOnly={stakedOnly} setStakedOnly={setStakedOnly} tokenMode={tokenMode}/>
+
         <Features>
           { /* <Feature>
             <FaUserCheck /><br />

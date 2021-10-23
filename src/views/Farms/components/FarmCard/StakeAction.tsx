@@ -6,6 +6,7 @@ import useI18n from 'hooks/useI18n'
 import useStake from 'hooks/useStake'
 import useUnstake from 'hooks/useUnstake'
 import { getBalanceNumber } from 'utils/formatBalance'
+import { FaArrowAltCircleDown } from 'react-icons/fa'
 import DepositModal from '../DepositModal'
 import WithdrawModal from '../WithdrawModal'
 import './index.css'
@@ -68,7 +69,7 @@ const StakeAction: React.FC<FarmCardActionsProps> = (
 
   const renderStakingButtons = () => {
     return rawStakedBalance === 0 ? (
-      <Button onClick={onPresentDeposit} style={{'borderRadius': '5px'}}>{TranslateString(999, 'Stake')}</Button>
+      <Button onClick={onPresentDeposit} style={{'borderRadius': '5px'}}> {TranslateString(999, 'Deposit')}</Button>
     ) : (
       <IconButtonWrapper>
         <IconButton variant="primary" style={{'borderRadius': '5px'}} onClick={onPresentWithdraw} mr="6px">

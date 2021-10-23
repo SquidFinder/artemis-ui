@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js'
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
-import { Button, IconButton, useModal, AddIcon, Image, Flex, MinusIcon } from '@pancakeswap-libs/uikit'
+import { Button, IconButton, useModal, AddIcon, Image, Flex, MinusIcon, LinkExternal } from '@pancakeswap-libs/uikit'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import UnlockButton from 'components/UnlockButton'
 import { useERC20 } from 'hooks/useContract'
@@ -15,16 +15,14 @@ import { useSousHarvest } from 'hooks/useHarvest'
 import Balance from 'components/Balance'
 import { QuoteToken, PoolCategory } from 'config/constants/types'
 import { Pool } from 'state/types'
-import { FaClock, FaCube, FaCubes, FaFire, FaFlask, FaLightbulb, FaLock, FaMountain, FaScroll, FaSeedling, FaTractor } from 'react-icons/fa'
+import { FaArrowAltCircleDown, FaBook, FaBox, FaClock, FaCube, FaCubes, FaFire, FaFlask, FaLightbulb, FaLock, FaMountain, FaScroll, FaSeedling, FaTractor } from 'react-icons/fa'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
 import CompoundModal from './CompoundModal'
 import CardTitle from './CardTitle'
 import Card from './Card'
-import OldSyrupTitle from './OldSyrupTitle'
 import HarvestButton from './HarvestButton'
 import CardFooter from './CardFooter'
-
 
 const Quote = styled.p`
     font-size: 15px;
@@ -103,7 +101,9 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const blocksUntilStart = Math.max(startBlock - block, 0)
 
   const blocksRemaining = Math.max(endBlock - block, 0)
-  
+
+  const hsRemaining = Math.ceil((endBlock - block)*2*0.000277778*0.0416667)
+
   const isOldSyrup = stakingTokenName === QuoteToken.SYRUP
   const accountHasStakedBalance = stakedBalance?.toNumber() > 0
   const needsApproval = !accountHasStakedBalance && !allowance.toNumber() && !isBnbPool
@@ -139,7 +139,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     }
   }, [onApprove, setRequestedApproval])
 
-  const APR = apy && apy.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 2 })
+  const APR = apy && apy.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 })
   const TVL = pool.tvl && pool.tvl.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 })
 
   return (
@@ -151,11 +151,11 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           <Image src={`/images/Inc/${tokenName}.png`} width={300} height={140}>w</Image>
 
         <Divider2/>
-
+{/*
         <Flex justifyContent='space-between'>
           <span><FaFlask/> Earn</span>
           <Quote>{tokenName}</Quote>
-        </Flex>
+</Flex> */ } 
         
 
         {/*
@@ -168,7 +168,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
 
 
         <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaMountain/> APR</span>
+          <span><FaTractor/> APR</span>
           <Quote>{APR}%</Quote>
         </Flex>
 
@@ -176,20 +176,28 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         <span><FaScroll/> TVL</span>
         <Quote>${TVL}</Quote>
       </Flex>
+
           <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaCubes/> Ends In</span>
-          <Quote>{blocksRemaining} Blocks</Quote>
+          <span><FaClock/> Ends In</span>
+          <Quote>~{hsRemaining} Days</Quote>
         </Flex>
+
+        <LinkExternal href={projectLink} target="_blank" marginTop='6px'>
+        <span > About The Project</span>
+          </LinkExternal>
+
+        
+
 
         <Divider />
 
         <Flex justifyContent='space-between' marginTop='25px'>
-          <span><FaTractor/> Deposited</span>
+          <span><FaBox/> Your Deposits</span>
           <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
         </Flex>
 
         <Flex marginTop='2px' justifyContent='space-between'>
-          <span><FaSeedling/> Pending {tokenName}</span>
+          <span><FaSeedling/> {tokenName} Earned</span>
           <Balance value={getBalanceNumber(earnings, tokenDecimals)} isDisabled={isFinished} />
 
           {sousId === 0 && account && harvest && (
@@ -231,7 +239,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
               </div>
             ) : (
               <>
-                <IconButton marginTop='20px'
+                <IconButton marginTop='20px' marginLeft='0px'
                   disabled={stakedBalance.eq(new BigNumber(0)) || pendingTx}
                   onClick={
                     isOldSyrup
@@ -248,7 +256,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
                 <StyledActionSpacer />
 
                 {!isOldSyrup && (
-                <IconButton marginTop='20px' disabled={isFinished && sousId !== 0} onClick={onPresentDeposit}>
+                <IconButton marginTop='20px' marginRight='0px' disabled={isFinished && sousId !== 0} onClick={onPresentDeposit}>
+
                   <AddIcon color="background" />
                 </IconButton>)}
               </>
@@ -265,8 +274,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
               }}
               style={{
                 'borderRadius': '5px',
-                'height': '46px',
-                'width': '110px',
+                'height': '47px',
+                'width': '120px',
                 'color': 'white'
               }}
             >
@@ -289,6 +298,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
 
       </div>
 
+      {/*
       <CardFooter
         tokenName={tokenName}
         projectLink={projectLink}
@@ -299,10 +309,11 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         poolCategory={poolCategory}
         tokenPoolAddress={tokenPoolAddress}
         quoteTokenPoolAddress={quoteTokenPoolAddress}
-      />
+      /> */}
     </Card>
   )
 }
+
 
 const PoolFinishedSash = styled.div`
   background-image: url('/images/pool-finished-sash.svg');
@@ -318,8 +329,9 @@ const PoolFinishedSash = styled.div`
 const StyledCardActions = styled.div`
   display: flex;
   justify-content: center;
-  margin: 16px 0;
+  margin-top: 15px;
   width: 100%;
+  margin-bottom: 15px;
   box-sizing: border-box;
 `
 

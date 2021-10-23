@@ -173,21 +173,30 @@ const Farm: React.FC = () => {
       <SvgHero>
         <object type="image/svg+xml" data="images/incubator.svg" width="600x">&nbsp;</object>
       </SvgHero>
+
       <Wrapper>
-      <ButtonMenu activeIndex={isExact ? 0 : 1} size="sm">
-          <ButtonMenuItem as={Link} to={`${url}`} >
-            {TranslateString(698, 'Active')}
-          </ButtonMenuItem>
-          <ButtonMenuItem as={Link} to={`${url}/history`}>
-            {TranslateString(700, 'Inactive')}
-          </ButtonMenuItem>
+
+        <ButtonMenu activeIndex={isExact ? 0 : 1} size="sm">
+
+            <ButtonMenuItem as={Link} to={`${url}`} >
+              {TranslateString(698, 'Active')}
+            </ButtonMenuItem>
+
+            <ButtonMenuItem as={Link} to={`${url}/history`}>
+              {TranslateString(700, 'Inactive')}
+            </ButtonMenuItem>
+
         </ButtonMenu>
+
       </Wrapper>
-      <Divider />
+    
       <ActionsWrapper>
+
         <Blablabla >
           <FaQuestionCircle/> Learn more about the Incubator <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/the-protocol/launchpad-1/incubator"><GuideLink>here</GuideLink></a>
         </Blablabla>
+
+        
         </ActionsWrapper>
 
       <FlexLayout>

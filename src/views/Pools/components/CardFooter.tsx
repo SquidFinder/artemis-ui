@@ -9,7 +9,7 @@ import { CommunityTag, CoreTag, BinanceTag } from 'components/Tags'
 import { PoolCategory, QuoteToken } from 'config/constants/types'
 import { Flex, LinkExternal } from '@pancakeswap-libs/uikit'
 import ExpandableSectionButton from 'components/ExpandableSectionButton'
-import { FaBitcoin, FaCoins, FaCube, FaTractor } from 'react-icons/fa'
+import { FaBitcoin, FaBook, FaBookmark, FaCoins, FaCube, FaTractor } from 'react-icons/fa'
 
 const tags = {
   [PoolCategory.BINANCE]: BinanceTag,
@@ -31,9 +31,9 @@ interface Props {
 }
 
 const StyledFooter = styled.div<{ isFinished: boolean }>`
-  border-top: 1px solid ${({ theme }) => (theme.isDark ? '#524B63' : '#4c68ef')};
+  border-top: 0px solid ${({ theme }) => (theme.isDark ? '#524B63' : '#4c68ef')};
   color: ${({ isFinished, theme }) => theme.colors[isFinished ? 'textDisabled2' : 'primary2']};
-  padding: 24px;
+  padding: 30px;
 `
 
 const StyledDetailsButton = styled.button`
@@ -59,7 +59,7 @@ const StyledDetailsButton = styled.button`
 `
 
 const Details = styled.div`
-  margin-top: 24px;
+  margin-top: 10px;
 `
 
 const Row = styled.div`
@@ -126,7 +126,7 @@ const CardFooter: React.FC<Props> = ({
 */}
 
           <LinkExternal href={projectLink} target="_blank">
-            {TranslateString(4212, 'About the Project')}
+            {TranslateString(4212, ' About the Project')}
           </LinkExternal>
           
           <LinkExternal href={`https://app.defikingdoms.com/#/add/${tokenPoolAddress}/${quoteTokenPoolAddress}`} target="_blank">

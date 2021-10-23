@@ -84,6 +84,7 @@ const Blablabla = styled.div`
   text-color: red;
   margin: 0px 18px;
   margin-bottom: 50px;
+  margin-top: 20px;
 `
 const GuideLink = styled.span`
   color: #0073ff;
@@ -192,6 +193,7 @@ const Farm: React.FC = () => {
           >&nbsp;</object>
         </SvgHero> 
 
+{/*
       <Wrapper>
       <ButtonMenu activeIndex={isExact ? 0 : 1} size="sm">
           <ButtonMenuItem as={Link} to={`${url}`} >
@@ -201,8 +203,8 @@ const Farm: React.FC = () => {
             {TranslateString(700, 'Inactive')}
           </ButtonMenuItem>
         </ButtonMenu>
-      </Wrapper>
-      <Divider />
+      </Wrapper> */ }
+
       <ActionsWrapper>
         <Blablabla >
           <FaQuestionCircle/> Learn more about Hades Pools <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/the-protocol/artemis-earn/hades-pools"><GuideLink>here</GuideLink></a>

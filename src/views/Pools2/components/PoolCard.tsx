@@ -106,6 +106,9 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
 
   const blocksRemaining = Math.max(endBlock - block, 0)
 
+  const daysRemaining = Math.ceil((endBlock - block)*2*0.000277778*0.0416667)
+
+
   const blocksDepositFinished = Math.max(lockBlock - block, 0)
   
   const isOldSyrup = stakingTokenName === QuoteToken.SYRUP
@@ -187,18 +190,18 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
 
 
         
-
-
-      <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaClock/> Blocks Remaining</span>
-          <Quote>{blocksRemaining}  </Quote>
-        </Flex>
-
-        <Flex justifyContent='space-between' marginTop='6px'>
-        <span><FaScroll/>MIS Burnt</span>
+<Flex justifyContent='space-between' marginTop='6px'>
+        <span><FaScroll/> MIS Burnt</span>
         <Quote>${TVL} </Quote>
 
       </Flex> 
+
+
+      <Flex justifyContent='space-between' marginTop='6px'>
+          <span><FaClock/> Ends In</span>
+          <Quote>~{daysRemaining} Days  </Quote>
+        </Flex>
+
 
 
         <Divider />
@@ -269,7 +272,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
               </>
             ))}
 
-<div style={{ marginTop: '20px', display: 'flex', alignItems: 'center', marginLeft:'15px' }}>
+<div style={{ marginTop: '20px', display: 'flex', alignItems: 'center', marginLeft:'15px', marginRight: '30px' }}>
           {account && harvest && !isOldSyrup && (
             <Button
               disabled={!earnings.toNumber() || pendingTx}

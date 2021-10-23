@@ -207,6 +207,24 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
   },
+
+  {
+    pid:labo.pids.pidList[8],
+    risk: 5,
+    lpSymbol: '1USDC-UST LP',
+    lpAddresses: {
+      1666700000: '0x7a16b6d01f96fdc5dd085c686806ba20aece99ea',
+      1666600000: '0x7a16b6d01f96fdc5dd085c686806ba20aece99ea', // ( MIS-UST LP)
+    },
+    tokenSymbol: 'USDC',
+    tokenAddresses: {
+      1666700000: '0x985458e523db3d53125813ed68c274899e9dfab4',
+      1666600000: '0x985458e523db3d53125813ed68c274899e9dfab4',
+    },
+    quoteTokenSymbol: QuoteToken.UST,
+    quoteTokenAdresses: contracts.ust,
+  },
+
   {
     pid:labo.pids.pidList[0],
     risk: 5,
@@ -289,17 +307,17 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.cake,
   },
   {
-    pid:labo.pids.pidList[5],
+    pid:labo.pids.pidList[9],
     risk: 5,
-    lpSymbol: 'MIS-JEWEL LP',
+    lpSymbol: 'MIS-LUNA LP',
     lpAddresses: {
-      1666700000: '0x751606585fcaa73bf92cf823b7b6d8a0398a1c99',
-      1666600000: '0x751606585fcaa73bf92cf823b7b6d8a0398a1c99', // ( MIS-UST LP)
+      1666700000: '0x5456fd0cfbc4cdd9a08c89da9cf09a6afc73dc28',
+      1666600000: '0x5456fd0cfbc4cdd9a08c89da9cf09a6afc73dc28', // ( MIS-UST LP)
     },
-    tokenSymbol: 'JEWEL',
+    tokenSymbol: 'LUNA',
     tokenAddresses: {
-      1666700000: '0x72cb10c6bfa5624dd07ef608027e366bd690048f',
-      1666600000: '0x72cb10c6bfa5624dd07ef608027e366bd690048f',
+      1666700000: '0x95ce547d730519a90def30d647f37d9e5359b6ae',
+      1666600000: '0x95ce547d730519a90def30d647f37d9e5359b6ae',
     },
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
@@ -321,6 +339,23 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.cake,
   },
   {
+    pid:labo.pids.pidList[5],
+    risk: 5,
+    lpSymbol: 'MIS-JEWEL LP',
+    lpAddresses: {
+      1666700000: '0x751606585fcaa73bf92cf823b7b6d8a0398a1c99',
+      1666600000: '0x751606585fcaa73bf92cf823b7b6d8a0398a1c99', // ( MIS-UST LP)
+    },
+    tokenSymbol: 'JEWEL',
+    tokenAddresses: {
+      1666700000: '0x72cb10c6bfa5624dd07ef608027e366bd690048f',
+      1666600000: '0x72cb10c6bfa5624dd07ef608027e366bd690048f',
+    },
+    quoteTokenSymbol: QuoteToken.MIS,
+    quoteTokenAdresses: contracts.cake,
+  },
+ 
+  {
     pid:labo.pids.pidList[7],
     risk: 5,
     lpSymbol: 'MIS-FOX LP',
@@ -336,22 +371,7 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
   },
-  {
-    pid:labo.pids.pidList[9],
-    risk: 5,
-    lpSymbol: 'MIS-LUNA LP',
-    lpAddresses: {
-      1666700000: '0x5456fd0cfbc4cdd9a08c89da9cf09a6afc73dc28',
-      1666600000: '0x5456fd0cfbc4cdd9a08c89da9cf09a6afc73dc28', // ( MIS-UST LP)
-    },
-    tokenSymbol: 'LUNA',
-    tokenAddresses: {
-      1666700000: '0x95ce547d730519a90def30d647f37d9e5359b6ae',
-      1666600000: '0x95ce547d730519a90def30d647f37d9e5359b6ae',
-    },
-    quoteTokenSymbol: QuoteToken.MIS,
-    quoteTokenAdresses: contracts.cake,
-  },
+  
   {
     pid:labo.pids.pidList[1],
     risk: 3,
@@ -368,22 +388,7 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.UST,
     quoteTokenAdresses: contracts.ust,
   },
-  {
-    pid:labo.pids.pidList[8],
-    risk: 5,
-    lpSymbol: '1USDC-UST LP',
-    lpAddresses: {
-      1666700000: '0x7a16b6d01f96fdc5dd085c686806ba20aece99ea',
-      1666600000: '0x7a16b6d01f96fdc5dd085c686806ba20aece99ea', // ( MIS-UST LP)
-    },
-    tokenSymbol: 'USDC',
-    tokenAddresses: {
-      1666700000: '0x985458e523db3d53125813ed68c274899e9dfab4',
-      1666600000: '0x985458e523db3d53125813ed68c274899e9dfab4',
-    },
-    quoteTokenSymbol: QuoteToken.UST,
-    quoteTokenAdresses: contracts.ust,
-  },
+
   /* {
     pid:labo.pids.pidList[3],
     risk: 3,
