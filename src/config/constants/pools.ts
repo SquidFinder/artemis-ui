@@ -253,7 +253,7 @@ const pools: PoolConfig[] = [
     projectLink: 'https://sonicswap.io/#/',
     harvest: true,
     tokenPerBlock: '0.181 ',
-    sortOrder: 201,
+    sortOrder: 5,
     isFinished: false,
     startBlock: 18600095,
     endBlock: 19204815,
