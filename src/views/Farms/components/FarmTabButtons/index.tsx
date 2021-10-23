@@ -24,8 +24,8 @@ const FarmTabButtons = ({ stakedOnly, setStakedOnly, tokenMode }) => {
 
   return (
     <Wrapper>
-      <Divider />
-      <ActionsWrapper>
+      <ActionsWrapper style={{ marginTop: '20px'}}
+>
         {/*
         <ToggleWrapper>
           <Switch checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} onColor='#fff' />
@@ -42,7 +42,7 @@ const FarmTabButtons = ({ stakedOnly, setStakedOnly, tokenMode }) => {
        "" 
        }
 
-        <ButtonMenu activeIndex={isExact ? 0 : 1} size="sm" >
+        <ButtonMenu   activeIndex={isExact ? 0 : 1} size="sm" >
           <ButtonMenuItem as={Link} to={`${url}`} >
             {TranslateString(698, 'Active')}
           </ButtonMenuItem>

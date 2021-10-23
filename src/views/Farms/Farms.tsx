@@ -208,6 +208,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
             <p>24 hr <a target="_blank" rel="noreferrer" style={{"color": "#0073ff"}} href="https://explorer.harmony.one/address/0x0a974345327c8a7d7fc2e5ed6e2de6343500660e#code">Timelock</a> for <a target="_blank" rel="noreferrer" style={{"color": "#0073ff"}} href="https://explorer.harmony.one/tx/0x8d5f3667ab6c34a74cab47413c387f9118bc08c46a1f3d0ff13614e0eb174f24">MasterChef</a></p>
           </Feature> */ }
         </Features>
+        
         <FlexLayout>
           <Route exact path={`${path}`}>
             {stakedOnly ? farmsList(stakedOnlyFarms, false) : farmsList(activeFarms, false)}
@@ -215,10 +216,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           <Route exact path={`${path}/history`}>
             {farmsList(inactiveFarms, true)}
           </Route>
-
-
-
         </FlexLayout>
+        
         <FlexLayout>
 
         <Feature >
