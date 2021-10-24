@@ -297,7 +297,7 @@ const NavBar = (props) => {
                     <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} 
                     href='https://app.defikingdoms.com/' 
                     className="nav-links connect">
-                      <Button style={{'fontSize': '15px', 'borderRadius': '16px', 'width': '100% !important'}}>
+                      <Button style={{'fontSize': '15px', 'borderRadius': '16px', 'width': '100% !important', 'backgroundColor': '#4C68EF'}}>
                         <b>Get MIS</b>
                       </Button>
                     </a>
@@ -344,7 +344,7 @@ const NavBar = (props) => {
               
               <li className="web3li">
                     <a  target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href='https://app.defikingdoms.com/#/marketplace?outputCurrency=0xd74433b187cf0ba998ad9be3486b929c76815215' className="nav-links connect">
-                      <Button style={{'fontSize': '15px', 'borderRadius': '15px', 'width': '100% !important'}}>
+                      <Button style={{'fontSize': '15px', 'borderRadius': '15px', 'width': '100% !important', 'backgroundColor': '#4C68EF'}}>
                         <b>Get MIS</b>
                       </Button>
                     </a>
@@ -361,7 +361,7 @@ const NavBar = (props) => {
                       justifyContent: 'space-between'
                     }}
                   >
-   
+                    <Token src="images/icon.png" alt='1' width="23px" height="23px"/>
                     <p>{ ( !cakePriceUsd.isNaN() ? cakePriceUsd.toNumber().toFixed(2).concat("$") : '...loading') }</p></Price>
                   </a></li>
 
