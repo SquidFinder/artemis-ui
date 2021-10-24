@@ -218,21 +218,6 @@ const Farm: React.FC = () => {
           <FaQuestionCircle/> Learn more about the Incubator <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/the-protocol/launchpad-1/incubator"><GuideLink>here</GuideLink></a>
         </Blablabla>
 
-        
-        <Features>
-          <Feature>
-            <FaUserCheck /><br />
-            <p>Audit by <a target="_blank" rel="noreferrer" style={{"color": "#0073ff"}} href="https://github.com/thelabfinance/audits/blob/main/TheLabFinance_SolidGroup.pdf">Solid Group</a></p>
-          </Feature>
-          <Feature>
-            <FaLock /><br />
-            <p> 1-year <a target="_blank" rel="noreferrer" style={{"color": "#0073ff"}} href="https://unicrypt.network/amm/pancake/token/0x171401a3d18B21BFa3f9bF4F9637F3691158365A">Liquidity Lock</a></p>
-          </Feature>
-          <Feature>
-            <FaHistory /><br />
-            <p>24 hr <a target="_blank" rel="noreferrer" style={{"color": "#0073ff"}} href="https://explorer.harmony.one/address/0x0a974345327c8a7d7fc2e5ed6e2de6343500660e#code">Timelock</a> for <a target="_blank" rel="noreferrer" style={{"color": "#0073ff"}} href="https://explorer.harmony.one/tx/0x8d5f3667ab6c34a74cab47413c387f9118bc08c46a1f3d0ff13614e0eb174f24">MasterChef</a></p>
-          </Feature>
-        </Features>
 
         
         </ActionsWrapper>
