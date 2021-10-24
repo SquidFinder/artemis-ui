@@ -23,7 +23,7 @@ import {
 import { QuoteToken, Pool2Category } from 'config/constants/types'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
-import { FaQuestionCircle , FaUserCheck, FaLock, FaHistory, FaExchangeAlt, FaWater, FaProjectDiagram, FaFireAlt } from 'react-icons/fa'
+import { FaQuestionCircle , FaUserCheck, FaLock, FaHistory, FaExchangeAlt, FaWater, FaProjectDiagram, FaFireAlt, FaBurn } from 'react-icons/fa'
 import Coming from './components/Coming'
 import PoolCard from './components/PoolCard'
 import PoolTabButtons from './components/PoolTabButtons'
@@ -181,7 +181,7 @@ const Farm: React.FC = () => {
     <Page>
       <div className="warningAlert" style={{'display': ( modalOpen ? 'block' : 'none' )}}>
       <Alert title="" variant="warning" onClick={handleModal}>
-        <p>Warning: Hades Pools have a 100% burn fee! <FaFireAlt /></p>
+        <p>Disclaimer: Since MIS deposits will be burned, you will need an average of 100% ROI to break even <FaFireAlt /></p>
       </Alert>
       </div>
        <SvgHero>
@@ -205,11 +205,24 @@ const Farm: React.FC = () => {
         </ButtonMenu>
       </Wrapper> */ }
 
-      <ActionsWrapper>
-        <Blablabla >
-          <FaQuestionCircle/> Learn more about Hades Pools <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/the-protocol/artemis-earn/hades-pools"><GuideLink>here</GuideLink></a>
-        </Blablabla>
-        </ActionsWrapper>
+
+
+<div>
+        <Features >
+           <Feature>
+            <FaBurn /><br />
+            <p>Your deposited MIS will be burned</p>
+          </Feature>
+          <Feature>
+            <FaHistory /><br />
+            <p>ROI is not fixed and will change over time</p>
+          </Feature>
+          <Feature>
+          <FaQuestionCircle/><br />
+             <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/the-protocol/artemis-earn/hades-pools"> Learn more about Hades here</a>
+          </Feature> 
+        </Features>
+        </div>    
 
       <FlexLayout>
         <Route exact path={`${path}`}>
@@ -240,6 +253,18 @@ const Farm: React.FC = () => {
     </Page>
   )
 }
+
+const Features = styled.div`
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px;
+  @media screen and (max-width: 680px){
+    flex-flow: column;
+  }
+`
 
 const Hero = styled.div`
   display: flex;
