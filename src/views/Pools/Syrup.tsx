@@ -148,11 +148,11 @@ const Farm: React.FC = () => {
   const poolsWithApy = pools.map((pool) => {
 
     let quoteTokens = new BigNumber(pool.quoteTokenPerLp).times(pool.totalStaked).div(new BigNumber(10).pow(18))
-    if (pool.sousId === 4 || pool.tokenName === pool.quoteTokenSymbol) {
+    if (pool.sousId === 4) {
         // Handle single staking pools
         quoteTokens = new BigNumber(pool.totalStaked).div(new BigNumber(10).pow(18)).div(2)
     }
-     if (pool.sousId === 8 || pool.tokenName === pool.quoteTokenSymbol) {
+     if (pool.sousId === 8) {
       // Handle single staking pools
       quoteTokens = new BigNumber(pool.totalStaked).div(new BigNumber(10).pow(18)).div(2)
     } 
