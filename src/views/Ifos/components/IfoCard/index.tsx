@@ -97,6 +97,7 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
     currencyAddress,
     tokenDecimals,
     releaseBlockNumber,
+    misAmount,
   } = ifo
   const [state, setState] = useState({
     isLoading: true,
@@ -182,6 +183,7 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
           cakeToBurn={cakeToBurn}
           raisingAmount={state.raisingAmount}
           totalAmount={state.totalAmount}
+          misAmount={misAmount}
         />
         {!account && <UnlockButton fullWidth />}
         {(isActive || isFinished) && (
