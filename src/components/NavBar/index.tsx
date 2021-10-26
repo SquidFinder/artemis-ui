@@ -35,7 +35,7 @@ background-color: rgba(0, 0, 0,0) !important;
 border: 1px;
 border-style: solid !important;
 border-color: #405fb4 !important;
-border-radius: 16px;
+border-radius: 10px;
 color: #405fb4;
 font-size: 15px;
 font-weight: 800;
@@ -45,6 +45,7 @@ min-height: 21px;
 max-height: 37px;
 letter-spacing: 0.03em;
 padding: 15px;
+margin-top: 10px;
 `
 
 const Logo = styled.p`
@@ -342,13 +343,13 @@ const NavBar = (props) => {
               <ul className="nav-tabs outsideMainNav">
 
               
-              <li className="web3li">
+              {/* <li className="web3li">
                     <a  target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href='https://app.defikingdoms.com/#/marketplace?outputCurrency=0xd74433b187cf0ba998ad9be3486b929c76815215' className="nav-links connect">
-                      <Button style={{'fontSize': '15px', 'borderRadius': '15px', 'width': '100% !important', 'backgroundColor': '#4C68EF'}}>
-                        <b>Get MIS</b>
+                      <Button style={{'fontSize': '15px', 'borderRadius': '15px', 'borderColor': '#4C68EF', 'width': '100% !important', 'backgroundColor': '#4C68EF'}}>
+                        <b>Swap</b>
                       </Button>
                     </a>
-               </li>
+                </li> */}
 
 
                 <li className="web3li">
@@ -356,6 +357,7 @@ const NavBar = (props) => {
                   <Price 
                     style={{ 
                       marginRight: '0px',
+                      marginTop: '10px',
                       'flexFlow': 'row',
                       alignItems: 'center',
                       justifyContent: 'space-between'
@@ -369,7 +371,7 @@ const NavBar = (props) => {
                 <li className="web3li">
                   <Link to="/" className="nav-links connect">
                   { account != null && account.length > 1? 
-                    <Price>{account.substring(0,7).concat("...")} <p style={{'color': '#4c68ef'}}> ✓</p></Price>:
+                    <Price>{account.substring(0,5)} <p style={{'color': '#4c68ef'}}>...</p></Price>:
                   <UnlockButton style={{
                     backgroundColor: 'rgb(22, 35, 73) !important',
                     border: '0px',
@@ -377,6 +379,7 @@ const NavBar = (props) => {
                     borderRadius: '15px',
                     fontSize: '15px',
                     fontWeight: '800',
+                    marginTop: '10px',
                     width: '100%',
                     display: 'inline-flex',
                     letterSpacing: '0.03em',

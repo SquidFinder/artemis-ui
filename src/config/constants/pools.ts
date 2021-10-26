@@ -227,7 +227,7 @@ const pools: PoolConfig[] = [
     projectLink: 'https://www.kuroshiba.one/',
     harvest: true,
     tokenPerBlock: '0.0065', // 0.0065
-    sortOrder: 200,
+    sortOrder: 4,
     isFinished: false,
     startBlock: 18589529,
     endBlock: 20101500,

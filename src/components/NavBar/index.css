@@ -19,10 +19,10 @@ h1 {
 	align-items: center;
 	justify-content: space-between;
 	margin: auto;
-	width: 80%;
-	height: 120px;
+	width: 70%;
+	height: 130px;
 	border-radius: 0 0 15px 15px;
-	padding: 0 25px;
+	padding: 0 40px;
 	z-index: 81;
 }
 
@@ -57,9 +57,9 @@ h1 {
 }
 
 .nav-tab {
-	padding: 10px 22px;
-	margin: 10;
-	border-right: 0px solid #eee;
+	padding: 0.5px 20px;
+	margin: 15;
+	border-right: 1.5px solid rgb(121, 121, 121);
 	
 	
 }

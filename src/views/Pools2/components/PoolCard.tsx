@@ -59,6 +59,8 @@ margin-bottom: 5px;
 width: 0%;
 `
 
+
+
 const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
   const {
     sousId,
@@ -172,35 +174,34 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
         </Flex> 
         */}
 
-      <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaTractor/> ROI</span>
-          <Quote>{ROI}%</Quote>
-        </Flex>
 
-        <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaSeedling/> Daily ROI</span>
-          <Quote>{DailyROI}%</Quote>
-        </Flex>
+          <Flex justifyContent='space-between' marginTop='6px'>
+              <span><FaTractor/> ROI</span>
+              <Quote>{ROI}%</Quote>
+            </Flex>
+            <Flex justifyContent='space-between' marginTop='6px'>
+              <span><FaSeedling/> Daily ROI</span>
+              <Quote>{DailyROI}%</Quote>
+            </Flex>
 
-        {/* <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaMountain/> Annualized ROI</span>
-          <Quote>{APR}%</Quote>
-      </Flex> */  }
-
-
-
-        
-<Flex justifyContent='space-between' marginTop='6px'>
-        <span><FaScroll/> MIS Burnt</span>
-        <Quote>${TVL} </Quote>
-
-      </Flex> 
+            {/* <Flex justifyContent='space-between' marginTop='6px'>
+              <span><FaMountain/> Annualized ROI</span>
+              <Quote>{APR}%</Quote>
+          </Flex> */  }
 
 
-      <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaClock/> Ends In</span>
-          <Quote>~{daysRemaining} Days  </Quote>
-        </Flex>
+
+            
+          <Flex justifyContent='space-between' marginTop='6px'>
+            <span><FaScroll/> MIS Burnt</span>
+            <Quote>${TVL} </Quote>
+          </Flex> 
+
+
+          <Flex justifyContent='space-between' marginTop='6px'>
+              <span><FaClock/> Ends In</span>
+              <Quote>~{daysRemaining} Days  </Quote>
+            </Flex>
 
 
 
