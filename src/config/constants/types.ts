@@ -20,6 +20,7 @@ export interface Ifo {
   tokenDecimals: number
   releaseBlockNumber: number
   isActive2?: boolean
+  misAmount?: string
 }
 
 export interface MoneyWheelBet {

@@ -11,6 +11,7 @@ export interface IfoCardDetailsProps {
   cakeToBurn: string
   raisingAmount: BigNumber
   totalAmount: BigNumber
+  misAmount: string
 }
 
 
@@ -45,6 +46,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
   cakeToBurn,
   raisingAmount,
   totalAmount,
+  misAmount,
 }) => {
   const TranslateString = useI18n()
 
@@ -60,6 +62,10 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
         <Item>
           <Display bold>{TranslateString(999, 'USD To Raise')}</Display>
           <Text>{raiseAmount}</Text>
+        </Item>
+        <Item>
+          <Display bold>{TranslateString(999, 'Required MIS in wallet')}</Display>
+          <Text>{misAmount}</Text>
         </Item>
 
         
