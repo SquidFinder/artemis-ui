@@ -59,6 +59,19 @@ margin-bottom: 5px;
 width: 0%;
 `
 
+const FCard = styled.div`
+  align-self: baseline;
+  background: ${(props) => props.theme.card.background};
+  border-radius: 12px;
+  box-shadow: 0px 2px 12px -8px rgba(25, 19, 38, 0.1), 0px 1px 1px rgba(25, 19, 38, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 24px;
+  position: relative;
+  text-align: center;
+`
+
 
 
 const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
@@ -174,7 +187,6 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
         </Flex> 
         */}
 
-
           <Flex justifyContent='space-between' marginTop='6px'>
               <span><FaTractor/> ROI</span>
               <Quote>{ROI}%</Quote>
@@ -182,7 +194,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
             <Flex justifyContent='space-between' marginTop='6px'>
               <span><FaSeedling/> Daily ROI</span>
               <Quote>{DailyROI}%</Quote>
-            </Flex>
+            </Flex>         
+
 
             {/* <Flex justifyContent='space-between' marginTop='6px'>
               <span><FaMountain/> Annualized ROI</span>

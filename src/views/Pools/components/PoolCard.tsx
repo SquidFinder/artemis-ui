@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js'
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
-import { Button, IconButton, useModal, AddIcon, Image, Flex, MinusIcon, LinkExternal } from '@pancakeswap-libs/uikit'
+import { Button, IconButton, useModal, AddIcon, Image, Flex, MinusIcon, LinkExternal, Link } from '@pancakeswap-libs/uikit'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import UnlockButton from 'components/UnlockButton'
 import { useERC20 } from 'hooks/useContract'
@@ -15,7 +15,7 @@ import { useSousHarvest } from 'hooks/useHarvest'
 import Balance from 'components/Balance'
 import { QuoteToken, PoolCategory } from 'config/constants/types'
 import { Pool } from 'state/types'
-import { FaArrowAltCircleDown, FaBook, FaBox, FaClock, FaCube, FaCubes, FaFire, FaFlask, FaLightbulb, FaLock, FaMountain, FaScroll, FaSeedling, FaTractor } from 'react-icons/fa'
+import { FaArrowAltCircleDown, FaArrowRight, FaBook, FaBox, FaClock, FaCube, FaCubes, FaFire, FaFlask, FaLightbulb, FaLock, FaMountain, FaScroll, FaSeedling, FaTractor } from 'react-icons/fa'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
 import CompoundModal from './CompoundModal'
@@ -56,6 +56,21 @@ margin-top: 20px;
 margin-bottom: 5px;
 width: 0%;
 `
+
+const FCard = styled.div`
+  align-self: baseline;
+  background: #3E4266;
+  border-radius: 10px;
+  box-shadow: 0px 2px 12px -8px rgba(25, 19, 38, 0.1), 0px 1px 1px rgba(25, 19, 38, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 24px;
+  position: relative;
+  text-align: center;
+`
+
+
 
 const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const {
@@ -166,8 +181,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         </Flex> 
         */}
 
-
-
+<FCard>
         <Flex justifyContent='space-between' marginTop='6px'>
           <span><FaTractor/> APR</span>
           <Quote>{APR}%</Quote>
@@ -183,14 +197,12 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           <Quote>~{hsRemaining} Days</Quote>
         </Flex>
 
-        <LinkExternal href={projectLink} target="_blank" marginTop='6px'>
-        <span > About The Project</span>
-          </LinkExternal>
+        <Link href={projectLink} style={{'color':'white'}} target="_blank" marginTop='6px'>
+        <span > About The Project <FaArrowRight/></span>
+          </Link>
 
-        
+          </FCard>
 
-
-        <Divider />
 
         <Flex justifyContent='space-between' marginTop='25px'>
           <span><FaBox/> Your Deposits</span>
@@ -234,13 +246,13 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           {account &&
             (needsApproval && !isOldSyrup ? (
               <div style={{ flex: 1 }}>
-                <Button disabled={isFinished || requestedApproval} marginTop='20px' onClick={handleApprove} fullWidth >
+                <Button disabled={isFinished || requestedApproval} marginTop='10px' onClick={handleApprove} fullWidth >
                   Approve
                 </Button>
               </div>
             ) : (
               <>
-                <IconButton marginTop='20px' marginLeft='0px'
+                <IconButton marginTop='10px' marginLeft='0px'
                   disabled={stakedBalance.eq(new BigNumber(0)) || pendingTx}
                   onClick={
                     isOldSyrup
@@ -257,14 +269,14 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
                 <StyledActionSpacer />
 
                 {!isOldSyrup && (
-                <IconButton marginTop='20px' marginRight='0px' disabled={isFinished && sousId !== 0} onClick={onPresentDeposit}>
+                <IconButton marginTop='10px' marginRight='0px' disabled={isFinished && sousId !== 0} onClick={onPresentDeposit}>
 
                   <AddIcon color="background" />
                 </IconButton>)}
               </>
             ))}
 
-<div style={{ marginTop: '20px', display: 'flex', alignItems: 'center', marginLeft:'15px' }}>
+<div style={{ marginTop: '10px', display: 'flex', alignItems: 'center', marginLeft:'15px' }}>
           {account && harvest && !isOldSyrup && (
             <Button
               disabled={!earnings.toNumber() || pendingTx}

@@ -1,14 +1,14 @@
 import React, { useMemo, useState } from 'react'
 import BigNumber from 'bignumber.js'
 import styled, { keyframes } from 'styled-components'
-import { Flex, Skeleton, LinkExternal } from '@pancakeswap-libs/uikit'
+import { Flex, Skeleton, LinkExternal, Link } from '@pancakeswap-libs/uikit'
 import { Farm } from 'state/types'
 import { provider } from 'web3-core'
 import useI18n from 'hooks/useI18n'
 import ExpandableSectionButton from 'components/ExpandableSectionButton'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { PoolCategory, QuoteToken } from 'config/constants/types'
-import { FaClock, FaFire, FaFlask, FaGhost, FaLock, FaMountain, FaSeedling, FaTractor, FaTruck, } from 'react-icons/fa'
+import { FaArrowRight, FaClock, FaFire, FaFlask, FaGhost, FaLock, FaMountain, FaSeedling, FaTractor, FaTruck, } from 'react-icons/fa'
 import DetailsSection from './DetailsSection'
 import CardHeading from './CardHeading'
 import CardActionsContainer from './CardActionsContainer'
@@ -60,7 +60,17 @@ const FCard = styled.div`
   align-self: baseline;
   background: ${(props) => props.theme.card.background};
   border-radius: 12px;
-  box-shadow: 0px 2px 12px -8px rgba(25, 19, 38, 0.1), 0px 1px 1px rgba(25, 19, 38, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 24px;
+  position: relative;
+  text-align: center;
+`
+
+const DCard = styled.div`
+  background: #3E4266;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -191,61 +201,57 @@ const FarmCard: React.FC<FarmCardProps> = ({
         tokenSymbol={farm.tokenSymbol}
       />
 
+      <DCard>
 
-      {!removed && (
-        <Flex justifyContent='space-between' alignItems='center'  mt="15px"  marginBottom='6px'  >
-          <span><FaTractor/> APR</span>
-          <APRTEXT style={{ display: 'flex', alignItems: 'center' }}>
-            {farm.apy ? (
-              <>
-                {/* <ApyButton
-                  lpLabel={lpLabel}
-                  quoteTokenAdresses={quoteTokenAdresses}
-                  quoteTokenSymbol={quoteTokenSymbol}
-                  tokenAddresses={tokenAddresses}
-                  cakePrice={cakePrice}
-                  apy={farm.apy}
-                /> */}
-                &nbsp;&nbsp;{farmAPY}
-              </>
-            ) : (
-              <Skeleton height={24} width={80} />
-            )}
-          </APRTEXT>
+
+        {!removed && (
+          <Flex justifyContent='space-between' alignItems='center'  mt="5px"  marginBottom='6px'  >
+            <span><FaTractor/> APR</span>
+            <APRTEXT style={{ display: 'flex', alignItems: 'center' }}>
+              {farm.apy ? (
+                <>
+                  {/* <ApyButton
+                    lpLabel={lpLabel}
+                    quoteTokenAdresses={quoteTokenAdresses}
+                    quoteTokenSymbol={quoteTokenSymbol}
+                    tokenAddresses={tokenAddresses}
+                    cakePrice={cakePrice}
+                    apy={farm.apy}
+                  /> */}
+                  &nbsp;&nbsp;{farmAPY}
+                </>
+              ) : (
+                <Skeleton height={24} width={80} />
+              )}
+            </APRTEXT>
+          </Flex>
+        )}
+
+        <Flex justifyContent='space-between'>
+          <span><FaSeedling /> Daily Returns</span>
+          <Quote>{Daily}</Quote>
         </Flex>
-      )}
-
-      <Flex justifyContent='space-between'>
-        <span><FaSeedling /> Daily Returns</span>
-        <Quote>{Daily}</Quote>
-      </Flex>
 
 
-      {/*
-      <Flex justifyContent='space-between'>
-        <span><FaLock/> Lockup</span>
-        <Quote>{TranslateString(10006, '0 Hours')}</Quote>
-      </Flex>
-      */}
-
-      <Flex justifyContent='space-between'>
-        <span><FaFire/> Deposit Fee</span>
-        <Quote>{ ( !Number.isNaN(farm.depositFeeBP) ? `${(farm.depositFeeBP / 100)}%` : '...loading') }</Quote>
-      </Flex>
+        <Flex justifyContent='space-between'>
+          <span><FaFire/> Deposit Fee</span>
+          <Quote>{ ( !Number.isNaN(farm.depositFeeBP) ? `${(farm.depositFeeBP / 100)}%` : '...loading') }</Quote>
+        </Flex>
 
 
-      <Flex justifyContent="left">
-        <StyledLinkExternal external href={
-          farm.isTokenOnly ?
-            `https://app.defikingdoms.com/#/marketplace?inputCurrency=${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
-            :
-            `https://app.defikingdoms.com/#/add/${liquidityUrlPathParts}`
-        }>
-          <span ><FaGhost/> Add Liquidity</span>
-        </StyledLinkExternal>
-      </Flex>
+        <Flex justifyContent="left">
+          <Link external href={
+            farm.isTokenOnly ?
+              `https://app.defikingdoms.com/#/marketplace?inputCurrency=${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
+              :
+              `https://app.defikingdoms.com/#/add/${liquidityUrlPathParts}`
+          }>
+            <span style={{color:'white'}}><FaGhost/> Add Liquidity<FaArrowRight/></span>
+          </Link>
+        </Flex>
+
+      </DCard>
       
-      <Divider/>
 
       <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />
 
