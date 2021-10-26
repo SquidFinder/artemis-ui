@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import useI18n from 'hooks/useI18n'
 import { Heading, Text, Flex, Link, LinkExternal } from '@pancakeswap-libs/uikit'
-import { FaBook } from 'react-icons/fa'
+import { FaArrowRight, FaBook } from 'react-icons/fa'
 
 interface IfoCardHeaderProps {
   ifoId: string
@@ -34,9 +34,9 @@ const IfoCardHeader: React.FC<IfoCardHeaderProps> = ({ ifoId, name, subTitle, pr
     <StyledIfoCardHeader mb="24px" alignItems="center">
       <img src={`/images/ifos/${ifoId}.svg`} alt={ifoId} width="70px" height="70px" />
       <div>
-        <LinkExternal href={projectSiteUrl} style={{ marginLeft: '110px', marginBottom: '4px', textAlign: 'right', fontSize: '20px' }}>
-        {TranslateString(999, name)}
-        </LinkExternal>
+        <Link href={projectSiteUrl} style={{ marginLeft: '110px', marginBottom: '4px', textAlign: 'right', fontSize: '20px', color: 'white'  }}>
+        {TranslateString(999, name)}<FaArrowRight/>
+        </Link>
         <Description>{subTitle}</Description>
       </div>
     </StyledIfoCardHeader>

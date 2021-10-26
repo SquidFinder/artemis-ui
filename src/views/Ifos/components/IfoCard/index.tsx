@@ -22,13 +22,16 @@ export interface IfoCardProps {
 
 const StyledIfoCard = styled(Card)<{ ifoId: string }>`
   background-image: ${({ ifoId }) => `url('/images/ifos/${ifoId}-bg.svg')`};
+  
   background-repeat: no-repeat;
   background-size: contain;
+  border-radius: 45px;
   padding-top: 100px;
   margin-left: auto;
   margin-right: auto;
   max-width: 420px;
   width: 100%;
+  padding-bottom: 10px;
 `
 
 const Column = styled.div`

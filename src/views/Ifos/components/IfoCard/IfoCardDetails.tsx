@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
 import { Text, LinkExternal, Link } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
-import { FaBook, FaClock, FaLink } from 'react-icons/fa'
+import { FaBook, FaClock, FaLink, FaWallet } from 'react-icons/fa'
 
 export interface IfoCardDetailsProps {
   saleAmount: string
@@ -25,6 +25,17 @@ margin-top: 5px;
 margin-bottom: 5px;
 width: 100%;
 `
+
+const DCard = styled.div`
+  background: #3E4266;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 24px;
+  position: relative;
+`
+
 
 const StyledIfoCardDetails = styled.div`
   margin-bottom: 24px;
@@ -53,7 +64,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
   return (
     <>
       <StyledIfoCardDetails>
-        <Divider />
+        <DCard>
         <Item>
           
           <Display bold>{TranslateString(5824, 'Tokens For Sale')}</Display>
@@ -63,10 +74,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
           <Display bold>{TranslateString(999, 'USD To Raise')}</Display>
           <Text>{raiseAmount}</Text>
         </Item>
-        <Item>
-          <Display bold>{TranslateString(999, 'Required MIS in wallet')}</Display>
-          <Text>{misAmount}</Text>
-        </Item>
+
 
         
         {/*
@@ -79,6 +87,13 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
           <Display bold>{TranslateString(999, 'USD Raised')}</Display>
           <Text>{`${totalAmount.div(raisingAmount).times(100).toFixed(1)}%`}</Text>
         </Item>
+
+        <Item>
+          <Display bold><FaWallet/> {TranslateString(999, ' Required MIS in Wallet')}</Display>
+          <Text>{misAmount}</Text>
+        </Item>
+
+        </DCard>
 
 
       </StyledIfoCardDetails>

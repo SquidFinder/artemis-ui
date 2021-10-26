@@ -18,6 +18,7 @@ const StyledProgress = styled.div`
 
 const Item = styled.div`
   align-items: center;
+  
   color: ${({ theme }) => theme.colors.secondary};
   display: flex;
   margin-bottom: 10px;
