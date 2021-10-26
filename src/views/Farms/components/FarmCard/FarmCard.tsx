@@ -63,7 +63,7 @@ const FCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 24px;
+  padding: 32px;
   position: relative;
   text-align: center;
 `
@@ -124,8 +124,8 @@ const Divider2 = styled.div`
   height: 0px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-bottom: 5px;
   width: 0%;
 `
 interface FarmCardProps {
@@ -252,10 +252,12 @@ const FarmCard: React.FC<FarmCardProps> = ({
 
       </DCard>
       
-
+      <Divider2/>
       <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />
 
       <Divider2/>
+
+
 
       <Flex justifyContent='right'>
         <ExpandableSectionButton onClick={() => setShowExpandableSection(!showExpandableSection)}/>
