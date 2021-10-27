@@ -201,7 +201,7 @@ const pools: PoolConfig[] = [
     projectLink: 'https://www.terra.money/',
     harvest: true,
     tokenPerBlock: '0.000346', // 0.000346
-    sortOrder: 1,
+    sortOrder: 2,
     isFinished: false,
     startBlock: 18337525,
     endBlock: 19244225,
@@ -279,7 +279,7 @@ const pools: PoolConfig[] = [
     projectLink: 'https://app.farmersonly.fi/',
     harvest: true,
     tokenPerBlock: '0.033',
-    sortOrder: 2,
+    sortOrder: 1,
     isFinished: false,
     startBlock: 18764195,
     endBlock: 19973712,
