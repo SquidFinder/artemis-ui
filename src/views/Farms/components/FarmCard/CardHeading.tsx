@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Tag, Flex, Heading, Image } from '@pancakeswap-libs/uikit'
+import { Tag, Flex, Heading, Image, Link } from '@pancakeswap-libs/uikit'
 import { CommunityTag, CoreTag, RiskTag, NoFeeTag } from 'components/Tags'
-import { FaSeedling } from 'react-icons/fa';
+import { FaArrowRight, FaHistory, FaPiggyBank, FaSeedling } from 'react-icons/fa';
 
 export interface ExpandableSectionProps {
   lpLabel?: string
@@ -42,13 +42,19 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
       <Flex flexDirection="column" alignItems="flex-end">
 
         <Heading size="md" mb="8px" marginRight="2px"><FaSeedling/>{lpLabel}</Heading>
-
+        
         <Flex justifyContent="center">
+          <Link style={{color:'white'}} marginRight="2px" external href='https://app.farmersonly.fi/vaults/'>
+            <span style={{color:'white'}}>Enter Vaults <FaArrowRight/></span>
+          </Link>
+        </Flex>
+
+        {/* <Flex justifyContent="center">
           {/* {depositFee === 0 ? <NoFeeTag /> : null} */}
           {/* isCommunityFarm ? <CommunityTag /> : <CoreTag />} */}
-          {/* <RiskTag risk={risk} /> */}
-          <MultiplierTag variant="secondary">Allocation {multiplier}</MultiplierTag>
-        </Flex>
+          {/* <RiskTag risk={risk} />
+          <MultiplierTag variant="secondary">Allocation {multiplier}</MultiplierTag> 
+        </Flex> */}
       </Flex>
     </Wrapper>
   )

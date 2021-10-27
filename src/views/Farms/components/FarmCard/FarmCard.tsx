@@ -8,7 +8,7 @@ import useI18n from 'hooks/useI18n'
 import ExpandableSectionButton from 'components/ExpandableSectionButton'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { PoolCategory, QuoteToken } from 'config/constants/types'
-import { FaArrowRight, FaClock, FaFire, FaFlask, FaGhost, FaLock, FaMountain, FaSeedling, FaTractor, FaTruck, } from 'react-icons/fa'
+import { FaArrowRight, FaCanadianMapleLeaf, FaClock, FaFire, FaFirefox, FaFlask, FaGhost, FaLock, FaMountain, FaPiggyBank, FaSeedling, FaTractor, FaTruck, } from 'react-icons/fa'
 import DetailsSection from './DetailsSection'
 import CardHeading from './CardHeading'
 import CardActionsContainer from './CardActionsContainer'
@@ -246,9 +246,12 @@ const FarmCard: React.FC<FarmCardProps> = ({
               :
               `https://app.defikingdoms.com/#/add/${liquidityUrlPathParts}`
           }>
-            <span style={{color:'white'}}><FaGhost/> Add Liquidity<FaArrowRight/></span>
+            <span style={{color:'white'}}><FaGhost/> Add Liquidity <FaArrowRight/></span>
+
           </Link>
         </Flex>
+
+        
 
       </DCard>
       
