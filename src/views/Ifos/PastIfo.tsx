@@ -15,9 +15,7 @@ const PastIfo = () => {
 
 
 
-      {/* {inactiveIfo2.map((ifo) => (
-        <IfoCard key={ifo.id} ifo={ifo} />
-      ))} */}
+    
     </IfoCards>
   )
 }

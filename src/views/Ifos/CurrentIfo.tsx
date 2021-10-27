@@ -48,7 +48,9 @@ const LaunchpadLayout = styled.div`
 /**
  * Note: currently there should be only 1 active IFO at a time
  */
-const activeIfo = ifosConfig.find((ifo) => ifo.isActive)
+const activeIfo = ifosConfig.find((ifo) => ifo.tier === '1')
+const activeIfo2 = ifosConfig.find((ifo) => ifo.tier === '2')
+const activeIfo3 = ifosConfig.find((ifo) => ifo.tier === '3')
 
 const Ifo = () => {
   const TranslateString = useI18n()
@@ -56,9 +58,15 @@ const Ifo = () => {
   return (
     <LaunchpadLayout>
 
-        <IfoCards isSingle>
+        <IfoCards>
           <IfoCard ifo={activeIfo} />
-        </IfoCards>    
+        </IfoCards>   
+        <IfoCards>
+          <IfoCard ifo={activeIfo2} />
+        </IfoCards>   
+        <IfoCards>
+          <IfoCard ifo={activeIfo3} />
+        </IfoCards>   
 
     </LaunchpadLayout>
   )

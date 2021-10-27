@@ -21,6 +21,8 @@ export interface Ifo {
   releaseBlockNumber: number
   isActive2?: boolean
   misAmount?: string
+  tier?: string
+  isTier2?: boolean
 }
 
 export interface MoneyWheelBet {

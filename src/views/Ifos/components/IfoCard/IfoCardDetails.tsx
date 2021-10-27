@@ -12,6 +12,7 @@ export interface IfoCardDetailsProps {
   raisingAmount: BigNumber
   totalAmount: BigNumber
   misAmount: string
+  tier: string
 }
 
 
@@ -59,6 +60,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
   raisingAmount,
   totalAmount,
   misAmount,
+  tier,
 }) => {
   const TranslateString = useI18n()
 
@@ -69,7 +71,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
 
       <Item>
           <Display bold><FaArrowCircleUp/> {TranslateString(5824, 'Tier')}</Display>
-          <Text>1</Text>
+          <Text>{tier}</Text>
         </Item>
 
         <Item>
