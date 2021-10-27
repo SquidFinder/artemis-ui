@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Button, useModal, LinkExternal } from '@pancakeswap-libs/uikit'
+import { Heading, Card, CardBody, Button, useModal, LinkExternal, Link } from '@pancakeswap-libs/uikit'
 import { getCakeAddress } from 'utils/addressHelpers'
 import { getBalanceNumber } from 'utils/formatBalance'
 import useI18n from 'hooks/useI18n'
@@ -8,7 +8,7 @@ import useGetLotteryHasDrawn from 'hooks/useGetLotteryHasDrawn'
 import useTokenBalance from 'hooks/useTokenBalance'
 import { useMultiClaimLottery } from 'hooks/useBuyLottery'
 import { useTotalClaim } from 'hooks/useTickets'
-import { FaBroadcastTower, FaChartBar, FaExchangeAlt, FaScroll, FaTicketAlt, FaVoteYea } from 'react-icons/fa'
+import { FaArrowRight, FaBroadcastTower, FaChartBar, FaExchangeAlt, FaScroll, FaTicketAlt, FaVoteYea } from 'react-icons/fa'
 import BuyModal from 'views/Lottery/components/TicketCard/BuyTicketModal'
 import CakeWinnings from './CakeWinnings'
 import LotteryJackpot from './LotteryJackpot'
@@ -34,8 +34,19 @@ margin-bottom: 20px;
 width: 100%;
 `
 
+const Divider2 = styled.div`
+background-color: #FAFAFA;
+height: 3px;
+margin-left: auto;
+margin-right: auto;
+margin-top: 10px;
+margin-bottom: 10px;
+width: 0%;
+`
+
 const Block = styled.div`
-  margin-bottom: 16px;
+  margin-bottom: 5px;
+  margin-top: 5px;
 `
 
 const CardImage = styled.img`
@@ -52,6 +63,18 @@ const Title = styled.p`
   margin-bottom: 21px;
 
 `
+
+const DCard = styled.div`
+  background: #3E4266;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 15px;
+  position: relative;
+  text-align: center;
+`
+
 
 const Actions = styled.div`
   display: flex;
@@ -91,25 +114,33 @@ const FarmedStakingCard = () => {
           <span><FaBroadcastTower/> Bridge</span>
         </Title>
 
+        <DCard>
+
         <Block>
-          <LinkExternal fontSize='14px' href='https://bridge.harmony.one/erc20'>{TranslateString(999, 'Horizon Bridge')}</LinkExternal>
+          <Link style={{color:'white'}} fontSize='14px' href='https://bridge.harmony.one/erc20'>{TranslateString(999, 'Horizon Bridge')}<FaArrowRight/></Link>
         </Block>
 
         <Block>
-          <LinkExternal fontSize='14px' href='https://bridge.terra.money/'>{TranslateString(999, 'Terra Bridge')}</LinkExternal>
+          <Link style={{color:'white'}} fontSize='14px' href='https://bridge.terra.money/'>{TranslateString(999, 'Terra Bridge')}<FaArrowRight/></Link>
         </Block>
 
-        <Divider />
+        </DCard>
+
+        <Divider2 />
 
         <Title>
           <span><FaVoteYea /> Misc</span>
         </Title>
-        <Block>
-        <LinkExternal href='https://gov.harmony.one/#/artemis'> Governance</LinkExternal>
-        </Block>
-        <Block>
-        <LinkExternal href='https://artemischarts.northeurope.cloudapp.azure.com/'> Charts</LinkExternal>
-        </Block>
+
+        <DCard>
+          <Block>
+          <Link style={{color:'white'}} fontSize='14px' href='https://gov.harmony.one/#/artemis'>Governance <FaArrowRight/></Link>
+          </Block>
+          <Block>
+          <Link style={{color:'white'}}fontSize='14px'  href='https://artemischarts.northeurope.cloudapp.azure.com/'>Charts <FaArrowRight/></Link>
+          </Block>
+
+        </DCard>
 
 
 

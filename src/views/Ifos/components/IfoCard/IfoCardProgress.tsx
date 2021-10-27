@@ -31,14 +31,15 @@ const Display = styled(Text)`
 const IfoCardProgress: React.FC<IfoCardProgressProps> = ({ progress, launchDate, launchTime, endDate, endTime }) => {
   const TranslateString = useI18n()
   return (
-    <StyledProgress>
+    <StyledProgress style={{marginTop:'10px', marginBottom:'10px'}}>
       <Item>
-          <Display bold><FaClock/> {TranslateString(5822, 'Presale Launch')}</Display>
+          <Display bold><FaClock/> {TranslateString(5822, 'IDO Launch')}</Display>
           <Text>
             {launchDate},
             <Link
               href="https://www.timeanddate.com/worldclock/timezone/utc"
               target="blank"
+              color='white'
               rel="noopener noreferrer"
               ml="4px"
               style={{ display: 'inline' }}

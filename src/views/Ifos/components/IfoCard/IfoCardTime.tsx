@@ -19,7 +19,7 @@ const Details = styled.div`
   display: flex;
   height: 24px;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
 `
 
 const Countdown = styled.div`
@@ -27,7 +27,7 @@ const Countdown = styled.div`
   font-size: 20px;
   font-weight: 600;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 10px;
 `
 
 
@@ -45,6 +45,7 @@ const IfoCardTime: React.FC<IfoCardTimeProps> = ({ isLoading, status, secondsUnt
     return (
       <Details>
         <Text bold>{TranslateString(999, 'Finished')}</Text>
+
       </Details>
     )
   }
@@ -52,15 +53,16 @@ const IfoCardTime: React.FC<IfoCardTimeProps> = ({ isLoading, status, secondsUnt
   return (
     <Details>
       <div>
-       <Countdown>{`${timeUntil.days}d, ${timeUntil.hours}h, ${timeUntil.minutes}m`}</Countdown>
-       <div style={{display: 'flex', justifyContent: 'center'}}>
+       <Countdown>{`${timeUntil.days}d, ${timeUntil.hours}h, ${timeUntil.minutes}m`} Remaining</Countdown>
+       
+       {/* <div style={{display: 'flex', justifyContent: 'center'}}>
         <LinkExternal href={`https://explorer.harmony.one/block/${block}`} target="blank" rel="noopener noreferrer" mt="10px">
           Explorer
-        </LinkExternal>
+        </LinkExternal> 
         <LinkExternal href={`https://explorer.harmony.one/address/${address}`} target="blank" rel="noopener noreferrer" mt="10px" ml="10px">
           View Contract
-        </LinkExternal>
-       </div>
+        </LinkExternal> */ }
+
       </div>
     </Details>
   )

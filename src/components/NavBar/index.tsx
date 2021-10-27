@@ -299,7 +299,7 @@ const NavBar = (props) => {
                     href='https://app.defikingdoms.com/' 
                     className="nav-links connect">
                       <Button style={{'fontSize': '15px', 'borderRadius': '10px', 'width': '100% !important', 'backgroundColor': '#4C68EF'}}>
-                        <b>Get MIS</b>
+                        <b>Swap</b>
                       </Button>
                     </a>
                   </li>
@@ -346,7 +346,7 @@ const NavBar = (props) => {
                 <li className="web3li">
                     <a  target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href='https://app.defikingdoms.com/#/marketplace?outputCurrency=0xd74433b187cf0ba998ad9be3486b929c76815215' className="nav-links connect">
                       <Button style={{'fontSize': '15px', 'borderRadius': '10px', 'borderColor': '#4C68EF', 'width': '100% !important', 'backgroundColor': '#4C68EF', 'marginTop': '10px'}}>
-                        <b>Get MIS</b>
+                        <b>Swap</b>
                       </Button>
                     </a>
                 </li> 

@@ -29,13 +29,16 @@ const StyledIfoCard = styled(Card)<{ ifoId: string }>`
   padding-top: 100px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 420px;
+  max-width: 430px;
   width: 100%;
   padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+
 `
 
 const Column = styled.div`
-  margin-top: 1em;
+  margin-top: 10px;
   align-items: center;
 
 `
@@ -168,17 +171,21 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
     <StyledIfoCard ifoId={id} ribbon={Ribbon} isActive={isActive}>
       <CardBody>
         <Column>
-        <IfoCardHeader ifoId={id} name={name} subTitle={subTitle} projectSiteUrl={projectSiteUrl} />
-        <IfoCardProgress progress={state.progress} launchDate={launchDate} launchTime={launchTime} endDate={endDate} endTime={endTime} />
-        <IfoCardTime
-          isLoading={state.isLoading}
-          status={state.status}
-          secondsUntilStart={state.secondsUntilStart}
-          secondsUntilEnd={state.secondsUntilEnd}
-          block={isActive || isFinished ? state.endBlockNum : state.startBlockNum}
-          address={address}
-        />
+          
+          {/* <IfoCardHeader ifoId={id} name={name} subTitle={subTitle} projectSiteUrl={projectSiteUrl} /> */ }
+          <IfoCardProgress progress={state.progress} launchDate={launchDate} launchTime={launchTime} endDate={endDate} endTime={endTime} />
+
+          <IfoCardTime
+            isLoading={state.isLoading}
+            status={state.status}
+            secondsUntilStart={state.secondsUntilStart}
+            secondsUntilEnd={state.secondsUntilEnd}
+            block={isActive || isFinished ? state.endBlockNum : state.startBlockNum}
+            address={address}
+          />
+
         </Column>
+        
         <IfoCardDescription description={description} />
         <IfoCardDetails
           saleAmount={saleAmount}

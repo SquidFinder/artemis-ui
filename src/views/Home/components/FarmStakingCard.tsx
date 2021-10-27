@@ -16,7 +16,16 @@ import { getCakeAddress } from '../../../utils/addressHelpers'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 
-
+const DCard = styled.div`
+  background: #3E4266;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 15px;
+  position: relative;
+  text-align: center;
+`
 
 const Wrapper = styled.div`
   margin-left: 12px;

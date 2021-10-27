@@ -23,8 +23,16 @@ margin-top: 30px;
 margin-bottom: 5px;
 width: 100%;
 `
-
-
+const DCard = styled.div`
+  background: #3E4266;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 15px;
+  position: relative;
+  text-align: center;
+`
 const StyledCakeStats = styled(Card)`
   margin-left: auto;
   margin-right: auto;
@@ -98,41 +106,43 @@ const CakeStats = () => {
           <span><FaScroll/> Overview</span>
         </Title>
 
+        <DCard>
+
           <Row>
-            <Sub>MIS Price</Sub>
+            <Sub style={{color:'#E0E0E0'}}>MIS Price</Sub>
             <Sub className="lightColor">
               <CardValue value={cakePriceUsd.toNumber()} decimals={3} prefix="$" />
             </Sub>
           </Row>
           <Row>
-            <Sub>Current Supply</Sub>
+            <Sub style={{color:'#E0E0E0'}}  >Current Supply</Sub>
             <Sub className="lightColor">
               {cakeSupply && <CardValue value={cakeSupply} decimals={0} />}
             </Sub>
           </Row>
           <Row>
-            <Sub>Market Cap</Sub>
+            <Sub style={{color:'#E0E0E0'}} >Market Cap</Sub>
             <Sub className="lightColor">{ !marketCap.isZero() ? <CardValue value={getBalanceNumber(marketCap)} decimals={0} prefix="$" /> : '...loading' }</Sub>
           </Row>
           <Row>
-            <Sub>Total MIS Burnt</Sub>
+            <Sub style={{color:'#E0E0E0'}}  >Total MIS Burnt</Sub>
             <Sub className="lightColor">
               <CardValue value={getBalanceNumber(burnedBalance)} decimals={0} />
             </Sub>
           </Row>
           <Row style={{'marginBottom': '0 !important'}}>
-            <Sub>Minted MIS/Block</Sub>
+            <Sub style={{color:'#E0E0E0'}} >Minted MIS/Block</Sub>
             <Sub className="lightColor">
               {vikingPerBlock}
             </Sub>
           </Row>
 
+          </DCard>
 
 
-          <Divider />
 
           <Row style={{'marginBottom': '0 !important'}}>
-            <Sub2>Total Value Locked</Sub2>
+            <Sub2 style={{color:'#E0E0E0', padding:'5px', marginRight:'-10px'}}  >Total Value Locked</Sub2>
             <Sub2 className="lightColor"><CardValue value={totalValue.toNumber()} prefix="$" decimals={2} /></Sub2>  
           </Row>
 

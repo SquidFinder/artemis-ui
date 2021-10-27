@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
 import { Text, LinkExternal, Link } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
-import { FaBook, FaClock, FaLink, FaWallet } from 'react-icons/fa'
+import { FaArrowCircleUp, FaBook, FaClock, FaLink, FaWallet } from 'react-icons/fa'
 
 export interface IfoCardDetailsProps {
   saleAmount: string
@@ -23,7 +23,7 @@ margin-left: 100;
 margin-right: 0px;
 margin-top: 5px;
 margin-bottom: 5px;
-width: 100%;
+width: 0%;
 `
 
 const DCard = styled.div`
@@ -39,6 +39,7 @@ const DCard = styled.div`
 
 const StyledIfoCardDetails = styled.div`
   margin-bottom: 24px;
+  padding:0px;
 `
 
 const Item = styled.div`
@@ -64,14 +65,32 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
   return (
     <>
       <StyledIfoCardDetails>
+      <DCard>
+
+      <Item>
+          <Display bold><FaArrowCircleUp/> {TranslateString(5824, 'Tier')}</Display>
+          <Text>1</Text>
+        </Item>
+
+        <Item>
+          <Display bold><FaWallet/> {TranslateString(999, ' Required MIS in Wallet')}</Display>
+          <Text>{misAmount}</Text>
+        </Item>
+        </DCard>
+
+        <Divider/>
+
         <DCard>
+
+
+
         <Item>
           
-          <Display bold>{TranslateString(5824, 'Tokens For Sale')}</Display>
+          <Display>{TranslateString(5824, 'Tokens For Sale')}</Display>
           <Text>{saleAmount}</Text>
         </Item>
         <Item>
-          <Display bold>{TranslateString(999, 'USD To Raise')}</Display>
+          <Display>{TranslateString(999, 'USD To Raise')}</Display>
           <Text>{raiseAmount}</Text>
         </Item>
 
@@ -84,14 +103,11 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
         </Item>
         */}
         <Item>
-          <Display bold>{TranslateString(999, 'USD Raised')}</Display>
+          <Display>{TranslateString(999, 'USD Raised')}</Display>
           <Text>{`${totalAmount.div(raisingAmount).times(100).toFixed(1)}%`}</Text>
         </Item>
 
-        <Item>
-          <Display bold><FaWallet/> {TranslateString(999, ' Required MIS in Wallet')}</Display>
-          <Text>{misAmount}</Text>
-        </Item>
+
 
         </DCard>
 
