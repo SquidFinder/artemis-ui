@@ -127,6 +127,12 @@ export const usePriceMagic = (): BigNumber => {
   return new BigNumber(priceMis).times(pool.tokenPriceVsQuote);
 }
 
+export const usePriceFox = (): BigNumber => {
+  const priceMis = usePriceCakeBusd();
+  const pool = usePoolFromPid(11)
+  return new BigNumber(priceMis).times(pool.tokenPriceVsQuote);
+}
+
 export const usePriceLblox = (): BigNumber => {
   const priceMis = usePriceCakeBusd();
   const pool = usePoolFromPid(5)
@@ -241,7 +247,7 @@ export const usePrices = () => {
   const lunaPrice = usePriceLuna()
   const tranqbPrice = usePriceTranqb()
   const sonicPrice = usePriceSonic()
-
+  const foxPrice = usePriceFox()
 
   return [
       {name: QuoteToken.MIS, price: misPrice},
@@ -256,6 +262,7 @@ export const usePrices = () => {
       {name: QuoteToken.LUNA, price: lunaPrice},
       {name: QuoteToken.TRANQB, price: tranqbPrice},
       {name: QuoteToken.SONIC, price: sonicPrice},
+      {name: QuoteToken.FOX, price: foxPrice},
   ]
 }
 
@@ -282,6 +289,10 @@ export const getTotalValueFromQuoteTokens = (quoteTokenAmount, quoteToken, price
   }
   if (quoteToken === QuoteToken.MIS) {
     const price = lookupPrice(QuoteToken.MIS, prices)
+    return new BigNumber(2).times(quoteTokenAmount).times(price)
+  }
+  if (quoteToken === QuoteToken.FOX) {
+    const price = lookupPrice(QuoteToken.FOX, prices)
     return new BigNumber(2).times(quoteTokenAmount).times(price)
   }
   console.log("ERROR: NO PRICE FOUND FOR QuoteToken:", quoteToken)
