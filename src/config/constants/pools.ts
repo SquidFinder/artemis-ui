@@ -259,6 +259,58 @@ const pools: PoolConfig[] = [
     endBlock: 19204815,
     tokenDecimals: 18,
    },
+   {
+    sousId: 11,
+    tokenName: 'FOX',
+    earnToken: 'FOX',
+    quoteTokenSymbol: QuoteToken.MIS,
+    stakingTokenName: QuoteToken.MISFOX,
+    // this is MIS-FOX
+    stakingTokenAddress: '0xe9425769e13d3f928c483726de841999648e9cfd',
+     // this is MIS
+     quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is FOX
+     tokenPoolAddress: '0x0159ed2e06ddcd46a25e74eb8e159ce666b28687',
+    contractAddress: {
+      1666700000: '0x82c1d7C117Df8512646537b5345aF453B34b55C2',
+      1666600000: '0x82c1d7C117Df8512646537b5345aF453B34b55C2',
+    },
+    poolCategory: PoolCategory.COMMUNITY,
+    projectLink: 'https://app.farmersonly.fi/',
+    harvest: true,
+    tokenPerBlock: '0.033',
+    sortOrder: 2,
+    isFinished: false,
+    startBlock: 18764195,
+    endBlock: 19973712,
+    tokenDecimals: 18,
+   },
+   {
+    sousId: 12,
+    tokenName: 'MIS',
+    earnToken: 'MISFOX',
+    quoteTokenSymbol: QuoteToken.FOX,
+    stakingTokenName: QuoteToken.FOX,
+    // this is FOX
+    stakingTokenAddress: '0x0159ed2e06ddcd46a25e74eb8e159ce666b28687',
+     // this is FOX
+     quoteTokenPoolAddress: '0x0159ed2e06ddcd46a25e74eb8e159ce666b28687',
+     // this is MIS
+     tokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+    contractAddress: {
+      1666700000: '0x340CC1c172ff23E0f1065F0178E5471dac0Ca530',
+      1666600000: '0x340CC1c172ff23E0f1065F0178E5471dac0Ca530',
+    },
+    poolCategory: PoolCategory.CORE,
+    projectLink: 'https://app.farmersonly.fi/',
+    harvest: true,
+    tokenPerBlock: '0.004960', // 0.000346
+    sortOrder: 1,
+    isFinished: false,
+    startBlock: 18764877,
+    endBlock: 19973712,
+    tokenDecimals: 18,
+   },
 ]
 
 export default pools
