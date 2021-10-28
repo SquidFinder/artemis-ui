@@ -278,7 +278,7 @@ const pools: PoolConfig[] = [
     poolCategory: PoolCategory.COMMUNITY,
     projectLink: 'https://app.farmersonly.fi/',
     harvest: true,
-    tokenPerBlock: '0.033',
+    tokenPerBlock: '0.0033',
     sortOrder: 1,
     isFinished: false,
     startBlock: 18764195,
