@@ -291,6 +291,22 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.cake,
   },
   {
+    pid:labo.pids.pidList[10],
+    risk: 5,
+    lpSymbol: 'MIS-RFTM LP',
+    lpAddresses: {
+      1666700000: '0x3f5965eeece3a56fb499b8e41b26040806e1a2f7',
+      1666600000: '0x3f5965eeece3a56fb499b8e41b26040806e1a2f7', // ( MIS-UST LP)
+    },
+    tokenSymbol: 'RFTM',
+    tokenAddresses: {
+      1666700000: '0xd647090c1cdcdbb72de411b1ba16f03d4a7bba02',
+      1666600000: '0xd647090c1cdcdbb72de411b1ba16f03d4a7bba02',
+    },
+    quoteTokenSymbol: QuoteToken.MIS,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
     pid:labo.pids.pidList[4],
     risk: 5,
     lpSymbol: 'MIS-WBTC LP',
