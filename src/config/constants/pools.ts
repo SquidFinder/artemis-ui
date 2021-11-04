@@ -311,6 +311,32 @@ const pools: PoolConfig[] = [
     endBlock: 19973712,
     tokenDecimals: 18,
    },
+   {
+    sousId: 13,
+    tokenName: 'BOSS',
+    earnToken: 'BOSS',
+    quoteTokenSymbol: QuoteToken.MIS,
+    stakingTokenName: QuoteToken.MISBOSS,
+    // this is MIS-BOSS
+    stakingTokenAddress: '0x80523a136bd061db86763b83f5f4edd3d925e1d3',
+     // this is MIS
+     quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is BOSS
+     tokenPoolAddress: '0xe7bbe0e193fdfe95d2858f5c46d036065f8f735c',
+    contractAddress: {
+      1666700000: '0xbe39F89599FD5293fcA285EE4BE3dea019C7A527',
+      1666600000: '0xbe39F89599FD5293fcA285EE4BE3dea019C7A527',
+    },
+    poolCategory: PoolCategory.COMMUNITY,
+    projectLink: 'https://www.bossswap.finance/',
+    harvest: true,
+    tokenPerBlock: '0.05',
+    sortOrder: 5,
+    isFinished: false,
+    startBlock: 19046958,
+    endBlock: 19651728,
+    tokenDecimals: 18,
+   },
 ]
 
 export default pools
