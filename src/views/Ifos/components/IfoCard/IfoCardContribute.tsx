@@ -38,6 +38,9 @@ const IfoCardContribute: React.FC<Props> = ({
   const { account } = useWallet()
   const contractRaisingToken = useERC20(currencyAddress)
   const allowance = useIfoAllowance(contractRaisingToken, address, pendingTx)
+
+  const x = 1
+
   const onApprove = useIfoApprove(contractRaisingToken, address)
   const [onPresentContributeModal] = useModal(
     <ContributeModal currency={currency} contract={contract} currencyAddress={currencyAddress} />,
@@ -72,7 +75,7 @@ const IfoCardContribute: React.FC<Props> = ({
   if (allowance <= 0) {
     return (
       <Button
-        fullWidth
+        
         disabled={pendingTx || isFinished}
         onClick={async () => {
           try {
@@ -85,8 +88,32 @@ const IfoCardContribute: React.FC<Props> = ({
           }
         }}
       >
-        Approve
+        Approve Spending
       </Button>
+    )
+  }
+
+  if (allowance > 0) {
+    return (
+      <>
+      <Button
+        
+        disabled={pendingTx || isFinished}
+        onClick={async () => {
+          try {
+            setPendingTx(true)
+            await onApprove()
+            setPendingTx(false)
+          } catch (e) {
+            setPendingTx(false)
+            console.error(e)
+          }
+        }}
+      >
+        Lock Collateral
+      </Button>
+
+    </>
     )
   }
 

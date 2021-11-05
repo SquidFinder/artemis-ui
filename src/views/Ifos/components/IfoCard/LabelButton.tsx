@@ -14,9 +14,11 @@ const ButtonWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   border: solid 1px;
-  border-radius: 7px;
-  border-color: ${({ theme }) => theme.colors.borderColor};
+  border-radius: 8px;
+  border-color: #ccc;
   padding-left: 16px;
+  box-shadow: 0px 0px 10px #ccc;
+
 `
 
 const LabelButton: React.FC<Props> = ({ value, label, buttonLabel, onClick, disabled = false }) => {
@@ -31,7 +33,7 @@ const LabelButton: React.FC<Props> = ({ value, label, buttonLabel, onClick, disa
         <Text bold fontSize="20px">
           {value}
         </Text>
-        <Button onClick={onClick} disabled={disabled}>
+        <Button onClick={onClick} disabled={disabled} style={{color:'#fff', background:'#4C68EF', boxShadow:'0px 0px 10px #ccc'}} >
           {buttonLabel}
         </Button>
       </ButtonWrapper>
