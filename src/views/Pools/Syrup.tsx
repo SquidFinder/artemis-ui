@@ -160,6 +160,10 @@ const Farm: React.FC = () => {
       // Handle single staking pools
       quoteTokens = new BigNumber(pool.totalStaked).div(new BigNumber(10).pow(18)).div(2)
     } 
+    if (pool.sousId === 14) {
+      // Handle single staking pools
+      quoteTokens = new BigNumber(pool.totalStaked).div(new BigNumber(10).pow(18)).div(2)
+  }
 
     const tvl = getTotalValueFromQuoteTokens(quoteTokens, pool.quoteTokenSymbol, prices)
 
