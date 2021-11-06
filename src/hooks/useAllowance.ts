@@ -93,3 +93,5 @@ export const useIfoAllowance = (tokenContract: Contract, spenderAddress: string,
 
   return allowance
 }
+
+

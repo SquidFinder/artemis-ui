@@ -16,6 +16,7 @@ export interface Props {
   address: string
   currency: string
   currencyAddress: string
+  collatAddr: string
   contract: Contract
   status: IfoStatus
   raisingAmount: BigNumber
@@ -26,6 +27,7 @@ const IfoCardContribute: React.FC<Props> = ({
   address,
   currency,
   currencyAddress,
+  collatAddr,
   contract,
   status,
   raisingAmount,
@@ -37,11 +39,14 @@ const IfoCardContribute: React.FC<Props> = ({
 
   const { account } = useWallet()
   const contractRaisingToken = useERC20(currencyAddress)
+  const collatToken = useERC20(collatAddr)
   const allowance = useIfoAllowance(contractRaisingToken, address, pendingTx)
+  const collatallowance = useIfoAllowance(collatToken, address, pendingTx)
 
   const x = 1
 
   const onApprove = useIfoApprove(contractRaisingToken, address)
+  const onApprove2 = useIfoApprove(collatToken, address)
   const [onPresentContributeModal] = useModal(
     <ContributeModal currency={currency} contract={contract} currencyAddress={currencyAddress} />,
   )
@@ -88,12 +93,12 @@ const IfoCardContribute: React.FC<Props> = ({
           }
         }}
       >
-        Approve Spending
+        Approve WONE
       </Button>
     )
   }
 
-  if (allowance > 0) {
+  if (collatallowance > 0) {
     return (
       <>
       <Button
@@ -102,7 +107,7 @@ const IfoCardContribute: React.FC<Props> = ({
         onClick={async () => {
           try {
             setPendingTx(true)
-            await onApprove()
+            await onApprove2()
             setPendingTx(false)
           } catch (e) {
             setPendingTx(false)
@@ -110,7 +115,7 @@ const IfoCardContribute: React.FC<Props> = ({
           }
         }}
       >
-        Lock Collateral
+        Approve MIS
       </Button>
 
     </>

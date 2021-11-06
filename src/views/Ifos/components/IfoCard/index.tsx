@@ -105,6 +105,7 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
     releaseBlockNumber,
     misAmount,
     tier,
+    collatAddr,
   } = ifo
   const [state, setState] = useState({
     isLoading: true,
@@ -203,6 +204,7 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
             address={address}
             currency={currency}
             currencyAddress={currencyAddress}
+            collatAddr={collatAddr}
             contract={contract}
             status={state.status}
             raisingAmount={state.raisingAmount}
