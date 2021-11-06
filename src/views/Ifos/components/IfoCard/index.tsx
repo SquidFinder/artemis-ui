@@ -25,13 +25,13 @@ const StyledIfoCard = styled(Card)<{ ifoId: string }>`
   
   background-repeat: no-repeat;
   background-size: contain;
-  border-radius: 45px;
-  padding-top: 100px;
+  border-radius: 35px;
+  padding-top: 110px;
   margin-left: auto;
   margin-right: auto;
   max-width: 430px;
-  width: 100%;
-  padding-bottom: 10px;
+  width: 110%;
+  padding-bottom: 20px;
   padding-left: 5px;
   padding-right: 5px;
 

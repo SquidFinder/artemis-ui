@@ -59,7 +59,7 @@ const ifos: Ifo[] = [
     releaseBlockNumber: 3483883,
   }, */
   {
-    id: 'artemis',
+    id: 'tier1',
     address: '0x7311c5bB942A7Fd01300F0f95817e41ad0fe9BC6',
     isActive: true,
     name: 'Chad Finance',
@@ -82,7 +82,7 @@ const ifos: Ifo[] = [
     releaseBlockNumber: 3771926,
   },
   {
-    id: 'artemis',
+    id: 'tier2',
     address: '0x7311c5bB942A7Fd01300F0f95817e41ad0fe9BC6',
     isActive: true,
     name: 'Artemis Protocol',
@@ -106,7 +106,7 @@ const ifos: Ifo[] = [
     releaseBlockNumber: 17918400,
   },
   {
-    id: 'artemis',
+    id: 'tier3',
     address: '0x7311c5bB942A7Fd01300F0f95817e41ad0fe9BC6',
     isActive: true,
     isTier2: true,

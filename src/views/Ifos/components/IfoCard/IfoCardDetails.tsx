@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
-import { Text, LinkExternal, Link } from '@pancakeswap-libs/uikit'
+import { Text, Link } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
-import { FaArrowCircleUp, FaArrowRight, FaBook, FaClock, FaLink, FaQuestionCircle, FaWallet } from 'react-icons/fa'
+import { FaArrowCircleUp, FaArrowRight, FaBook, FaLink, FaQuestionCircle, FaWallet } from 'react-icons/fa'
 
 export interface IfoCardDetailsProps {
   saleAmount: string
@@ -18,13 +18,13 @@ export interface IfoCardDetailsProps {
 
 
 const Divider = styled.div`
-background-color: #4c68ef;
-height: 3px;
-margin-left: 100;
-margin-right: 0px;
-margin-top: 5px;
-margin-bottom: 5px;
-width: 0%;
+  background-color: #4c68ef;
+  height: 3px;
+  margin-left: 100;
+  margin-right: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 0%;
 `
 
 const DCard = styled.div`
@@ -104,10 +104,11 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
 
 
         <Item>
-          
         <Display>{TranslateString(5824, 'Tokens For Sale')}</Display>
           <Text>{saleAmount}</Text>
         </Item>
+
+
         <Item>
           <Display>{TranslateString(999, 'USD To Raise')}</Display>
           <Text>{raiseAmount}</Text>
