@@ -21,17 +21,20 @@ export interface IfoCardProps {
 }
 
 const StyledIfoCard = styled(Card)<{ ifoId: string }>`
-  background-image: ${({ ifoId }) => `url('/images/ifos/${ifoId}-bg.svg')`};
-  
+  background-image: ${({ ifoId }) => `url('/images/ifos/${ifoId}.png')`};
+
   background-repeat: no-repeat;
   background-size: contain;
-  border-radius: 45px;
-  padding-top: 100px;
+  border-radius: 35px;
+  padding-top: 110px;
   margin-left: auto;
   margin-right: auto;
   max-width: 430px;
-  width: 100%;
-  padding-bottom: 10px;
+  width: 110%;
+
+  box-shadow: 0px 0px 10px #ccc;
+
+  padding-bottom: 20px;
   padding-left: 5px;
   padding-right: 5px;
 
@@ -105,6 +108,7 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
     releaseBlockNumber,
     misAmount,
     tier,
+    collatAddr,
   } = ifo
   const [state, setState] = useState({
     isLoading: true,
@@ -203,6 +207,7 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
             address={address}
             currency={currency}
             currencyAddress={currencyAddress}
+            collatAddr={collatAddr}
             contract={contract}
             status={state.status}
             raisingAmount={state.raisingAmount}

@@ -37,11 +37,11 @@ return (
   <>
     <SvgHero  >
 
-      <object 
+        <object 
         type="image/svg+xml" 
-        data="images/launchpad.svg"
+        data="images/reverse.svg" 
         className="labhero" 
-        style={{maxWidth: '0px', marginLeft: '0px'}}
+        style={{maxWidth: '600px', marginLeft: '10px'}}
         >&nbsp;</object>
     </SvgHero>
     {/* <HowItWorks /> */}

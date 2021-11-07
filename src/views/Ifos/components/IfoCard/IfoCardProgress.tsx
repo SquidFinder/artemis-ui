@@ -33,8 +33,8 @@ const IfoCardProgress: React.FC<IfoCardProgressProps> = ({ progress, launchDate,
   return (
     <StyledProgress style={{marginTop:'10px', marginBottom:'10px'}}>
       <Item>
-          <Display bold><FaClock/> {TranslateString(5822, 'IDO Launch')}</Display>
-          <Text>
+          <Display bold  ><FaClock/> {TranslateString(5822, 'IDO Launch')}</Display>
+          <Text style={{textShadow:'0px 0px 5px #fff'}} >
             {launchDate},
             <Link
               href="https://www.timeanddate.com/worldclock/timezone/utc"

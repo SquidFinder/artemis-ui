@@ -6,6 +6,7 @@ import { Contract } from 'web3-eth-contract'
 import { useERC20 } from 'hooks/useContract'
 import { useIfoAllowance } from 'hooks/useAllowance'
 import { useIfoApprove } from 'hooks/useApprove'
+import  useIfoCollatLock  from 'hooks/useStake'
 import { IfoStatus } from 'config/constants/types'
 import { getBalanceNumber } from 'utils/formatBalance'
 import LabelButton from './LabelButton'
@@ -16,6 +17,7 @@ export interface Props {
   address: string
   currency: string
   currencyAddress: string
+  collatAddr: string
   contract: Contract
   status: IfoStatus
   raisingAmount: BigNumber
@@ -26,6 +28,7 @@ const IfoCardContribute: React.FC<Props> = ({
   address,
   currency,
   currencyAddress,
+  collatAddr,
   contract,
   status,
   raisingAmount,
@@ -34,11 +37,16 @@ const IfoCardContribute: React.FC<Props> = ({
   const [pendingTx, setPendingTx] = useState(false)
   const [offeringTokenBalance, setOfferingTokenBalance] = useState(new BigNumber(0))
   const [userInfo, setUserInfo] = useState({ amount: 0, claimed: false })
-
   const { account } = useWallet()
   const contractRaisingToken = useERC20(currencyAddress)
+  const collatToken = useERC20(collatAddr)
   const allowance = useIfoAllowance(contractRaisingToken, address, pendingTx)
+  const collatallowance = useIfoAllowance(collatToken, address, pendingTx)
+
   const onApprove = useIfoApprove(contractRaisingToken, address)
+  const onApprove2 = useIfoApprove(collatToken, address)
+  const onLockCollat = useIfoCollatLock(1)
+  const mislocked = 0
   const [onPresentContributeModal] = useModal(
     <ContributeModal currency={currency} contract={contract} currencyAddress={currencyAddress} />,
   )
@@ -72,7 +80,7 @@ const IfoCardContribute: React.FC<Props> = ({
   if (allowance <= 0) {
     return (
       <Button
-        fullWidth
+        style={{color:'white', boxShadow:'0px 0px 10px #fff'}}
         disabled={pendingTx || isFinished}
         onClick={async () => {
           try {
@@ -85,10 +93,59 @@ const IfoCardContribute: React.FC<Props> = ({
           }
         }}
       >
-        Approve
+        Approve WONE
       </Button>
     )
   }
+
+  if (collatallowance <= 0) {
+    return (
+      <>
+      <Button
+        style={{color:'white', boxShadow:'0px 0px 10px #fff'}}
+        disabled={pendingTx || isFinished}
+        onClick={async () => {
+          try {
+            setPendingTx(true)
+            await onApprove2()
+            setPendingTx(false)
+          } catch (e) {
+            setPendingTx(false)
+            console.error(e)
+          }
+        }}
+      >
+        Approve MIS
+      </Button>
+
+    </>
+    )
+  }
+
+  if (mislocked >= 0) {
+    return (
+      <>
+      <Button
+        style={{color:'white', boxShadow:'0px 0px 10px #fff'}}
+        disabled={pendingTx || isFinished}
+        onClick={async () => {
+          try {
+            setPendingTx(true)
+            await useIfoCollatLock(1)
+            setPendingTx(false)
+          } catch (e) {
+            setPendingTx(false)
+            console.error(e)
+          }
+        }}
+      >
+        Lock MIS Collateral
+      </Button>
+
+    </>
+    )
+  }
+
 
   return (
     <>
@@ -106,10 +163,10 @@ const IfoCardContribute: React.FC<Props> = ({
         }
         onClick={isFinished ? claim : onPresentContributeModal}
       />
-      <Text fontSize="14px" color="textSubtle">
+      <Text  style={{ textShadow:'0px 0px 5px #fff'}} marginLeft='5px' marginTop='4px' fontSize="14px" color="textSubtle">
         {isFinished
           ? ``
-          : `Your Contribution (${currency}) - ${percentOfUserContribution.toFixed(5)}% Of Total`}
+          : `${currency} Contributed: ${percentOfUserContribution.toFixed(3)}% Of Total`}
       </Text>
     </>
   )

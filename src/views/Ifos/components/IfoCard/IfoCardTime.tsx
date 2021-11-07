@@ -38,7 +38,7 @@ const IfoCardTime: React.FC<IfoCardTimeProps> = ({ isLoading, status, secondsUnt
   const suffix = status === 'coming_soon' ? 'Start' : 'Finish'
 
   if (isLoading) {
-    return <Details>{TranslateString(656, 'Loading...')}</Details>
+    return <Details >{TranslateString(656, 'Loading...')}</Details>
   }
 
   if (countdownToUse <= 0) {
@@ -53,7 +53,7 @@ const IfoCardTime: React.FC<IfoCardTimeProps> = ({ isLoading, status, secondsUnt
   return (
     <Details>
       <div>
-       <Countdown>{`${timeUntil.days}d, ${timeUntil.hours}h, ${timeUntil.minutes}m`} Remaining</Countdown>
+       <Countdown  style={{textShadow:'0px 0px 10px #fff'}}>{`${timeUntil.days}d, ${timeUntil.hours}h, ${timeUntil.minutes}m`} Remaining</Countdown>
        
        {/* <div style={{display: 'flex', justifyContent: 'center'}}>
         <LinkExternal href={`https://explorer.harmony.one/block/${block}`} target="blank" rel="noopener noreferrer" mt="10px">

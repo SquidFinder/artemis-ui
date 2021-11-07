@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import { AbiItem } from 'web3-utils'
 import { ContractOptions } from 'web3-eth-contract'
 import useWeb3 from 'hooks/useWeb3'
-import { getMasterChefAddress, getCakeAddress, getLotteryAddress, getLotteryTicketAddress, getWheelAddress, getWbnbAddress, getWheel2Address, getSousChefAddress } from 'utils/addressHelpers'
+import { getMasterChefAddress, getCakeAddress, getLotteryAddress, getLotteryTicketAddress, getWheelAddress, getWbnbAddress, getWheel2Address, getSousChefAddress, getIfoAddress } from 'utils/addressHelpers'
 import { pools2Config, poolsConfig } from 'config/constants'
 import { PoolCategory } from 'config/constants/types'
-import ifo from 'config/abi/ifo.json'
+import ifocollat from 'config/abi/ifocollat.json'
 import erc20 from 'config/abi/erc20.json'
 import rabbitmintingfarm from 'config/abi/rabbitmintingfarm.json'
 import devFeeProcessor from 'config/abi/devFeeProcessor.json'
@@ -18,6 +18,7 @@ import masterChef from 'config/abi/masterchef.json'
 import sousChef from 'config/abi/sousChef.json'
 import sousChefBnb from 'config/abi/sousChefBnb.json'
 import sousChefBurn from 'config/abi/sousChefBurn.json'
+import ifos from 'config/constants/ifo'
 
 const useContract = (abi: AbiItem, address: string, contractOptions?: ContractOptions) => {
   const web3 = useWeb3()
@@ -35,7 +36,7 @@ const useContract = (abi: AbiItem, address: string, contractOptions?: ContractOp
  */
 
 export const useIfoContract = (address: string) => {
-  const ifoAbi = (ifo as unknown) as AbiItem
+  const ifoAbi = (ifocollat as unknown) as AbiItem
   return useContract(ifoAbi, address)
 }
 
@@ -115,4 +116,10 @@ export const useSousChef2 = () => {
   const abi = (sousChef as unknown) as AbiItem
   return useContract(abi, getSousChefAddress())
 }
+
+export const useIfoCollat = (id) => {
+  const abi = (ifocollat as unknown) as AbiItem
+  return useContract(abi, getIfoAddress())
+}
+
 export default useContract
