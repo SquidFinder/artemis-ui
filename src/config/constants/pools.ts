@@ -337,6 +337,32 @@ const pools: PoolConfig[] = [
     endBlock: 19651728,
     tokenDecimals: 18,
    },
+   {
+    sousId: 14,
+    tokenName: 'WONE',
+    earnToken: 'WONE',
+    quoteTokenSymbol: QuoteToken.MIS,
+    stakingTokenName: QuoteToken.MIS,
+    // this is MIS
+    stakingTokenAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is MIS
+     quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is WONE
+     tokenPoolAddress: '0xcf664087a5bb0237a0bad6742852ec6c8d69a27a',
+    contractAddress: {
+      1666700000: '0x91B21e698B0626AFCC5F7ED8E263422095D793Ea',
+      1666600000: '0x91B21e698B0626AFCC5F7ED8E263422095D793Ea',
+    },
+    poolCategory: PoolCategory.CORE,
+    projectLink: 'https://www.harmony.one/',
+    harvest: true,
+    tokenPerBlock: '0.165',
+    sortOrder: 0,
+    isFinished: false,
+    startBlock: 19120965,
+    endBlock: 19725745,
+    tokenDecimals: 18,
+   },
 ]
 
 export default pools
