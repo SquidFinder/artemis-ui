@@ -2,8 +2,8 @@ import { useCallback } from 'react'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { useDispatch } from 'react-redux'
 import { fetchFarmUserDataAsync, updateUserStakedBalance, updateUserBalance } from 'state/actions'
-import { stake, sousStake, sousStakeBurn } from 'utils/callHelpers'
-import { useMasterchef, useSousChef, useSousChefBurn } from './useContract'
+import { stake, sousStake, sousStakeBurn, ifolock } from 'utils/callHelpers'
+import { useIfoContract, useMasterchef, useSousChef, useSousChefBurn } from './useContract'
 
 const useStake = (pid: number) => {
   const dispatch = useDispatch()
@@ -62,6 +62,21 @@ export const useSousStakeBurn = (sousId, isUsingBnb = false) => {
   )
 
   return { onStake: handleSousStake }
+}
+
+export const useIfoCollatLock = (address) => {
+  const { account } = useWallet()
+  const ifoContract = useIfoContract(address)
+
+  const handleIfoStake = useCallback(
+    async () => { 
+      const txHash = await ifolock(ifoContract, account)
+      console.info(txHash)
+    },
+    [account, ifoContract],
+  )
+
+  return { onLock: handleIfoStake }
 }
 
 export default useStake

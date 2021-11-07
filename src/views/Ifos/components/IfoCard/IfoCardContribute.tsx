@@ -6,6 +6,7 @@ import { Contract } from 'web3-eth-contract'
 import { useERC20 } from 'hooks/useContract'
 import { useIfoAllowance } from 'hooks/useAllowance'
 import { useIfoApprove } from 'hooks/useApprove'
+import  useIfoCollatLock  from 'hooks/useStake'
 import { IfoStatus } from 'config/constants/types'
 import { getBalanceNumber } from 'utils/formatBalance'
 import LabelButton from './LabelButton'
@@ -44,6 +45,8 @@ const IfoCardContribute: React.FC<Props> = ({
 
   const onApprove = useIfoApprove(contractRaisingToken, address)
   const onApprove2 = useIfoApprove(collatToken, address)
+  const onLockCollat = useIfoCollatLock(1)
+  const mislocked = 0
   const [onPresentContributeModal] = useModal(
     <ContributeModal currency={currency} contract={contract} currencyAddress={currencyAddress} />,
   )
@@ -119,7 +122,7 @@ const IfoCardContribute: React.FC<Props> = ({
     )
   }
 
-  if (collatallowance > 0) {
+  if (mislocked >= 0) {
     return (
       <>
       <Button
@@ -128,7 +131,7 @@ const IfoCardContribute: React.FC<Props> = ({
         onClick={async () => {
           try {
             setPendingTx(true)
-            await onApprove2()
+            await useIfoCollatLock(1)
             setPendingTx(false)
           } catch (e) {
             setPendingTx(false)
