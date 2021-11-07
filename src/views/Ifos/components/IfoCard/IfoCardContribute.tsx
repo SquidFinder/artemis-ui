@@ -45,7 +45,7 @@ const IfoCardContribute: React.FC<Props> = ({
 
   const onApprove = useIfoApprove(contractRaisingToken, address)
   const onApprove2 = useIfoApprove(collatToken, address)
-  const onLockCollat = useIfoCollatLock(address)
+  const { onLock } = useIfoCollatLock(address)
   const mislocked = 0
   const [onPresentContributeModal] = useModal(
     <ContributeModal currency={currency} contract={contract} currencyAddress={currencyAddress} />,
@@ -131,8 +131,7 @@ const IfoCardContribute: React.FC<Props> = ({
         onClick={async () => {
           try {
             setPendingTx(true)
-            // @ts-ignore
-            await onLockCollat()
+            await onLock()
             setPendingTx(false)
           } catch (e) {
             setPendingTx(false)
