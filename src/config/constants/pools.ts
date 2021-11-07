@@ -201,7 +201,7 @@ const pools: PoolConfig[] = [
     projectLink: 'https://www.terra.money/',
     harvest: true,
     tokenPerBlock: '0.000346', // 0.000346
-    sortOrder: 1,
+    sortOrder: 2,
     isFinished: false,
     startBlock: 18337525,
     endBlock: 19244225,
@@ -278,8 +278,8 @@ const pools: PoolConfig[] = [
     poolCategory: PoolCategory.COMMUNITY,
     projectLink: 'https://app.farmersonly.fi/',
     harvest: true,
-    tokenPerBlock: '0.033',
-    sortOrder: 2,
+    tokenPerBlock: '0.0033',
+    sortOrder: 1,
     isFinished: false,
     startBlock: 18764195,
     endBlock: 19973712,
@@ -309,6 +309,58 @@ const pools: PoolConfig[] = [
     isFinished: false,
     startBlock: 18764877,
     endBlock: 19973712,
+    tokenDecimals: 18,
+   },
+   {
+    sousId: 13,
+    tokenName: 'BOSS',
+    earnToken: 'BOSS',
+    quoteTokenSymbol: QuoteToken.MIS,
+    stakingTokenName: QuoteToken.MISBOSS,
+    // this is MIS-BOSS
+    stakingTokenAddress: '0x80523a136bd061db86763b83f5f4edd3d925e1d3',
+     // this is MIS
+     quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is BOSS
+     tokenPoolAddress: '0xe7bbe0e193fdfe95d2858f5c46d036065f8f735c',
+    contractAddress: {
+      1666700000: '0xbe39F89599FD5293fcA285EE4BE3dea019C7A527',
+      1666600000: '0xbe39F89599FD5293fcA285EE4BE3dea019C7A527',
+    },
+    poolCategory: PoolCategory.COMMUNITY,
+    projectLink: 'https://www.bossswap.finance/',
+    harvest: true,
+    tokenPerBlock: '0.05',
+    sortOrder: 5,
+    isFinished: false,
+    startBlock: 19046958,
+    endBlock: 19651728,
+    tokenDecimals: 18,
+   },
+   {
+    sousId: 14,
+    tokenName: 'WONE',
+    earnToken: 'WONE',
+    quoteTokenSymbol: QuoteToken.MIS,
+    stakingTokenName: QuoteToken.MIS,
+    // this is MIS
+    stakingTokenAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is MIS
+     quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is WONE
+     tokenPoolAddress: '0xcf664087a5bb0237a0bad6742852ec6c8d69a27a',
+    contractAddress: {
+      1666700000: '0x91B21e698B0626AFCC5F7ED8E263422095D793Ea',
+      1666600000: '0x91B21e698B0626AFCC5F7ED8E263422095D793Ea',
+    },
+    poolCategory: PoolCategory.CORE,
+    projectLink: 'https://www.harmony.one/',
+    harvest: true,
+    tokenPerBlock: '0.165',
+    sortOrder: 0,
+    isFinished: false,
+    startBlock: 19120965,
+    endBlock: 19725745,
     tokenDecimals: 18,
    },
 ]

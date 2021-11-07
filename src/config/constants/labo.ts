@@ -23,7 +23,7 @@ const masterChefTestnet = '0xDd62435ca34666f65c32ED62eA5331b2128ED262' // MIS MA
 
 const pidLaboUst = 0
 const pidLaboBnb = 2
-const pidLabo = 10
+const pidLabo = 200
 
 // OTHER PIDS THAT ARE REFERENCED THROUGHOUT THE CODE
 
