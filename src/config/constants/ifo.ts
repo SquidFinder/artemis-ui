@@ -60,7 +60,7 @@ const ifos: Ifo[] = [
   }, */
   {
     id: 'tier1',
-    address: '0x7311c5bB942A7Fd01300F0f95817e41ad0fe9BC6',
+    address: '0x9A45ca9Ae195FA7b26fcf2fBfd87dB28A3209688',
     isActive: true,
     name: 'Chad Finance',
     subTitle: 'Multi-chain yield platform',
@@ -73,6 +73,7 @@ const ifos: Ifo[] = [
     saleAmount: 'TBD',
     raiseAmount: 'TBD',
     cakeToBurn: 'TBD',
+    misAmount: '10 MIS',
     tier: '1',
     projectSiteUrl: 'https://www.chadfinance.io/',
     currency: 'WONE',
@@ -83,7 +84,7 @@ const ifos: Ifo[] = [
   },
   {
     id: 'tier2',
-    address: '0x7311c5bB942A7Fd01300F0f95817e41ad0fe9BC6',
+    address: '0x9caE0558A435a82583031D0e980452D72db45376',
     isActive: true,
     name: 'Artemis Protocol',
     subTitle: 'Multi-product DeFi protocol',
@@ -95,7 +96,7 @@ const ifos: Ifo[] = [
     endTime: '10 PM UTC',
     saleAmount: '500,000 MIS',
     raiseAmount: '$150,000',
-    misAmount: '100 MIS',
+    misAmount: '5 MIS',
     tier: '2',
     cakeToBurn: '$0,000',
     projectSiteUrl: 'https://artemisprotocol.gitbook.io/artemis/',
@@ -107,7 +108,7 @@ const ifos: Ifo[] = [
   },
   {
     id: 'tier3',
-    address: '0x7311c5bB942A7Fd01300F0f95817e41ad0fe9BC6',
+    address: '0xC2158fAc83C20D9cD61836e74163d5Fc68E0317a',
     isActive: true,
     isTier2: true,
     name: 'Artemis Protocol',
@@ -120,7 +121,7 @@ const ifos: Ifo[] = [
     endTime: '10 PM UTC',
     saleAmount: '500,000 MIS',
     raiseAmount: '$150,000',
-    misAmount: '100 MIS',
+    misAmount: '1 MIS',
     tier: '3',
     cakeToBurn: '$0,000',
     projectSiteUrl: 'https://artemisprotocol.gitbook.io/artemis/',
