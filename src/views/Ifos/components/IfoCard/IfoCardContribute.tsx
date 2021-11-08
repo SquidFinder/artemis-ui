@@ -40,13 +40,19 @@ const IfoCardContribute: React.FC<Props> = ({
   const { account } = useWallet()
   const contractRaisingToken = useERC20(currencyAddress)
   const collatToken = useERC20(collatAddr)
+
   const allowance = useIfoAllowance(contractRaisingToken, address, pendingTx)
   const collatallowance = useIfoAllowance(collatToken, address, pendingTx)
 
+
   const onApprove = useIfoApprove(contractRaisingToken, address)
   const onApprove2 = useIfoApprove(collatToken, address)
-  const { onLock } = useIfoCollatLock(address)
+
+
   const mislocked = 0
+  const { onLock } = useIfoCollatLock(address)
+
+
   const [onPresentContributeModal] = useModal(
     <ContributeModal currency={currency} contract={contract} currencyAddress={currencyAddress} />,
   )
@@ -109,6 +115,7 @@ const IfoCardContribute: React.FC<Props> = ({
             setPendingTx(true)
             await onApprove2()
             setPendingTx(false)
+
           } catch (e) {
             setPendingTx(false)
             console.error(e)
@@ -122,7 +129,7 @@ const IfoCardContribute: React.FC<Props> = ({
     )
   }
 
-  if (mislocked >= 0) {
+  if (mislocked < 1) {
     return (
       <>
       <Button
