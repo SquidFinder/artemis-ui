@@ -217,7 +217,7 @@ const NavBar = (props) => {
                           </li> */}
 
                           <li className="nav-tab">
-                            <Link to="/comingsoon" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                            <Link to="/ArtemisPad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                             <FaLayerGroup/><span className="dditem"> ArtemisPad</span>
                             </Link>
                           </li>
