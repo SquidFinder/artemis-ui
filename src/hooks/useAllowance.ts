@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import BigNumber from 'bignumber.js'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { Contract } from 'web3-eth-contract'
-import { useCake, useLottery, useMoneyWheel, useMoneyWheel2, useWone } from './useContract'
+import {useCake, useIfoContract, useLottery, useMoneyWheel, useMoneyWheel2, useWone} from './useContract'
 import { getAllowance } from '../utils/erc20'
 
 // Retrieve lottery allowance
@@ -75,6 +75,28 @@ export const useMoneyWheel2Allowance = () => {
 }
 
 // Retrieve IFO allowance
+export const useIfoHasCollat = (ifoAddress: string, dependency?: any) => {
+  const { account } = useWallet()
+  const [hasCollat, setHasCollat] = useState(false)
+  const ifoContract = useIfoContract(ifoAddress)
+
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const res = await ifoContract.methods.hasCollateral(account).call()
+        setHasCollat(res)
+      } catch (e) {
+        console.log('useIfoHasCollat - ERROR', e)
+        setHasCollat(null)
+      }
+    }
+    fetch()
+  }, [account, ifoContract, dependency])
+
+  return hasCollat
+}
+
+// Retrieve IFO allowance
 export const useIfoAllowance = (tokenContract: Contract, spenderAddress: string, dependency?: any) => {
   const { account }: { account: string } = useWallet()
   const [allowance, setAllowance] = useState(null)
@@ -93,3 +115,5 @@ export const useIfoAllowance = (tokenContract: Contract, spenderAddress: string,
 
   return allowance
 }
+
+

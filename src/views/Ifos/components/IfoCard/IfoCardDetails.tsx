@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
-import { Text, LinkExternal, Link } from '@pancakeswap-libs/uikit'
+import { Text, Link } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
-import { FaArrowCircleUp, FaBook, FaClock, FaLink, FaWallet } from 'react-icons/fa'
+import { FaArrowCircleUp, FaArrowRight, FaBook, FaLink, FaLock, FaLockOpen, FaQuestionCircle, FaUserLock, FaWallet } from 'react-icons/fa'
 
 export interface IfoCardDetailsProps {
   saleAmount: string
@@ -18,13 +18,13 @@ export interface IfoCardDetailsProps {
 
 
 const Divider = styled.div`
-background-color: #4c68ef;
-height: 3px;
-margin-left: 100;
-margin-right: 0px;
-margin-top: 5px;
-margin-bottom: 5px;
-width: 0%;
+  background-color: #4c68ef;
+  height: 3px;
+  margin-left: 100;
+  margin-right: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 0%;
 `
 
 const DCard = styled.div`
@@ -35,6 +35,18 @@ const DCard = styled.div`
   justify-content: space-around;
   padding: 24px;
   position: relative;
+  box-shadow: 0px 0px 10px #ccc;
+` 
+
+const DCard2 = styled.div`
+  background: #3E4266;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 24px;
+  position: relative;
+  margin-top: 5px;
 `
 
 
@@ -75,35 +87,36 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
         </Item>
 
         <Item>
-          <Display bold><FaWallet/> {TranslateString(999, ' Required MIS in Wallet')}</Display>
+          <Display bold><FaLock/> {TranslateString(999, 'Collateral Required')}</Display>
           <Text>{misAmount}</Text>
+        </Item>
+
+        <Item>
+          <Display bold><FaBook/> {TranslateString(999, 'Learn More')}</Display>
+          <Link href='https://reverse.gitbook.io/docs/launch-procedure' ><FaArrowRight/></Link>
         </Item>
         </DCard>
 
         <Divider/>
 
-        <DCard>
-
-
+        <DCard2 >
 
         <Item>
-          
-          <Display>{TranslateString(5824, 'Tokens For Sale')}</Display>
+        <Display style={{textShadow:'0px 0px 5px #fff'}}>{TranslateString(5824, 'Token Price')}</Display>
+          <Text style={{textShadow:'0px 0px 5px #fff'}}>{cakeToBurn}</Text>
+        </Item>
+
+        <Item>
+        <Display>{TranslateString(5824, 'Tokens For Sale')}</Display>
           <Text>{saleAmount}</Text>
         </Item>
+
         <Item>
           <Display>{TranslateString(999, 'USD To Raise')}</Display>
           <Text>{raiseAmount}</Text>
         </Item>
 
 
-        
-        {/*
-        <Item>
-          <Display>{TranslateString(999, 'ONE to burn (USD)')}</Display>
-          <Text>{cakeToBurn}</Text>
-        </Item>
-        */}
         <Item>
           <Display>{TranslateString(999, 'USD Raised')}</Display>
           <Text>{`${totalAmount.div(raisingAmount).times(100).toFixed(1)}%`}</Text>
@@ -111,7 +124,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
 
 
 
-        </DCard>
+        </DCard2>
 
 
       </StyledIfoCardDetails>

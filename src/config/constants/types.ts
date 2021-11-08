@@ -23,6 +23,8 @@ export interface Ifo {
   misAmount?: string
   tier?: string
   isTier2?: boolean
+  collatAddr?: string
+  collateralAmnt?: string
 }
 
 export interface MoneyWheelBet {

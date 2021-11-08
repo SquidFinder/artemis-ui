@@ -32,8 +32,11 @@ const IfoCardHeader: React.FC<IfoCardHeaderProps> = ({ ifoId, name, subTitle, pr
   const TranslateString = useI18n()
   return (
     <StyledIfoCardHeader mb="24px" alignItems="center">
-       <img src={`/images/ifos/${ifoId}.svg`} alt={ifoId} width="70px" height="70px" />
+      
+      <object type="image/svg+xml" data={`/images/ifos/${ifoId}.svg`} width="85px">&nbsp;</object>
+
       <div>
+
         <Link href={projectSiteUrl} style={{ marginLeft: '110px', marginBottom: '4px', textAlign: 'right', fontSize: '20px', color: 'white'  }}>
         {TranslateString(999, name)}<FaArrowRight/>
         </Link>

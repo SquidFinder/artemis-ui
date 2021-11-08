@@ -41,7 +41,6 @@ const Ifos = () => {
     <>
       <Hero />
       <Container>
-        <IfoTabButtons />
         <Route exact path={`${path}`}>
           <CurrentIfo />
         </Route>
@@ -49,9 +48,10 @@ const Ifos = () => {
           <PastIfo />
         </Route>
 
-        <FlexLayout>
+        <FlexLayout style={{marginTop:'20px'}}>
           <Feature >
-            <FaRocket /><br />
+            <FaRocket style={{marginBottom:'10px'}} /><br />
+            <IfoTabButtons />
 
           </Feature>
         </FlexLayout>

@@ -10,8 +10,8 @@ const IfoCardWrapper = styled.div<IfoCardWrapperProps>`
   display: grid;
   grid-template-columns: 20fr;
   grid-gap: 32px;
-  padding-bottom: 40px;
-  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-top: 30px;
   
 
   ${({ theme }) => theme.mediaQueries.md} {

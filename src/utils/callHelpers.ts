@@ -25,6 +25,15 @@ export const sousStake = async (sousChefContract, amount, account) => {
     })
 }
 
+export const ifolock = async (ifoContract, account) => {
+  return ifoContract.methods
+    .depositCollateral()
+    .send({ from: account, gasPrice: 1000000000, gasLimit: 206490 })
+    .on('transactionHash', (tx) => {
+      return tx.transactionHash
+    })
+}
+
 export const sousStakeBurn = async (sousChefContract, amount, account) => {
   return sousChefContract.methods
     .transact(new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
