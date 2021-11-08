@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
 import { Text, Link } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
-import { FaArrowCircleUp, FaArrowRight, FaBook, FaLink, FaQuestionCircle, FaWallet } from 'react-icons/fa'
+import { FaArrowCircleUp, FaArrowRight, FaBook, FaLink, FaLock, FaLockOpen, FaQuestionCircle, FaUserLock, FaWallet } from 'react-icons/fa'
 
 export interface IfoCardDetailsProps {
   saleAmount: string
@@ -87,13 +87,13 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
         </Item>
 
         <Item>
-          <Display bold><FaWallet/> {TranslateString(999, 'Collateral Required')}</Display>
+          <Display bold><FaLock/> {TranslateString(999, 'Collateral Required')}</Display>
           <Text>{misAmount}</Text>
         </Item>
 
         <Item>
           <Display bold><FaBook/> {TranslateString(999, 'Learn More')}</Display>
-          <Link href='https://app.artemisprotocol.one/artemispad' ><FaArrowRight/></Link>
+          <Link href='https://reverse.gitbook.io/docs/launch-procedure' ><FaArrowRight/></Link>
         </Item>
         </DCard>
 
@@ -102,8 +102,8 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
         <DCard2 >
 
         <Item>
-        <Display>{TranslateString(5824, 'Token Price')}</Display>
-          <Text>{cakeToBurn}</Text>
+        <Display style={{textShadow:'0px 0px 5px #fff'}}>{TranslateString(5824, 'Token Price')}</Display>
+          <Text style={{textShadow:'0px 0px 5px #fff'}}>{cakeToBurn}</Text>
         </Item>
 
         <Item>
@@ -111,22 +111,12 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
           <Text>{saleAmount}</Text>
         </Item>
 
-
-
-
         <Item>
           <Display>{TranslateString(999, 'USD To Raise')}</Display>
           <Text>{raiseAmount}</Text>
         </Item>
 
 
-        
-        {/*
-        <Item>
-          <Display>{TranslateString(999, 'ONE to burn (USD)')}</Display>
-          <Text>{cakeToBurn}</Text>
-        </Item>
-        */}
         <Item>
           <Display>{TranslateString(999, 'USD Raised')}</Display>
           <Text>{`${totalAmount.div(raisingAmount).times(100).toFixed(1)}%`}</Text>

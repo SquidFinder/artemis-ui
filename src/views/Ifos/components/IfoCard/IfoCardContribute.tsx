@@ -9,6 +9,7 @@ import { useIfoApprove } from 'hooks/useApprove'
 import  { useIfoCollatLock }  from 'hooks/useStake'
 import { IfoStatus } from 'config/constants/types'
 import { getBalanceNumber } from 'utils/formatBalance'
+import { FaCheck, FaCheckCircle, FaFlagCheckered, FaLock, FaUserCheck } from 'react-icons/fa'
 import LabelButton from './LabelButton'
 import ContributeModal from './ContributeModal'
 
@@ -21,6 +22,7 @@ export interface Props {
   contract: Contract
   status: IfoStatus
   raisingAmount: BigNumber
+  misAmount: string
   tokenDecimals: number
 }
 
@@ -30,6 +32,7 @@ const IfoCardContribute: React.FC<Props> = ({
   currencyAddress,
   collatAddr,
   contract,
+  misAmount,
   status,
   raisingAmount,
   tokenDecimals,
@@ -98,7 +101,7 @@ const IfoCardContribute: React.FC<Props> = ({
           }
         }}
       >
-        Approve WONE
+        <FaCheck/>&nbsp;Approve WONE
       </Button>
     )
   }
@@ -123,7 +126,7 @@ const IfoCardContribute: React.FC<Props> = ({
           }
         }}
       >
-        Approve MIS
+        <FaCheck/>&nbsp;Approve MIS 
       </Button>
 
     </>
@@ -149,7 +152,7 @@ const IfoCardContribute: React.FC<Props> = ({
           }
         }}
       >
-        Lock MIS Collateral
+        <FaLock/>&nbsp;Lock {misAmount} Collateral  
       </Button>
 
     </>
@@ -159,9 +162,10 @@ const IfoCardContribute: React.FC<Props> = ({
 
   return (
     <>
+
       <LabelButton
         disabled={pendingTx || userInfo.claimed}
-        buttonLabel={isFinished ? 'Claim' : 'Contribute'}
+        buttonLabel={isFinished ? 'Claim All' : 'Contribute'}
         label={isFinished ? '' : ``}
         value={
           // eslint-disable-next-line no-nested-ternary

@@ -211,8 +211,9 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
             contract={contract}
             status={state.status}
             raisingAmount={state.raisingAmount}
-            tokenDecimals={tokenDecimals}
-          />
+            tokenDecimals={tokenDecimals} 
+            misAmount={misAmount}        
+            />
         )}
       </CardBody>
     </StyledIfoCard>
