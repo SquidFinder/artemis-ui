@@ -101,12 +101,17 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
 
         <DCard2 >
 
-
+        <Item>
+        <Display>{TranslateString(5824, 'Token Price')}</Display>
+          <Text>{cakeToBurn}</Text>
+        </Item>
 
         <Item>
         <Display>{TranslateString(5824, 'Tokens For Sale')}</Display>
           <Text>{saleAmount}</Text>
         </Item>
+
+
 
 
         <Item>
