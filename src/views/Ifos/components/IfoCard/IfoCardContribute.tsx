@@ -4,7 +4,7 @@ import { useWallet } from '@binance-chain/bsc-use-wallet'
 import BigNumber from 'bignumber.js'
 import { Contract } from 'web3-eth-contract'
 import { useERC20 } from 'hooks/useContract'
-import { useIfoAllowance } from 'hooks/useAllowance'
+import {useIfoAllowance, useIfoHasCollat} from 'hooks/useAllowance'
 import { useIfoApprove } from 'hooks/useApprove'
 import  { useIfoCollatLock }  from 'hooks/useStake'
 import { IfoStatus } from 'config/constants/types'
@@ -40,18 +40,17 @@ const IfoCardContribute: React.FC<Props> = ({
   const { account } = useWallet()
   const contractRaisingToken = useERC20(currencyAddress)
   const collatToken = useERC20(collatAddr)
-  const [mislocked, setMisLocked] = useState(1)
+  const [mislocked, setMisLocked] = useState(0)
 
   const allowance = useIfoAllowance(contractRaisingToken, address, pendingTx)
   const collatallowance = useIfoAllowance(collatToken, address, pendingTx)
+  const hasCollat = useIfoHasCollat(address, pendingTx)
 
 
   const onApprove = useIfoApprove(contractRaisingToken, address)
   const onApprove2 = useIfoApprove(collatToken, address)
 
-
   const { onLock } = useIfoCollatLock(address)
-
 
   const [onPresentContributeModal] = useModal(
     <ContributeModal currency={currency} contract={contract} currencyAddress={currencyAddress} />,
@@ -131,7 +130,7 @@ const IfoCardContribute: React.FC<Props> = ({
     )
   }
 
-  if (mislocked <= 0) {
+  if (!hasCollat && mislocked <=0) {
     return (
       <>
       <Button
@@ -140,10 +139,9 @@ const IfoCardContribute: React.FC<Props> = ({
         onClick={async () => {
           try {
             setPendingTx(true)
-            setMisLocked(1)
             await onLock()
             setPendingTx(false)
-            setMisLocked(0)
+            setMisLocked(1)
           } catch (e) {
             setPendingTx(false)
             setMisLocked(0)
