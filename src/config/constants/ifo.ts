@@ -60,7 +60,7 @@ const ifos: Ifo[] = [
   }, */
   {
     id: 'tier1',
-    address: '0x9A45ca9Ae195FA7b26fcf2fBfd87dB28A3209688',
+    address: '0x4a73833DBDfABba59e80Cf7236911A5Fcf67e138',
     isActive: true,
     name: 'Chad Finance',
     subTitle: 'Multi-chain yield platform',
@@ -84,7 +84,7 @@ const ifos: Ifo[] = [
   },
   {
     id: 'tier2',
-    address: '0x9caE0558A435a82583031D0e980452D72db45376',
+    address: '0xc3573e8D35F6d2E05518caF85aE48F3163990ab8',
     isActive: true,
     name: 'Artemis Protocol',
     subTitle: 'Multi-product DeFi protocol',
@@ -108,7 +108,7 @@ const ifos: Ifo[] = [
   },
   {
     id: 'tier3',
-    address: '0xC2158fAc83C20D9cD61836e74163d5Fc68E0317a',
+    address: '0x422e73cdc7126755a94bEaCF1B40DAd6210f5Bca',
     isActive: true,
     isTier2: true,
     name: 'Artemis Protocol',
