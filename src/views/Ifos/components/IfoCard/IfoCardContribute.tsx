@@ -146,6 +146,7 @@ const IfoCardContribute: React.FC<Props> = ({
             setMisLocked(0)
           } catch (e) {
             setPendingTx(false)
+            setMisLocked(0)
             console.error(e)
           }
         }}
