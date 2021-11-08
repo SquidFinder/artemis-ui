@@ -140,9 +140,10 @@ const IfoCardContribute: React.FC<Props> = ({
         onClick={async () => {
           try {
             setPendingTx(true)
+            setMisLocked(1)
             await onLock()
             setPendingTx(false)
-            setMisLocked(1)
+            setMisLocked(0)
           } catch (e) {
             setPendingTx(false)
             console.error(e)
