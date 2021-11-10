@@ -20,6 +20,7 @@ export interface Props {
   currencyAddress: string
   collatAddr: string
   contract: Contract
+  totalAmount: BigNumber
   status: IfoStatus
   raisingAmount: BigNumber
   misAmount: string
@@ -34,6 +35,7 @@ const IfoCardContribute: React.FC<Props> = ({
   contract,
   misAmount,
   status,
+  totalAmount,
   raisingAmount,
   tokenDecimals,
 }) => {
@@ -83,7 +85,7 @@ const IfoCardContribute: React.FC<Props> = ({
     setPendingTx(false)
   }
   const isFinished = status === 'finished'
-  const percentOfUserContribution = new BigNumber(userInfo.amount).div(raisingAmount).times(100)
+  const percentOfUserContribution = new BigNumber(userInfo.amount).div(totalAmount).times(100)
 
   if (allowance <= 0) {
     return (
@@ -180,7 +182,7 @@ const IfoCardContribute: React.FC<Props> = ({
       <Text  style={{ textShadow:'0px 0px 5px #fff'}} marginLeft='5px' marginTop='4px' fontSize="14px" color="textSubtle">
         {isFinished
           ? ``
-          : `${currency} Contributed: ${percentOfUserContribution.toFixed(3)}% Of Total`}
+          : `${currency} Contributed: ${percentOfUserContribution.toFixed(5)}% Of Total`}
       </Text>
     </>
   )
