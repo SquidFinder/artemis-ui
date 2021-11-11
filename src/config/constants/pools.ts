@@ -363,32 +363,32 @@ const pools: PoolConfig[] = [
     endBlock: 19725745,
     tokenDecimals: 18,
    },
-   /* {
+   {
     sousId: 15,
-    tokenName: 'AVAX',
-    earnToken: 'AVAX',
-    quoteTokenSymbol: QuoteToken.MIS,
-    stakingTokenName: QuoteToken.MIS,
-    // this is MIS
-    stakingTokenAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+    tokenName: 'RVRS',
+    earnToken: 'RVRS',
+    quoteTokenSymbol: QuoteToken.RVRS,
+    stakingTokenName: QuoteToken.RVRS,
+    // this is RVRS
+    stakingTokenAddress: '0xed0b4b0f0e2c17646682fc98ace09feb99af3ade',
      // this is MIS
-     quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
-     // this is BOSS
-     tokenPoolAddress: '0xe7bbe0e193fdfe95d2858f5c46d036065f8f735c',
+     quoteTokenPoolAddress: '0xed0b4b0f0e2c17646682fc98ace09feb99af3ade',
+     // this is RVRS
+     tokenPoolAddress: '0xed0b4b0f0e2c17646682fc98ace09feb99af3ade',
     contractAddress: {
-      1666700000: '0xbe39F89599FD5293fcA285EE4BE3dea019C7A527',
-      1666600000: '0xbe39F89599FD5293fcA285EE4BE3dea019C7A527',
+      1666700000: '0xa63cec3F1c5ba6970043725ac228D84180f19e94',
+      1666600000: '0xa63cec3F1c5ba6970043725ac228D84180f19e94',
     },
     poolCategory: PoolCategory.COMMUNITY,
-    projectLink: 'https://www.avax.network/',
+    projectLink: 'https://reverse.gitbook.io/docs/',
     harvest: true,
-    tokenPerBlock: '0.05',
-    sortOrder: 5,
+    tokenPerBlock: '0.038',
+    sortOrder: 0,
     isFinished: false,
-    startBlock: 19046958,
-    endBlock: 19651728,
+    startBlock: 19335589,
+    endBlock: 19465049,
     tokenDecimals: 18,
-   }, */
+   }, 
 ]
 
 export default pools

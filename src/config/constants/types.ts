@@ -82,6 +82,7 @@ export enum QuoteToken {
   'FOX' = 'FOX',
   'MISBOSS' = 'MIS-BOSS',
   'BOSS' = 'BOSS',
+  'RVRS' = 'RVRS',
 }
 
 export enum PoolCategory {

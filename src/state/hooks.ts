@@ -216,6 +216,12 @@ export const usePriceLuna = (): BigNumber => {
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
 } 
 
+export const usePriceRvrs = (): BigNumber => {
+  const pid = 11 // BUSD-BNB LP
+  const farm = useFarmFromPid(pid)
+  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
+} 
+
 export const usePriceTranqb = (): BigNumber => {
   const priceMis = usePriceCakeBusd();
   const pool = usePool2FromPid(1)
@@ -255,6 +261,7 @@ export const usePrices = () => {
   const sonicPrice = usePriceSonic()
   const foxPrice = usePriceFox()
   const bossPrice = usePriceBoss()
+  const rvrsPrice = usePriceRvrs()
 
   return [
       {name: QuoteToken.MIS, price: misPrice},
@@ -271,6 +278,7 @@ export const usePrices = () => {
       {name: QuoteToken.SONIC, price: sonicPrice},
       {name: QuoteToken.FOX, price: foxPrice},
       {name: QuoteToken.BOSS, price: bossPrice},
+      {name: QuoteToken.RVRS, price: rvrsPrice},
   ]
 }
 
@@ -301,6 +309,10 @@ export const getTotalValueFromQuoteTokens = (quoteTokenAmount, quoteToken, price
   }
   if (quoteToken === QuoteToken.FOX) {
     const price = lookupPrice(QuoteToken.FOX, prices)
+    return new BigNumber(2).times(quoteTokenAmount).times(price)
+  }
+  if (quoteToken === QuoteToken.RVRS) {
+    const price = lookupPrice(QuoteToken.RVRS, prices)
     return new BigNumber(2).times(quoteTokenAmount).times(price)
   }
   console.log("ERROR: NO PRICE FOUND FOR QuoteToken:", quoteToken)
