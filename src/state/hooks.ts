@@ -311,6 +311,10 @@ export const getTotalValueFromQuoteTokens = (quoteTokenAmount, quoteToken, price
     const price = lookupPrice(QuoteToken.FOX, prices)
     return new BigNumber(2).times(quoteTokenAmount).times(price)
   }
+  if (quoteToken === QuoteToken.RVRS) {
+    const price = lookupPrice(QuoteToken.RVRS, prices)
+    return new BigNumber(2).times(quoteTokenAmount).times(price)
+  }
   console.log("ERROR: NO PRICE FOUND FOR QuoteToken:", quoteToken)
   return new BigNumber(0)
 }
