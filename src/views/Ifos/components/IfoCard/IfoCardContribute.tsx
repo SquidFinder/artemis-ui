@@ -87,7 +87,7 @@ const IfoCardContribute: React.FC<Props> = ({
   const isFinished = status === 'finished'
   const percentOfUserContribution = new BigNumber(userInfo.amount).div(totalAmount).times(100)
 
-  if (allowance <= 0) {
+  if (!isFinished && allowance <= 0) {
     return (
       <Button
         style={{color:'white', boxShadow:'0px 0px 10px #fff'}}
@@ -108,7 +108,7 @@ const IfoCardContribute: React.FC<Props> = ({
     )
   }
 
-  if (collatallowance <= 0) {
+  if (!isFinished && collatallowance <= 0) {
     return (
       <>
       <Button
@@ -135,7 +135,7 @@ const IfoCardContribute: React.FC<Props> = ({
     )
   }
 
-  if (!hasCollat && mislocked <=0) {
+  if (!isFinished && !hasCollat && mislocked <=0) {
     return (
       <>
       <Button
