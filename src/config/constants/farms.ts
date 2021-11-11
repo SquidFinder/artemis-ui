@@ -291,6 +291,22 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.cake,
   },
   {
+    pid:labo.pids.pidList[11],
+    risk: 5,
+    lpSymbol: 'MIS-RVRS LP',
+    lpAddresses: {
+      1666700000: '0x14ec453656ce925c969eaffcd76d62aca2468eb6',
+      1666600000: '0x14ec453656ce925c969eaffcd76d62aca2468eb6', // ( MIS-RVRS LP)
+    },
+    tokenSymbol: 'RVRS',
+    tokenAddresses: {
+      1666700000: '0xed0b4b0f0e2c17646682fc98ace09feb99af3ade',
+      1666600000: '0xed0b4b0f0e2c17646682fc98ace09feb99af3ade',
+    },
+    quoteTokenSymbol: QuoteToken.MIS,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
     pid:labo.pids.pidList[10],
     risk: 5,
     lpSymbol: 'MIS-RFTM LP',
