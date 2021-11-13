@@ -388,7 +388,33 @@ const pools: PoolConfig[] = [
     startBlock: 19335589,
     endBlock: 19465049,
     tokenDecimals: 18,
-   }, 
+   },
+   {
+    sousId: 16,
+    tokenName: 'RVRS',
+    earnToken: 'RVRS2',
+    quoteTokenSymbol: QuoteToken.MIS,
+    stakingTokenName: QuoteToken.MIS,
+    // this is MIS
+    stakingTokenAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is MIS
+     quoteTokenPoolAddress: '0xd74433b187cf0ba998ad9be3486b929c76815215',
+     // this is RVRS
+     tokenPoolAddress: '0xed0b4b0f0e2c17646682fc98ace09feb99af3ade',
+    contractAddress: {
+      1666700000: '0x29D6d774b7A52Df86681Ba647cDf3096E0d788A9',
+      1666600000: '0x29D6d774b7A52Df86681Ba647cDf3096E0d788A9',
+    },
+    poolCategory: PoolCategory.CORE,
+    projectLink: 'https://reverse.gitbook.io/docs/',
+    harvest: true,
+    tokenPerBlock: '0.013',
+    sortOrder: 0,
+    isFinished: false,
+    startBlock: 19371088,
+    endBlock: 19673388,
+    tokenDecimals: 18,
+   },
 ]
 
 export default pools
