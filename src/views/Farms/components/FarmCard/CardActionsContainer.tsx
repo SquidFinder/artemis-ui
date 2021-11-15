@@ -103,36 +103,18 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }
     ) : (
       <span data-tip data-for='happyFace'>
       <Button style={{'borderRadius': ( true ? '5px' : '')}} mt="8px" fullWidth disabled={requestedApproval || labo.isLocked.unlockWalletButton} onClick={handleApprove}>
-        {TranslateString(999, 'Approve Contract')}
+        {TranslateString(999, 'Enable Contract')}
       </Button>
-      {(
-        labo.isLocked.unlockWalletButton 
-        ? 
-      
-        (
-          <ReactTooltip id='happyFace' type='info'>
-          <span style={{'color': 'white'}}>Do not add liquidity yet, this is a test token.</span>
-          </ReactTooltip>
-        )
-        :
-        ''
-        
-      )
-      } 
       </span>
     )
   }
 
   return (
     <Action>
-      <Flex>
-        <Quote>{TranslateString(192, 'Pending MIS')}</Quote>
-      </Flex>
+
       <HarvestAction earnings={earnings} pid={pid} />
       
-      <Flex>
-        <Quote>{TranslateString(999, 'Your Deposits')}</Quote>
-      </Flex>
+
       {!account ? <UnlockButton mt="8px" fullWidth /> : renderApprovalOrStakeButton()}
     
     </Action>

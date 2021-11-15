@@ -206,36 +206,24 @@ const FarmCard: React.FC<FarmCardProps> = ({
 
         {!removed && (
           <Flex justifyContent='space-between' alignItems='center'  mt="5px"  marginBottom='6px'  >
-            <span><FaTractor/> APR</span>
-            <APRTEXT style={{ display: 'flex', alignItems: 'center' }}>
-              {farm.apy ? (
-                <>
-                  {/* <ApyButton
-                    lpLabel={lpLabel}
-                    quoteTokenAdresses={quoteTokenAdresses}
-                    quoteTokenSymbol={quoteTokenSymbol}
-                    tokenAddresses={tokenAddresses}
-                    cakePrice={cakePrice}
-                    apy={farm.apy}
-                  /> */}
-                  &nbsp;&nbsp;{farmAPY}
-                </>
-              ) : (
-                <Skeleton height={24} width={80} />
-              )}
-            </APRTEXT>
+            <span>ROI</span>
+            <APRTEXT style={{ display: 'flex', alignItems: 'center' }}>{farmAPY}</APRTEXT>
           </Flex>
         )}
 
         <Flex justifyContent='space-between'>
-          <span><FaSeedling /> Daily Returns</span>
+          <span>Daily</span>
           <Quote>{Daily}</Quote>
         </Flex>
 
 
-        <Flex justifyContent='space-between'>
-          <span><FaFire/> Deposit Fee</span>
+        {/* <Flex justifyContent='space-between'>
+          <span>Deposit Fee</span>
           <Quote>{ ( !Number.isNaN(farm.depositFeeBP) ? `${(farm.depositFeeBP / 100)}%` : '...loading') }</Quote>
+        </Flex> */ }
+
+        <Flex justifyContent="space-between">
+          <span>Liquidity</span><Quote>{totalValueFormated}</Quote>
         </Flex>
 
 
@@ -246,7 +234,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
               :
               `https://app.defikingdoms.com/#/add/${liquidityUrlPathParts}`
           }>
-            <span style={{color:'white'}}><FaGhost/> Add Liquidity <FaArrowRight/></span>
+            <span style={{color:'white'}}>Get LP Tokens <FaArrowRight/></span>
 
           </Link>
         </Flex>
@@ -261,27 +249,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
 
 
 
-      <Flex justifyContent='right'>
-        <ExpandableSectionButton onClick={() => setShowExpandableSection(!showExpandableSection)}/>
-      </Flex>
-
-      <ExpandingWrapper expanded={showExpandableSection}>
-        <DetailsSection
-          removed={removed}
-          isTokenOnly={farm.isTokenOnly}
-          bscScanAddress={
-            farm.isTokenOnly ?
-              `https://explorer.harmony.one/address/${farm.tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
-              :
-              `https://explorer.harmony.one/address/${farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]}`
-          }
-          totalValueFormated={totalValueFormated}
-          lpLabel={lpLabel}
-          quoteTokenAdresses={quoteTokenAdresses}
-          quoteTokenSymbol={quoteTokenSymbol}
-          tokenAddresses={tokenAddresses}
-        />
-      </ExpandingWrapper>
+     
     </FCard>
   )
 }

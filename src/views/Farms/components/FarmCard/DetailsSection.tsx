@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Text, Flex, Link, LinkExternal } from '@pancakeswap-libs/uikit'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { Address } from 'config/constants/types'
-import { FaScroll } from 'react-icons/fa'
+import { FaArrowRight, FaScroll } from 'react-icons/fa'
 
 export interface ExpandableSectionProps {
   isTokenOnly?: boolean
@@ -64,24 +64,19 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
 
       {!removed && (
         <Flex justifyContent="space-between">
-          <span><FaScroll/> Total Deposited</span><Text bold>{totalValueFormated}</Text>
+          <span>Liquidity</span><Text>{totalValueFormated}</Text>
           
         </Flex>
       )}
 
-<Divider3/>
+
 
       <Flex justifyContent="flex-start">
-        <StyledLinkExternal external href={bscScanAddress} bold={false} style={{"color": "#4c68ef"}}>
-          {TranslateString(999, 'View on Explorer')}
-        </StyledLinkExternal>
+        <Link external href={bscScanAddress} bold={false} style={{"color": "#FFFF"}}>
+          {TranslateString(999, 'LP on Explorer')}
+        </Link>
       </Flex>
 
-      <Flex justifyContent="flex-start">
-        <StyledLinkExternal external href='https://vfat.tools/harmony/artemisprotocol/' bold={false} style={{"color": "#4c68ef"}}>
-          {TranslateString(999, 'More on VFAT')}
-        </StyledLinkExternal>
-      </Flex>
 
     </Wrapper>
   )
