@@ -168,47 +168,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
   return (
     <Page>
-
-  {/* <div className="warningAlert" style={{'display': ( modalOpen ? 'block' : 'none' )}}>
-      <Alert title="" variant="warning" onClick={handleModal}>
-        <p>Artemis Earn rewards will begin on <a target="_blank" rel="noreferrer" style={{"color": "#0073ff"}} href="https://explorer.harmony.one/block/17996500">October 9th.</a></p>
-      </Alert>
-      </div>    */}
-
-<SvgHero>
-  
-        {tokenMode ? 
-        <object type="image/svg+xml" data="images/poolhero.svg" height="370px">&nbsp;</object> :
-
-        <object 
-        type="image/svg+xml" 
-        data="images/farmhero.svg" 
-        className="labhero" 
-        style={{maxWidth: '600px', marginLeft: '0px'}}
-        >&nbsp;</object>
-
-        }
-      </SvgHero> 
-
       <div>
 
-        <FarmTabButtons stakedOnly={stakedOnly} setStakedOnly={setStakedOnly} tokenMode={tokenMode}/>
-
-        <Features>
-          { /* <Feature>
-            <FaUserCheck /><br />
-            <p>Audit by <a target="_blank" rel="noreferrer" style={{"color": "#0073ff"}} href="https://github.com/thelabfinance/audits/blob/main/TheLabFinance_SolidGroup.pdf">Solid Group</a></p>
-          </Feature>
-          <Feature>
-            <FaLock /><br />
-            <p> 1-year <a target="_blank" rel="noreferrer" style={{"color": "#0073ff"}} href="https://unicrypt.network/amm/pancake/token/0x171401a3d18B21BFa3f9bF4F9637F3691158365A">Liquidity Lock</a></p>
-          </Feature>
-          <Feature>
-            <FaHistory /><br />
-            <p>24 hr <a target="_blank" rel="noreferrer" style={{"color": "#0073ff"}} href="https://explorer.harmony.one/address/0x0a974345327c8a7d7fc2e5ed6e2de6343500660e#code">Timelock</a> for <a target="_blank" rel="noreferrer" style={{"color": "#0073ff"}} href="https://explorer.harmony.one/tx/0x8d5f3667ab6c34a74cab47413c387f9118bc08c46a1f3d0ff13614e0eb174f24">MasterChef</a></p>
-          </Feature> */ }
-        </Features>
-        
         <FlexLayout>
           <Route exact path={`${path}`}>
             {stakedOnly ? farmsList(stakedOnlyFarms, false) : farmsList(activeFarms, false)}
@@ -217,12 +178,14 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
             {farmsList(inactiveFarms, true)}
           </Route>
         </FlexLayout>
+
+        <FarmTabButtons stakedOnly={stakedOnly} setStakedOnly={setStakedOnly} tokenMode={tokenMode}/>
+
         
         <FlexLayout>
 
         <Feature >
-          <FaHistory /><br />
-
+          <FaHistory/><br/>
           <p>The base emission rate is currently {vikingPerBlock} MIS per block.</p>
         </Feature>
           

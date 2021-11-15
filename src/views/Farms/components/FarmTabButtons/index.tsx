@@ -24,30 +24,19 @@ const FarmTabButtons = ({ stakedOnly, setStakedOnly, tokenMode }) => {
 
   return (
     <Wrapper>
-      <ActionsWrapper style={{ marginTop: '20px'}}
->
-        {/*
-        <ToggleWrapper>
+      <ActionsWrapper style={{ marginTop: '20px'}}>
+
+        {/* <ToggleWrapper>
           <Switch checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} onColor='#fff' />
         <Text> {TranslateString(699, 'Staked Only')}</Text>
-        </ToggleWrapper>
-        */}
-
-        
-        { !tokenMode ?
-        <Blablabla >
-          <FaQuestionCircle/> First time? Read our <a target="_blanK" rel="noreferrer" href="https://medium.com/@hsuxx200/artemis-protocol-how-to-deposit-into-artemis-earn-ecd8451dba2c"><GuideLink>guide</GuideLink></a>
-        </Blablabla>
-       : 
-       "" 
-       }
+        </ToggleWrapper> */}
 
         <ButtonMenu   activeIndex={isExact ? 0 : 1} size="sm" >
           <ButtonMenuItem as={Link} to={`${url}`} >
-            {TranslateString(698, 'Active')}
+            {TranslateString(698, 'Active Farms')}
           </ButtonMenuItem>
           <ButtonMenuItem as={Link} to={`${url}/history`}>
-            {TranslateString(700, 'Inactive')}
+            {TranslateString(700, 'Inactive Farms')}
           </ButtonMenuItem>
         </ButtonMenu>
       </ActionsWrapper>

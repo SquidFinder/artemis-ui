@@ -58,14 +58,15 @@ const StyledCardAccent = styled.div`
 
 const FCard = styled.div`
   align-self: baseline;
-  background: ${(props) => props.theme.card.background};
+  background: #2F324A;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 32px;
+  padding: 35px;
   position: relative;
   text-align: center;
+  box-shadow: 0px 0px 3px #fff;
 `
 
 const DCard = styled.div`
@@ -201,7 +202,6 @@ const FarmCard: React.FC<FarmCardProps> = ({
         tokenSymbol={farm.tokenSymbol}
       />
 
-      <DCard>
 
 
         {!removed && (
@@ -253,7 +253,6 @@ const FarmCard: React.FC<FarmCardProps> = ({
 
         
 
-      </DCard>
       
       <Divider2/>
       <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />

@@ -10,18 +10,13 @@ import GlobalStyle from './style/Global'
 import NavBar from './components/NavBar'
 import NftGlobalNotification from './views/Nft/components/NftGlobalNotification'
 
-// Route-based code splitting
-// Only pool is included in the main bundle because of it's the most visited page'
 const Home = lazy(() => import('./views/Home'))
 const Farms = lazy(() => import('./views/Farms'))
 const Pools2 = lazy(() => import('./views/Pools2'))
-// const MoneyWheel = lazy(() => import('./views/MoneyWheel'))
-// const MoneyWheel2 = lazy(() => import('./views/MoneyWheel2'))
 const Lottery = lazy(() => import('./views/Lottery'))
 // const Pools = lazy(() => import('./views/Pools'))
 const Ifos = lazy(() => import('./views/Ifos'))
 const NotFound = lazy(() => import('./views/NotFound'))
-// const Nft = lazy(() => import('./views/Nft'))
 
 // This config is required for number formating
 BigNumber.config({
@@ -43,63 +38,39 @@ const App: React.FC = () => {
     <Router>
       <ResetCSS />
       <GlobalStyle />
-      <NavBar>
-        .
-      </NavBar>
+        <NavBar>
+          .
+        </NavBar>
+      
         <Suspense fallback>
           <Switch>
+
             <Route path="/" exact>
               <Home />
             </Route>
             
-            <Route path="/Elysium">
-              <Farms />
+            <Route path="/farm">
+              <Farms/>
             </Route>
             
-            <Route path="/Incubator">
-              <Pools />
-            </Route>
-            {/*
-            <Route path="/pools">
-              <Farms tokenMode/>
-             </Route> 
-        */}               
-            <Route path="/Earn">
-              <MoneyWheel />
+            <Route path="/incubator">
+              <Pools/>
             </Route>
 
-            {/* <Route path="/onewheel">
-              <MoneyWheel2 />
-            </Route>
-             <Route path="/nft">
-              <Nft/>
-            </Route> 
-*/}
-            <Route path="/Lottery">
-              <Lottery />
+            <Route path="/lottery">
+              <Lottery/>
             </Route> 
 
             <Route path="/hades">
-            <Pools2 />
+              <Pools2/>
             </Route>
-            <Route path="/ArtemisPad">
-            <Ifos />
+
+            <Route path="/artemispad">
+              <Ifos/>
             </Route> 
-                        {/* Redirect */}
-            {/* <Route path="/nft">
-            <Nft /> 
-            </Route>  
-          */ }
-            <Route path="/launchpad">
-            <Redirect to="/ArtemisPad" /> 
-            </Route> 
-        
-           {/* <Route path="/syrup">
-            <Redirect to="/pools" />
-            </Route>
-          */}
-            {/* 404 */}
+
             <Route component={NotFound} />
+
           </Switch>
         </Suspense>
       <NftGlobalNotification />

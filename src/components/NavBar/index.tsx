@@ -29,23 +29,23 @@ const Token = styled.img`
 `
 
 const Price = styled.button`
--webkit-box-align: center;
-align-items: center;
-background-color: rgba(0, 0, 0,0) !important;
-border: 1px;
-border-style: solid !important;
-border-color: #405fb4 !important;
-border-radius: 10px;
-color: #405fb4;
-font-size: 15px;
-font-weight: 800;
-width: 100%;
-display: inline-flex;
-min-height: 21px;
-max-height: 37px;
-letter-spacing: 0.03em;
-padding: 15px;
-margin-top: 10px;
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0,0) !important;
+  border: 1px;
+  border-style: solid !important;
+  border-color: #405fb4 !important;
+  border-radius: 10px;
+  color: #405fb4;
+  font-size: 15px;
+  font-weight: 800;
+  width: 100%;
+  display: inline-flex;
+  min-height: 21px;
+  max-height: 37px;
+  letter-spacing: 0.03em;
+  padding: 15px;
+  margin-top: 10px;
 `
 
 const Logo = styled.p`
@@ -153,167 +153,64 @@ const NavBar = (props) => {
   return (
     <div>
       <header>
-          <div className="nav-wrapper">
+        <div className="nav-wrapper">
+          <nav>
+            <input className="hidden" type="checkbox" checked={isChecked} id="menuToggle"/>
+            <button type="button" className="menu-btn" onClick={()=>{setIsChecked(!isChecked)}}>
+              <div className="menu"/>
+              <div className="menu"/>
+              <div className="menu"/>
+            </button>
+
+            <div className="nav-container">
+
+            <object 
+              type="image/svg+xml" 
+              data="/images/core/logo.svg" 
+              width="60px" 
+              style={{'marginTop': '0px', 
+                      'marginBottom': '0px', 
+                      'marginLeft': '0px'}}>&nbsp;
+            </object>
+
+              <ul className="nav-tabs">
+                <li className="nav-tab">
+                  <Link to="/" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                    <span className="dditem">Dashboard</span>
+                  </Link>
+                </li>
+
+                <li className="nav-tab">
+                  <Link to="/farm" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                    <span className="dditem">Farm</span>
+                  </Link>
+                </li>
+
+                <li className="nav-tab">
+                  <Link to="/incubator" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                    <span className="dditem">Incubator</span>
+                  </Link>
+                </li>
+
+                <li className="nav-tab">
+                  <Link to="/hades" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                    <span className="dditem">Hades</span>
+                  </Link>
+                </li>
+
+                <li className="nav-tab">
+                  <Link to="/artemispad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                    <span className="dditem">ArtemisPad</span>
+                  </Link>
+                </li>
 
 
-              <nav>
-                  <input className="hidden" type="checkbox" checked={isChecked} id="menuToggle"/>
-                  <button type="button" className="menu-btn" onClick={()=>{setIsChecked(!isChecked)}}>
-                      <div className="menu"/>
-                      <div className="menu"/>
-                      <div className="menu"/>
-                  </button>
-                  <div className="nav-container">
-                      <ul className="nav-tabs">
-                          <li className="nav-tab">
-                            <Link to="/" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                              <span className="dditem">Home</span>
-                            </Link>
-                          </li>
-
-
-                          <li className="nav-tab dropdown" id="wheelToggleDesktop">
-                            <Link to="/earn" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                              <FaSeedling/> <span className="dditem">Earn</span>
-                            </Link>
-                            
-                            <ul className="dropdown-content dropdown-items">
-                            <li>
-                              <Link to="/earn" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                                <FaUser />  <span className="dditem">Dashboard</span>
-                                </Link>
-
-                              </li>
-                            <li className="nav-tab">
-                            <Link to="/elysium" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                            <FaCloud/><span className="dditem">Elysium</span>
-                            </Link>
-                          </li>
- 
-                              <li>
-                              <Link to="/hades" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                                <FaFire />  <span className="dditem">Hades</span>
-                                </Link>
-
-                              </li>
-                            </ul>
-                          </li>
-
-
-  
-
-                          <li className="nav-tab">
-                            <Link to="/incubator" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                            <FaProjectDiagram/><span className="dditem"> Incubator</span>
-                            </Link>
-                          </li>
-
- 
-                          
-                          {/* <li className="nav-tab">
-                            <Link to="/burnpools" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                            <FaProjectDiagram/><span className="dditem">BURN POOLS</span>
-                            </Link>
-                          </li> */}
-
-                          <li className="nav-tab">
-                            <Link to="/ArtemisPad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                            <FaLayerGroup/><span className="dditem"> ArtemisPad</span>
-                            </Link>
-                          </li>
-
-                        
-                          <li className="nav-tab dropdown" id="wheelToggleDesktop">
-                            <Link to="/" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                               <FaGamepad/><span className="dditem" >Games</span>
-                            </Link>
-                            
-                            <ul className="dropdown-content dropdown-items">
-                            <li className="nav-tab">
-                            <Link to="/lottery" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                            <FaTicketAlt/><span className="dditem">Lottery</span>
-                            </Link>
-                          </li>
- 
-                              <li>
-                                <a target="_blanK" rel="noreferrer" href="https://lootblocks.one/0x39B5Ef29332AFC37D618efE918A7e13c38358f94/11" className="nav-links">
-                                <FaParachuteBox />  <span className="dditem">Crates</span>
-                                </a>
-                              </li>
-                            </ul>
-                          </li>
-
-
-
-                          <li className="nav-tab dropdown" id="infoToggleDesktop">
-                            <Link to="/" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                              About
-                            </Link>
-                            <ul className="dropdown-content dropdown-items">
-                            <li>
-                                <a target="_blanK" rel="noreferrer" href="https://gov.harmony.one/#/artemis" className="nav-links">
-                                <FaVoteYea />  <span className="dditem">Vote</span>
-                                </a>
-                              </li>
-
-                              <li>
-                                <a target="_blanK" rel="noreferrer" href="https://github.com/TechRate/Smart-Contract-Audits/blob/main/October/Artemis%20Protocol.pdf" className="nav-links">
-                                <FaShieldAlt />  <span className="dditem">Audit</span>
-                                </a>
-                              </li>
-
-                            <li>
-                                <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/" className="nav-links">
-                                <FaBook /> <span className="dditem">Docs</span>
-                                </a>
-                              </li>
-                              <li>
-                                <a target="_blanK" rel="noreferrer" href="https://github.com/ArtemisProtocol" className="nav-links">
-                                  <FaCode /> <span className="dditem">Code</span>
-                                </a>
-                              </li>
-                              <li>
-                                <a target="_blanK" rel="noreferrer" href="https://twitter.com/ArtemisProtoco1" className="nav-links">
-                                <FaTwitter />  <span className="dditem">Twitter</span>
-                                </a>
-                              </li>
-                              <li>
-                                <a target="_blanK" rel="noreferrer" href="https://t.me/protocolartemis" className="nav-links">
-                                <FaTelegramPlane /> <span className="dditem">Telegram</span>
-                                </a>
-                              </li>
-                              <li>
-                                <a target="_blanK" rel="noreferrer" href="https://discord.gg/7z5qQgnZHE" className="nav-links">
-                                <FaDiscord />  <span className="dditem">Discord</span>
-                                </a>
-                              </li>
-
-                            </ul>
-                          </li>
-                          <InfoToggle />
+                <InfoToggle />
                  </ul>
+                 
                  <ul className="web3buttons">
 
-                 <li className="web3li insideMainNav">
-                    <a target="_blank" rel="noreferrer" style={{'width': '100% !important' }} 
-                    href='https://app.defikingdoms.com/' 
-                    className="nav-links connect">
-                      <Button style={{'fontSize': '15px', 'borderRadius': '10px', 'width': '100% !important', 'backgroundColor': '#4C68EF'}}>
-                        <b>Swap</b>
-                      </Button>
-                    </a>
-                  </li>
 
-
-                 <li className="web3li insideMainNav">
-                   <a target="_blank" rel="noreferrer" href="https://info.defikingdoms.com/token/0xd74433b187cf0ba998ad9be3486b929c76815215" className="nav-links price">
-                  <Price
-                    style={{ marginRight: '4px',
-                            backgroundColor: 'transparent' }}
-                  >
-                    <Token src="images/icon.png" alt='1' width="23px" height="23px"/>
-                    <p>{ ( !cakePriceUsd.isNaN() ? cakePriceUsd.toNumber().toFixed(3).concat("$") : '...loading') }</p></Price>
-                  </a></li>
    
                 <li className="web3li insideMainNav">
                   <Link to="/" className="nav-links connect">
@@ -342,32 +239,7 @@ const NavBar = (props) => {
               </nav>
               <ul className="nav-tabs outsideMainNav">
 
-              
-                <li className="web3li">
-                    <a  target="_blank" rel="noreferrer" style={{'width': '100% !important' }} href='https://app.defikingdoms.com/#/marketplace?outputCurrency=0xd74433b187cf0ba998ad9be3486b929c76815215' className="nav-links connect">
-                      <Button style={{'fontSize': '15px', 'borderRadius': '10px', 'borderColor': '#4C68EF', 'width': '100% !important', 'backgroundColor': '#4C68EF', 'marginTop': '10px'}}>
-                        <b>Swap</b>
-                      </Button>
-                    </a>
-                </li> 
-
-
-                <li className="web3li">
-                  <a target="_blank" rel="noreferrer" href="https://artemischarts.northeurope.cloudapp.azure.com/" className="nav-links price">
-                  <Price 
-                    style={{ 
-                      marginRight: '0px',
-                      marginTop: '10px',
-                      'flexFlow': 'row',
-                      alignItems: 'center',
-                      justifyContent: 'space-between'
-                    }}
-                  >
-                    <Token src="images/icon.png" alt='1' width="23px" height="23px"/>
-                    <p>{ ( !cakePriceUsd.isNaN() ? cakePriceUsd.toNumber().toFixed(2).concat("$") : '...loading') }</p></Price>
-                  </a></li>
-
-               
+        
                 <li className="web3li">
                   <Link to="/" className="nav-links connect">
                   { account != null && account.length > 1? 

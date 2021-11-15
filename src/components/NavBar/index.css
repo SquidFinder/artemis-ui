@@ -17,13 +17,13 @@ h1 {
 	flex-direction: row;
 	flex-wrap: nowrap;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 	margin: auto;
-	width: 75%;
-	height: 130px;
-	border-radius: 0 0 15px 15px;
-	padding: 0 40px;
+	width: 100%;
+	height: 100px;
 	z-index: 81;
+	border-bottom: 0px solid rgb(255, 255, 255);
+	margin-bottom: 20px;
 }
 
 .logo-container {
@@ -44,24 +44,22 @@ h1 {
 }
 
 .logo {
-	height:  45px;
+	height: 45px;
 	width: 45px;
 }
 
 .nav-tabs {
 	display: flex;
-	font-weight: 200;
-	font-size: 14px;
+	font-weight: 100;
+	font-size: 15.5px;
 	list-style: none;
 	border: 0 !important;
 }
 
 .nav-tab {
-	padding: 0.5px 20px;
-	margin: 15;
-	border-right: 1.5px solid rgb(121, 121, 121);
-	
-	
+	padding: 0.5px 15px;
+	margin: 45;
+	border-right: 0px solid rgb(121, 121, 121);
 }
 
 
@@ -75,12 +73,11 @@ h1 {
 }
 @media screen and (min-width: 1350px) {
 
-	
 .dropdown-content {
 	display: none;
 	position: absolute;
 	border-radius: 20px;
-	background-color: #181818;
+	background-color: #0a0a0a;
 	min-width: 150px;
 	z-index: 1;
 	padding: 30px 1px 15px 10px;
@@ -218,10 +215,7 @@ h1 {
 		background-color: transparent !important;
 		border: 0 !important;
 		box-shadow: 0 !important;
-		
 	}
-
-   
 
 	.menu-btn .menu {
 		display: block;

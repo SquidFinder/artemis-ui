@@ -36,15 +36,15 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
 }) => {
   return (
     <Wrapper justifyContent="space-between" alignItems="center" mb="20px">
-      {/* <Image src={`/images/farms/${farmImage}.png`} alt={tokenSymbol} width={64} height={64} /> */}
-      <object type="image/svg+xml" data={`/images/farms/${farmImage}.svg`} width="85px">&nbsp;</object>
+      {/* <Image src={`/images/farms/${farmImage}.png`} alt={tokenSymbol} width={64} height={64} /> 
+      <object type="image/svg+xml" data={`/images/farms/${farmImage}.svg`} width="85px">&nbsp;</object> */}
 
       <Flex flexDirection="column" alignItems="flex-end">
 
-        <Heading size="md" mb="8px" marginRight="2px"><FaSeedling/>{lpLabel}</Heading>
+        {lpLabel}
         
         <Flex justifyContent="center">
-          <Link style={{color:'white'}} marginRight="2px" external href='https://app.farmersonly.fi/vaults/'>
+          <Link style={{color:'#646575'}} marginRight="2px" external href='https://app.farmersonly.fi/vaults/'>
             <span style={{color:'white'}}>Enter Vaults <FaArrowRight/></span>
           </Link>
         </Flex>

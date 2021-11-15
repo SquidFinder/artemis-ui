@@ -20,8 +20,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #root {
-    background-image: url('/images/egg/bg.svg');
+    background-image: url('/images/core/bg.png');
     background-repeat: no-repeat;
+
+    height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
   }
 
