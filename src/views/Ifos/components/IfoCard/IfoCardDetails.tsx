@@ -80,19 +80,19 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
     <>
       <StyledIfoCardDetails>
       <DCard>
-
-      <Item>
+        {/* 
+        <Item>
           <Display bold><FaArrowCircleUp/> {TranslateString(5824, 'Tier')}</Display>
           <Text>{tier}</Text>
-        </Item>
+        </Item> */}
 
         <Item>
-          <Display bold><FaLock/> {TranslateString(999, 'Collateral Required')}</Display>
+          <Display bold>{TranslateString(999, 'Collateral Required')}</Display>
           <Text>{misAmount}</Text>
         </Item>
 
         <Item>
-          <Display bold><FaBook/> {TranslateString(999, 'Learn More')}</Display>
+          <Display >{TranslateString(999, 'About the ArtemisPad')}</Display>
           <Link href='https://reverse.gitbook.io/docs/launch-procedure' ><FaArrowRight/></Link>
         </Item>
         </DCard>
@@ -119,7 +119,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
 
         <Item>
           <Display>{TranslateString(999, 'USD Raised')}</Display>
-          <Text>{`${totalAmount.div(raisingAmount).times(100).toFixed(1)}%`}</Text>
+          <Text>{`${totalAmount.div(raisingAmount).times(100).toFixed(0)}%`}</Text>
         </Item>
 
 

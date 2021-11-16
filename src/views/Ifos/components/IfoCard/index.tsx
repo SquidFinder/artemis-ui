@@ -21,23 +21,27 @@ export interface IfoCardProps {
 }
 
 const StyledIfoCard = styled(Card)<{ ifoId: string }>`
-  background-image: ${({ ifoId }) => `url('/images/ifos/${ifoId}.png')`};
-
+  background: #2F324A;
   background-repeat: no-repeat;
   background-size: contain;
-  border-radius: 35px;
-  padding-top: 110px;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 430px;
+  border-radius: 15px;
+  max-width: 440px;
   width: 110%;
+  box-shadow: 0px 0px 5px #ccc;
+  padding: 10px;
+`
 
-  box-shadow: 0px 0px 10px #ccc;
-
-  padding-bottom: 20px;
-  padding-left: 5px;
-  padding-right: 5px;
-
+const FCard = styled.div`
+  align-self: baseline;
+  background: #2F324A;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 33px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0px 0px 3px #fff;
 `
 
 const Column = styled.div`

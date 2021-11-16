@@ -32,21 +32,31 @@ const Price = styled.button`
   -webkit-box-align: center;
   align-items: center;
   background-color: rgba(0, 0, 0,0) !important;
-  border: 1px;
+  border: 0px;
   border-style: solid !important;
   border-color: #405fb4 !important;
   border-radius: 10px;
-  color: #405fb4;
-  font-size: 15px;
-  font-weight: 800;
-  width: 100%;
+  color: #ffff;
+  font-size: 14px;
+  font-weight: 400;
+  width: 90%;
   display: inline-flex;
   min-height: 21px;
-  max-height: 37px;
+  max-height: 33px;
   letter-spacing: 0.03em;
   padding: 15px;
-  margin-top: 10px;
+  margin-top: 16px;
+  margin-left: 10px;
+  box-shadow: 0px 0px 5px
+
 `
+
+const Quote = styled.p`
+    font-size: 15px;
+    font-weight: 500;
+    text-shadow: 0px 0px 5px #ccc;
+`
+
 
 const Logo = styled.p`
   font-size: 30px;
@@ -92,63 +102,6 @@ const NavBar = (props) => {
         </li>
     );
   }
-  
-  function InfoToggle() {
-    return (
-      <Accordion id="infoToggleMobile">
-        <Card style={{"backgroundColor": "#161616", "border": "0"}}>
-          <Card.Header style={{"backgroundColor": "#161616", "border": "0"}}>
-            <CustomToggle eventKey="0" />
-          </Card.Header>
-          <Accordion.Collapse eventKey="0">
-            <Card.Body style={{"backgroundColor": "#161616", "border": "0"}}>
-            <ul className="dropdown-items">
-            <li>
-               <a target="_blanK" rel="noreferrer" href="https://gov.harmony.one/#/artemis" className="nav-links">
-                <FaVoteYea />  <span className="dditem">Vote</span>
-               </a>
-           </li>
-
-            <li>
-                                <a target="_blanK" rel="noreferrer" href="https://artemischarts.northeurope.cloudapp.azure.com/" className="nav-links">
-                                <FaChartBar />  <span className="dditem">Charts</span>
-                                </a>
-                              </li>
-                <li>
-                  <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/" className="nav-links">
-                    <FaBook /> <span className="dditem">Docs</span>
-                  </a>
-                </li>
-                <li>
-                  <a target="_blanK" rel="noreferrer" href="https://github.com/ArtemisProtocol" className="nav-links">
-                    <FaCode /> <span className="dditem">Code</span>
-                  </a>
-                </li>
-
-                <li>
-                  <a target="_blanK" rel="noreferrer" href="https://twitter.com/ArtemisProtoco1" className="nav-links">
-                    <FaTwitter />  <span className="dditem">Twitter</span>
-                  </a>
-                </li>
-
-                <li>
-                  <a target="_blanK" rel="noreferrer" href="https://t.me/ProtocolArtemis" className="nav-links">
-                    <FaTelegramPlane />  <span className="dditem">Telegram</span>
-                  </a>
-                </li>
-                <li>
-                  <a target="_blanK" rel="noreferrer" href="https://discord.gg/zqkTCQS8" className="nav-links">
-                    <FaDiscord />  <span className="dditem">Disocord</span>
-                  </a>
-                </li>
-              </ul>
-            </Card.Body>
-          </Accordion.Collapse>
-        </Card>
-      </Accordion>
-    );
-  }
-
 
   return (
     <div>
@@ -161,53 +114,35 @@ const NavBar = (props) => {
               <div className="menu"/>
               <div className="menu"/>
             </button>
-
             <div className="nav-container">
-
             <object 
               type="image/svg+xml" 
               data="/images/core/logo.svg" 
-              width="60px" 
+              width="50px" 
               style={{'marginTop': '0px', 
                       'marginBottom': '0px', 
-                      'marginLeft': '0px'}}>&nbsp;
-            </object>
+                      'marginRight': '10px'}}>&nbsp;</object>
 
               <ul className="nav-tabs">
-
                 <li className="nav-tab">
                   <Link to="/artemispad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                    <span className="dditem">ArtemisPad</span>
+                    <Quote>ArtemisPad</Quote>
                   </Link>
                 </li>
 
                 <li className="nav-tab">
                   <Link to="/farm" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                    <span className="dditem">Farm</span>
+                    <Quote>Farm</Quote>
                   </Link>
                 </li>
 
                 <li className="nav-tab">
                   <Link to="/incubator" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                    <span className="dditem">Incubator</span>
+                    <Quote>Incubator</Quote>
                   </Link>
                 </li>
-
-                <li className="nav-tab">
-                  <Link to="/hades" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                    <span className="dditem">Hades</span>
-                  </Link>
-                </li>
-
-
-
-                <InfoToggle />
-                 </ul>
-                 
-                 <ul className="web3buttons">
-
-
-   
+                </ul>
+                <ul className="web3buttons">
                 <li className="web3li insideMainNav">
                   <Link to="/" className="nav-links connect">
                   { account != null && account.length > 1? 
@@ -215,7 +150,7 @@ const NavBar = (props) => {
                   <UnlockButton style={{
                     backgroundColor: 'rgb(22, 35, 73) !important',
                     border: '0px',
-                    color: '#8299dd !important',
+                    color: '#ffff !important',
                     borderRadius: '16px',
                     fontSize: '15px',
                     fontWeight: '800',
@@ -239,11 +174,11 @@ const NavBar = (props) => {
                 <li className="web3li">
                   <Link to="/" className="nav-links connect">
                   { account != null && account.length > 1? 
-                    <Price>{account.substring(0,5)} <p style={{'color': '#4c68ef'}}>...</p></Price>:
+                    <Price>{account.substring(0,6)} <p style={{'color': '#fff'}}>...</p></Price>:
                   <UnlockButton style={{
                     backgroundColor: 'rgb(22, 35, 73) !important',
                     border: '0px',
-                    color: '#8299dd !important',
+                    color: '#ffff !important',
                     borderRadius: '15px',
                     fontSize: '15px',
                     fontWeight: '800',

@@ -6,7 +6,7 @@ import useI18n from 'hooks/useI18n'
 import useStake from 'hooks/useStake'
 import useUnstake from 'hooks/useUnstake'
 import { getBalanceNumber } from 'utils/formatBalance'
-import { FaArrowAltCircleDown, FaMinus, FaPlus } from 'react-icons/fa'
+import { FaArrowAltCircleDown, FaArrowDown, FaLongArrowAltDown, FaMinus, FaPlus } from 'react-icons/fa'
 import DepositModal from '../DepositModal'
 import WithdrawModal from '../WithdrawModal'
 import './index.css'
@@ -43,7 +43,7 @@ const StyledBtn = styled.button`
   display: inline-flex;
   min-height: 18px;
   max-height: 30px;
-  max-width: 150px;
+  max-width: 95px;
   padding: 20px;
   box-shadow: 0px 0px 5px #ccc;
   text-shadow: 0px 0px 5px #ccc;
@@ -111,8 +111,8 @@ const StakeAction: React.FC<FarmCardActionsProps> = (
     return rawStakedBalance === 0 ? (
       <StyledBtn 
       onClick={onPresentDeposit} 
-      style={{'borderRadius': '5px'}}> 
-      {TranslateString(999, 'Deposit')}
+      style={{justifyContent:"center"}}> 
+      {TranslateString(999, 'Stake')}<FaLongArrowAltDown />
       </StyledBtn>
     ) : (
       <IconButtonWrapper>
@@ -152,7 +152,7 @@ const Staked1 = styled.text`
 `
   return (
     <Flex justifyContent="space-between" alignItems="center"> 
-      <Heading  style={{fontSize:'18px'}} color={rawStakedBalance === 0 ? 'textDisabled' : 'text'}>
+      <Heading  style={{fontSize:'17px'}} color={rawStakedBalance === 0 ? 'textDisabled' : 'text'}>
         <Staked style={{ textShadow:'0px 0px 5px #fff'}}>
           {displayBalance}
         </Staked>

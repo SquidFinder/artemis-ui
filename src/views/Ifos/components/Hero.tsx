@@ -18,7 +18,7 @@ const SvgHero = styled.div`
   display: flex;
   flex-flow: row;
   justify-content: center;
-  padding: 42px 12px;
+
 
   @media all and (max-width: 1350px) { 
     max-width: 100%;
@@ -41,7 +41,7 @@ return (
         type="image/svg+xml" 
         data="images/reverse.svg" 
         className="labhero" 
-        style={{maxWidth: '600px', marginLeft: '10px'}}
+        style={{maxWidth: '0px', marginLeft: '0px'}}
         >&nbsp;</object>
     </SvgHero>
     {/* <HowItWorks /> */}

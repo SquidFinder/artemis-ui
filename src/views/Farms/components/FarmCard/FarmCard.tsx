@@ -63,7 +63,7 @@ const FCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 30px;
+  padding: 33px;
   position: relative;
   text-align: center;
   box-shadow: 0px 0px 3px #fff;
@@ -80,19 +80,19 @@ const DCard = styled.div`
   text-align: center;
 `
 
-
-const Quote = styled.div`
-  font-size: 15px;
-  font-weight: bold;
-
-  margin-bottom: 8px;
+const Quote = styled.p`
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    text-shadow: 0px 0px 5px #ccc;
 `
 
-const LightText = styled.div`
-    font-size: 15px;
-    font-weight: 400px;
+const LightText = styled.p`
+    font-size: 14px;
+    font-weight: 300;
     margin-bottom: 0px;
-    text-color: '#DEDEDE'
+    text-shadow: 0px 0px 0px #ccc;
+    color: #8E8E8E;
 `
 
 const APRTEXT = styled.p`
@@ -196,13 +196,13 @@ const FarmCard: React.FC<FarmCardProps> = ({
         tokenSymbol={farm.tokenSymbol}/>
 
         {!removed && (
-        <Flex justifyContent='space-between' mt="15px">
-          <LightText>ROI</LightText>
+        <Flex justifyContent='space-between' mt="8px">
+          <LightText>APR</LightText>
           <Quote>{farmAPY}</Quote>
         </Flex>)}
 
         <Flex justifyContent='space-between'>
-          <LightText>Daily</LightText>
+          <LightText>Daily ROI</LightText>
           <Quote>{Daily}</Quote>
         </Flex>
 
