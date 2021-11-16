@@ -12,10 +12,11 @@ const StyledNotFound = styled.div`
   justify-content: center;
 `
 const Sub = styled.p`
-  font-size: 30px;
-  color: #fafafa;
-  margin-top: 50px;
-  margin-bottom: 30px;
+  font-size: 50px;
+  color: #ffff;
+  margin-top: 0px;
+  margin-bottom: 180px;
+  text-shadow: 0px 0px 5px #fff;
 `
 
 const NotFound = () => {
@@ -24,11 +25,7 @@ const NotFound = () => {
   return (
     <Page>
       <StyledNotFound>
-        <object type="image/svg+xml" data="images/ppltalking.svg" height="370px">&nbsp;</object>
-        <Sub >{TranslateString(999, 'Currently Unavailable')}</Sub>
-        <Button as="a" variant='secondary' href="/earn" size="md">
-          {TranslateString(999, 'Dashboard')}
-        </Button>
+        <Sub >{TranslateString(999, '404')}</Sub>
       </StyledNotFound>
     </Page>
   )
