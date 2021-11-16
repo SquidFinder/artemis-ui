@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react'
 import styled from 'styled-components'
 import { BaseLayout, Button, Card, Flex,  } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js'
-import { usePriceCakeBusd } from 'state/hooks'
+import { usePriceCakeBusd, useTotalValue } from 'state/hooks'
 import { useAllHarvest } from 'hooks/useHarvest'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import useFarmsWithBalance from 'hooks/useFarmsWithBalance'
@@ -110,13 +110,13 @@ text-shadow: 0px 0px 0px #4E5C6D;
 
 const DashboardCard = styled.div`
   align-self: baseline;
-  background-image: linear-gradient(to right, #2E3646, #3B4557 , #2B3344);
+  background: #2F324A;
 
-  border-radius: 20px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 0px;
+  padding: 5px;
   position: relative;
   text-align: center;
 
@@ -129,11 +129,11 @@ const DashboardCard = styled.div`
 const DashCard = styled.div`
   align-self: baseline;
   background: #2F324A;
-  border-radius: 20px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 25px;
+  padding: 28px;
   position: relative;
   text-align: center;
 
@@ -167,6 +167,9 @@ const MoneyWheel: React.FC = () => {
   const cakePriceUsd = usePriceCakeBusd()
   const misPrice = usePriceCakeBusd();
   const tokenPrice = cakePriceUsd.toNumber().toFixed(2);
+
+  const totalValue = useTotalValue().toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
+
 
   const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0);
   const cakeSupply = getBalanceNumber(circSupply);
@@ -209,18 +212,29 @@ const MoneyWheel: React.FC = () => {
             </Flex>
 
             <Flex justifyContent='space-between' alignItems='center' mt="8px">
-                <Sub>Price</Sub>
+                <Sub>Per MIS</Sub>
                 <Sub>Market Cap</Sub> 
             </Flex>
 
             <Flex justifyContent='space-between' alignItems='center'mt="20px"> 
-              <Stat>{circulatingRvrsString}</Stat>
-              <Stat>{cakeBalance} MIS</Stat>
+              <Stat>{circulatingRvrsString} MIS</Stat>
+              <Stat>${totalValue}</Stat>
             </Flex>
 
             <Flex justifyContent='space-between' alignItems='center'mt="8px">
-              <Sub>Circulating Supply</Sub>
-              <Sub>On Wallet</Sub>
+              <Sub>Circulating</Sub>
+              <Sub>Total Value Locked</Sub>
+            </Flex>
+
+            
+            <Flex justifyContent='space-between' alignItems='center'mt="20px"> 
+              <Stat>{cakeBalance} MIS</Stat>
+              <Stat>2 MIS</Stat>
+            </Flex>
+
+            <Flex justifyContent='space-between' alignItems='center'mt="8px">
+              <Sub>In Wallet</Sub>
+              <Sub>Minted/Block</Sub>
             </Flex>
           </DashCard>
         </div>
