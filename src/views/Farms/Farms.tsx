@@ -16,6 +16,7 @@ import { fetchFarmUserDataAsync } from 'state/actions'
 import { QuoteToken } from 'config/constants/types'
 import { FaUserCheck, FaLock, FaHistory } from 'react-icons/fa';
 import useI18n from 'hooks/useI18n'
+import Dashboard from 'views/Dashboard'
 import FarmCard, { FarmWithStakedValue } from './components/FarmCard/FarmCard'
 import FarmTabButtons from './components/FarmTabButtons'
 import Divider from './components/Divider'
@@ -169,6 +170,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   return (
     <Page>
       <div>
+
+        <Dashboard/>
 
         <FlexLayout>
           <Route exact path={`${path}`}>

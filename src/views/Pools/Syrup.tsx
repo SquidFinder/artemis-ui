@@ -22,6 +22,8 @@ import {
 import { QuoteToken, PoolCategory } from 'config/constants/types'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
+import Dashboard from 'views/Dashboard'
+
 import { FaQuestionCircle , FaUserCheck, FaLock, FaHistory, FaExchangeAlt, FaWater, FaProjectDiagram } from 'react-icons/fa'
 import Coming from './components/Coming'
 import PoolCard from './components/PoolCard'
@@ -198,72 +200,32 @@ const Farm: React.FC = () => {
 
   return (
     <Page>
-      
-      <SvgHero>
-        <object 
-        type="image/svg+xml" 
-        data="images/incubator.svg"
-        className="labhero" 
-        style={{maxWidth: '600px', marginLeft: '0px'}}
-        >&nbsp;</object>
-      </SvgHero>
-
-
-
-
-
-      <Wrapper>
-
-        <ButtonMenu activeIndex={isExact ? 0 : 1} size="sm">
-
-            <ButtonMenuItem as={Link} to={`${url}`} >
-              {TranslateString(698, 'Active')}
-            </ButtonMenuItem>
-
-            <ButtonMenuItem as={Link} to={`${url}/history`}>
-              {TranslateString(700, 'Inactive')}
-            </ButtonMenuItem>
-
-        </ButtonMenu>
-
-      </Wrapper>
-    
-      <ActionsWrapper>
-
-        <Blablabla >
-          <FaQuestionCircle/> Learn more about the Incubator <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/the-protocol/launchpad-1/incubator"><GuideLink>here</GuideLink></a>
-        </Blablabla>
-
-
-        
-        </ActionsWrapper>
+      <Dashboard/>
 
       <FlexLayout>
         <Route exact path={`${path}`}>
           <>
             {orderBy(openPools, ['sortOrder']).map((pool) => (
-              <PoolCard key={pool.sousId} pool={pool} />
-            ))}
+              <PoolCard key={pool.sousId} pool={pool} />))}
             <Coming />
           </>
         </Route>
         <Route path={`${path}/history`}>
           {orderBy(finishedPools, ['sortOrder']).map((pool) => (
-            <PoolCard key={pool.sousId} pool={pool} />
-          ))}
+            <PoolCard key={pool.sousId} pool={pool}/>))}
         </Route>
       </FlexLayout>
 
-      <FlexLayout>
-          <Feature >
-            <FaProjectDiagram /><br /> Artemis Incubator
-
-
-
-
-          </Feature>
-      </FlexLayout>
-          
+      <Wrapper>
+        <ButtonMenu activeIndex={isExact ? 0 : 1} size="sm">
+          <ButtonMenuItem as={Link} to={`${url}`} >
+            {TranslateString(698, 'Active')}
+          </ButtonMenuItem>
+          <ButtonMenuItem as={Link} to={`${url}/history`}>
+            {TranslateString(700, 'Inactive')}
+          </ButtonMenuItem>
+        </ButtonMenu>
+      </Wrapper>
     </Page>
   )
 }

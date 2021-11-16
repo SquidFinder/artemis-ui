@@ -8,7 +8,6 @@ import Pools from 'views/Pools'
 import MoneyWheel from 'views/MoneyWheel2'
 import GlobalStyle from './style/Global'
 import NavBar from './components/NavBar'
-import NftGlobalNotification from './views/Nft/components/NftGlobalNotification'
 
 const Home = lazy(() => import('./views/Home'))
 const Farms = lazy(() => import('./views/Farms'))
@@ -73,7 +72,6 @@ const App: React.FC = () => {
 
           </Switch>
         </Suspense>
-      <NftGlobalNotification />
     </Router>
   )
 }
