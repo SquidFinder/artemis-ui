@@ -50,9 +50,7 @@ const Ifos = () => {
 
         <FlexLayout style={{marginTop:'20px'}}>
           <Feature >
-            <FaRocket style={{marginBottom:'10px'}} /><br />
             <IfoTabButtons />
-
           </Feature>
         </FlexLayout>
 
