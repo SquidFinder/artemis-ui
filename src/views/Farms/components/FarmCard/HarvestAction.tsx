@@ -24,7 +24,7 @@ const Staked = styled.div`
 `
 
 const USDStaked = styled.text`
-  font-size: 15px;
+  font-size: 13px;
   align-items: center;
   color: #8E8E8E;
   display: flex;
@@ -39,6 +39,29 @@ const BalanceAndCompound = styled.div`
   flex-direction: column;
 `
 
+const StyledBtn = styled.button`
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: #292C44;
+  border: 0px;
+  border-style: solid !important;
+  border-color: #ffff !important;
+  border-radius: 10px;
+  color: #FFFF;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  display: inline-flex;
+  min-height: 18px;
+  max-height: 30px;
+  min-width: 95px;
+  max-width: 150px;
+  padding: 20px;
+  box-shadow: 0px 0px 5px #ccc;
+  text-shadow: 0px 0px 5px #ccc;
+
+`
+
 const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
   const TranslateString = useI18n()
   const [pendingTx, setPendingTx] = useState(false)
@@ -47,19 +70,17 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
   const cakePrice = usePriceCakeBusd()
 
   const rawEarningsBalance = getBalanceNumber(earnings)
-  const displayBalance = rawEarningsBalance.toLocaleString()
+  const displayBalance = rawEarningsBalance.toLocaleString('en-us',{ maximumFractionDigits: 2, minimumFractionDigits: 2 })
   const rawEarningsUsdBalance = getBalanceNumber(earnings.times(cakePrice), )
   const displayBalanceUsd = rawEarningsUsdBalance.toLocaleString('en-us',{ maximumFractionDigits: 2, minimumFractionDigits: 2 })
 
   return (
-    <Flex mb='10px' justifyContent='space-between' alignItems='center'>
-      <Heading color={rawEarningsBalance === 0 ? 'textDisabled' : 'text'}>
-          <Staked>
+    <Flex mb='6px' justifyContent='space-between' alignItems='center'>
+      <Heading style={{fontSize:'17px'}} color={rawEarningsBalance === 0 ? 'textDisabled' : 'text'}>
+          <Staked style={{ textShadow:'0px 0px 5px #fff'}}>
               {displayBalance}
           </Staked>
-
-          {earnings.gt(0) && <USDStaked>~${displayBalanceUsd}</USDStaked>}
-
+          {earnings.gt(0) && <USDStaked>${displayBalanceUsd}</USDStaked>}
       </Heading>
 
 
@@ -86,22 +107,17 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
             {TranslateString(999, 'Compound')}
           </Button>
           : null}
-        <Button
+        <StyledBtn
           disabled={rawEarningsBalance === 0 || pendingTx}
           onClick={async () => {
             setPendingTx(true)
             await onReward()
             setPendingTx(false)
-          }}
-          style={{
-            'borderRadius': '5px',
-            'height': '42px',
-            'width': '103px',
-            'color': 'white'
-          }}
+          }}        
+          style={{ justifyContent:"center" }}
         >
           {TranslateString(999, 'Settle')}
-        </Button>
+        </StyledBtn>
       </BalanceAndCompound>
     </Flex>
   )

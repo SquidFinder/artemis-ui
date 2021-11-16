@@ -181,29 +181,10 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
         <FarmTabButtons stakedOnly={stakedOnly} setStakedOnly={setStakedOnly} tokenMode={tokenMode}/>
 
-        
-        <FlexLayout>
-
-        <Feature >
-          <FaHistory/><br/>
-          <p>The base emission rate is currently {vikingPerBlock} MIS per block.</p>
-        </Feature>
-          
-        </FlexLayout>
       </div>
     </Page>
   )
 }
 
-const Hero = styled.div`
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-  padding: 0 12px 47px 12px;
-
-  @media all and (max-width: 1350px) { 
-    max-width: 100%;
-  }
-`
 
 export default Farms

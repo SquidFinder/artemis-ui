@@ -35,34 +35,29 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
   depositFee,
 }) => {
   return (
-    <Wrapper justifyContent="space-between" alignItems="center" mb="20px">
-      {/* <Image src={`/images/farms/${farmImage}.png`} alt={tokenSymbol} width={64} height={64} /> 
-      <object type="image/svg+xml" data={`/images/farms/${farmImage}.svg`} width="85px">&nbsp;</object> */}
-
+    <Wrapper justifyContent="space-between" alignItems="center" mb="10px">
+      {/* <Image src={`/images/farms/${farmImage}.png`} alt={tokenSymbol} width={64} height={64} />  
+      <object type="image/svg+xml" data={`/images/farm/${farmImage}.svg`} width="85px">&nbsp;</object> */}
       <Flex flexDirection="column" alignItems="start">
-
-        
-
         <Flex justifyContent="left">
           <Link style={{color:'#646575'}} external href='https://app.farmersonly.fi/vaults/'>
-            <span style={{color:'white'}}>{lpLabel}</span>
+            <span style={{color:'white', fontWeight:'bold'}}>{lpLabel}</span>
           </Link>
         </Flex>
-
-        
         <Flex justifyContent="left">
-          <Link style={{color:'#646575'}} marginRight="2px" external href='https://app.farmersonly.fi/vaults/'>
-            <span style={{color:'white'}}>Enter Vaults <FaArrowRight/></span>
+          <Link style={{color:'#A5A5A5'}} marginRight="2px" external href='https://app.farmersonly.fi/vaults/'>
+            <span style={{color:'#A5A5A5'}}>Enter Vaults</span>
           </Link>
         </Flex>
-
-        {/* <Flex justifyContent="center">
-          {/* {depositFee === 0 ? <NoFeeTag /> : null} */}
-          {/* isCommunityFarm ? <CommunityTag /> : <CoreTag />} */}
-          {/* <RiskTag risk={risk} />
+    {/* <Flex justifyContent="center">
+          depositFee === 0 ? <NoFeeTag /> : null} 
+          isCommunityFarm ? <CommunityTag /> : <CoreTag />}
+          <RiskTag risk={risk} />
           <MultiplierTag variant="secondary">Allocation {multiplier}</MultiplierTag> 
         </Flex> */}
       </Flex>
+      <object type="image/svg+xml" data='/images/farm/mis-one.svg' width="60px">&nbsp;</object>
+
     </Wrapper>
   )
 }

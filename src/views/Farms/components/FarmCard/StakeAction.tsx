@@ -6,7 +6,7 @@ import useI18n from 'hooks/useI18n'
 import useStake from 'hooks/useStake'
 import useUnstake from 'hooks/useUnstake'
 import { getBalanceNumber } from 'utils/formatBalance'
-import { FaArrowAltCircleDown } from 'react-icons/fa'
+import { FaArrowAltCircleDown, FaMinus, FaPlus } from 'react-icons/fa'
 import DepositModal from '../DepositModal'
 import WithdrawModal from '../WithdrawModal'
 import './index.css'
@@ -26,6 +26,46 @@ const IconButtonWrapper = styled.div`
   svg {
     width: 20px;
   }
+`
+
+const StyledBtn = styled.button`
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: #292C44;
+  border: 0px;
+  border-style: solid !important;
+  border-color: #ffff !important;
+  border-radius: 10px;
+  color: #FFFF;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  display: inline-flex;
+  min-height: 18px;
+  max-height: 30px;
+  max-width: 150px;
+  padding: 20px;
+  box-shadow: 0px 0px 5px #ccc;
+  text-shadow: 0px 0px 5px #ccc;
+`
+const StyledBtn2 = styled.button`
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: #292C44;
+  border: 0px;
+  border-style: solid !important;
+  border-color: #ffff !important;
+  border-radius: 10px;
+  color: #FFFF;
+  font-size: 15px;
+  font-weight: 500;
+  width: 100%;
+  display: inline-flex;
+  min-height: 16px;
+  max-height: 28px;
+  max-width: 45px;
+  padding: 20px;
+  box-shadow: 0px 0px 5px #ccc;
 `
 
 const Staked = styled.div`
@@ -69,21 +109,41 @@ const StakeAction: React.FC<FarmCardActionsProps> = (
 
   const renderStakingButtons = () => {
     return rawStakedBalance === 0 ? (
-      <Button onClick={onPresentDeposit} style={{'borderRadius': '5px'}}> {TranslateString(999, 'Deposit')}</Button>
+      <StyledBtn 
+      onClick={onPresentDeposit} 
+      style={{'borderRadius': '5px'}}> 
+      {TranslateString(999, 'Deposit')}
+      </StyledBtn>
     ) : (
       <IconButtonWrapper>
-        <IconButton variant="primary" style={{'borderRadius': '5px'}} onClick={onPresentWithdraw} mr="6px">
-          <MinusIcon className="minusplus" fill='white'/>
-        </IconButton>
-        <IconButton variant="primary" style={{'borderRadius': '5px'}} onClick={onPresentDeposit}>
-          <AddIcon className="minusplus" color="white"/>
-        </IconButton>
+
+        <StyledBtn2
+          onClick={onPresentWithdraw}
+          style={{ justifyContent:"center" }}>
+          <FaMinus/>
+        </StyledBtn2>
+
+        <StyledBtn2
+          onClick={onPresentDeposit}
+          style={{ justifyContent:"center", marginLeft:'5px'  }}>
+          <FaPlus/>
+        </StyledBtn2>
+
       </IconButtonWrapper>
     )
   }
 
   const USDStaked = styled.text`
-  font-size: 15px;
+  font-size: 13px;
+  align-items: center;
+  color: #8E8E8E;
+  display: flex;
+  margin-top: 3px;
+  justify-content: flex-start;
+`
+
+const Staked1 = styled.text`
+  font-size: 13px;
   align-items: center;
   color: #8E8E8E;
   display: flex;
@@ -91,12 +151,12 @@ const StakeAction: React.FC<FarmCardActionsProps> = (
   justify-content: flex-start;
 `
   return (
-    <Flex justifyContent="space-between" alignItems="center">
-      <Heading color={rawStakedBalance === 0 ? 'textDisabled' : 'text'}>
-        <Staked>
+    <Flex justifyContent="space-between" alignItems="center"> 
+      <Heading  style={{fontSize:'18px'}} color={rawStakedBalance === 0 ? 'textDisabled' : 'text'}>
+        <Staked style={{ textShadow:'0px 0px 5px #fff'}}>
           {displayBalance}
         </Staked>
-        {stakedBalance.gt(0) && <USDStaked>~${displayBalanceUsd}</USDStaked>}
+        {stakedBalance.gt(0) && <USDStaked>${displayBalanceUsd}</USDStaked>}
       </Heading>
       {renderStakingButtons()}
     </Flex>

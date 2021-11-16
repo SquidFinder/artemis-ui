@@ -63,7 +63,7 @@ const FCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 35px;
+  padding: 30px;
   position: relative;
   text-align: center;
   box-shadow: 0px 0px 3px #fff;
@@ -71,19 +71,28 @@ const FCard = styled.div`
 
 const DCard = styled.div`
   background: #3E4266;
-  border-radius: 10px;
+  border-radius: 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 24px;
+  padding: 5px;
   position: relative;
   text-align: center;
 `
 
 
-const Quote = styled.p`
+const Quote = styled.div`
+  font-size: 15px;
+  font-weight: bold;
+
+  margin-bottom: 8px;
+`
+
+const LightText = styled.div`
     font-size: 15px;
-    margin-bottom: 8px;
+    font-weight: 400px;
+    margin-bottom: 0px;
+    text-color: '#DEDEDE'
 `
 
 const APRTEXT = styled.p`
@@ -100,35 +109,26 @@ const StyledLinkExternal = styled(LinkExternal)`
     padding-left: 0px;
     height: 16px;
     width: auto;
-    fill: ${({ theme }) => theme.colors.primary};
+    fill: #ffff;
   }
 
   text-decoration: none;
   font-weight: bold;
   font-size: 15px;
-  color: ${({ theme }) => theme.colors.text};
+  color: #ffff;
   display: flex;
   align-items: right;
 `
 
 const Divider = styled.div`
   background-color: #4c68ef;
-  height: 2px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  margin-bottom: 5px;
-  width: 100%;`
-
-const Divider2 = styled.div`
-  background-color: #4c68ef;
   height: 0px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 15px;
+  margin-top: 5px;
   margin-bottom: 5px;
-  width: 0%;
-`
+  width: 0%;`
+
 interface FarmCardProps {
   farm: FarmWithStakedValue
   removed: boolean
@@ -162,36 +162,30 @@ const FarmCard: React.FC<FarmCardProps> = ({
   const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses, risk } = farm
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses, quoteTokenSymbol, tokenAddresses })
   const farmImage = farm.isTokenOnly ? farm.tokenSymbol.toLowerCase() : `${farm.tokenSymbol.toLowerCase()}-${farm.quoteTokenSymbol.toLowerCase()}`
-  
   const totalValue = getTotalValueFromQuoteTokens(farm.quoteTokenAmount, farm.quoteTokenSymbol, prices)
-
   const totalValueFormated = totalValue
     ? `$${Number(totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
     : '-'
-
   const BLOCKS_PER_YEAR = new BigNumber(30 * 60 * 24 * 365) // first 30 is for 2s block times
   const rewPerYear = new BigNumber(farm.vikingPerBlock).times(farm.poolWeight) .div(new BigNumber(10).pow(18)).times(BLOCKS_PER_YEAR)
   const farmApyFixed = rewPerYear.times(cakePrice).div(totalValue).times(100)
   const farmAPY = ( farmApyFixed ? ` ${farmApyFixed && farmApyFixed.toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 0,
-    maximumFractionDigits: 2,
+    maximumFractionDigits: 0,
   })}%` : '...loading' )
   const Daily = ( farmApyFixed ? ` ${farmApyFixed && farmApyFixed.div(365).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })}%` : '...loading' )
 
-    
-    // console.log("APY", farm.pid)
-    // console.log("rewPerYear", rewPerYear && rewPerYear.toNumber())
-    // console.log("cakePrice", cakePrice && cakePrice.toNumber())
-    // console.log("totalValue", totalValue && totalValue.toNumber())
-    // console.log("farmAPY", farmAPY)
-  
+  // console.log("APY", farm.pid)
+  // console.log("rewPerYear", rewPerYear && rewPerYear.toNumber())
+  // console.log("cakePrice", cakePrice && cakePrice.toNumber())
+  // console.log("totalValue", totalValue && totalValue.toNumber())
+  // console.log("farmAPY", farmAPY)
+
   return (
-    
     <FCard>
-      
       {farm.tokenSymbol === 'MIS' && <StyledCardAccent />}
       <CardHeading
         lpLabel={lpLabel}
@@ -199,59 +193,64 @@ const FarmCard: React.FC<FarmCardProps> = ({
         risk={risk}
         depositFee={farm.depositFeeBP}
         farmImage={farmImage}
-        tokenSymbol={farm.tokenSymbol}
-      />
-
-
+        tokenSymbol={farm.tokenSymbol}/>
 
         {!removed && (
-          <Flex justifyContent='space-between' alignItems='center'  mt="5px"  marginBottom='6px'  >
-            <span>ROI</span>
-            <APRTEXT style={{ display: 'flex', alignItems: 'center' }}>{farmAPY}</APRTEXT>
-          </Flex>
-        )}
+        <Flex justifyContent='space-between' mt="15px">
+          <LightText>ROI</LightText>
+          <Quote>{farmAPY}</Quote>
+        </Flex>)}
 
         <Flex justifyContent='space-between'>
-          <span>Daily</span>
+          <LightText>Daily</LightText>
           <Quote>{Daily}</Quote>
         </Flex>
 
-
-        {/* <Flex justifyContent='space-between'>
+    {/* <Flex justifyContent='space-between'>
           <span>Deposit Fee</span>
           <Quote>{ ( !Number.isNaN(farm.depositFeeBP) ? `${(farm.depositFeeBP / 100)}%` : '...loading') }</Quote>
         </Flex> */ }
 
         <Flex justifyContent="space-between">
-          <span>Liquidity</span><Quote>{totalValueFormated}</Quote>
+          <LightText>Liquidity</LightText>
+          <Quote>{totalValueFormated}</Quote>
         </Flex>
 
+        <Divider/>
 
-        <Flex justifyContent="left">
-          <Link external href={
-            farm.isTokenOnly ?
-              `https://app.defikingdoms.com/#/marketplace?inputCurrency=${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
-              :
-              `https://app.defikingdoms.com/#/add/${liquidityUrlPathParts}`
-          }>
-            <span style={{color:'white'}}>Get LP Tokens <FaArrowRight/></span>
+        <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />
 
-          </Link>
+        {/*
+        <Divider/>
+        <Flex justifyContent='center'>
+          <ExpandableSectionButton onClick={() => setShowExpandableSection(!showExpandableSection)}/>
         </Flex>
 
-        
-
-      
-      <Divider2/>
-      <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />
-
-      <Divider2/>
-
-
-
-     
+        <ExpandingWrapper expanded={showExpandableSection}>
+          <Divider/>
+          <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />
+            
+            <Flex justifyContent="left">
+              <Link external href={
+                farm.isTokenOnly ?
+                `https://app.defikingdoms.com/#/marketplace?inputCurrency=${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
+                :
+                `https://app.defikingdoms.com/#/add/${liquidityUrlPathParts}`}><span>Add Liquidity </span>
+              </Link>
+            </Flex>
+      </ExpandingWrapper> */}
     </FCard>
   )
 }
 
 export default FarmCard
+
+const DetailsCard = styled.div`
+  background: #1E2129;
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
+  position: center;
+  text-align: center;
+`

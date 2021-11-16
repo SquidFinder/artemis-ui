@@ -174,9 +174,10 @@ const NavBar = (props) => {
             </object>
 
               <ul className="nav-tabs">
+
                 <li className="nav-tab">
-                  <Link to="/" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                    <span className="dditem">Dashboard</span>
+                  <Link to="/artemispad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                    <span className="dditem">ArtemisPad</span>
                   </Link>
                 </li>
 
@@ -198,11 +199,6 @@ const NavBar = (props) => {
                   </Link>
                 </li>
 
-                <li className="nav-tab">
-                  <Link to="/artemispad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                    <span className="dditem">ArtemisPad</span>
-                  </Link>
-                </li>
 
 
                 <InfoToggle />
