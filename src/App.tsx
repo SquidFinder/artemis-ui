@@ -5,15 +5,12 @@ import { ResetCSS } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js'
 import { useFetchPublicData } from 'state/hooks'
 import Pools from 'views/Pools'
-import MoneyWheel from 'views/MoneyWheel2'
 import GlobalStyle from './style/Global'
 import NavBar from './components/NavBar'
 
 const Home = lazy(() => import('./views/Home'))
 const Farms = lazy(() => import('./views/Farms'))
 const Pools2 = lazy(() => import('./views/Pools2'))
-const Lottery = lazy(() => import('./views/Lottery'))
-// const Pools = lazy(() => import('./views/Pools'))
 const Ifos = lazy(() => import('./views/Ifos'))
 const NotFound = lazy(() => import('./views/NotFound'))
 
@@ -54,14 +51,6 @@ const App: React.FC = () => {
             
             <Route path="/incubator">
               <Pools/>
-            </Route>
-
-            <Route path="/lottery">
-              <Lottery/>
-            </Route> 
-
-            <Route path="/hades">
-              <Pools2/>
             </Route>
 
             <Route path="/artemispad">
