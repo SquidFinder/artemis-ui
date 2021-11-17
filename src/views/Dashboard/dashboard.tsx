@@ -110,7 +110,7 @@ text-shadow: 0px 0px 0px #4E5C6D;
 
 const DashboardCard = styled.div`
   align-self: baseline;
-  background: #2F324A;
+  background: linear-gradient(to right, #25283F, #3F4361, #25283F);
 
   border-radius: 15px;
   display: flex;
@@ -128,7 +128,7 @@ const DashboardCard = styled.div`
 
 const DashCard = styled.div`
   align-self: baseline;
-  background: #2F324A;
+  background: linear-gradient(to right, #25283F, #3F4361, #25283F);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -204,37 +204,25 @@ const MoneyWheel: React.FC = () => {
     <DashboardPage2>
       <DashboardCard>
         <div>
-          <DashCard style={{padding:'40px'}}>
-
-            <Flex justifyContent='space-between' alignItems='center'mt="8Spx"> 
-              <Stat>${tokenPrice}</Stat>
-              <Stat>${mCap}</Stat>
-            </Flex>
-
-            <Flex justifyContent='space-between' alignItems='center' mt="8px">
+          <DashCard style={{padding:'40px'}} >
+            <Flex justifyContent="space-between" alignItems="center">
+              <Flex flexDirection="column" alignItems='center'> 
+                <Stat>${tokenPrice}</Stat>
                 <Sub>Per MIS</Sub>
+              </Flex>
+              <Flex flexDirection="column" alignItems='center'>
+                <Stat>{mCap}</Stat>
                 <Sub>Market Cap</Sub> 
-            </Flex>
+              </Flex>
+              <Flex flexDirection="column" alignItems='center'> 
+                <Stat>${totalValue}</Stat>
+                <Sub>Value Locked</Sub>
+              </Flex>
+              <Flex flexDirection="column" alignItems='center'>
+                <Stat>{circulatingRvrsString}</Stat>
+                <Sub>Circulating</Sub>
+              </Flex>
 
-            <Flex justifyContent='space-between' alignItems='center'mt="20px"> 
-              <Stat>{circulatingRvrsString} MIS</Stat>
-              <Stat>${totalValue}</Stat>
-            </Flex>
-
-            <Flex justifyContent='space-between' alignItems='center'mt="8px">
-              <Sub>Circulating</Sub>
-              <Sub>Total Value Locked</Sub>
-            </Flex>
-
-            
-            <Flex justifyContent='space-between' alignItems='center'mt="20px"> 
-              <Stat>{cakeBalance} MIS</Stat>
-              <Stat>2 MIS</Stat>
-            </Flex>
-
-            <Flex justifyContent='space-between' alignItems='center'mt="8px">
-              <Sub>In Wallet</Sub>
-              <Sub>Minted/Block</Sub>
             </Flex>
           </DashCard>
         </div>
