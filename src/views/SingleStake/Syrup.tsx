@@ -24,7 +24,7 @@ import Page from 'components/layout/Page'
 import { FaQuestionCircle , FaUserCheck, FaLock, FaHistory, FaExchangeAlt, FaWater, FaProjectDiagram } from 'react-icons/fa'
 import FlexStaking from 'components/layout/FlexStaking'
 
-import StakeDashboard from 'views/StakeDashboard'
+import Dashboard from 'views/Dashboard'
 import Coming from './components/Coming'
 import PoolCard from './components/PoolCard'
 
@@ -172,22 +172,7 @@ const Farm: React.FC = () => {
 
   return (
     <Page>
-      
-      {/* <Wrapper>
-        <ButtonMenu activeIndex={isExact ? 0 : 1} size="sm">
-
-            <ButtonMenuItem as={Link} to={`${url}`} >
-              {TranslateString(698, 'Active')}
-            </ButtonMenuItem>
-
-            <ButtonMenuItem as={Link} to={`${url}/history`}>
-              {TranslateString(700, 'Inactive')}
-            </ButtonMenuItem>
-
-        </ButtonMenu>
-      </Wrapper> */ }
-
-      <StakeDashboard/>    
+      <Dashboard/>    
 
       <FlexStaking>
         <Route exact path={`${path}`}>
