@@ -11,7 +11,6 @@ padding: 15px;
 position: relative;
 text-align: center;
 max-width: 730px;
-
 border:0px solid #fff;
 box-shadow: 1px 1px 5px #ccc;
 `
