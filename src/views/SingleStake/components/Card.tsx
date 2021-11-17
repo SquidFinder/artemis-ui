@@ -1,18 +1,14 @@
 import styled from 'styled-components'
 
 const Card = styled.div<{ isActive?: boolean; isFinished?: boolean }>`
-align-self: baseline;
-background: #2F324A;
-border-radius: 15px;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-padding: 15px;
-position: relative;
-text-align: center;
-max-width: 730px;
-border:0px solid #fff;
-box-shadow: 1px 1px 5px #ccc;
+    background: #2F324A;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 15px;
+    max-width: 440px;
+    width: 110%;
+    box-shadow: 0px 0px 5px #ccc;
+    padding: 10px;
 `
 
 export default Card

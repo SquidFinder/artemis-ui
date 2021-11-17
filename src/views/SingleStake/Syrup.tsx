@@ -172,7 +172,6 @@ const Farm: React.FC = () => {
 
   return (
     <Page>
-      <Dashboard/>    
 
       <FlexStaking>
         <Route exact path={`${path}`}>

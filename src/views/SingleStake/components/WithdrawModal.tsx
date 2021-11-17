@@ -99,7 +99,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({ onConfirm, onDismiss, max
           onClick={onDismiss}
           style={{justifyContent:"center" }}>
 
-          {TranslateString(4162, 'Cancel (3, 3)')}
+          {TranslateString(4162, 'Cancel')}
         </StyledBtn2>
         <StyledBtn
           style={{justifyContent:"center" }}

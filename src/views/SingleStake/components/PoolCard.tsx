@@ -81,20 +81,22 @@ const Wrapper = styled(Flex)`
 const StyledBtn = styled.button`
   -webkit-box-align: center;
   align-items: center;
-  background-color: rgba(0, 0, 0,0) !important;
-  border: 1px;
+  background-color: #292C44;
+  border: 0px;
   border-style: solid !important;
   border-color: #ffff !important;
   border-radius: 10px;
-  color: #ffff;
-  font-size: 15px;
-  font-weight: 400;
+  color: #FFFF;
+  font-size: 14px;
+  font-weight: 500;
   width: 100%;
   display: inline-flex;
-  min-height: 30px;
+  min-height: 18px;
   max-height: 30px;
-  max-width: 135px;
+  max-width: 95px;
   padding: 20px;
+  box-shadow: 0px 0px 5px #ccc;
+  text-shadow: 0px 0px 5px #ccc;
 `
 
 const StyledCardActions = styled.div`
@@ -112,27 +114,6 @@ const StyledActionSpacer = styled.div`
   width: ${(props) => props.theme.spacing[4]}px;
 `
 
-const StyledBtn2 = styled.button`
-  -webkit-box-align: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0,0) !important;
-  border: 1px;
-  border-style: solid !important;
-  border-color: #ffff !important;
-  border-radius: 10px;
-  color: #ffff;
-  font-size: 15px;
-  font-weight: 800;
-  width: 100%;
-  display: inline-flex;
-  min-height: 30px;
-  max-height: 30px;
-  max-width: 118px;
-  padding: 20px;
-
-  border: 2px solid #fff;
-  box-shadow: 0px 0px 7px #ffff;
-`
 
 
 interface PoolWithApy extends Pool3 {
@@ -160,8 +141,6 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   } = pool
 
   const cakeBalance = getBalanceNumber(useTokenBalance(getCakeAddress())).toLocaleString('en-us',{ maximumFractionDigits: 0 });
-
-  // Pools using native ONE behave differently than pools using a token
   const isBnbPool = poolCategory === PoolCategory.BINANCE
   const TranslateString = useI18n()
   const stakingTokenContract = useERC20(stakingTokenAddress)
@@ -171,7 +150,6 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const { onUnstake } = useSousUnstake3(sousId)
   const { onReward } = useSousHarvest3(sousId, isBnbPool)
   const rvrsPrice = usePriceCakeBusd()
-
   const [requestedApproval, setRequestedApproval] = useState(false)
   const [pendingTx, setPendingTx] = useState(false)
   const allowance = new BigNumber(userData?.allowance || 0)
@@ -191,11 +169,9 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       tokenName={stakingLimit ? `${stakingTokenName} (${stakingLimit} max)` : stakingTokenName}
     />,
   )
-
   const [onPresentWithdraw] = useModal(
     <WithdrawModal max={stakedBalance} onConfirm={onUnstake} tokenName={stakingTokenName} pricePerShare={pricePerShare} />,
   )
-
   const handleApprove = useCallback(async () => {
     try {
       setRequestedApproval(true)
@@ -208,42 +184,30 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       console.error(e)
     }
   }, [onApprove, setRequestedApproval])
-
   const TVL = pool.tvl && pool.tvl.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const APY = apy && apy.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const StakedUSDBalance = getBalanceNumber(stakedBalanceUsd).toLocaleString('en-us',{ maximumFractionDigits: 0 })
   const FiveDayROI = apr && apr.div(45).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const ExpectedBalance = apr && apr.div(365).times(7).times(0.01).times(getBalanceNumber(stakedBalanceUsd)).plus(getBalanceNumber(stakedBalanceUsd)).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
 
-
   return (
     <Card isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
-
       <div style={{padding: '34px'}}>
 
-        <Wrapper 
-          justifyContent="center" 
-          alignItems="center"
-          padding='20px' 
-          >
-
-          <Flex flexDirection="column" alignItems='center'>
-            <QuoteTitle2>APY</QuoteTitle2>
-            <QuoteTitle>{APY}%</QuoteTitle>
-          </Flex>
-          <Flex  flexDirection="column" alignItems='center' marginLeft='60px'>
-            <QuoteTitle2> TVL</QuoteTitle2>
-            <QuoteTitle >${TVL}</QuoteTitle>
-          </Flex>
-        </Wrapper>
-
         <Flex justifyContent='space-between' marginTop='14px'>
-        <a target="_blanK" 
-        rel="noreferrer" 
-        href="https://app.defikingdoms.com/#/marketplace?outputCurrency=0xd74433b187cf0ba998ad9be3486b929c76815215" 
-        className="nav-links">Swap <FaLongArrowAltRight/></a>
+          <Text1>Annual Yield</Text1>
+          <Text11>{APY}%</Text11>
         </Flex>
 
+        <Flex justifyContent='space-between' marginTop='12px'>
+          <SmallText> 7 Day ROI</SmallText>
+          <SmallText>{FiveDayROI}%</SmallText>
+        </Flex>
+        
+        <Flex justifyContent='space-between' marginTop='14px'>
+          <Text1>Total MIS Locked</Text1>
+          <Text11>${TVL}</Text11>
+        </Flex>
 
         <Flex justifyContent='space-between' marginTop='14px'>
           <Text1>Unstaked Balance</Text1>
@@ -265,24 +229,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           <SmallText>${ExpectedBalance}</SmallText>
         </Flex>
 
-        {/* <Flex justifyContent='space-between' marginTop='10px'>
-          <Text1>Withdrawal Fee (Deprecated)</Text1>
-          <Text11>0%</Text11>
 
 
-         </Flex> */}
-
-        <Divider/>
-
-        <Flex justifyContent='space-between' marginTop='12px'>
-          <Text1> Annual Yield</Text1>
-          <Text1>{APY}%</Text1>
-        </Flex>
-
-        <Flex justifyContent='space-between' marginTop='12px'>
-          <Text1> 7 Day ROI</Text1>
-          <Text1>{FiveDayROI}%</Text1>
-        </Flex>
 
 
         <Wrapper alignItems="end">
@@ -307,23 +255,23 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
             ) : ( <>
 
               <StyledBtn 
-                style={{marginTop:'20px'}}
+                style={{ justifyContent:"center", marginTop: '20px', marginRight:'10px' }}
                 disabled={stakedBalance.eq(new BigNumber(0)) || pendingTx}
                 onClick={ isOldSyrup ? async () => {
                   setPendingTx(true)
                   await onUnstake('0')
                   setPendingTx(false)} : onPresentWithdraw }>
-                Unstake (0,0)
+                Unstake
               </StyledBtn>
 
               <StyledActionSpacer/>
                 {!isOldSyrup && (
-                <StyledBtn2 
-                  style={{marginTop:'20px'}} 
+                <StyledBtn
+                  style={{ justifyContent:"center" }}
                   disabled={isFinished && sousId !== 0} 
                   onClick={onPresentDeposit}>
-                  Stake (3,3)
-                </StyledBtn2>)} </> ))}
+                  Stake
+                </StyledBtn>)} </> ))}
               </StyledCardActions> 
                     
             </Flex>

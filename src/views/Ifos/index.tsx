@@ -39,7 +39,8 @@ const Ifos = () => {
 
   return (
     <>
-      <Hero />
+      {/* <Hero/> */ }
+
       <Container>
         <Route exact path={`${path}`}>
           <CurrentIfo />
