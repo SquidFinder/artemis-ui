@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import { FarmConfig, PoolConfig, Pool2Config } from 'config/constants/types'
+import { FarmConfig, PoolConfig, Pool2Config, Pool3Config } from 'config/constants/types'
 
 export interface Farm extends FarmConfig {
   tokenAmount?: BigNumber
@@ -53,6 +53,27 @@ export interface Pool2 extends Pool2Config {
   }
 }
 
+export interface Pool3 extends Pool3Config {
+  totalStaked?: BigNumber
+  tvl?: BigNumber
+  quoteTokenPerLp?: BigNumber
+  pricePerShare?: BigNumber
+  quoteTokenAmount?: BigNumber
+  tokenAmount?: BigNumber
+  tokenPriceVsQuote?: BigNumber
+  startBlock?: number
+  endBlock?: number
+  userData?: {
+    allowance: BigNumber
+    stakingTokenBalance: BigNumber
+    stakedBalance: BigNumber
+    pendingReward: BigNumber
+    reverseAtlastUserAction: BigNumber
+    lastDepositedTime: BigNumber
+    lastUserActionTime: BigNumber
+  }
+}
+
 export interface Price{
   value: BigNumber
 }
@@ -72,6 +93,10 @@ export interface Pools2State {
   data: Pool2[]
 }
 
+export interface Pools3State {
+  data: Pool3[]
+}
+
 export interface PriceState {
   data: Price[]
 }
@@ -82,6 +107,7 @@ export interface State {
   farms: FarmsState
   pools: PoolsState
   pools2: Pools2State
+  pools3: Pools3State
   price: PriceState
 }
 

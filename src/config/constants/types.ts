@@ -173,6 +173,29 @@ export interface Pool2Config {
   lockBlock: number
 }
 
+export interface Pool3Config {
+  sousId?: number
+  image?: string
+  tokenName: string
+  quoteTokenSymbol: QuoteToken
+  stakingTokenName: QuoteToken
+  stakingLimit?: number
+  stakingTokenAddress?: string
+  tokenPoolAddress?: string
+  quoteTokenPoolAddress?: string
+  contractAddress: Address
+  poolCategory: PoolCategory
+  projectLink: string
+  tokenPerBlock: string
+  startBlock?: number
+  endBlock?: number
+  sortOrder?: number
+  harvest?: boolean
+  isFinished?: boolean
+  tokenDecimals: number
+  earnToken?: string
+}
+
 export type Images = {
   lg: string
   md: string

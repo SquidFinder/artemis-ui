@@ -10,8 +10,9 @@ import {
   fetchPoolsUserDataAsync,
   fetchPools2UserDataAsync
 } from './actions'
-import {Farm, Pool, Pool2, State, State2} from './types'
+import {Farm, Pool, Pool2, Pool3, State, State2} from './types'
 import {QuoteToken} from '../config/constants/types'
+import { fetchPools3UserDataAsync } from './pools3'
 
 const ZERO = new BigNumber(0)
 const TEN_POW_18 = new BigNumber(10).pow(18)
@@ -101,6 +102,19 @@ export const usePools2 = (account): Pool2[] => {
 
   const pools2 = useSelector((state: State) => state.pools2.data)
   return pools2
+}
+
+export const usePools3 = (account): Pool3[] => {
+  const { fastRefresh } = useRefresh()
+  const dispatch = useDispatch()
+  useEffect(() => {
+    if (account) {
+      dispatch(fetchPools3UserDataAsync(account))
+    }
+  }, [account, dispatch, fastRefresh])
+
+  const pools3 = useSelector((state: State) => state.pools3.data)
+  return pools3
 }
 
 export const usePool2FromPid = (sousId): Pool2 => {

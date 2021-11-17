@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { AbiItem } from 'web3-utils'
 import { ContractOptions } from 'web3-eth-contract'
 import useWeb3 from 'hooks/useWeb3'
-import { getMasterChefAddress, getCakeAddress, getLotteryAddress, getLotteryTicketAddress, getWheelAddress, getWbnbAddress, getWheel2Address, getSousChefAddress, getIfoAddress } from 'utils/addressHelpers'
+import { getMasterChefAddress, getCakeAddress, getLotteryAddress, getLotteryTicketAddress, getWheelAddress, getWbnbAddress, getWheel2Address, getSousChefAddress, getIfoAddress, getAutoRvrsAddress } from 'utils/addressHelpers'
 import { pools2Config, poolsConfig } from 'config/constants'
 import { PoolCategory } from 'config/constants/types'
 import ifocollat from 'config/abi/ifocollat.json'
@@ -18,6 +18,7 @@ import masterChef from 'config/abi/masterchef.json'
 import sousChef from 'config/abi/sousChef.json'
 import sousChefBnb from 'config/abi/sousChefBnb.json'
 import sousChefBurn from 'config/abi/sousChefBurn.json'
+import autoRvrs from 'config/abi/autorvrs.json'
 import ifos from 'config/constants/ifo'
 
 const useContract = (abi: AbiItem, address: string, contractOptions?: ContractOptions) => {
@@ -120,6 +121,11 @@ export const useSousChef2 = () => {
 export const useIfoCollat = (id) => {
   const abi = (ifocollat as unknown) as AbiItem
   return useContract(abi, getIfoAddress())
+}
+
+export const useAutoRvrs = () => {
+  const abi = (autoRvrs as unknown) as AbiItem
+  return useContract(abi, getAutoRvrsAddress())
 }
 
 export default useContract

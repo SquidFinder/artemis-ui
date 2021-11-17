@@ -135,6 +135,12 @@ const NavBar = (props) => {
                     <Quote>Farms</Quote>
                   </Link>
                 </li>
+                
+                <li className="nav-tab">
+                  <Link to="/automis" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                    <Quote>Auto MIS</Quote>
+                  </Link>
+                </li>
 
                 <li className="nav-tab">
                   <Link to="/incubator" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
