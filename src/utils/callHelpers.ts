@@ -28,10 +28,8 @@ export const sousStake = async (sousChefContract, amount, account) => {
 export const sousSingleStake = async (singleChefContract, amount, account) => {
   return singleChefContract.methods
   .deposit(
-    new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(),
-    account,
-    )
-    .send({ from: account, gasPrice: 1000000000, gasLimit: 206490 })
+    new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(), account,)
+    .send({ from: account, gasPrice: 1000000000, gasLimit: 2064900 })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
     })
