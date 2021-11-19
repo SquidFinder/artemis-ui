@@ -24,10 +24,6 @@ import Card from './Card'
 import HarvestButton from './HarvestButton'
 import CardFooter from './CardFooter'
 
-const Quote = styled.p`
-    font-size: 15px;
-    margin-bottom: 0px;
-`
 
 interface PoolWithApy extends Pool {
   apy: BigNumber
@@ -37,39 +33,22 @@ interface HarvestProps {
   pool: PoolWithApy
 }
 
-const Divider = styled.div`
-background-color: #4c68ef;
-height: 2px;
-margin-left: auto;
-margin-right: auto;
-margin-top: 20px;
-margin-bottom: 5px;
-width: 100%;
+
+
+const Quote = styled.p`
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  text-shadow: 0px 0px 5px #ccc;
 `
 
-const Divider2 = styled.div`
-background-color: #4c68ef;
-height: 2px;
-margin-left: auto;
-margin-right: auto;
-margin-top: 20px;
-margin-bottom: 5px;
-width: 0%;
+const LightText = styled.p`
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 0px;
+    text-shadow: 0px 0px 0px #ccc;
+    color: #8E8E8E;
 `
-
-const FCard = styled.div`
-  align-self: baseline;
-  background: #3E4266;
-  border-radius: 10px;
-  box-shadow: 0px 2px 12px -8px rgba(25, 19, 38, 0.1), 0px 1px 1px rgba(25, 19, 38, 0.05);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 24px;
-  position: relative;
-  text-align: center;
-`
-
 
 
 const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
@@ -104,27 +83,20 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const { onStake } = useSousStake(sousId, isBnbPool)
   const { onUnstake } = useSousUnstake(sousId)
   const { onReward } = useSousHarvest(sousId, isBnbPool)
-
   console.log("PoolCard", pool)
   const [requestedApproval, setRequestedApproval] = useState(false)
   const [pendingTx, setPendingTx] = useState(false)
-
   const allowance = new BigNumber(userData?.allowance || 0)
   const stakingTokenBalance = new BigNumber(userData?.stakingTokenBalance || 0)
   const stakedBalance = new BigNumber(userData?.stakedBalance || 0)
   const earnings = new BigNumber(userData?.pendingReward || 0)
-
   const blocksUntilStart = Math.max(startBlock - block, 0)
-
   const blocksRemaining = Math.max(endBlock - block, 0)
-
   const hsRemaining = Math.ceil((endBlock - block)*2*0.000277778*0.0416667)
-
   const isOldSyrup = stakingTokenName === QuoteToken.SYRUP
   const accountHasStakedBalance = stakedBalance?.toNumber() > 0
   const needsApproval = !accountHasStakedBalance && !allowance.toNumber() && !isBnbPool
   const isCardActive = isFinished && accountHasStakedBalance
-
   const convertedLimit = new BigNumber(stakingLimit).multipliedBy(new BigNumber(10).pow(tokenDecimals))
   const [onPresentDeposit] = useModal(
     <DepositModal
@@ -156,92 +128,48 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   }, [onApprove, setRequestedApproval])
 
   const APR = apy && apy.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 })
+  const ROI = apy && apy.div(365).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 2 })
   const TVL = pool.tvl && pool.tvl.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 })
+
+  const staked = getBalanceNumber(stakedBalance).toLocaleString('en-us',{ maximumFractionDigits: 2 })
+  const earned = getBalanceNumber(earnings, tokenDecimals).toLocaleString('en-us',{ maximumFractionDigits: 2 })
 
   return (
     <Card isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
-      {sousId === 0 && <PoolFinishedSash />}
+      <div>
 
-      <div style={{padding: '34px'}}>
+        <object type="image/svg+xml" data={`/images/incubator/${earnToken}.svg`} width="300px">s</object>
 
-          <Image src={`/images/Inc/${earnToken}.png`} width={300} height={140}>w</Image>
-
-        <Divider2/>
-{/*
         <Flex justifyContent='space-between'>
-          <span><FaFlask/> Earn</span>
-          <Quote>{tokenName}</Quote>
-</Flex> */ } 
-        
-
-        {/*
-        <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaLock/> Lockup</span>
-          <Quote>{TranslateString(10006, '0 Hours')}</Quote>
-        </Flex> 
-        */}
-
-<FCard>
-        <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaTractor/> APR</span>
+          <LightText>APR</LightText>
           <Quote>{APR}%</Quote>
         </Flex>
 
-        <Flex justifyContent='space-between' marginTop='6px'>
-        <span><FaScroll/> TVL</span>
-        <Quote>${TVL}</Quote>
-      </Flex>
-
-          <Flex justifyContent='space-between' marginTop='6px'>
-          <span><FaClock/> Ends In</span>
-          <Quote>~{hsRemaining} Days</Quote>
+        <Flex justifyContent='space-between'>
+          <LightText>Ends In</LightText>
+          <Quote>{hsRemaining} Days</Quote>
         </Flex>
 
-        <Link href={projectLink} style={{'color':'white'}} target="_blank" marginTop='6px'>
-        <span > About The Project <FaArrowRight/></span>
-          </Link>
+        <Flex justifyContent='space-between'>
+          <LightText>TVL</LightText>
+          <Quote>${TVL}</Quote>
+        </Flex>
 
-          </FCard>
+        <Link href={projectLink} style={{'color':'white'}} target="_blank" >
+          <Quote> About The Project <FaArrowRight/></Quote>
+        </Link>
 
-
-        <Flex justifyContent='space-between' marginTop='25px'>
-          <span><FaBox/> Your Deposits</span>
-          <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
+        <Flex justifyContent='space-between' marginTop='15px'>
+          <Quote>Staked</Quote>
+          <Quote>{staked}</Quote>
         </Flex>
 
         <Flex marginTop='2px' justifyContent='space-between'>
-          <span><FaSeedling/> {tokenName} Earned</span>
-          <Balance value={getBalanceNumber(earnings, tokenDecimals)} isDisabled={isFinished} />
-
-          {sousId === 0 && account && harvest && (
-              <HarvestButton
-                disabled={!earnings.toNumber() || pendingTx}
-                text={pendingTx ? TranslateString(999, 'Compounding') : TranslateString(999, 'Compound')}
-                onClick={onPresentCompound}/>)} 
+          <Quote>{tokenName} Earned</Quote>
+          <Quote>{earned}</Quote>
         </Flex>
 
-
-
-        {/* {!isOldSyrup ? (
-          <BalanceAndCompound>
-            <Balance value={getBalanceNumber(earnings, tokenDecimals)} isDisabled={isFinished} />
-            {sousId === 0 && account && harvest && (
-              <HarvestButton
-                disabled={!earnings.toNumber() || pendingTx}
-                text={pendingTx ? TranslateString(999, 'Compounding') : TranslateString(999, 'Compound')}
-                onClick={onPresentCompound}
-              />
-              
-            )}
-          </BalanceAndCompound>
-        ) : (
-          <OldSyrupTitle hasBalance={accountHasStakedBalance} />
-        )}
-        <Label isFinished={isFinished && sousId !== 0} text={TranslateString(330, `${tokenName} earned`)} />
-        */}
-
-        <StyledCardActions  >
-          
+        <StyledCardActions>
           {!account && <UnlockButton />}
           {account &&
             (needsApproval && !isOldSyrup ? (
@@ -297,32 +225,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           )}
         </div>
         </StyledCardActions>
-        {/* <StyledDetails>
-          <div style={{ flex: 1 }}>{TranslateString(736, 'APY')}:</div>
-          {isFinished || isOldSyrup || !apy || apy?.isNaN() || !apy?.isFinite() ? (
-            '-'
-          ) : (
-            <Balance fontSize="14px" isDisabled={isFinished} value={apy?.toNumber()} decimals={2} unit="%" />
-          )}
-        </StyledDetails> */}
-
-        
-
-
       </div>
-
-      {/*
-      <CardFooter
-        tokenName={tokenName}
-        projectLink={projectLink}
-        totalStaked={totalStaked}
-        blocksRemaining={blocksRemaining}
-        isFinished={isFinished}
-        blocksUntilStart={blocksUntilStart}
-        poolCategory={poolCategory}
-        tokenPoolAddress={tokenPoolAddress}
-        quoteTokenPoolAddress={quoteTokenPoolAddress}
-      /> */}
     </Card>
   )
 }
