@@ -13,8 +13,8 @@ const pools: PoolConfig[] = [
     // this is MIS
     tokenPoolAddress: '0xD74433B187Cf0ba998Ad9Be3486B929c76815215',
     contractAddress: {
-      1666700000: '0xC9ED8bfb89F5B5ca965AA8cEAacF75576C06211E',
-      1666600000: '0xC9ED8bfb89F5B5ca965AA8cEAacF75576C06211E',
+      1666700000: '0x6AAEA0A742056e5A6AA1a428A8EC403C1B964609',
+      1666600000: '0x6AAEA0A742056e5A6AA1a428A8EC403C1B964609',
     },
     poolCategory: PoolCategory.COMMUNITY,
     projectLink: 'https://www.tranquil.finance/',
