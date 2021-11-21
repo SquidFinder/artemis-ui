@@ -45,7 +45,7 @@ export const PoolsSlice = createSlice({
 export const { setPoolsPublicData, setPoolsUserData, updatePoolsUserData } = PoolsSlice.actions
 
 // Thunks
-export const fetchPoolsPublicDataAsync = () => async (dispatch) => {
+export const fetchPools3PublicDataAsync = () => async (dispatch) => {
   const { userInfo, pricePerFullShare } = await fetchPoolsTotalStaking()
 
   const liveData = poolsConfig.map((pool) => {

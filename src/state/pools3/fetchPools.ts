@@ -10,7 +10,7 @@ export const fetchPoolsTotalStaking = async () => {
     {
       address: getMasterChefAddress(),
       name: 'userInfo',
-      params: [0, getAutoRvrsAddress()]
+      params: [12, getAutoRvrsAddress()]
     }
   ];
   const userInfo = await multicall(masterchefAbi, calls);
