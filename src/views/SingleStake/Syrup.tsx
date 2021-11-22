@@ -119,7 +119,7 @@ export const BIG_TEN = new BigNumber(10);
 const Farm: React.FC = () => {
   const { path } = useRouteMatch()
   const { account } = useWallet()
-  const farm0 = useFarmFromPid(0);
+  const farm0 = useFarmFromPid(1);
   const pools = usePools3(account)
   const prices = usePrices()
   const block = useBlock()
@@ -146,13 +146,14 @@ const Farm: React.FC = () => {
     // console.log("APY", pool, tvl && tvl.toNumber())
     const rewardTokenPrice = lookupPrice(pool.tokenName, prices)
     // console.log("price", pool.tokenName, rewardTokenPrice && rewardTokenPrice.toNumber())
-
-    const totalRewardPricePerYear = rewardTokenPrice.times(farm0.vikingPerBlock).div(BIG_TEN.pow(18)).times(farm0.poolWeight).times(BLOCKS_PER_YEAR)
+    const vikingPerBlock = 2000000000000000000
+    const poolWeight = 0.01
+    const totalRewardPricePerYear = rewardTokenPrice.times(vikingPerBlock).div(BIG_TEN.pow(18)).times(poolWeight).times(BLOCKS_PER_YEAR)
     // const totalStakingTokenInPool = stakingTokenPriceInBNB.times(getBalanceNumber(pool.totalStaked))
     const apr = totalRewardPricePerYear.div(tvl).times(100).times(2)
     const apy = aprToApy(apr)
     // console.log("TVL", pool.stakingTokenName, tvl && tvl.toNumber(), apy && apy.toNumber())
-
+    console.log(farm0.vikingPerBlock, farm0.poolWeight)
     return {
       ...pool,
       isFinished: pool.sousId === 0 ? false : pool.isFinished || block > pool.endBlock,
