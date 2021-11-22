@@ -36,8 +36,7 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
 }) => {
   return (
     <Wrapper justifyContent="space-between" alignItems="center" mb="10px">
-      {/* <Image src={`/images/farms/${farmImage}.png`} alt={tokenSymbol} width={64} height={64} />  
-      <object type="image/svg+xml" data={`/images/farm/${farmImage}.svg`} width="85px">&nbsp;</object> */}
+      {/* <Image src={`/images/farms/${farmImage}.png`} alt={tokenSymbol} width={64} height={64} />  */}
       <Flex flexDirection="column" alignItems="start">
         <Flex justifyContent="left">
           <Link style={{color:'#646575'}} external href='https://app.farmersonly.fi/vaults/'>
@@ -57,7 +56,7 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
           <MultiplierTag variant="secondary">Allocation {multiplier}</MultiplierTag> 
         </Flex> */}
       </Flex>
-      <object type="image/svg+xml" data='/images/farm/mis-one.svg' width="50px">&nbsp;</object>
+      <object type="image/svg+xml" data={`/images/farm/${farmImage}.svg`} width="50px">&nbsp;</object> 
 
     </Wrapper>
   )

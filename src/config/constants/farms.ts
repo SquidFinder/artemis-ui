@@ -39,6 +39,8 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.ust,
   },
 
+  
+
   {
     pid:labo.pids.pidList[0],
     risk: 5,

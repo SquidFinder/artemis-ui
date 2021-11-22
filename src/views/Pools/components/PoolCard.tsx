@@ -50,6 +50,16 @@ const LightText = styled.p`
     color: #8E8E8E;
 `
 
+const SvgHero = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap
+
+  @media and all (max-width: 100px) {
+    max-width: 50%;
+  }
+  
+`
 
 const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const {
@@ -138,7 +148,15 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     <Card isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
       <div>
 
-        <object type="image/svg+xml" data={`/images/incubator/${earnToken}.svg`} width="300px">s</object>
+      <SvgHero>
+        <object 
+          type="image/svg+xml" 
+          data={`/images/incubator/${earnToken}.svg`}
+          className="labhero"
+          style={{  flexWrap:'wrap', maxWidth:'200px'
+          }} 
+          >&nbsp;</object>
+        </SvgHero>
 
         <Flex justifyContent='space-between'>
           <LightText>APR</LightText>
@@ -204,7 +222,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
               </>
             ))}
 
-<div style={{ marginTop: '10px', display: 'flex', alignItems: 'center', marginLeft:'15px' }}>
+        <div style={{ marginTop: '10px', display: 'flex', alignItems: 'center', marginLeft:'15px' }}>
           {account && harvest && !isOldSyrup && (
             <Button
               disabled={!earnings.toNumber() || pendingTx}

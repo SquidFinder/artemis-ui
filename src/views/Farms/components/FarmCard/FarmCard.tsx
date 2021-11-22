@@ -24,12 +24,12 @@ export interface FarmWithStakedValue extends Farm {
 const FCard = styled.div`
   align-self: baseline;
   background: #2F324A;
-  border-radius: 15px;
-  border:1.5px solid #CECECE;
+  border-radius: 20px;
+  border: 2px solid #CECECE;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 23px;
+  padding: 25px;
   position: relative;
   text-align: center;
 `
@@ -146,7 +146,6 @@ const FarmCard: React.FC<FarmCardProps> = ({
           <Quote>{totalValueFormated}</Quote>
         </Flex>
 
-        <Divider/>
 
         <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />
 
