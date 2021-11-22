@@ -5,6 +5,7 @@ import labo from 'config/constants/labo'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import useI18n from 'hooks/useI18n'
 import styled from 'styled-components';
+import { FaWallet } from 'react-icons/fa';
 
 const StyledBtn = styled.button`
   -webkit-box-align: center;
@@ -13,10 +14,10 @@ const StyledBtn = styled.button`
   border: 0px;
   border-style: solid !important;
   border-color: #ffff !important;
-  border-radius: 10px;
+  border-radius: 5px;
   color: #FFFF;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
   width: 100%;
   display: inline-flex;
   min-height: 18px;
@@ -37,7 +38,7 @@ const UnlockButton = (props) => {
         style={{ justifyContent:"center" }}
         disabled={ labo.isLocked.unlockWalletButton } 
         onClick={onPresentConnectModal} {...props}>
-        {TranslateString(2192, 'Connect')}
+        {TranslateString(2192, 'Connect')}&nbsp;<FaWallet/>
       </StyledBtn>
     </span>
   )

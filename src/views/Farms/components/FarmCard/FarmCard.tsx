@@ -19,35 +19,26 @@ export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber
 }
 
+
+
 const FCard = styled.div`
   align-self: baseline;
   background: #2F324A;
-  border-radius: 12px;
+  border-radius: 15px;
+  border:1.5px solid #CECECE;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 33px;
-  position: relative;
-  text-align: center;
-  box-shadow: 0px 0px 3px #fff;
-`
-
-const DCard = styled.div`
-  background: #3E4266;
-  border-radius: 0px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 5px;
+  padding: 23px;
   position: relative;
   text-align: center;
 `
 
 const Quote = styled.p`
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 6px;
-    text-shadow: 0px 0px 5px #ccc;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  text-shadow: 0px 0px 5px #ccc;
 `
 
 const LightText = styled.p`
@@ -58,31 +49,6 @@ const LightText = styled.p`
     color: #8E8E8E;
 `
 
-const APRTEXT = styled.p`
-    font-size: 15px;
-`
-
-const ExpandingWrapper = styled.div<{ expanded: boolean }>`
-  height: ${(props) => (props.expanded ? '100%' : '0px')};
-  overflow: hidden;
-`
-
-const StyledLinkExternal = styled(LinkExternal)`
-  svg {
-    padding-left: 0px;
-    height: 16px;
-    width: auto;
-    fill: #ffff;
-  }
-
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 15px;
-  color: #ffff;
-  display: flex;
-  align-items: right;
-`
-
 const Divider = styled.div`
   background-color: #4c68ef;
   height: 0px;
@@ -90,7 +56,8 @@ const Divider = styled.div`
   margin-right: auto;
   margin-top: 5px;
   margin-bottom: 5px;
-  width: 0%;`
+  width: 0%;
+`
 
 interface FarmCardProps {
   farm: FarmWithStakedValue

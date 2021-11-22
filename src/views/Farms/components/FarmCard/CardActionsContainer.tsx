@@ -126,8 +126,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }
     <Action>
 
       <HarvestAction earnings={earnings} pid={pid} />
-      
-
+    
       {!account ? <UnlockButton mt="8px" fullWidth /> : renderApprovalOrStakeButton()}
     
     </Action>

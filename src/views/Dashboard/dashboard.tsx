@@ -27,7 +27,7 @@ const DashboardPage2 = styled(Container)`
   padding-top: 16px;
   padding-bottom: 6px;
   padding: 5px;
-  max-width: 740px;
+  max-width: 810px;
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-top: 24px;
     padding-bottom: 24px;
@@ -53,17 +53,9 @@ const Sub = styled.p`
   text-shadow: 0px 0px 0px #4E5C6D;
 `
 
-const Title = styled.p`
-  color: #FFFFF;
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 0px;
-  text-shadow: 0px 0px 5px #FFFF;
-`
 
 const DashboardCard = styled.div`
   align-self: baseline;
-  background: linear-gradient(to right, #25283F, #3F4361, #25283F);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -71,13 +63,12 @@ const DashboardCard = styled.div`
   padding: 5px;
   position: relative;
   text-align: center;
-  border: 0px solid #fff;
-  box-shadow: 0px 0px 5px #ccc;
+  border: 0px solid #EAEAEA;
+  box-shadow: 0px 0px 0px #EAEAEA;
 `
 
 const DashCard = styled.div`
   align-self: baseline;
-  background: linear-gradient(to right, #25283F, #3F4361, #25283F);
   border-radius: 15px;
   display: flex;
   flex-direction: column;

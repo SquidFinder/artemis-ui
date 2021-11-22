@@ -24,10 +24,6 @@ const {viewportWidth, viewportHeight} = getWindowDimensions()
 
 const isOnPhone = viewportWidth < 680
 
-const Token = styled.img`
-  margin-right: 10px;
-`
-
 const Price = styled.button`
   -webkit-box-align: center;
   align-items: center;
@@ -55,21 +51,6 @@ const Quote = styled.p`
     font-size: 15px;
     font-weight: 500;
     text-shadow: 0px 0px 5px #ccc;
-`
-
-
-const Logo = styled.p`
-  font-size: 30px;
-  color: #4c68ef !important;
-  padding-bottom: 0px;
-  @media screen and (max-width: 800px) {
-    font-size: 21px;
-  }
-`
-
-const Sub = styled.p`
-  font-size: 13px;
-  color: #1F2237;
 `
 
 
@@ -157,7 +138,7 @@ const NavBar = (props) => {
                     backgroundColor: 'rgb(22, 35, 73) !important',
                     border: '0px',
                     color: '#ffff !important',
-                    borderRadius: '16px',
+                    borderRadius: '10px',
                     fontSize: '15px',
                     fontWeight: '800',
                     width: '100%',

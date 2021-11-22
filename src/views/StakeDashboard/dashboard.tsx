@@ -48,7 +48,8 @@ const DashboardPage2 = styled(Container)`
   padding-top: 16px;
   padding-bottom: 6px;
   padding: 5px;
-  max-width: 770px;
+  max-width: 800px;
+  min-width:770px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-top: 24px;

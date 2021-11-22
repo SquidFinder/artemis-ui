@@ -31,46 +31,52 @@ const IconButtonWrapper = styled.div`
 const StyledBtn = styled.button`
   -webkit-box-align: center;
   align-items: center;
-  background-color: #292C44;
-  border: 0px;
-  border-style: solid !important;
+  background: #292C44;
+  border-radius: 15px;
+  border:1px solid #CECECE;
   border-color: #ffff !important;
   border-radius: 10px;
   color: #FFFF;
-  font-size: 14px;
-  font-weight: 500;
-  width: 100%;
+  font-size: 13px;
+  font-weight: 300;
   display: inline-flex;
-  min-height: 18px;
-  max-height: 30px;
-  max-width: 95px;
-  padding: 20px;
-  box-shadow: 0px 0px 5px #ccc;
-  text-shadow: 0px 0px 5px #ccc;
+  height: 11px;
+  width: 70px;
+  padding: 17px;
+  box-shadow: 0px 0px 3px #ccc;
+  text-shadow: 0px 0px 3px #ccc;
 `
 const StyledBtn2 = styled.button`
   -webkit-box-align: center;
   align-items: center;
-  background-color: #292C44;
-  border: 0px;
-  border-style: solid !important;
+  background: #2F324A;
+  border-radius: 15px;
+  border:1px solid #CECECE;
   border-color: #ffff !important;
   border-radius: 10px;
   color: #FFFF;
-  font-size: 15px;
-  font-weight: 500;
-  width: 100%;
+  font-size: 13px;
+  font-weight: 300;
   display: inline-flex;
-  min-height: 16px;
-  max-height: 28px;
-  max-width: 45px;
-  padding: 20px;
-  box-shadow: 0px 0px 5px #ccc;
+  height: 35px;
+  width: 38px;
+  padding: 15px;
+  box-shadow: 0px 0px 0px #ccc;
+  text-shadow: 0px 0px 0px #ccc;
 `
 
 const Staked = styled.div`
   font-size: 10px;
   color: ${({ theme }) => theme.colors.textSubtle};
+`
+
+const USDStaked = styled.text`
+  font-size: 13px;
+  align-items: center;
+  color: #8E8E8E;
+  display: flex;
+  margin-top: 3px;
+  justify-content: flex-start;
 `
 
 const StakeAction: React.FC<FarmCardActionsProps> = (
@@ -112,7 +118,7 @@ const StakeAction: React.FC<FarmCardActionsProps> = (
       <StyledBtn 
       onClick={onPresentDeposit} 
       style={{justifyContent:"center"}}> 
-      {TranslateString(999, 'Stake')}<FaLongArrowAltDown />
+      {TranslateString(999, 'Stake')}
       </StyledBtn>
     ) : (
       <IconButtonWrapper>
@@ -133,23 +139,6 @@ const StakeAction: React.FC<FarmCardActionsProps> = (
     )
   }
 
-  const USDStaked = styled.text`
-  font-size: 13px;
-  align-items: center;
-  color: #8E8E8E;
-  display: flex;
-  margin-top: 3px;
-  justify-content: flex-start;
-`
-
-const Staked1 = styled.text`
-  font-size: 13px;
-  align-items: center;
-  color: #8E8E8E;
-  display: flex;
-  margin-top: 3px;
-  justify-content: flex-start;
-`
   return (
     <Flex justifyContent="space-between" alignItems="center"> 
       <Heading  style={{fontSize:'17px'}} color={rawStakedBalance === 0 ? 'textDisabled' : 'text'}>

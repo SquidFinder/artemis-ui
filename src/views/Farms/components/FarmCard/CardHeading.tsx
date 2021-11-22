@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Tag, Flex, Heading, Image, Link } from '@pancakeswap-libs/uikit'
 import { CommunityTag, CoreTag, RiskTag, NoFeeTag } from 'components/Tags'
-import { FaArrowRight, FaHistory, FaPiggyBank, FaSeedling } from 'react-icons/fa';
+import { FaArrowRight, FaHistory, FaLink, FaPiggyBank, FaSeedling } from 'react-icons/fa';
 
 export interface ExpandableSectionProps {
   lpLabel?: string
@@ -41,14 +41,15 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
       <Flex flexDirection="column" alignItems="start">
         <Flex justifyContent="left">
           <Link style={{color:'#646575'}} external href='https://app.farmersonly.fi/vaults/'>
-            <span style={{color:'white', fontWeight:'bold', textShadow:'0px 0px 15px #fff'}}>{lpLabel}</span>
+            <span style={{color:'white', fontWeight:'bold', textShadow:'0px 0px 15px #FFFFF'}}>{lpLabel}</span>
           </Link>
         </Flex>
         <Flex justifyContent="left">
-          <Link style={{color:'#A5A5A5'}} marginRight="2px" external href='https://app.farmersonly.fi/vaults/'>
-            <span style={{color:'#A5A5A5'}}>Enter Vaults</span>
+          <Link style={{color:'#A5A5A5'}} external href='https://app.farmersonly.fi/vaults/'>
+            <span style={{color:'#A5A5A5'}}>Enter Vaults</span> 
           </Link>
         </Flex>
+
     {/* <Flex justifyContent="center">
           depositFee === 0 ? <NoFeeTag /> : null} 
           isCommunityFarm ? <CommunityTag /> : <CoreTag />}
