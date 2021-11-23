@@ -90,7 +90,7 @@ const Chain = styled.p`
 const Expand = styled.p`
   -webkit-box-align: center;
   align-items: center;
-  background-image: linear-gradient(#, #2F324A);
+  background-image: linear-gradient(#2F324A);
   border: 1px;
   border-style: solid !important;
   border-color: #ffff !important;
@@ -237,9 +237,49 @@ const NavBar = (props) => {
                 }
               </li>
 
-              <li className="web3li">
-                <Expand style={{justifyContent:'center'}}><FaExpand/></Expand>
+
+
+              <li style={{marginTop:'5px'}} className="nav-tab dropdown" id="wheelToggleDesktop">
+                  <Expand style={{justifyContent:'center'}}><FaExpand/></Expand>
+                <ul className="dropdown-content dropdown-items">
+                  <li className="nav-tab">
+                    <a target="_blanK" rel="noreferrer" href="https://gov.harmony.one/#/artemis" className="nav-links">
+                      <span className="dditem">Governance</span>
+                    </a>
+                  </li>
+                  <li className="nav-tab">
+                    <a target="_blanK" rel="noreferrer" href="https://gov.harmony.one/#/artemis" className="nav-links">
+                      <span className="dditem">Forum</span>
+                    </a>
+                  </li>
+                  <li className="nav-tab">
+                    <a target="_blanK" rel="noreferrer" href="https://discord.gg/7z5qQgnZHE" className="nav-links">
+                      <span className="dditem">Discord</span>
+                    </a>
+                  </li>
+                  <li className="nav-tab">
+                    <a target="_blanK" rel="noreferrer" href="https://t.me/protocolartemis" className="nav-links">
+                      <span className="dditem">Telegram</span>
+                    </a>
+                  </li>
+                  <li className="nav-tab">
+                    <a target="_blanK" rel="noreferrer" href="https://twitter.com/ArtemisProtoco1" className="nav-links">
+                      <span className="dditem">Twitter</span>
+                    </a>
+                  </li>
+                  <li className="nav-tab">
+                    <a target="_blanK" rel="noreferrer" href="https://paladinsec.co/projects/artemis-ifo/" className="nav-links">
+                      <span className="dditem">Audit</span>
+                    </a>
+                  </li>
+                  <li className="nav-tab">
+                    <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/" className="nav-links">
+                      <span className="dditem">Docs</span>
+                    </a>
+                  </li>
+                </ul>
               </li>
+
           </ul>
         </div>
       </header>
