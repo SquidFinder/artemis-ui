@@ -42,6 +42,8 @@ const BalanceAndCompound = styled.div`
 const StyledBtn = styled.button`
   -webkit-box-align: center;
   align-items: center;
+  background-image: linear-gradient(#2F324A, #2F324A);
+
   background: #2F324A;
   border-radius: 15px;
   border:1px solid #CECECE;

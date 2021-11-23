@@ -24,6 +24,8 @@ export interface FarmWithStakedValue extends Farm {
 const FCard = styled.div`
   align-self: baseline;
   background: #2F324A;
+  background-image: linear-gradient(#2F324A, #33364D);
+
   border-radius: 20px;
   border: 2px solid #CECECE;
   display: flex;

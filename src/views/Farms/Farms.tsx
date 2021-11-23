@@ -105,7 +105,6 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   return (
     <Page>
       <div>
-        <Dashboard/>
         <FlexLayout>
           <Route exact path={`${path}`}>
             {stakedOnly ? farmsList(stakedOnlyFarms, false) : farmsList(activeFarms, false)}

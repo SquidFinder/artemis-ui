@@ -31,7 +31,7 @@ const IconButtonWrapper = styled.div`
 const StyledBtn = styled.button`
   -webkit-box-align: center;
   align-items: center;
-  background: #2F324A;
+  background-image: linear-gradient(#555977, #2F324A);
   border-radius: 15px;
   border:1px solid #CECECE;
   border-color: #ffff !important;
@@ -52,7 +52,10 @@ const StyledBtn2 = styled.button`
   background: #2F324A;
   border-radius: 15px;
   border:1px solid #CECECE;
-  border-color: #ffff !important;
+
+
+  background-image: linear-gradient(#555977, #2F324A);
+
   border-radius: 10px;
   color: #FFFF;
   font-size: 13px;
@@ -60,7 +63,7 @@ const StyledBtn2 = styled.button`
   display: inline-flex;
   height: 35px;
   width: 38px;
-  padding: 15px;
+  padding: 13.5px;
   box-shadow: 0px 0px 0px #ccc;
   text-shadow: 0px 0px 0px #ccc;
 `

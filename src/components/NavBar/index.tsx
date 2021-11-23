@@ -8,7 +8,7 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import UnlockButton from 'components/UnlockButton'
 import {Accordion, Button, Card, useAccordionToggle} from 'react-bootstrap';
-import { FaChartLine, FaTelegramPlane, FaTwitter, FaDiscord, FaFileAlt, FaGithub, FaTicketAlt, FaChartBar, FaMoneyBillAlt, FaTractor, FaHome, FaPrescriptionBottleAlt, FaTumblrSquare, FaCode, FaFlask, FaBook, FaReddit, FaRocketchat, FaRocket, FaBroadcastTower, FaLayerGroup, FaSeedling, FaExclamationTriangle, FaBootstrap, FaLandmark, FaGamepad, FaCircle, FaParachuteBox, FaVoteYea, FaProjectDiagram, FaShieldAlt, FaFire, FaCloud, FaPlayCircle, FaClipboard, FaUser, FaPlus, FaExpandArrowsAlt, FaExpand } from 'react-icons/fa';
+import { FaChartLine, FaTelegramPlane, FaTwitter, FaDiscord, FaFileAlt, FaGithub, FaTicketAlt, FaChartBar, FaMoneyBillAlt, FaTractor, FaHome, FaPrescriptionBottleAlt, FaTumblrSquare, FaCode, FaFlask, FaBook, FaReddit, FaRocketchat, FaRocket, FaBroadcastTower, FaLayerGroup, FaSeedling, FaExclamationTriangle, FaBootstrap, FaLandmark, FaGamepad, FaCircle, FaParachuteBox, FaVoteYea, FaProjectDiagram, FaShieldAlt, FaFire, FaCloud, FaPlayCircle, FaClipboard, FaUser, FaPlus, FaExpandArrowsAlt, FaExpand, FaExchangeAlt } from 'react-icons/fa';
 import ReactTooltip from 'react-tooltip';
 import labo from 'config/constants/labo';
 import { getBalanceNumber } from 'utils/formatBalance'
@@ -31,32 +31,31 @@ const isOnPhone = viewportWidth < 680
 const Price = styled.p`
   -webkit-box-align: center;
   align-items: center;
-  background-color: rgba(0, 0, 0,0) !important;
-  border: 1px;
+  background-image: linear-gradient(#555977, #32354D);
+  border: 0px;
   border-style: solid !important;
   border-color: #ffff !important;
-  border-radius: 12px;
+  border-radius: 10px;
   color: #ffff;
   font-size: 14px;
   font-weight: 400;
-  width: 90%;
+  width: 100%;
   display: inline-flex;
   min-height: 32px;
   max-height: 37px;
   padding: 10px;
   margin-top: 16px;
-  margin-left: 5px;
-  box-shadow: 0px 0px 4px #FFFF;
+  margin-left: 0px;
 `
 
 const Balance = styled.p`
   -webkit-box-align: center;
   align-items: center;
-  background-image: linear-gradient(#555977, #2F324A);
-  border: 1px;
+  background-image: linear-gradient(#2F324A, #2F324A);
+  border: 0px;
   border-style: solid !important;
   border-color: #ffff !important;
-  border-radius: 12px;
+  border-radius: 10px;
   color: #ffff;
   font-size: 14px;
   font-weight: 500;
@@ -65,18 +64,19 @@ const Balance = styled.p`
   min-height: 32px;
   max-height: 37px;
   padding: 10px;
-  margin-top: 16px;
+  margin-right: 10px;
+  margin-left: -8px;
 `
 
 const Chain = styled.p`
   -webkit-box-align: center;
   align-items: center;
-  background-image: #2793AD;
-  border: 0px;
+  background-color: #213550;
+  border: 1px;
   border-style: solid !important;
-  border-color: #ffff !important;
-  border-radius: 12px;
-  color: #10B9E2;
+  border-color: #213550 !important;
+  border-radius: 10px;
+  color: #0094C6;
   font-size: 14px;
   font-weight: 500;
   width: 100%;
@@ -90,11 +90,11 @@ const Chain = styled.p`
 const Expand = styled.p`
   -webkit-box-align: center;
   align-items: center;
-  background-image: linear-gradient(#2F324A);
-  border: 1px;
+  background-image: linear-gradient(#2F324A, #2F324A);
+  border: 1px #2F324A;
   border-style: solid !important;
-  border-color: #ffff !important;
-  border-radius: 12px;
+  border-color: #2F324A !important;
+  border-radius: 10px;
   color: #ffff;
   font-size: 14px;
   font-weight: 500;
@@ -104,7 +104,7 @@ const Expand = styled.p`
   max-height: 37px;
   padding: 10px;
   margin-top: 16px;
-  box-shadow: 0px 0px 4px #FFFF;
+  box-shadow: 0px 0px 0px #FFFF;
 
 `
 
@@ -212,14 +212,21 @@ const NavBar = (props) => {
             </nav>
             <ul className="nav-tabs outsideMainNav">
 
-              <li className="web3li">
-                <Balance>{cakeBalance} MIS</Balance>
+            <li className="web3li">
+                <Chain>Harmony</Chain>
               </li>
 
+
               <li className="web3li">
+
                 { account != null && account.length > 1? 
                 
-                  <Price style={{justifyContent:'center'}}> {account.substring(0,6)}...</Price>
+                
+                  <Price style={{justifyContent:'center'}}> 
+
+                    <Balance>{cakeBalance} MIS</Balance>
+
+                  {account.substring(0,6)}...</Price>
                   :
                 <UnlockButton style={{
                   borderRadius: '10px',
@@ -237,11 +244,14 @@ const NavBar = (props) => {
                 }
               </li>
 
-
-
               <li style={{marginTop:'5px'}} className="nav-tab dropdown" id="wheelToggleDesktop">
                   <Expand style={{justifyContent:'center'}}><FaExpand/></Expand>
                 <ul className="dropdown-content dropdown-items">
+                <li className="nav-tab">
+                    <a target="_blanK" rel="noreferrer" href="https://app.defikingdoms.com/#/marketplace?outputCurrency=0xd74433b187cf0ba998ad9be3486b929c76815215" className="nav-links">
+                      <span className="dditem"><FaExchangeAlt/> Get MIS</span>
+                    </a>
+                  </li>
                   <li className="nav-tab">
                     <a target="_blanK" rel="noreferrer" href="https://gov.harmony.one/#/artemis" className="nav-links">
                       <span className="dditem">Governance</span>
