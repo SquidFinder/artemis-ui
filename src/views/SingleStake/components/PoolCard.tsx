@@ -21,55 +21,20 @@ import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
 import Card from './Card'
 import {usePriceCakeBusd} from "../../../state/hooks";
-import useWithdrawFeeTimer from "./useWithdrawFeeTimer";
-import WithdrawalFeeTimer from "./withdrawFeeTimer";
 
-
-const QuoteTitle = styled.p`
-  font-size: 20px;
-  font-weight: 600;
-  text-shadow: 1px 1px 5px #ccc;
-  margin-top: 5px;
+const Quote = styled.p`
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  text-shadow: 0px 0px 5px #ccc;
 `
 
-const QuoteTitle2 = styled.p`
-  color: #979797;
-  font-size: 15px;
-  font-weight: 300;
-  text-shadow: 0px 0px 0px #ccc;
-`
-
-const Text1 = styled.p`
-  color: #EBEBEB;
-  font-size: 15px;
-  font-weight: 400;
-  margin-bottom: 0px;
-  text-shadow: 0px 0px 0px #ccc;
-`
-
-const Text11 = styled.p`
-  color: #EBEBEB;
-  font-size: 15px;
-  font-weight: 800;
-  margin-bottom: 0px;
-`
-
-const Divider = styled.div`
-  background-color: #7B7B7B;
-  height: 1.5px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  width: 100%;
-`
-
-const SmallText = styled.p`
-  color: #979797;
-  font-size: 15px;
-  font-weight: 200;
-  margin-bottom: 0px;
-  margin-left: 20px;
+const LightText = styled.p`
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 0px;
+    text-shadow: 0px 0px 0px #ccc;
+    color: #8E8E8E;
 `
 
 const Wrapper = styled(Flex)`
@@ -140,28 +105,30 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     pricePerShare
   } = pool
 
-  const cakeBalance = getBalanceNumber(useTokenBalance(getCakeAddress())).toLocaleString('en-us',{ maximumFractionDigits: 0 });
-  const isBnbPool = poolCategory === PoolCategory.BINANCE
-  const TranslateString = useI18n()
-  const stakingTokenContract = useERC20(stakingTokenAddress)
-  const { account } = useWallet()
-  const { onApprove } = useSousApprove3(stakingTokenContract, sousId)
-  const { onStake } = useSousStake3(sousId, isBnbPool)
-  const { onUnstake } = useSousUnstake3(sousId)
-  const { onReward } = useSousHarvest3(sousId, isBnbPool)
-  const rvrsPrice = usePriceCakeBusd()
-  const [requestedApproval, setRequestedApproval] = useState(false)
-  const [pendingTx, setPendingTx] = useState(false)
-  const allowance = new BigNumber(userData?.allowance || 0)
-  const stakingTokenBalance = new BigNumber(userData?.stakingTokenBalance || 0)
-  const stakedBalance = new BigNumber(userData?.stakedBalance || 0)
-  const earnings = new BigNumber(userData?.pendingReward || 0)
-  const stakedBalanceUsd = stakedBalance.times(rvrsPrice)
-  const isOldSyrup = stakingTokenName === QuoteToken.SYRUP
-  const accountHasStakedBalance = stakedBalance?.toNumber() > 0
-  const needsApproval = !accountHasStakedBalance && !allowance.toNumber() && !isBnbPool
-  const isCardActive = isFinished && accountHasStakedBalance
-  const convertedLimit = new BigNumber(stakingLimit).multipliedBy(new BigNumber(10).pow(tokenDecimals))
+  const isBnbPool = poolCategory === PoolCategory.BINANCE;
+  const stakingTokenContract = useERC20(stakingTokenAddress);
+  const { account } = useWallet();
+
+  const { onApprove } = useSousApprove3(stakingTokenContract, sousId);
+  const { onStake } = useSousStake3(sousId, isBnbPool);
+  const { onUnstake } = useSousUnstake3(sousId);
+  const { onReward } = useSousHarvest3(sousId, isBnbPool);
+
+  const MISPrice = usePriceCakeBusd();
+  const [requestedApproval, setRequestedApproval] = useState(false);
+  const [pendingTx, setPendingTx] = useState(false);
+  const allowance = new BigNumber(userData?.allowance || 0);
+  const stakingTokenBalance = new BigNumber(userData?.stakingTokenBalance || 0);
+  const stakedBalance = new BigNumber(userData?.stakedBalance || 0);
+  const stakedBalanceUsd = stakedBalance.times(MISPrice);
+  const earnings = new BigNumber(userData?.pendingReward || 0);
+  const isOldSyrup = stakingTokenName === QuoteToken.SYRUP;
+  const accountHasStakedBalance = stakedBalance?.toNumber() > 0;
+  const needsApproval = !accountHasStakedBalance && !allowance.toNumber() && !isBnbPool;
+  const isCardActive = isFinished && accountHasStakedBalance;
+  const convertedLimit = new BigNumber(stakingLimit).multipliedBy(new BigNumber(10).pow(tokenDecimals));
+
+  // Deposit
   const [onPresentDeposit] = useModal(
     <DepositModal
       max={stakingLimit && stakingTokenBalance.isGreaterThan(convertedLimit) ? convertedLimit : stakingTokenBalance}
@@ -169,14 +136,18 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       tokenName={stakingLimit ? `${stakingTokenName} (${stakingLimit} max)` : stakingTokenName}
     />,
   )
+
+  // Withdrawal
   const [onPresentWithdraw] = useModal(
     <WithdrawModal max={stakedBalance} onConfirm={onUnstake} tokenName={stakingTokenName} pricePerShare={pricePerShare} />,
   )
+
+  // Staking contract Approval
   const handleApprove = useCallback(async () => {
     try {
       setRequestedApproval(true)
       const txHash = await onApprove()
-      // user rejected tx or didn't go thru
+      // User rejected tx or didn't go through
       if (!txHash) {
         setRequestedApproval(false)
       }
@@ -184,76 +155,51 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       console.error(e)
     }
   }, [onApprove, setRequestedApproval])
+
+
+  // Frontend Calculations
   const TVL = pool.tvl && pool.tvl.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const APY = apy && apy.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
+  const WeeklyROI = apr && apr.div(52).times(7).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const StakedUSDBalance = getBalanceNumber(stakedBalanceUsd).toLocaleString('en-us',{ maximumFractionDigits: 0 })
-  const FiveDayROI = apr && apr.div(45).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
-  const ExpectedBalance = apr && apr.div(365).times(7).times(0.01).times(getBalanceNumber(stakedBalanceUsd)).plus(getBalanceNumber(stakedBalanceUsd)).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
+  const StakedBalance = getBalanceNumber(stakedBalance).toLocaleString('en-us',{ maximumFractionDigits: 0 })
+  const ExpectedBalanceMonth = apr && apr.div(12).times(0.01).times(getBalanceNumber(stakedBalanceUsd)).plus(getBalanceNumber(stakedBalanceUsd)).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
 
   return (
     <Card isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
-      <div style={{padding: '34px'}}>
-
-        <Flex justifyContent='space-between' marginTop='14px'>
-          <Text1>Annual Yield</Text1>
-          <Text11>{APY}%</Text11>
+      <div>
+        <Flex justifyContent='space-between'>
+          <LightText>APY</LightText>
+          <Quote>{APY}%</Quote>
         </Flex>
-
-        <Flex justifyContent='space-between' marginTop='12px'>
-          <SmallText> 7 Day ROI</SmallText>
-          <SmallText>{FiveDayROI}%</SmallText>
+        <Flex justifyContent='space-between'>
+          <LightText>Weekly ROI</LightText>
+          <Quote>{WeeklyROI}%</Quote>
         </Flex>
-        
-        <Flex justifyContent='space-between' marginTop='14px'>
-          <Text1>Total MIS Locked</Text1>
-          <Text11>${TVL}</Text11>
+        <Flex justifyContent='space-between'>
+          <LightText>Total Staked MIS</LightText>
+          <Quote>${TVL}</Quote>
         </Flex>
-
-        <Flex justifyContent='space-between' marginTop='14px'>
-          <Text1>Unstaked Balance</Text1>
-          <Text11>{cakeBalance}</Text11>
+        <Flex justifyContent='space-between'>
+          <LightText>Your Staked MIS</LightText>
+          <Quote>{StakedBalance} (${StakedUSDBalance})</Quote>
         </Flex>
-
-        <Flex justifyContent='space-between' marginTop='13px'>
-          <Text1>Staked Balance</Text1>
-          <Balance  fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
-        </Flex>
-
-        <Flex justifyContent='space-between' marginTop='5px'>
-          <SmallText>Balance (in UST)</SmallText>
-          <SmallText>${StakedUSDBalance}</SmallText>
-        </Flex>
-
-        <Flex justifyContent='space-between' marginTop='5px'>
-          <SmallText>Expected Balance (7 Days)</SmallText>
-          <SmallText>${ExpectedBalance}</SmallText>
-        </Flex>
-
-
-
 
 
         <Wrapper alignItems="end">
-
-        <Flex alignItems="end">
-
-          <StyledCardActions style={{alignItems:"end"}} >
+          <Flex alignItems="end">
+            <StyledCardActions style={{alignItems:"end"}}>
             {!account && <UnlockButton />}
             {account && (needsApproval && !isOldSyrup ? (
-            
-            <div style={{ flex: 1 }}>
-              <StyledBtn
-
- 
-                style={{minWidth:'100px', maxWidth:'150px', boxShadow:'0px 0px 5px #fff', 'marginTop':'10px'}}
-                disabled={isFinished || requestedApproval}
-                onClick={handleApprove}>
-                Enable Staking
-              </StyledBtn>
-            </div>
-
+              <div style={{ flex: 1 }}>
+                <StyledBtn
+                  style={{minWidth:'100px', maxWidth:'150px', boxShadow:'0px 0px 5px #fff', 'marginTop':'10px'}}
+                  disabled={isFinished || requestedApproval}
+                  onClick={handleApprove}>
+                  Enable Staking
+                </StyledBtn>
+              </div>
             ) : ( <>
-
               <StyledBtn 
                 style={{ justifyContent:"center", marginTop: '20px', marginRight:'10px' }}
                 disabled={stakedBalance.eq(new BigNumber(0)) || pendingTx}
@@ -263,19 +209,17 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
                   setPendingTx(false)} : onPresentWithdraw }>
                 Unstake
               </StyledBtn>
-
               <StyledActionSpacer/>
-                {!isOldSyrup && (
+              {!isOldSyrup && (
                 <StyledBtn
                   style={{ justifyContent:"center" }}
                   disabled={isFinished && sousId !== 0} 
                   onClick={onPresentDeposit}>
                   Stake
                 </StyledBtn>)} </> ))}
-              </StyledCardActions> 
-                    
+              </StyledCardActions>  
             </Flex>
-        </Wrapper>
+          </Wrapper>
       </div>
     </Card>
   )

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
-import { Toggle } from '@pancakeswap-libs/uikit'
+import { Toggle, useModal } from '@pancakeswap-libs/uikit'
 import { usePriceCakeBusd } from 'state/hooks'
 import {Link} from "react-router-dom";
 import './index.css';
@@ -11,9 +11,14 @@ import {Accordion, Button, Card, useAccordionToggle} from 'react-bootstrap';
 import { FaChartLine, FaTelegramPlane, FaTwitter, FaDiscord, FaFileAlt, FaGithub, FaTicketAlt, FaChartBar, FaMoneyBillAlt, FaTractor, FaHome, FaPrescriptionBottleAlt, FaTumblrSquare, FaCode, FaFlask, FaBook, FaReddit, FaRocketchat, FaRocket, FaBroadcastTower, FaLayerGroup, FaSeedling, FaExclamationTriangle, FaBootstrap, FaLandmark, FaGamepad, FaCircle, FaParachuteBox, FaVoteYea, FaProjectDiagram, FaShieldAlt, FaFire, FaCloud, FaPlayCircle, FaClipboard, FaUser, FaPlus, FaExpandArrowsAlt, FaExpand, FaExchangeAlt } from 'react-icons/fa';
 import ReactTooltip from 'react-tooltip';
 import labo from 'config/constants/labo';
+import Stats from 'components/NavBar/Stats';
 import { getBalanceNumber } from 'utils/formatBalance'
 import useTokenBalance from 'hooks/useTokenBalance'
 import { getCakeAddress } from 'utils/addressHelpers'
+import { Address } from 'config/constants/types'
+import StatsButton from './StatsButton'
+
+
 
 function getWindowDimensions() {
   const { innerWidth: viewportWidth, innerHeight: viewportHeight } = window;
@@ -24,10 +29,7 @@ function getWindowDimensions() {
 }
 
 const {viewportWidth, viewportHeight} = getWindowDimensions()
-
-
 const isOnPhone = viewportWidth < 680
-
 const Price = styled.p`
   -webkit-box-align: center;
   align-items: center;
@@ -121,7 +123,6 @@ const NavBar = (props) => {
   const cakeBalance = getBalanceNumber(useTokenBalance(getCakeAddress())).toLocaleString('en-us',{ maximumFractionDigits: 2 });
 
   const LightSwitch = () => {
-  
     const toggle = () => setIsChecked(!isChecked);
   
     return (
@@ -213,19 +214,13 @@ const NavBar = (props) => {
             <ul className="nav-tabs outsideMainNav">
 
             <li className="web3li">
-                <Chain>Harmony</Chain>
+                <Chain>Harmony</Chain> 
               </li>
-
-
-              <li className="web3li">
+            <li className="web3li">
 
                 { account != null && account.length > 1? 
-                
-                
                   <Price style={{justifyContent:'center'}}> 
-
-                    <Balance>{cakeBalance} MIS</Balance>
-
+                   <Balance>{cakeBalance} MIS</Balance>
                   {account.substring(0,6)}...</Price>
                   :
                 <UnlockButton style={{
