@@ -21,10 +21,11 @@ export interface IfoCardProps {
 }
 
 const StyledIfoCard = styled(Card)<{ ifoId: string }>`
-  background: #2F324A;
+  background-image: linear-gradient(#2F324A, #33364D);
   background-repeat: no-repeat;
+  border-radius: 20px;
+  border: 2px solid #CECECE;
   background-size: contain;
-  border-radius: 15px;
   max-width: 440px;
   width: 110%;
   box-shadow: 0px 0px 5px #ccc;

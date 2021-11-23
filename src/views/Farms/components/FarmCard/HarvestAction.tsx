@@ -75,7 +75,7 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
     <Flex mb='6px' justifyContent='space-between' alignItems='center'>
 
       <Heading style={{fontSize:'15px'}} color={rawEarningsBalance === 0 ? 'textDisabled' : 'text'}>
-        <Staked style={{ textShadow:'0px 0px 1px #fff'}}>{displayBalance} MIS</Staked>
+        <Staked style={{ textShadow:'0px 0px 0px #fff'}}>{displayBalance} MIS</Staked>
         <USDStaked>Earned</USDStaked>
         {/* {earnings.gt(0) && <USDStaked>${displayBalanceUsd}</USDStaked>} */ }
       </Heading>
@@ -102,6 +102,7 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
             {TranslateString(999, 'Compound')}
           </Button>
           : null}
+        {/* {Earned.gt(0) &&  */ }
         <StyledBtn
           disabled={rawEarningsBalance === 0 || pendingTx}
           onClick={async () => {

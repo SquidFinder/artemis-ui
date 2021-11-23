@@ -23,7 +23,7 @@ import { getCakeAddress } from '../../utils/addressHelpers'
 
 const DashboardPage2 = styled(Container)`
   min-height: calc(1vh - 64px);
-  max-width: 500px;
+  max-width: 600px;
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-top: 20px;
     padding-bottom: 24px;
@@ -50,14 +50,16 @@ const Sub = styled.p`
 `
 
 const DashboardCard = styled.div`
+  background-color: #213550;
   align-self: baseline;
   display: flex;
   flex-direction: column;
+  border-radius: 20px;
   justify-content: space-around;
-  padding: 0px;
+  padding: 30px;
   position: relative;
   text-align: center;
-  border: 0px solid #EAEAEA;
+  border: 1px solid #213550;
 `
   
 const MoneyWheel: React.FC = () => {

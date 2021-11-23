@@ -4,6 +4,7 @@ import Container from 'components/layout/Container'
 import { FaProjectDiagram, FaRocket } from 'react-icons/fa'
 import FlexLayout from 'components/layout/Flex'
 import styled from 'styled-components'
+import { TranslateString } from 'utils/translateTextHelpers'
 import IfoTabButtons from './components/IfoTabButtons'
 import Hero from './components/Hero'
 import CurrentIfo from './CurrentIfo'
@@ -34,12 +35,45 @@ const Feature = styled.div`
   
 `
 
+const SvgHero = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+`
+
+const StyledNotFound = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+const Sub = styled.p`
+  font-size: 20px;
+  color: #ffff;
+  margin-top: 0px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  text-shadow: 0px 0px 5px #fff;`
+
 const Ifos = () => {
   const { path } = useRouteMatch()
 
   return (
     <>
       {/* <Hero/> */ }
+
+      <StyledNotFound>
+        <Sub>{TranslateString(999, 'Upcoming IDOs...')}</Sub>
+      </StyledNotFound>
+
+      <SvgHero>
+        <object 
+          type="image/svg+xml" 
+          data='/images/comingIDO/coming.svg'
+          className="labhero"
+          style={{  maxWidth:'300px', marginBottom: '20px'}} 
+          >&nbsp;</object>
+      </SvgHero>
 
       <Container>
         <Route exact path={`${path}`}>

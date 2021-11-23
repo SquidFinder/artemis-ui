@@ -53,13 +53,14 @@ const LightText = styled.p`
 `
 
 const Divider = styled.div`
-  background-color: #4c68ef;
-  height: 0px;
+  background-color: #BCBCBC;
+  height: 1px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  width: 0%;
+  margin-top: 7px;
+  margin-bottom: -5px;
+  width: 100%;
+  box-shadow: 0px 0px 3px #fff;
 `
 
 

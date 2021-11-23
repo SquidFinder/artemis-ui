@@ -104,6 +104,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
   return (
     <Page>
+      <Dashboard/>
       <div>
         <FlexLayout>
           <Route exact path={`${path}`}>
