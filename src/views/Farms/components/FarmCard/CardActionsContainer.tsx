@@ -12,6 +12,8 @@ import { useApprove } from 'hooks/useApprove'
 import ReactTooltip from 'react-tooltip';
 import labo from 'config/constants/labo'
 import { Address } from 'config/constants/types'
+import Container from 'components/layout/Container'
+import { FaCheck } from 'react-icons/fa'
 import StakeAction from './StakeAction'
 import HarvestAction from './HarvestAction'
 
@@ -46,21 +48,22 @@ const StyledLinkExternal = styled(LinkExternal)`
 const StyledBtn = styled.button`
   -webkit-box-align: center;
   align-items: center;
-  background-color: rgba(0, 0, 0,0) !important;
-  border: 1px;
-  border-style: solid !important;
+  background-color: #2F324A;
+  border-radius: 10px;
+  border:1px solid #CECECE;
   border-color: #ffff !important;
   border-radius: 10px;
-  color: #ffff;
-  font-size: 15px;
+  color: #FFFF;
+  font-size: 14px;
   font-weight: 400;
-  width: 100%;
   display: inline-flex;
-  min-height: 18px;
-  max-height: 30px;
-  max-width: 90px;
-  padding: 20px;
-
+  height: 42px;
+  width: 200px;
+  padding: 15px;
+  box-shadow: 0px 0px 5px #ccc;
+  text-shadow: 0px 0px 3px #ccc;  
+  margin-top: 15px;
+  margin-bottom: 20px;
   `
 
 const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }) => {
@@ -72,11 +75,11 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }
   const tokenAddress = tokenAddresses[process.env.REACT_APP_CHAIN_ID];
   const lpName = farm.lpSymbol.toUpperCase()
   const isApproved = account && allowance && allowance.isGreaterThan(0)
+  
   const tokenBalanceUsd = useFarmTokensToUsd(pid, tokenBalance)
   const stakedBalanceUsd = useFarmTokensToUsd(pid, stakedBalance.div(new BigNumber(10).pow(18)))
   // console.log("StakedBalance", farm.pid, stakedBalance && stakedBalance.toNumber())
   // console.log("StakedBalanceUsd", farm.pid, stakedBalanceUsd && stakedBalanceUsd.toNumber())
-
   // console.log(pid)
   // console.log(tokenBalanceUsd)
   // console.log(stakedBalanceUsd)
@@ -89,7 +92,6 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }
   }, [ethereum, lpAddress, tokenAddress, isTokenOnly])
 
   const { onApprove } = useApprove(lpContract)
-
   const handleApprove = useCallback(async () => {
     try {
       setRequestedApproval(true)
@@ -99,36 +101,45 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }
       console.error(e)
     }
   }, [onApprove])
+  
 
+const Box = styled.p`
 
-
+`
 
   const renderApprovalOrStakeButton = () => {
+
     return isApproved ? (
-      <StakeAction
+      <Box>
+        <HarvestAction earnings={earnings} pid={pid}/>
+        <StakeAction         
           stakedBalance={stakedBalance}
           stakedBalanceUsd={stakedBalanceUsd}
           tokenBalance={tokenBalance}
           tokenBalanceUsd={tokenBalanceUsd}
           tokenName={lpName} pid={pid}
           depositFeeBP={depositFeeBP}
-      />
-    ) : (
-      <span data-tip data-for='happyFace'>
-      <Button style={{'borderRadius': ( true ? '5px' : '')}} mt="8px" fullWidth disabled={requestedApproval || labo.isLocked.unlockWalletButton} onClick={handleApprove}>
-        {TranslateString(999, 'Enable Contract')}
-      </Button>
-      </span>
+          />
+      </Box> 
+      ) 
+      : 
+      (
+        <span>
+          <StyledBtn style={{justifyContent:'center'}} disabled={requestedApproval || labo.isLocked.unlockWalletButton} onClick={handleApprove}>
+            {TranslateString(999, 'Enable Pool')}&nbsp;<FaCheck/>
+          </StyledBtn>
+        </span>
     )
   }
 
   return (
     <Action>
 
-      <HarvestAction earnings={earnings} pid={pid} />
-    
-      {!account ? <UnlockButton mt="8px" fullWidth /> : renderApprovalOrStakeButton()}
-    
+      {!account ? 
+      <UnlockButton/> 
+      : 
+      renderApprovalOrStakeButton()}
+
     </Action>
   )
 }

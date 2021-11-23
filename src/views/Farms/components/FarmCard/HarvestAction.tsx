@@ -43,7 +43,6 @@ const StyledBtn = styled.button`
   -webkit-box-align: center;
   align-items: center;
   background-image: linear-gradient(#2F324A, #2F324A);
-
   background: #2F324A;
   border-radius: 15px;
   border:1px solid #CECECE;
@@ -54,7 +53,7 @@ const StyledBtn = styled.button`
   font-weight: 300;
   display: inline-flex;
   height: 11px;
-  width: 70px;
+  width: 80px;
   padding: 17px;
   box-shadow: 0px 0px 0px #ccc;
   text-shadow: 0px 0px 0px #ccc;
@@ -66,22 +65,20 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
   const { onReward } = useHarvest(pid)
   const { onStake } = useStake(pid)
   const cakePrice = usePriceCakeBusd()
-
+  const Earned = new BigNumber(getBalanceNumber(earnings))
   const rawEarningsBalance = getBalanceNumber(earnings)
-  const displayBalance = rawEarningsBalance.toLocaleString('en-us',{ maximumFractionDigits: 2, minimumFractionDigits: 2 })
+  const displayBalance = rawEarningsBalance.toLocaleString('en-us',{ maximumFractionDigits: 1, minimumFractionDigits: 1 })
   const rawEarningsUsdBalance = getBalanceNumber(earnings.times(cakePrice), )
   const displayBalanceUsd = rawEarningsUsdBalance.toLocaleString('en-us',{ maximumFractionDigits: 2, minimumFractionDigits: 2 })
 
   return (
     <Flex mb='6px' justifyContent='space-between' alignItems='center'>
-      <Heading style={{fontSize:'17px'}} color={rawEarningsBalance === 0 ? 'textDisabled' : 'text'}>
-          <Staked style={{ textShadow:'0px 0px 5px #fff'}}>
-              {displayBalance}
-          </Staked>
-          {earnings.gt(0) && <USDStaked>${displayBalanceUsd}</USDStaked>}
+
+      <Heading style={{fontSize:'15px'}} color={rawEarningsBalance === 0 ? 'textDisabled' : 'text'}>
+        <Staked style={{ textShadow:'0px 0px 1px #fff'}}>{displayBalance} MIS</Staked>
+        <USDStaked>Earned</USDStaked>
+        {/* {earnings.gt(0) && <USDStaked>${displayBalanceUsd}</USDStaked>} */ }
       </Heading>
-
-
 
       <BalanceAndCompound>
         {pid === labo.pids.pidLabo ?
@@ -114,9 +111,11 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
           }}        
           style={{ justifyContent:"center" }}
         >
-          {TranslateString(999, 'Settle')}
+          {TranslateString(999, 'Claim')}
         </StyledBtn>
       </BalanceAndCompound>
+
+
     </Flex>
   )
 }

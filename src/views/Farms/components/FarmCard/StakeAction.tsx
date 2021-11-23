@@ -33,15 +33,15 @@ const StyledBtn = styled.button`
   align-items: center;
   background-image: linear-gradient(#555977, #2F324A);
   border-radius: 15px;
-  border:1px solid #CECECE;
-  border-color: #ffff !important;
+  border:1px solid;
+  border-color: #555977 !important;
   border-radius: 10px;
   color: #FFFF;
   font-size: 13px;
   font-weight: 300;
   display: inline-flex;
-  height: 35px;
-  width: 70px;
+  height: 37px;
+  width: 80px;
   padding: 15px;
   box-shadow: 0px 0px 0px #ccc;
   text-shadow: 0px 0px 0px #ccc;
@@ -51,11 +51,8 @@ const StyledBtn2 = styled.button`
   align-items: center;
   background: #2F324A;
   border-radius: 15px;
-  border:1px solid #CECECE;
-
-
+  border: 1px solid #555977;
   background-image: linear-gradient(#555977, #2F324A);
-
   border-radius: 10px;
   color: #FFFF;
   font-size: 13px;
@@ -94,14 +91,11 @@ const StakeAction: React.FC<FarmCardActionsProps> = (
   const TranslateString = useI18n()
   const { onStake } = useStake(pid)
   const { onUnstake } = useUnstake(pid)
-
   const rawStakedBalance = getBalanceNumber(stakedBalance, 18)
   const displayBalance = rawStakedBalance.toLocaleString()
   const rawStakedBalanceUsd = getBalanceNumber(stakedBalanceUsd, 0)
-  const displayBalanceUsd = rawStakedBalanceUsd.toLocaleString('en-us', { maximumFractionDigits: 2, minimumFractionDigits: 2 })
-
+  const displayBalanceUsd = rawStakedBalanceUsd.toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 })
   const tokenBalanceUsdNum = getBalanceNumber(tokenBalanceUsd)
-
   const [onPresentDeposit] = useModal(<DepositModal
       max={tokenBalance}
       valueUsd={tokenBalanceUsdNum}
@@ -117,13 +111,7 @@ const StakeAction: React.FC<FarmCardActionsProps> = (
   )
 
   const renderStakingButtons = () => {
-    return rawStakedBalance === 0 ? (
-      <StyledBtn 
-      onClick={onPresentDeposit} 
-      style={{justifyContent:"center"}}> 
-      {TranslateString(999, 'Stake')}
-      </StyledBtn>
-    ) : (
+    return (
       <IconButtonWrapper>
 
         <StyledBtn2
@@ -144,11 +132,9 @@ const StakeAction: React.FC<FarmCardActionsProps> = (
 
   return (
     <Flex justifyContent="space-between" alignItems="center"> 
-      <Heading  style={{fontSize:'17px'}} color={rawStakedBalance === 0 ? 'textDisabled' : 'text'}>
-        <Staked style={{ textShadow:'0px 0px 5px #fff'}}>
-          {displayBalance}
-        </Staked>
-        {stakedBalance.gt(0) && <USDStaked>${displayBalanceUsd}</USDStaked>}
+      <Heading  style={{fontSize:'14px', alignItems:'start'}} color={rawStakedBalance === 0 ? 'textDisabled' : 'text'}>
+        <Staked style={{ textShadow:'0px 0px 0px #fff'}}>${displayBalanceUsd} In LP</Staked>
+        <USDStaked>Deposited</USDStaked>
       </Heading>
       {renderStakingButtons()}
     </Flex>

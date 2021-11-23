@@ -43,6 +43,7 @@ const Quote = styled.p`
   text-shadow: 0px 0px 5px #ccc;
 `
 
+
 const LightText = styled.p`
     font-size: 14px;
     font-weight: 300;
@@ -60,6 +61,7 @@ const Divider = styled.div`
   margin-bottom: 5px;
   width: 0%;
 `
+
 
 interface FarmCardProps {
   farm: FarmWithStakedValue
@@ -137,11 +139,6 @@ const FarmCard: React.FC<FarmCardProps> = ({
           <LightText>Weekly ROI</LightText>
           <Quote>{Daily}</Quote>
         </Flex>
-
-    {/* <Flex justifyContent='space-between'>
-          <span>Deposit Fee</span>
-          <Quote>{ ( !Number.isNaN(farm.depositFeeBP) ? `${(farm.depositFeeBP / 100)}%` : '...loading') }</Quote>
-        </Flex> */ }
 
         <Flex justifyContent="space-between">
           <LightText>Liquidity</LightText>
