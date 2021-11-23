@@ -1,7 +1,7 @@
 <svg width="455" height="200" viewBox="0 0 455 200" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect x="217" width="238" height="200" fill="url(#pattern0)"/>
 <ellipse cx="336.732" cy="116.585" rx="22.119" ry="22.7101" fill="white"/>
-<rect width="202.419" height="200" fill="url(#pattern1)"/>
+<rect width="202.419" height="200" rx="20" fill="url(#pattern1)"/>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_43_125" transform="translate(-0.013362) scale(0.000636136 0.000757002)"/>

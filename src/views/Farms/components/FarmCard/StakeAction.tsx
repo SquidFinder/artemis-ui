@@ -31,7 +31,7 @@ const IconButtonWrapper = styled.div`
 const StyledBtn = styled.button`
   -webkit-box-align: center;
   align-items: center;
-  background: #292C44;
+  background: #2F324A;
   border-radius: 15px;
   border:1px solid #CECECE;
   border-color: #ffff !important;
@@ -40,11 +40,11 @@ const StyledBtn = styled.button`
   font-size: 13px;
   font-weight: 300;
   display: inline-flex;
-  height: 11px;
+  height: 35px;
   width: 70px;
-  padding: 17px;
-  box-shadow: 0px 0px 3px #ccc;
-  text-shadow: 0px 0px 3px #ccc;
+  padding: 15px;
+  box-shadow: 0px 0px 0px #ccc;
+  text-shadow: 0px 0px 0px #ccc;
 `
 const StyledBtn2 = styled.button`
   -webkit-box-align: center;
