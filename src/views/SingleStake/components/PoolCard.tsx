@@ -37,6 +37,16 @@ const LightText = styled.p`
     color: #8E8E8E;
 `
 
+const StakeTitle = styled.p`
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    text-shadow: 0px 0px 5px #ccc;
+    color: #ffff;
+    margin-left: 10px;
+    margin-top: 3px;
+`
+
 const Wrapper = styled(Flex)`
   svg {
     margin-right: 0.25rem;
@@ -46,22 +56,20 @@ const Wrapper = styled(Flex)`
 const StyledBtn = styled.button`
   -webkit-box-align: center;
   align-items: center;
-  background-color: #292C44;
-  border: 0px;
-  border-style: solid !important;
-  border-color: #ffff !important;
+  background-image: linear-gradient(#555977, #2F324A);
+  border-radius: 15px;
+  border:1px solid;
+  border-color: #555977 !important;
   border-radius: 10px;
   color: #FFFF;
-  font-size: 14px;
-  font-weight: 500;
-  width: 100%;
+  font-size: 13px;
+  font-weight: 300;
   display: inline-flex;
-  min-height: 18px;
-  max-height: 30px;
-  max-width: 95px;
-  padding: 20px;
-  box-shadow: 0px 0px 5px #ccc;
-  text-shadow: 0px 0px 5px #ccc;
+  height: 37px;
+  width: 80px;
+  padding: 15px;
+  box-shadow: 0px 0px 0px #ccc;
+  text-shadow: 0px 0px 0px #ccc;
 `
 
 const StyledCardActions = styled.div`
@@ -168,6 +176,10 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   return (
     <Card isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
       <div>
+        <Flex justifyContent='left' marginBottom='20px'>
+          <object type="image/svg+xml" data='/images/core/logo2.svg' width="30px">&nbsp;</object> 
+          <StakeTitle>MIS Staking</StakeTitle>
+        </Flex>
         <Flex justifyContent='space-between'>
           <LightText>APY</LightText>
           <Quote>{APY}%</Quote>

@@ -5,8 +5,8 @@ const FlexStaking = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   & > * {
-    min-width: 280px;
-    max-width: 50%;
+    min-width: 200px;
+    max-width: 40%;
     width: 100%;
     margin: 0 6px;
     margin-bottom: 18px;
