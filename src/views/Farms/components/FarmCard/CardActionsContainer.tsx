@@ -66,6 +66,11 @@ const StyledBtn = styled.button`
   margin-bottom: 20px;
   `
 
+const Divider = styled.div`
+  margin-bottom: 0px;
+  width: 0%;
+`
+
 const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }) => {
   const TranslateString = useI18n()
   const [requestedApproval, setRequestedApproval] = useState(false)
@@ -136,7 +141,7 @@ const Box = styled.p`
     <Action>
 
       {!account ? 
-      <UnlockButton/> 
+      <Divider/> 
       : 
       renderApprovalOrStakeButton()}
 

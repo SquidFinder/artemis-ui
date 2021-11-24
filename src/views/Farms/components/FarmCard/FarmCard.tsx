@@ -132,7 +132,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
 
         {!removed && (
         <Flex justifyContent='space-between' mt="8px">
-          <LightText>APR</LightText>
+          <LightText>tAPR</LightText>
           <Quote>{farmAPY}</Quote>
         </Flex>)}
 

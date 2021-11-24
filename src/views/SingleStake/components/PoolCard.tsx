@@ -181,7 +181,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           <StakeTitle>MIS Staking</StakeTitle>
         </Flex>
         <Flex justifyContent='space-between'>
-          <LightText>APY</LightText>
+          <LightText>tAPY</LightText>
           <Quote>{APY}%</Quote>
         </Flex>
         <Flex justifyContent='space-between'>
