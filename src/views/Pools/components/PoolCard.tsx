@@ -286,7 +286,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           <EnableBTN
             style={{justifyContent:"center"}} 
             disabled={isFinished || requestedApproval} 
-            onClick={handleApprove}>Enable Pool
+            onClick={handleApprove}>Enable {stakingTokenName}
           </EnableBTN>
         </div>
         

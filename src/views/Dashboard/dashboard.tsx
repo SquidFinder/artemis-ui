@@ -23,7 +23,7 @@ import { getCakeAddress } from '../../utils/addressHelpers'
 
 const DashboardPage2 = styled(Container)`
   min-height: calc(1vh - 64px);
-  max-width: 600px;
+  max-width: 500px;
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-top: 20px;
     padding-bottom: 24px;
@@ -121,10 +121,12 @@ const MoneyWheel: React.FC = () => {
               <Stat>${mCap}</Stat>
               <Sub>Market Cap</Sub> 
             </Flex>
+            { /*
             <Flex flexDirection="column" alignItems='center'> 
               <Stat>${totalValue}</Stat>
               <Sub>Value Locked</Sub>
             </Flex>
+            */ }
             <Flex flexDirection="column" alignItems='center'>
               <Stat>{circulatingRvrsString}</Stat>
               <Sub>Circulating</Sub>
