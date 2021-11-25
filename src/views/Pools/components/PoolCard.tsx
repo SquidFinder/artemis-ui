@@ -275,7 +275,6 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           <Quote> About The Project <FaLongArrowAltRight/></Quote>
         </Link>
 
-        {!account && <UnlockButton/>}
         {account && (needsApproval && !isOldSyrup ? (
 
         <div>
