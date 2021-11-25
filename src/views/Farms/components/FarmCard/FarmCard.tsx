@@ -95,9 +95,9 @@ const FarmCard: React.FC<FarmCardProps> = ({
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   })}%` : '...loading' )
-  const Daily = ( farmApyFixed ? ` ${farmApyFixed && farmApyFixed.div(365).times(7).toNumber().toLocaleString(undefined, {
-    minimumFractionDigits: 1,
-    maximumFractionDigits: 1,
+  const Weekly = ( farmApyFixed ? ` ${farmApyFixed && farmApyFixed.div(365).times(7).toNumber().toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
   })}%` : '...loading' )
 
   // console.log("APY", farm.pid)
@@ -127,7 +127,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
       {!removed && (
       <Flex justifyContent='space-between'>
         <LightText>Weekly ROI</LightText>
-        <Quote>{Daily}</Quote>
+        <Quote>{Weekly}</Quote>
       </Flex>)}
 
       {!removed && (

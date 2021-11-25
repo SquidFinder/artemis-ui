@@ -46,7 +46,7 @@ const App: React.FC = () => {
           <Switch>
 
             <Route path="/" exact>
-              <Ifos/>
+              <Pools/>
             </Route>
             
             <Route path="/farm">

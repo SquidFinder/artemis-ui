@@ -311,7 +311,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
 
           <div>
             <Bal>{staked}</Bal>
-            <StakedBalance>{stakingTokenName}</StakedBalance>
+            <StakedBalance>Staked</StakedBalance>
           </div>
 
           <div>
