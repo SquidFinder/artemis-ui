@@ -28,41 +28,31 @@ const IconButtonWrapper = styled.div`
   }
 `
 
-const StyledBtn = styled.button`
-  -webkit-box-align: center;
+const StyledButton = styled.button`
   align-items: center;
-  background-image: linear-gradient(#555977, #2F324A);
-  border-radius: 15px;
-  border:1px solid;
-  border-color: #555977 !important;
-  border-radius: 10px;
-  color: #FFFF;
-  font-size: 13px;
-  font-weight: 300;
   display: inline-flex;
-  height: 37px;
-  width: 80px;
-  padding: 15px;
-  box-shadow: 0px 0px 0px #ccc;
-  text-shadow: 0px 0px 0px #ccc;
-`
-const StyledBtn2 = styled.button`
-  -webkit-box-align: center;
-  align-items: center;
-  background: #2F324A;
-  border-radius: 15px;
+
   border: 1px solid #555977;
   background-image: linear-gradient(#555977, #2F324A);
   border-radius: 10px;
-  color: #FFFF;
-  font-size: 13px;
-  font-weight: 300;
-  display: inline-flex;
   height: 35px;
   width: 38px;
+
+  color: #FFFFF;
+  font-size: 13px;
+  font-weight: 300;
   padding: 13.5px;
+
   box-shadow: 0px 0px 0px #ccc;
   text-shadow: 0px 0px 0px #ccc;
+
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FAFAFA;
+    cursor: pointer;
+  }
 `
 
 const Staked = styled.div`
@@ -114,17 +104,17 @@ const StakeAction: React.FC<FarmCardActionsProps> = (
     return (
       <IconButtonWrapper>
 
-        <StyledBtn2
+        <StyledButton
           onClick={onPresentWithdraw}
           style={{ justifyContent:"center" }}>
           <FaMinus/>
-        </StyledBtn2>
+        </StyledButton>
 
-        <StyledBtn2
+        <StyledButton
           onClick={onPresentDeposit}
           style={{ justifyContent:"center", marginLeft:'5px'  }}>
           <FaPlus/>
-        </StyledBtn2>
+        </StyledButton>
 
       </IconButtonWrapper>
     )

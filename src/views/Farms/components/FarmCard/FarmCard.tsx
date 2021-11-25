@@ -1,31 +1,25 @@
 import React, { useMemo, useState } from 'react'
 import BigNumber from 'bignumber.js'
-import styled, { keyframes } from 'styled-components'
-import { Flex, Skeleton, LinkExternal, Link } from '@pancakeswap-libs/uikit'
+import { Flex } from '@pancakeswap-libs/uikit'
 import { Farm } from 'state/types'
 import { provider } from 'web3-core'
 import useI18n from 'hooks/useI18n'
 import ExpandableSectionButton from 'components/ExpandableSectionButton'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { PoolCategory, QuoteToken } from 'config/constants/types'
-import { FaArrowRight, FaCanadianMapleLeaf, FaClock, FaFire, FaFirefox, FaFlask, FaGhost, FaLock, FaMountain, FaPiggyBank, FaSeedling, FaTractor, FaTruck, } from 'react-icons/fa'
+import styled from 'styled-components'
 import DetailsSection from './DetailsSection'
 import CardHeading from './CardHeading'
 import CardActionsContainer from './CardActionsContainer'
-import ApyButton from './ApyButton'
 import {getTotalValueFromQuoteTokens, usePrices} from "../../../../state/hooks";
 
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber
 }
 
-
-
 const FCard = styled.div`
   align-self: baseline;
-  background: #2F324A;
   background-image: linear-gradient(#2F324A, #33364D);
-
   border-radius: 20px;
   border: 2px solid #CECECE;
   display: flex;
@@ -34,7 +28,16 @@ const FCard = styled.div`
   padding: 25px;
   position: relative;
   text-align: center;
-`
+
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    box-shadow: 0px 0px 2px #cccc;
+  }
+  
+  `
 
 const Quote = styled.p`
   font-size: 14px;
@@ -43,26 +46,14 @@ const Quote = styled.p`
   text-shadow: 0px 0px 5px #ccc;
 `
 
-
 const LightText = styled.p`
-    font-size: 14px;
-    font-weight: 300;
-    margin-bottom: 0px;
-    text-shadow: 0px 0px 0px #ccc;
-    color: #8E8E8E;
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 0px;
+  text-shadow: 0px 0px 0px #ccc;
+  color: #8E8E8E; 
+  }
 `
-
-const Divider = styled.div`
-  background-color: #BCBCBC;
-  height: 1px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 7px;
-  margin-bottom: -5px;
-  width: 100%;
-  box-shadow: 0px 0px 3px #fff;
-`
-
 
 interface FarmCardProps {
   farm: FarmWithStakedValue
@@ -90,8 +81,6 @@ const FarmCard: React.FC<FarmCardProps> = ({
   // const farmImage = farm.lpSymbol.split(' ')[0].toLocaleLowerCase()
 
   const lpLabel = ( farm.version ? `${farm.lpSymbol} V${farm.version}` : `${farm.lpSymbol}` )
-  const earnLabel = 'MIS'
-  const TranslateString = useI18n()
   const prices = usePrices()
   const [showExpandableSection, setShowExpandableSection] = useState(false)
   const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses, risk } = farm
@@ -128,46 +117,47 @@ const FarmCard: React.FC<FarmCardProps> = ({
         risk={risk}
         depositFee={farm.depositFeeBP}
         farmImage={farmImage}
-        tokenSymbol={farm.tokenSymbol}/>
+        tokenSymbol={farm.tokenSymbol}
+      />
 
-        {!removed && (
-        <Flex justifyContent='space-between' mt="8px">
-          <LightText>tAPR</LightText>
-          <Quote>{farmAPY}</Quote>
-        </Flex>)}
+      {!removed && (
+      <Flex justifyContent='space-between' mt="8px">
+        <LightText>tAPR</LightText>
+        <Quote>{farmAPY}</Quote>        
+      </Flex>)}
 
-        <Flex justifyContent='space-between'>
-          <LightText>Weekly ROI</LightText>
-          <Quote>{Daily}</Quote>
-        </Flex>
+      {!removed && (
+      <Flex justifyContent='space-between'>
+        <LightText>Weekly ROI</LightText>
+        <Quote>{Daily}</Quote>
+      </Flex>)}
 
-        <Flex justifyContent="space-between">
-          <LightText>Liquidity</LightText>
-          <Quote>{totalValueFormated}</Quote>
-        </Flex>
+      {!removed && (
+      <Flex justifyContent="space-between">
+        <LightText>Liquidity</LightText>
+        <Quote>{totalValueFormated}</Quote>
+      </Flex>)}
 
+      <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />
 
+      {/*
+      <Flex justifyContent='center'>
+        <ExpandableSectionButton onClick={() => setShowExpandableSection(!showExpandableSection)}/>
+      </Flex>
+
+      <ExpandingWrapper expanded={showExpandableSection}>
         <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />
-
-        {/*
-        <Divider/>
-        <Flex justifyContent='center'>
-          <ExpandableSectionButton onClick={() => setShowExpandableSection(!showExpandableSection)}/>
+        <Flex justifyContent="left">
+          <Link external href={
+            farm.isTokenOnly ?
+            `https://app.defikingdoms.com/#/marketplace?inputCurrency=${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
+            :
+            `https://app.defikingdoms.com/#/add/${liquidityUrlPathParts}`}><span>Add Liquidity </span>
+          </Link>
         </Flex>
+      </ExpandingWrapper> 
+      */}
 
-        <ExpandingWrapper expanded={showExpandableSection}>
-          <Divider/>
-          <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />
-            
-            <Flex justifyContent="left">
-              <Link external href={
-                farm.isTokenOnly ?
-                `https://app.defikingdoms.com/#/marketplace?inputCurrency=${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
-                :
-                `https://app.defikingdoms.com/#/add/${liquidityUrlPathParts}`}><span>Add Liquidity </span>
-              </Link>
-            </Flex>
-      </ExpandingWrapper> */}
     </FCard>
   )
 }

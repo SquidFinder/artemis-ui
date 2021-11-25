@@ -40,23 +40,33 @@ const BalanceAndCompound = styled.div`
 `
 
 const StyledBtn = styled.button`
-  -webkit-box-align: center;
   align-items: center;
   background-image: linear-gradient(#2F324A, #2F324A);
-  background: #2F324A;
-  border-radius: 15px;
+
   border:1px solid #CECECE;
-  border-color: #ffff !important;
+  border-color: #FFFF;
   border-radius: 10px;
+
   color: #FFFF;
   font-size: 13px;
   font-weight: 300;
   display: inline-flex;
+
   height: 11px;
   width: 80px;
   padding: 17px;
   box-shadow: 0px 0px 0px #ccc;
-  text-shadow: 0px 0px 0px #ccc;
+  text-shadow: 0px 0px 10px #ccc;
+
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px #fff;
+
+  }
 `
 
 const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
