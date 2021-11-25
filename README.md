@@ -1,9 +1,15 @@
-# Artemis Protocol Frontend
+# Artemis Frontend v2
 
-https://app.artemisprotocol.one
+Products
+- Pools
+- Staking
+- ArtemisPad
+- Incubator
 
 #### Install dependencies and run locally
 
     yarn
 
     yarn start  
+
+For contributions pull from beta branch please!
