@@ -29,8 +29,8 @@ const DashboardPage2 = styled(Container)`
     padding-bottom: 24px;
   }
   ${({ theme }) => theme.mediaQueries.lg} {
-    padding-top: 15px;
-    padding-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 20px;
   }
 `
 

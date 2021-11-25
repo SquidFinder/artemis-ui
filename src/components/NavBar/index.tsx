@@ -111,7 +111,7 @@ const Expand = styled.p`
   max-height: 37px;
   padding: 10px;
   margin-top: 16px;
-  box-shadow: 0px 0px 0px #FFFF;
+  box-shadow: 0px 0px 3px #FFF;
 `
 
 const Quote = styled.p`
@@ -169,14 +169,25 @@ const NavBar = (props) => {
               <div className="menu"/>
               <div className="menu"/>
             </button>
+            
             <div className="nav-container">
+
+            <object 
+                type="image/svg+xml" 
+                data="/images/core/logo2.svg" 
+                width="0px" 
+                style={{'marginTop': '10px', 'marginBottom': '0px', 'marginRight': '10px'}}>&nbsp;
+              </object>
+
               <object 
                 type="image/svg+xml" 
                 data="/images/core/logo2.svg" 
-                width="50px" 
+                width="45px" 
                 style={{'marginTop': '0px', 'marginBottom': '0px', 'marginRight': '10px'}}>&nbsp;
               </object>
+
               <ul className="nav-tabs">
+
                 <li className="nav-tab">
                   <Link to="/comingsoon" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                     <Quote>ArtemisPad</Quote>

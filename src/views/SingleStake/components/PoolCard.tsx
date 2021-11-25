@@ -154,7 +154,7 @@ const StakeCard = styled.div<{ isActive?: boolean; isFinished?: boolean }>`
 
 const Divider = styled.div`
   background-color: #FFFF;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   margin-top: 7px;
   width: 100%;
   height: 1px;
@@ -239,12 +239,12 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
 
   // Frontend Calculations
   const TVL = pool.tvl && pool.tvl.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
-  const APY = apy && apy.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
+  const APY = apy && apy.toNumber().toLocaleString('en-us', { maximumFractionDigits: 0, minimumFractionDigits: 0 })
   const APR = apr && apr.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
-  const WeeklyROI = apr && apr.div(52).times(7).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
-  const StakedUSDBalance = getBalanceNumber(stakedBalanceUsd).toLocaleString('en-us',{ maximumFractionDigits: 0 })
-  const StakedBalance = getBalanceNumber(stakedBalance).toLocaleString('en-us',{ maximumFractionDigits: 0 })
-  const ExpectedBalanceMonth = apr.div(12).times(getBalanceNumber(stakedBalanceUsd)).times(0.01).plus(getBalanceNumber(stakedBalanceUsd)).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
+  const WeeklyROI = apr && apr.div(52).times(7).toNumber().toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 })
+  const StakedUSDBalance = getBalanceNumber(stakedBalanceUsd).toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 })
+  const StakedBalance = getBalanceNumber(stakedBalance).toLocaleString('en-us', { maximumFractionDigits: 2, minimumFractionDigits: 2 })
+  const ExpectedBalanceMonth = apr.div(12).times(getBalanceNumber(stakedBalanceUsd)).times(0.01).plus(getBalanceNumber(stakedBalanceUsd)).toNumber().toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 });
 
   return (
     <StakeCard isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
