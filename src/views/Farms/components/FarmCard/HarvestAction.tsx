@@ -65,7 +65,6 @@ const StyledBtn = styled.button`
     border-color: #FFFF;
     cursor: pointer;
     box-shadow: 0px 0px 5px #fff;
-
   }
 `
 

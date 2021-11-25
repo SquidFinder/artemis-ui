@@ -34,10 +34,9 @@ const FCard = styled.div`
   &:focus  {
     outline: 0;
     border-color: #FFFF;
-    box-shadow: 0px 0px 2px #cccc;
+    box-shadow: 0px 0px 4px #cccc;
   }
-  
-  `
+`
 
 const Quote = styled.p`
   font-size: 14px;

@@ -76,9 +76,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
         const cakeRewardPerBlock = new BigNumber(farm.vikingPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
-      
         let apy = new BigNumber(cakePrice).times(cakeRewardPerYear);
-
         const totalValue = getTotalValueFromQuoteTokens(farm.quoteTokenAmount, farm.quoteTokenSymbol, prices);
 
         if(totalValue.comparedTo(0) > 0){
@@ -104,6 +102,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
   return (
     <Page>
+      
       <Dashboard/>
       <div>
         <FlexLayout>

@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js'
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
-import { Button, IconButton, useModal, AddIcon, Image, Flex, MinusIcon, LinkExternal, Link } from '@pancakeswap-libs/uikit'
+import { Button, useModal, Flex, Link } from '@pancakeswap-libs/uikit'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import UnlockButton from 'components/UnlockButton'
 import { useERC20 } from 'hooks/useContract'
@@ -15,14 +15,9 @@ import { useSousHarvest } from 'hooks/useHarvest'
 import Balance from 'components/Balance'
 import { QuoteToken, PoolCategory } from 'config/constants/types'
 import { Pool } from 'state/types'
-import { FaArrowAltCircleDown, FaArrowRight, FaBook, FaBox, FaClock, FaCube, FaCubes, FaFire, FaFlask, FaLightbulb, FaLock, FaMountain, FaScroll, FaSeedling, FaTractor } from 'react-icons/fa'
+import { FaLongArrowAltRight, FaMinus, FaPlus } from 'react-icons/fa'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
-import CompoundModal from './CompoundModal'
-import CardTitle from './CardTitle'
-import Card from './Card'
-import HarvestButton from './HarvestButton'
-import CardFooter from './CardFooter'
 
 
 interface PoolWithApy extends Pool {
@@ -32,8 +27,6 @@ interface PoolWithApy extends Pool {
 interface HarvestProps {
   pool: PoolWithApy
 }
-
-
 
 const Quote = styled.p`
   font-size: 14px;
@@ -61,6 +54,121 @@ const SvgHero = styled.div`
   
 `
 
+const StyledPlusMinusBTN = styled.button`
+  align-items: center;
+  display: inline-flex;
+
+  border: 1px solid #555977;
+  background-image: linear-gradient(#555977, #2F324A);
+  border-radius: 10px;
+  height: 37px;
+  width: 38px;
+
+  color: #FFFFF;
+  font-size: 13px;
+  font-weight: 300;
+  padding: 13.5px;
+
+  box-shadow: 0px 0px 0px #ccc;
+  text-shadow: 0px 0px 0px #ccc;
+
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FAFAFA;
+    cursor: pointer;
+  }
+`
+
+const Bal = styled.div`
+  font-size: 10px;
+  align-items: center;
+  color: ${(props) => props.theme.colors.primary};
+  display: flex;
+  margin-top: 3px;
+  justify-content: flex-end;
+`
+
+const StyledClaimBTN = styled.button`
+  align-items: center;
+  background-image: linear-gradient(#2F324A, #2F324A);
+  border:1px solid #CECECE;
+  border-color: #FFFF;
+  border-radius: 10px;
+  color: #FFFF;
+  font-size: 13px;
+  font-weight: 300;
+  display: inline-flex;
+  height: 11px;
+  width: 80px;
+  padding: 17px;
+  box-shadow: 0px 0px 0px #ccc;
+  text-shadow: 0px 0px 10px #ccc;
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px #fff;
+  }
+`
+
+const EnableBTN = styled.button`
+  display: inline-flex;
+  align-items: center;
+  background-image: linear-gradient(#2F324A, #2F324A);
+  border-radius: 10px;
+  border: 1px solid #CECECE;
+  height: 42px;
+  width: 200px;
+  color: #FFFF;
+  font-size: 13.5px;
+  font-weight: 400;
+  padding: 15px;
+  margin-top: 35px;
+  margin-bottom: 25px;
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px #fff;
+    text-shadow: 0px 0px 0px #fff;
+  }
+  `
+
+const StakedBalance = styled.text`
+  font-size: 13px;
+  align-items: center;
+  color: #8E8E8E;
+  display: flex;
+  margin-top: 3px;
+  justify-content: flex-start;
+`
+
+const IncubatorCard = styled.div<{ isActive?: boolean; isFinished?: boolean }>`
+  align-self: baseline;
+  background-image: linear-gradient(#2F324A, #33364D);
+  border-radius: 20px;
+  border: 2px solid #CECECE;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 25px;
+  position: relative;
+  text-align: center;
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    box-shadow: 0px 0px 2px #cccc;
+  }
+`
+
 const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const {
     sousId,
@@ -83,16 +191,16 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     quoteTokenPoolAddress,
     earnToken,
   } = pool
-  // Pools using native BNB behave differently than pools using a token
   const isBnbPool = poolCategory === PoolCategory.BINANCE
-  const TranslateString = useI18n()
   const stakingTokenContract = useERC20(stakingTokenAddress)
   const { account } = useWallet()
   const block = useBlock()
+
   const { onApprove } = useSousApprove(stakingTokenContract, sousId)
   const { onStake } = useSousStake(sousId, isBnbPool)
   const { onUnstake } = useSousUnstake(sousId)
   const { onReward } = useSousHarvest(sousId, isBnbPool)
+
   console.log("PoolCard", pool)
   const [requestedApproval, setRequestedApproval] = useState(false)
   const [pendingTx, setPendingTx] = useState(false)
@@ -102,22 +210,18 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const earnings = new BigNumber(userData?.pendingReward || 0)
   const blocksUntilStart = Math.max(startBlock - block, 0)
   const blocksRemaining = Math.max(endBlock - block, 0)
-  const hsRemaining = Math.ceil((endBlock - block)*2*0.000277778*0.0416667)
   const isOldSyrup = stakingTokenName === QuoteToken.SYRUP
   const accountHasStakedBalance = stakedBalance?.toNumber() > 0
   const needsApproval = !accountHasStakedBalance && !allowance.toNumber() && !isBnbPool
   const isCardActive = isFinished && accountHasStakedBalance
   const convertedLimit = new BigNumber(stakingLimit).multipliedBy(new BigNumber(10).pow(tokenDecimals))
+
   const [onPresentDeposit] = useModal(
     <DepositModal
       max={stakingLimit && stakingTokenBalance.isGreaterThan(convertedLimit) ? convertedLimit : stakingTokenBalance}
       onConfirm={onStake}
       tokenName={stakingLimit ? `${stakingTokenName} (${stakingLimit} max)` : stakingTokenName}
     />,
-  )
-
-  const [onPresentCompound] = useModal(
-    <CompoundModal earnings={earnings} onConfirm={onStake} tokenName={stakingTokenName} />,
   )
 
   const [onPresentWithdraw] = useModal(
@@ -137,153 +241,111 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     }
   }, [onApprove, setRequestedApproval])
 
-  const APR = apy && apy.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 })
-  const ROI = apy && apy.div(365).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 2 })
-  const TVL = pool.tvl && pool.tvl.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 })
-
-  const staked = getBalanceNumber(stakedBalance).toLocaleString('en-us',{ maximumFractionDigits: 2 })
-  const earned = getBalanceNumber(earnings, tokenDecimals).toLocaleString('en-us',{ maximumFractionDigits: 2 })
+  // Frontend Calculations
+  const daysRemaining = Math.ceil((endBlock - block)*2*0.000277778*0.0416667);
+  const APR = apy && apy.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
+  const TVL = pool.tvl && pool.tvl.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
+  const staked = getBalanceNumber(stakedBalance).toLocaleString('en-us', { maximumFractionDigits: 4, minimumFractionDigits: 4 });
+  const earned = getBalanceNumber(earnings, tokenDecimals).toLocaleString('en-us', { maximumFractionDigits: 4, minimumFractionDigits: 4 });
+  const profit = new BigNumber(apy).div(365).times(daysRemaining).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 1 });
 
   return (
-    <Card isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
+    <IncubatorCard isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
       <div>
-
-      <SvgHero>
-        <object 
-          type="image/svg+xml" 
-          data={`/images/incubator/${earnToken}.svg`}
-          className="labhero"
-          style={{  flexWrap:'wrap', maxWidth:'200px'
-          }} 
-          >&nbsp;</object>
+        <SvgHero>
+          <object 
+            type="image/svg+xml" 
+            data={`/images/incubator/${earnToken}.svg`}
+            className="labhero"
+            style={{  flexWrap:'wrap', maxWidth:'240px'
+            }}>&nbsp;</object>
         </SvgHero>
 
-        <Flex justifyContent='space-between'>
-          <LightText>APR</LightText>
+        <Flex justifyContent='space-between' marginTop='5px'>
+          <LightText>tAPR</LightText>
           <Quote>{APR}%</Quote>
         </Flex>
 
         <Flex justifyContent='space-between'>
           <LightText>Ends In</LightText>
-          <Quote>{hsRemaining} Days</Quote>
+          <Quote>{daysRemaining} Days</Quote>
         </Flex>
 
         <Flex justifyContent='space-between'>
-          <LightText>TVL</LightText>
+          <LightText>Value Locked</LightText>
           <Quote>${TVL}</Quote>
         </Flex>
 
         <Link href={projectLink} style={{'color':'white'}} target="_blank" >
-          <Quote> About The Project <FaArrowRight/></Quote>
+          <Quote> About The Project <FaLongArrowAltRight/></Quote>
         </Link>
 
+        {!account && <UnlockButton/>}
+        {account && (needsApproval && !isOldSyrup ? (
+
+        <div>
+          <EnableBTN
+            style={{justifyContent:"center"}} 
+            disabled={isFinished || requestedApproval} 
+            onClick={handleApprove}>Enable Pool
+          </EnableBTN>
+        </div>
+        
+        ) : ( <>
+
         <Flex justifyContent='space-between' marginTop='15px'>
-          <Quote>Staked</Quote>
-          <Quote>{staked}</Quote>
-        </Flex>
-
-        <Flex marginTop='2px' justifyContent='space-between'>
-          <Quote>{tokenName} Earned</Quote>
-          <Quote>{earned}</Quote>
-        </Flex>
-
-        <StyledCardActions>
-          {!account && <UnlockButton />}
-          {account &&
-            (needsApproval && !isOldSyrup ? (
-              <div style={{ flex: 1 }}>
-                <Button disabled={isFinished || requestedApproval} marginTop='10px' onClick={handleApprove} fullWidth >
-                  Approve
-                </Button>
-              </div>
-            ) : (
-              <>
-                <IconButton marginTop='10px' marginLeft='0px'
-                  disabled={stakedBalance.eq(new BigNumber(0)) || pendingTx}
-                  onClick={
-                    isOldSyrup
-                      ? async () => {
-                          setPendingTx(true)
-                          await onUnstake('0')
-                          setPendingTx(false)
-                        }
-                      : onPresentWithdraw
-                  }>
-                <MinusIcon color="background" />
-                </IconButton>
-
-                <StyledActionSpacer />
-
-                {!isOldSyrup && (
-                <IconButton marginTop='10px' marginRight='0px' disabled={isFinished && sousId !== 0} onClick={onPresentDeposit}>
-
-                  <AddIcon color="background" />
-                </IconButton>)}
-              </>
-            ))}
-
-        <div style={{ marginTop: '10px', display: 'flex', alignItems: 'center', marginLeft:'15px' }}>
-          {account && harvest && !isOldSyrup && (
-            <Button
+          <div>
+            <Bal>{earned}</Bal>
+            <StakedBalance>Earned</StakedBalance>
+          </div>
+          <div>
+            {account && harvest && !isOldSyrup && (
+            <StyledClaimBTN
+              style={{justifyContent:"center"}}
               disabled={!earnings.toNumber() || pendingTx}
               onClick={async () => {
                 setPendingTx(true)
                 await onReward()
-                setPendingTx(false)
-              }}
-              style={{
-                'borderRadius': '5px',
-                'height': '47px',
-                'width': '120px',
-                'color': 'white'
-              }}
-            >
-              {TranslateString(9929, 'Settle')}
-            </Button>
-          )}
-        </div>
-        </StyledCardActions>
+                setPendingTx(false)}}>
+              Claim
+            </StyledClaimBTN>)}
+          </div>
+        </Flex>
+
+        <Flex justifyContent='space-between' marginTop='15px'>
+
+          <div>
+            <Bal>{staked}</Bal>
+            <StakedBalance>Staked</StakedBalance>
+          </div>
+
+          <div>
+            <StyledPlusMinusBTN 
+              style={{justifyContent:"center"}}
+              disabled={stakedBalance.eq(new BigNumber(0)) || pendingTx}
+              onClick={ isOldSyrup ? async () => {
+                setPendingTx(true)
+                await onUnstake('0')
+                setPendingTx(false)} : onPresentWithdraw}>
+              <FaMinus/>
+            </StyledPlusMinusBTN>
+
+            {!isOldSyrup && (
+            <StyledPlusMinusBTN
+              style={{justifyContent:"center", marginLeft:'5px'}}  
+              disabled={isFinished && sousId !== 0} 
+              onClick={onPresentDeposit}>
+              <FaPlus/>
+            </StyledPlusMinusBTN>)}   
+          </div>
+
+        </Flex>
+
+        </> ))}
+
       </div>
-    </Card>
+    </IncubatorCard>
   )
 }
-
-
-const PoolFinishedSash = styled.div`
-  background-image: url('/images/pool-finished-sash.svg');
-  background-position: top right;
-  background-repeat: not-repeat;
-  height: 135px;
-  position: absolute;
-  right: -24px;
-  top: -24px;
-  width: 135px;
-`
-
-const StyledCardActions = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-  width: 100%;
-  margin-bottom: 15px;
-  box-sizing: border-box;
-`
-
-const BalanceAndCompound = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-`
-
-const StyledActionSpacer = styled.div`
-  height: ${(props) => props.theme.spacing[4]}px;
-  width: ${(props) => props.theme.spacing[4]}px;
-`
-
-const StyledDetails = styled.div`
-  display: flex;
-  font-size: 14px;
-`
 
 export default PoolCard
