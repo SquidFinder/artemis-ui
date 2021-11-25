@@ -11,5 +11,3 @@ Products
     yarn
 
     yarn start  
-
-For contributions pull from beta branch please!
