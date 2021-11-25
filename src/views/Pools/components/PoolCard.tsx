@@ -57,21 +57,17 @@ const SvgHero = styled.div`
 const StyledPlusMinusBTN = styled.button`
   align-items: center;
   display: inline-flex;
-
   border: 1px solid #555977;
   background-image: linear-gradient(#555977, #2F324A);
   border-radius: 10px;
   height: 37px;
   width: 38px;
-
   color: #FFFFF;
   font-size: 13px;
   font-weight: 300;
   padding: 13.5px;
-
   box-shadow: 0px 0px 0px #ccc;
   text-shadow: 0px 0px 0px #ccc;
-
   &:hover:not(:disabled),
   &:active:not(:disabled),
   &:focus  {
@@ -165,7 +161,7 @@ const IncubatorCard = styled.div<{ isActive?: boolean; isFinished?: boolean }>`
   &:focus  {
     outline: 0;
     border-color: #FFFF;
-    box-shadow: 0px 0px 2px #cccc;
+    box-shadow: 0px 0px 3px #cccc;
   }
 `
 

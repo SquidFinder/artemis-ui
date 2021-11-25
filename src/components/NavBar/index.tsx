@@ -10,13 +10,10 @@ import UnlockButton from 'components/UnlockButton'
 import {Accordion, Button, Card, useAccordionToggle} from 'react-bootstrap';
 import { FaChartLine, FaTelegramPlane, FaTwitter, FaDiscord, FaFileAlt, FaGithub, FaTicketAlt, FaChartBar, FaMoneyBillAlt, FaTractor, FaHome, FaPrescriptionBottleAlt, FaTumblrSquare, FaCode, FaFlask, FaBook, FaReddit, FaRocketchat, FaRocket, FaBroadcastTower, FaLayerGroup, FaSeedling, FaExclamationTriangle, FaBootstrap, FaLandmark, FaGamepad, FaCircle, FaParachuteBox, FaVoteYea, FaProjectDiagram, FaShieldAlt, FaFire, FaCloud, FaPlayCircle, FaClipboard, FaUser, FaPlus, FaExpandArrowsAlt, FaExpand, FaExchangeAlt } from 'react-icons/fa';
 import ReactTooltip from 'react-tooltip';
-import labo from 'config/constants/labo';
-import Stats from 'components/NavBar/Stats';
 import { getBalanceNumber } from 'utils/formatBalance'
 import useTokenBalance from 'hooks/useTokenBalance'
 import { getCakeAddress } from 'utils/addressHelpers'
 import { Address } from 'config/constants/types'
-import StatsButton from './StatsButton'
 
 
 
@@ -118,18 +115,18 @@ const Expand = styled.p`
 `
 
 const Quote = styled.p`
-    font-size: 15px;
-    font-weight: 500;
-    text-shadow: 0px 0px 10px #ccc;
+  font-size: 15px;
+  font-weight: 500;
+  text-shadow: 0px 0px 10px #ccc;
 
-    &:hover:not(:disabled),
-    &:active:not(:disabled),
-    &:focus  {
-      outline: 0;
-      font-weight: 500;
-      cursor: pointer;
-      text-shadow: 0px 0px 4px #CCCC;
-    }
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    font-weight: 500;
+    cursor: pointer;
+    text-shadow: 0px 0px 4px #CCCC;
+  }
 `
 
 const NavBar = (props) => {
@@ -201,62 +198,52 @@ const NavBar = (props) => {
                   </Link>
                 </li>
               </ul>
+
               <ul className="web3buttons">
+
                 <li className="web3li insideMainNav">
-                  <Link to="/" className="nav-links connect">
-                  { account != null && account.length > 1? 
-                    <Price style={{justifyContent:'center'}}>{account.substring(0,( isOnPhone ? 8 : 8)).concat("...")} <p style={{'color': 'white'}}> ✓</p></Price>:
-                  <UnlockButton style={{
-                    backgroundColor: 'rgb(22, 35, 73) !important',
-                    border: '0px',
-                    color: '#ffff !important',
-                    borderRadius: '10px',
-                    fontSize: '15px',
-                    fontWeight: '800',
-                    width: '100%',
-                    display: 'inline-flex',
-                    height: '44px',
-                    letterSpacing: '0.03em',
-                    padding: '15px',
-                    minHeight: '21px',
-                    maxHeight: '33px',
-                  }}>Connect</UnlockButton>
+                  {account != null && account.length > 1? 
+                    <Price style={{justifyContent:'center'}}>
+                      {account.substring(0,( isOnPhone ? 8 : 8))} 
+                      <p style={{'color': 'white'}}>...</p></Price>:
+                    <UnlockButton style={{
+                      fontSize: '14px',
+                      marginTop: '15px',
+                      width: '100%',
+                      minHeight:'21px',
+                      maxHeight:'37px'}}>Connect
+                    </UnlockButton>
                   }
-                  </Link>
-                  </li>
-                </ul>
-              </div>
-            </nav>
+                </li>
+
+              </ul>
+            </div>
+          </nav>
+
             <ul className="nav-tabs outsideMainNav">
 
-            <li className="web3li">
+              <li className="web3li">
                 <Chain>Harmony</Chain> 
               </li>
-            <li className="web3li">
 
-                { account != null && account.length > 1? 
-                  <Price style={{justifyContent:'center'}}> 
-                   <Balance>{cakeBalance} MIS</Balance>
-                  {account.substring(0,6)}...</Price>
-                  :
+              <li className="web3li">
+                {account != null && account.length > 1? 
+                <Price style={{justifyContent:'center'}}> 
+                  <Balance>{cakeBalance} MIS</Balance>{account.substring(0,6)}...
+                </Price>
+                :
                 <UnlockButton style={{
-                  borderRadius: '10px',
-                  fontSize: '15px',
+                  fontSize: '14px',
                   marginTop: '15px',
                   width: '100%',
-                  display: 'inline-flex',
-                  padding: '15px',
-                  flexFlow: 'row',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  'minHeight':'21px',
-                  'maxHeight':'37px'
-                }}>Connect</UnlockButton>
+                  minHeight:'21px',
+                  maxHeight:'37px'}}>Connect
+                </UnlockButton>
                 }
               </li>
 
               <li style={{marginTop:'5px'}} className="nav-tab dropdown" id="wheelToggleDesktop">
-                  <Expand style={{justifyContent:'center'}}><FaExpand/></Expand>
+                <Expand style={{justifyContent:'center'}}><FaExpand/></Expand>
                 <ul className="dropdown-content dropdown-items">
                 <li className="nav-tab">
                     <a target="_blanK" rel="noreferrer" href="https://app.defikingdoms.com/#/marketplace?outputCurrency=0xd74433b187cf0ba998ad9be3486b929c76815215" className="nav-links">
@@ -271,6 +258,16 @@ const NavBar = (props) => {
                   <li className="nav-tab">
                     <a target="_blanK" rel="noreferrer" href="https://gov.harmony.one/#/artemis" className="nav-links">
                       <span className="dditem">Forum</span>
+                    </a>
+                  </li>
+                  <li className="nav-tab">
+                    <a target="_blanK" rel="noreferrer" href="https://paladinsec.co/projects/artemis-ifo/" className="nav-links">
+                      <span className="dditem">Audit</span>
+                    </a>
+                  </li>
+                  <li className="nav-tab">
+                    <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/" className="nav-links">
+                      <span className="dditem">Docs</span>
                     </a>
                   </li>
                   <li className="nav-tab">
@@ -289,18 +286,12 @@ const NavBar = (props) => {
                     </a>
                   </li>
                   <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://paladinsec.co/projects/artemis-ifo/" className="nav-links">
-                      <span className="dditem">Audit</span>
-                    </a>
-                  </li>
-                  <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/" className="nav-links">
-                      <span className="dditem">Docs</span>
+                    <a target="_blanK" rel="noreferrer" href="https://github.com/ArtemisProtocol/artemis-frontend" className="nav-links">
+                      <span className="dditem">Github</span>
                     </a>
                   </li>
                 </ul>
               </li>
-
           </ul>
         </div>
       </header>

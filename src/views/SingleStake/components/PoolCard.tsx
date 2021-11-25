@@ -26,68 +26,140 @@ const Quote = styled.p`
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 6px;
-  text-shadow: 0px 0px 5px #ccc;
+  text-shadow: 0px 0px 10px #ccc;
+`
+
+const Quote2 = styled.p`
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 6px;
+  text-shadow: 0px 0px 0px #ccc;
+  color: #8E8E8E;
+  margin-left: 5px;
 `
 
 const LightText = styled.p`
-    font-size: 14px;
-    font-weight: 300;
-    margin-bottom: 0px;
-    text-shadow: 0px 0px 0px #ccc;
-    color: #8E8E8E;
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 0px;
+  text-shadow: 0px 0px 0px #ccc;
+  color: #8E8E8E;
 `
 
 const StakeTitle = styled.p`
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 0px;
-    text-shadow: 0px 0px 5px #ccc;
-    color: #ffff;
-    margin-left: 10px;
-    margin-top: 3px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  text-shadow: 0px 0px 5px #ccc;
+  color: #ffff;
+  margin-left: 10px;
+  margin-top: 3px;
 `
 
-const Wrapper = styled(Flex)`
-  svg {
-    margin-right: 0.25rem;
+const StyledStake = styled.button`
+  align-items: center;
+  display: inline-flex;
+  background-image: linear-gradient(#555977, #2F324A);
+  border: 1px solid;
+  border-color: #555977;
+  border-radius: 10px;
+  color: #FFFF;
+  font-size: 13px;
+  font-weight: 300;
+  height: 42px;
+  width: 110px;
+  padding: 15px;
+
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #fff;
+    text-shadow: 0px 0px 10px #fff;
   }
 `
 
-const StyledBtn = styled.button`
-  -webkit-box-align: center;
+const StyledUnstake = styled.button`
   align-items: center;
-  background-image: linear-gradient(#555977, #2F324A);
-  border-radius: 15px;
-  border:1px solid;
-  border-color: #555977 !important;
+  background-image: linear-gradient(#2F324A, #2F324A);
+  border:1px solid #CECECE;
+  border-color: #FFFF;
   border-radius: 10px;
   color: #FFFF;
   font-size: 13px;
   font-weight: 300;
   display: inline-flex;
-  height: 37px;
+  height: 42px;
   width: 80px;
   padding: 15px;
-  box-shadow: 0px 0px 0px #ccc;
-  text-shadow: 0px 0px 0px #ccc;
+
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #fff;
+    text-shadow: 0px 0px 10px #fff;
+  }
 `
 
-const StyledCardActions = styled.div`
+
+const EnableBTN = styled.button`
+  display: inline-flex;
+  align-items: center;
+  background-image: linear-gradient(#2F324A, #2F324A);
+  border-radius: 10px;
+  border: 1px solid #CECECE;
+  height: 42px;
+  width: 200px;
+  color: #FFFF;
+  font-size: 13.5px;
+  font-weight: 400;
+  padding: 15px;
+  margin-top: 0px;  
+  margin-bottom: 0px;
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px #fff;
+    text-shadow: 0px 0px 0px #fff;
+  }
+`
+
+const StakeCard = styled.div<{ isActive?: boolean; isFinished?: boolean }>`
+  align-self: baseline;
+  background-image: linear-gradient(#2F324A, #33364D);
+  border-radius: 20px;
+  border: 2px solid #CECECE;
   display: flex;
-  justify-content: center;
-  margin-top: 15px;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 25px;
+  position: relative;
+  text-align: center;
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    box-shadow: 0px 0px 3px #cccc;
+  }
+`
+
+const Divider = styled.div`
+  background-color: #FFFF;
+  margin-bottom: 10px;
+  margin-top: 7px;
   width: 100%;
-  margin-bottom: 15px;
-  box-sizing: border-box;
+  height: 1px;
+  box-shadow: 0px 0px 3px #ffff;
 `
-
-
-const StyledActionSpacer = styled.div`
-  height: ${(props) => props.theme.spacing[4]}px;
-  width: ${(props) => props.theme.spacing[4]}px;
-`
-
-
 
 interface PoolWithApy extends Pool3 {
   apy: BigNumber
@@ -169,73 +241,93 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const TVL = pool.tvl && pool.tvl.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const APY = apy && apy.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const APR = apr && apr.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
-
   const WeeklyROI = apr && apr.div(52).times(7).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const StakedUSDBalance = getBalanceNumber(stakedBalanceUsd).toLocaleString('en-us',{ maximumFractionDigits: 0 })
   const StakedBalance = getBalanceNumber(stakedBalance).toLocaleString('en-us',{ maximumFractionDigits: 0 })
-  const ExpectedBalanceMonth = apr && apr.div(12).times(0.01).times(getBalanceNumber(stakedBalanceUsd)).plus(getBalanceNumber(stakedBalanceUsd)).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
+  const ExpectedBalanceMonth = apr.div(12).times(getBalanceNumber(stakedBalanceUsd)).times(0.01).plus(getBalanceNumber(stakedBalanceUsd)).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
 
   return (
-    <Card isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
+    <StakeCard isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
       <div>
-        <Flex justifyContent='left' marginBottom='20px'>
-          <object type="image/svg+xml" data='/images/core/logo2.svg' width="30px">&nbsp;</object> 
-          <StakeTitle>MIS Staking</StakeTitle>
-        </Flex>
+        <div>
+          <Flex justifyContent='left' marginBottom='20px'>
+            <object type="image/svg+xml" data='/images/core/logo2.svg' width="30px">&nbsp;</object> 
+            <StakeTitle>MIS Staking</StakeTitle>
+          </Flex>
+        </div>
+
         <Flex justifyContent='space-between'>
           <LightText>tAPY</LightText>
           <Quote>{APY}%</Quote>
         </Flex>
+
         <Flex justifyContent='space-between'>
           <LightText>Weekly ROI</LightText>
           <Quote>{WeeklyROI}%</Quote>
         </Flex>
+
         <Flex justifyContent='space-between'>
           <LightText>Total Staked MIS</LightText>
           <Quote>${TVL}</Quote>
         </Flex>
+
+        <Divider/>
+
         <Flex justifyContent='space-between'>
-          <LightText>Your Staked MIS</LightText>
-          <Quote>{StakedBalance} (${StakedUSDBalance})</Quote>
+          <Quote>Your Staked MIS</Quote>
+          <Quote>{StakedBalance}</Quote>
         </Flex>
 
+        <Flex justifyContent='space-between'>
+          <Quote2>USD Balance</Quote2>
+          <Quote2>${StakedUSDBalance}</Quote2>
+        </Flex>
+        
+        <Flex justifyContent='space-between'>
+          <Quote2>Expected Balance (Month)</Quote2>
+          <Quote2>${ExpectedBalanceMonth}</Quote2>
+        </Flex>
 
-        <Wrapper alignItems="end">
-          <Flex alignItems="end">
-            <StyledCardActions style={{alignItems:"end"}}>
-            {!account && <UnlockButton />}
-            {account && (needsApproval && !isOldSyrup ? (
-              <div style={{ flex: 1 }}>
-                <StyledBtn
-                  style={{minWidth:'100px', maxWidth:'150px', boxShadow:'0px 0px 5px #fff', 'marginTop':'10px'}}
-                  disabled={isFinished || requestedApproval}
-                  onClick={handleApprove}>
-                  Enable Staking
-                </StyledBtn>
-              </div>
-            ) : ( <>
-              <StyledBtn 
-                style={{ justifyContent:"center", marginTop: '20px', marginRight:'10px' }}
-                disabled={stakedBalance.eq(new BigNumber(0)) || pendingTx}
-                onClick={ isOldSyrup ? async () => {
-                  setPendingTx(true)
-                  await onUnstake('0')
-                  setPendingTx(false)} : onPresentWithdraw }>
-                Unstake
-              </StyledBtn>
-              <StyledActionSpacer/>
-              {!isOldSyrup && (
-                <StyledBtn
-                  style={{ justifyContent:"center" }}
-                  disabled={isFinished && sousId !== 0} 
-                  onClick={onPresentDeposit}>
-                  Stake
-                </StyledBtn>)} </> ))}
-              </StyledCardActions>  
-            </Flex>
-          </Wrapper>
+        <Flex style={{ justifyContent:"center", marginTop: '20px', marginBottom: '10px'}}>
+          {!account && <UnlockButton />}
+          {account && (needsApproval && !isOldSyrup ? (
+
+          <div>
+            <EnableBTN
+              style={{ justifyContent:"center"}}
+              disabled={isFinished || requestedApproval}
+              onClick={handleApprove}>
+              Enable MIS
+            </EnableBTN>
+          </div>
+
+          ) : ( <>
+
+          <div>
+            <StyledUnstake 
+              style={{ justifyContent:"center", marginTop: '20px', marginRight:'10px' }}
+              disabled={stakedBalance.eq(new BigNumber(0)) || pendingTx}
+              onClick={ isOldSyrup ? async () => {
+                setPendingTx(true)
+                await onUnstake('0')
+                setPendingTx(false)} : onPresentWithdraw }>
+              Unstake
+            </StyledUnstake>
+            
+            {!isOldSyrup && (
+            <StyledStake
+              style={{ justifyContent:"center" }}
+              disabled={isFinished && sousId !== 0} 
+              onClick={onPresentDeposit}>
+              Stake
+            </StyledStake>)}
+          </div> 
+
+          </> ))}
+
+        </Flex>
       </div>
-    </Card>
+    </StakeCard>
   )
 }
 

@@ -28,13 +28,12 @@ const FCard = styled.div`
   padding: 25px;
   position: relative;
   text-align: center;
-
   &:hover:not(:disabled),
   &:active:not(:disabled),
   &:focus  {
     outline: 0;
     border-color: #FFFF;
-    box-shadow: 0px 0px 5px #cccc;
+    box-shadow: 0px 0px 3px #cccc;
   }
 `
 
