@@ -87,6 +87,14 @@ const Chain = styled.p`
   max-height: 37px;
   padding: 10px;
   margin-top: 16px;
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    cursor: pointer;
+    text-shadow: 0px 0px 10px #0094C6;
+  }
 `
 
 const Expand = styled.p`
@@ -107,13 +115,21 @@ const Expand = styled.p`
   padding: 10px;
   margin-top: 16px;
   box-shadow: 0px 0px 0px #FFFF;
-
 `
 
 const Quote = styled.p`
     font-size: 15px;
     font-weight: 500;
-    text-shadow: 0px 0px 5px #ccc;
+    text-shadow: 0px 0px 10px #ccc;
+
+    &:hover:not(:disabled),
+    &:active:not(:disabled),
+    &:focus  {
+      outline: 0;
+      font-weight: 500;
+      cursor: pointer;
+      text-shadow: 0px 0px 4px #CCCC;
+    }
 `
 
 const NavBar = (props) => {
@@ -159,7 +175,7 @@ const NavBar = (props) => {
             <div className="nav-container">
               <object 
                 type="image/svg+xml" 
-                data="/images/core/logo.svg" 
+                data="/images/core/logo2.svg" 
                 width="50px" 
                 style={{'marginTop': '0px', 'marginBottom': '0px', 'marginRight': '10px'}}>&nbsp;
               </object>

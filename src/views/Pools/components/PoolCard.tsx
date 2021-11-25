@@ -257,8 +257,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
             type="image/svg+xml" 
             data={`/images/incubator/${earnToken}.svg`}
             className="labhero"
-            style={{  flexWrap:'wrap', maxWidth:'240px'
-            }}>&nbsp;</object>
+            style={{  flexWrap:'wrap', maxWidth:'240px', justifyContent:'center'}}>&nbsp;</object>
         </SvgHero>
 
         <Flex justifyContent='space-between' marginTop='5px'>
@@ -312,7 +311,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           </div>
         </Flex>
 
-        <Flex justifyContent='space-between' marginTop='15px'>
+        <Flex justifyContent='space-between' marginTop='6px'>
 
           <div>
             <Bal>{staked}</Bal>

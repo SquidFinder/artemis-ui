@@ -22,8 +22,17 @@ const StyledButton = styled.div`
   height: 11px;
   width: 70px;
   padding: 14px;
-  box-shadow: 0px 0px 3px #ccc;
+  box-shadow: 0px 0px 2px #ccc;
   text-shadow: 0px 0px 0px #ccc;
+
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    color: #ffff;
+    outline: 0;
+    border-color: #FFFF;
+    box-shadow: 0px 0px 6px #cccc;
+  }
 `
 
 const CheckBoxWrapper = styled.div`
@@ -90,7 +99,7 @@ const FarmTabButtons = ({ stakedOnly, setStakedOnly, tokenMode }) => {
           <CheckBoxLabel htmlFor="checkbox" />
         </CheckBoxWrapper>
 
-        <ButtonMenu   activeIndex={isExact ? 0 : 1} size="sm" >
+        <ButtonMenu activeIndex={isExact ? 0 : 1} size="sm" >
           <StyledButton style={{justifyContent:'center'}} as={Link} to={`${url}`} >
             {TranslateString(8, 'Active')}
           </StyledButton>
@@ -123,9 +132,8 @@ const ActionsWrapper = styled.div`
   @media all and (max-width: 480px) {
       flex-flow: column;
   }
-  
-  
 `
+
 const Blablabla = styled.div`
   text-color: red;
   margin: 0px 18px;

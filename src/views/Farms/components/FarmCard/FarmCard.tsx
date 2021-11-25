@@ -34,7 +34,7 @@ const FCard = styled.div`
   &:focus  {
     outline: 0;
     border-color: #FFFF;
-    box-shadow: 0px 0px 4px #cccc;
+    box-shadow: 0px 0px 5px #cccc;
   }
 `
 

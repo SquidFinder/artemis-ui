@@ -168,6 +168,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   // Frontend Calculations
   const TVL = pool.tvl && pool.tvl.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const APY = apy && apy.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
+  const APR = apr && apr.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
+
   const WeeklyROI = apr && apr.div(52).times(7).toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const StakedUSDBalance = getBalanceNumber(stakedBalanceUsd).toLocaleString('en-us',{ maximumFractionDigits: 0 })
   const StakedBalance = getBalanceNumber(stakedBalance).toLocaleString('en-us',{ maximumFractionDigits: 0 })
