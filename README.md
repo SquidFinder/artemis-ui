@@ -1,4 +1,4 @@
-# Artemis Legacy Frontend (v1)
+# Artemis Legacy Frontend (v1.1)
 
 https://legacy.artemisprotocol.one
 
