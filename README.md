@@ -1,6 +1,6 @@
-# Artemis Protocol Frontend
+# Artemis Legacy Frontend (v1)
 
-https://app.artemisprotocol.one
+https://legacy.artemisprotocol.one
 
 #### Install dependencies and run locally
 
