@@ -26,71 +26,6 @@ export interface FarmsProps{
   tokenMode?: boolean
 }
 
-const Title = styled.p`
-  text-align: center;
-  font-size: 2em;
-  margin-bottom: 20px;
-
-`
-const Sub = styled.p`
-  text-align: center;
-  font-size: 1em;
-  color: #6E4EED;
-  margin-bottom: 25px;
-`
-
-const Features = styled.div`
-  display: flex;
-  flex-flow: row;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  @media screen and (max-width: 680px){
-    flex-flow: column;
-  }
-`
-
-const Feature = styled.div`
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-  margin: 19px;
-  font-size: 1.1em !important;
-  max-width: 180px;
-  text-align: center;
-
-
-  @media screen and (max-width: 680px){
-    max-width: 64%;
-    flex-flow: row;
-    align-items: flex-start;
-    & > svg{
-      width: 42px;
-    }
-    & > p{
-      text-align: left;
-      margin-left: 15px;
-    }
-  
-`
-const FeatureLink = styled.a`
-  color: yellow !important
-`
-
-const SvgHero = styled.div`
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-  padding: 22px 1px;
-
-  @media and all (max-width: 1000px) {
-    max-width: 80%;
-  }
-  
-`
-
 const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const { path } = useRouteMatch()
   const TranslateString = useI18n()
@@ -117,8 +52,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
   const [stakedOnly, setStakedOnly] = useState(false)
 
-  const activeFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.multiplier !== '0X')
-  const inactiveFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.multiplier === '0X')
+  const activeFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.multiplier !== '0X' && farm.pid < 12)
+  const inactiveFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.multiplier === '0X' && farm.pid < 12)
 
   const stakedOnlyFarms = activeFarms.filter(
     (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
@@ -141,9 +76,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
         const cakeRewardPerBlock = new BigNumber(farm.vikingPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
-      
         let apy = new BigNumber(cakePrice).times(cakeRewardPerYear);
-
         const totalValue = getTotalValueFromQuoteTokens(farm.quoteTokenAmount, farm.quoteTokenSymbol, prices);
 
         if(totalValue.comparedTo(0) > 0){
@@ -169,10 +102,9 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
   return (
     <Page>
+      
+      <Dashboard/>
       <div>
-
-        <Dashboard/>
-
         <FlexLayout>
           <Route exact path={`${path}`}>
             {stakedOnly ? farmsList(stakedOnlyFarms, false) : farmsList(activeFarms, false)}
@@ -181,9 +113,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
             {farmsList(inactiveFarms, true)}
           </Route>
         </FlexLayout>
-
         <FarmTabButtons stakedOnly={stakedOnly} setStakedOnly={setStakedOnly} tokenMode={tokenMode}/>
-
       </div>
     </Page>
   )

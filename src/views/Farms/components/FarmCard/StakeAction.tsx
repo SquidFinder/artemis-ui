@@ -28,49 +28,45 @@ const IconButtonWrapper = styled.div`
   }
 `
 
-const StyledBtn = styled.button`
-  -webkit-box-align: center;
+const StyledButton = styled.button`
   align-items: center;
-  background-color: #292C44;
-  border: 0px;
-  border-style: solid !important;
-  border-color: #ffff !important;
-  border-radius: 10px;
-  color: #FFFF;
-  font-size: 14px;
-  font-weight: 500;
-  width: 100%;
   display: inline-flex;
-  min-height: 18px;
-  max-height: 30px;
-  max-width: 95px;
-  padding: 20px;
-  box-shadow: 0px 0px 5px #ccc;
-  text-shadow: 0px 0px 5px #ccc;
-`
-const StyledBtn2 = styled.button`
-  -webkit-box-align: center;
-  align-items: center;
-  background-color: #292C44;
-  border: 0px;
-  border-style: solid !important;
-  border-color: #ffff !important;
+
+  border: 1px solid #555977;
+  background-image: linear-gradient(#555977, #2F324A);
   border-radius: 10px;
-  color: #FFFF;
-  font-size: 15px;
-  font-weight: 500;
-  width: 100%;
-  display: inline-flex;
-  min-height: 16px;
-  max-height: 28px;
-  max-width: 45px;
-  padding: 20px;
-  box-shadow: 0px 0px 5px #ccc;
+  height: 35px;
+  width: 38px;
+
+  color: #FFFFF;
+  font-size: 13px;
+  font-weight: 300;
+  padding: 13.5px;
+
+  box-shadow: 0px 0px 0px #ccc;
+  text-shadow: 0px 0px 0px #ccc;
+
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FAFAFA;
+    cursor: pointer;
+  }
 `
 
 const Staked = styled.div`
   font-size: 10px;
   color: ${({ theme }) => theme.colors.textSubtle};
+`
+
+const USDStaked = styled.text`
+  font-size: 13px;
+  align-items: center;
+  color: #8E8E8E;
+  display: flex;
+  margin-top: 3px;
+  justify-content: flex-start;
 `
 
 const StakeAction: React.FC<FarmCardActionsProps> = (
@@ -85,14 +81,11 @@ const StakeAction: React.FC<FarmCardActionsProps> = (
   const TranslateString = useI18n()
   const { onStake } = useStake(pid)
   const { onUnstake } = useUnstake(pid)
-
   const rawStakedBalance = getBalanceNumber(stakedBalance, 18)
   const displayBalance = rawStakedBalance.toLocaleString()
   const rawStakedBalanceUsd = getBalanceNumber(stakedBalanceUsd, 0)
-  const displayBalanceUsd = rawStakedBalanceUsd.toLocaleString('en-us', { maximumFractionDigits: 2, minimumFractionDigits: 2 })
-
+  const displayBalanceUsd = rawStakedBalanceUsd.toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 })
   const tokenBalanceUsdNum = getBalanceNumber(tokenBalanceUsd)
-
   const [onPresentDeposit] = useModal(<DepositModal
       max={tokenBalance}
       valueUsd={tokenBalanceUsdNum}
@@ -108,55 +101,30 @@ const StakeAction: React.FC<FarmCardActionsProps> = (
   )
 
   const renderStakingButtons = () => {
-    return rawStakedBalance === 0 ? (
-      <StyledBtn 
-      onClick={onPresentDeposit} 
-      style={{justifyContent:"center"}}> 
-      {TranslateString(999, 'Stake')}<FaLongArrowAltDown />
-      </StyledBtn>
-    ) : (
+    return (
       <IconButtonWrapper>
 
-        <StyledBtn2
+        <StyledButton
           onClick={onPresentWithdraw}
           style={{ justifyContent:"center" }}>
           <FaMinus/>
-        </StyledBtn2>
+        </StyledButton>
 
-        <StyledBtn2
+        <StyledButton
           onClick={onPresentDeposit}
           style={{ justifyContent:"center", marginLeft:'5px'  }}>
           <FaPlus/>
-        </StyledBtn2>
+        </StyledButton>
 
       </IconButtonWrapper>
     )
   }
 
-  const USDStaked = styled.text`
-  font-size: 13px;
-  align-items: center;
-  color: #8E8E8E;
-  display: flex;
-  margin-top: 3px;
-  justify-content: flex-start;
-`
-
-const Staked1 = styled.text`
-  font-size: 13px;
-  align-items: center;
-  color: #8E8E8E;
-  display: flex;
-  margin-top: 3px;
-  justify-content: flex-start;
-`
   return (
     <Flex justifyContent="space-between" alignItems="center"> 
-      <Heading  style={{fontSize:'17px'}} color={rawStakedBalance === 0 ? 'textDisabled' : 'text'}>
-        <Staked style={{ textShadow:'0px 0px 5px #fff'}}>
-          {displayBalance}
-        </Staked>
-        {stakedBalance.gt(0) && <USDStaked>${displayBalanceUsd}</USDStaked>}
+      <Heading  style={{fontSize:'14px', alignItems:'start'}} color={rawStakedBalance === 0 ? 'textDisabled' : 'text'}>
+        <Staked style={{ textShadow:'0px 0px 0px #fff'}}>${displayBalanceUsd} In LP</Staked>
+        <USDStaked>Deposited</USDStaked>
       </Heading>
       {renderStakingButtons()}
     </Flex>

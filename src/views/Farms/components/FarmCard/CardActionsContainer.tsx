@@ -11,7 +11,7 @@ import UnlockButton from 'components/UnlockButton'
 import { useApprove } from 'hooks/useApprove'
 import ReactTooltip from 'react-tooltip';
 import labo from 'config/constants/labo'
-import { Address } from 'config/constants/types'
+import { FaCheck } from 'react-icons/fa'
 import StakeAction from './StakeAction'
 import HarvestAction from './HarvestAction'
 
@@ -27,41 +27,40 @@ interface FarmCardActionsProps {
   ethereum?: provider
   account?: string
 }
-const StyledLinkExternal = styled(LinkExternal)`
-  text-decoration: none;
-  font-weight: bold;
-  color: ${({ theme }) => theme.colors.text};
-  display: flex;
-  align-items: center;
-  margin-top: 25px;
-
-  svg {
-    padding-left: 4px;
-    height: 18px;
-    width: auto;
-    fill: ${({ theme }) => theme.colors.primary};
-  }
-`
 
 const StyledBtn = styled.button`
-  -webkit-box-align: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0,0) !important;
-  border: 1px;
-  border-style: solid !important;
-  border-color: #ffff !important;
-  border-radius: 10px;
-  color: #ffff;
-  font-size: 15px;
-  font-weight: 400;
-  width: 100%;
   display: inline-flex;
-  min-height: 18px;
-  max-height: 30px;
-  max-width: 90px;
-  padding: 20px;
+  align-items: center;
+  
+  background-image: linear-gradient(#2F324A, #2F324A);
+  border-radius: 10px;
+  border: 1px solid #CECECE;
+  height: 42px;
+  width: 200px;
 
+  color: #FFFF;
+  font-size: 13.5px;
+  font-weight: 400;
+  padding: 15px;
+  
+  margin-top: 15px;
+  margin-bottom: 20px;
+
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px #fff;
+    text-shadow: 0px 0px 0px #fff;
+  }
   `
+
+const Divider = styled.div`
+  margin-bottom: 0px;
+  width: 0%;
+`
 
 const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }) => {
   const TranslateString = useI18n()
@@ -74,9 +73,9 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }
   const isApproved = account && allowance && allowance.isGreaterThan(0)
   const tokenBalanceUsd = useFarmTokensToUsd(pid, tokenBalance)
   const stakedBalanceUsd = useFarmTokensToUsd(pid, stakedBalance.div(new BigNumber(10).pow(18)))
+
   // console.log("StakedBalance", farm.pid, stakedBalance && stakedBalance.toNumber())
   // console.log("StakedBalanceUsd", farm.pid, stakedBalanceUsd && stakedBalanceUsd.toNumber())
-
   // console.log(pid)
   // console.log(tokenBalanceUsd)
   // console.log(stakedBalanceUsd)
@@ -87,9 +86,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }
     }
     return getContract(ethereum as provider, lpAddress);
   }, [ethereum, lpAddress, tokenAddress, isTokenOnly])
-
   const { onApprove } = useApprove(lpContract)
-
   const handleApprove = useCallback(async () => {
     try {
       setRequestedApproval(true)
@@ -99,37 +96,40 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }
       console.error(e)
     }
   }, [onApprove])
-
-
-
-
+  const Box = styled.p`
+`
   const renderApprovalOrStakeButton = () => {
     return isApproved ? (
-      <StakeAction
+      <Box>
+        <HarvestAction earnings={earnings} pid={pid}/>
+        <StakeAction         
           stakedBalance={stakedBalance}
           stakedBalanceUsd={stakedBalanceUsd}
           tokenBalance={tokenBalance}
           tokenBalanceUsd={tokenBalanceUsd}
           tokenName={lpName} pid={pid}
-          depositFeeBP={depositFeeBP}
-      />
-    ) : (
-      <span data-tip data-for='happyFace'>
-      <Button style={{'borderRadius': ( true ? '5px' : '')}} mt="8px" fullWidth disabled={requestedApproval || labo.isLocked.unlockWalletButton} onClick={handleApprove}>
-        {TranslateString(999, 'Enable Contract')}
-      </Button>
+          depositFeeBP={depositFeeBP}/>
+      </Box> 
+      ) 
+      : 
+      (
+      <span>
+        <StyledBtn 
+        style={{justifyContent:'center'}} 
+        disabled={requestedApproval || labo.isLocked.unlockWalletButton} 
+        onClick={handleApprove}>
+          {TranslateString(999, 'Enable')}&nbsp;{lpName}&nbsp;
+        </StyledBtn>
       </span>
-    )
+      )
   }
 
   return (
     <Action>
-
-      <HarvestAction earnings={earnings} pid={pid} />
-      
-
-      {!account ? <UnlockButton mt="8px" fullWidth /> : renderApprovalOrStakeButton()}
-    
+      {!account ? 
+      <Divider/> 
+      : 
+      renderApprovalOrStakeButton()}
     </Action>
   )
 }

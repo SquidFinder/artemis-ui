@@ -8,7 +8,7 @@ import {
   updateUserPendingReward,
 } from 'state/actions'
 import { unstake, sousUnstake, sousEmegencyUnstake } from 'utils/callHelpers'
-import { useMasterchef, useSousChef, useSousChef2, useSousChefBurn } from './useContract'
+import { useAutoRvrs, useMasterchef, useSousChef, useSousChef2, useSousChefBurn } from './useContract'
 
 const useUnstake = (pid: number) => {
   const dispatch = useDispatch()
@@ -56,6 +56,29 @@ export const useSousUnstake = (sousId) => {
   )
 
   return { onUnstake: handleUnstake }
+}
+
+export const useSousUnstake3 = (sousId, enableEmergencyWithdraw = false) => {
+  const dispatch = useDispatch();
+  const { account } = useWallet();
+  const sousChefContract = useAutoRvrs();
+
+  const handleUnstake = useCallback(
+    async (amount: string) => {
+      if (enableEmergencyWithdraw) {
+        const txHash = await sousEmegencyUnstake(sousChefContract, amount, account);
+        console.info(txHash);
+      } else {
+        const txHash = await sousUnstake(sousChefContract, amount, account);
+        console.info(txHash);
+      }
+      dispatch(updateUserStakedBalance(sousId, account));
+      dispatch(updateUserBalance(sousId, account));
+    },
+    [account, dispatch, enableEmergencyWithdraw, sousChefContract, sousId]
+  )
+
+  return { onUnstake: handleUnstake };
 }
 
 export const useSousUnstakeBurn = (sousId) => {

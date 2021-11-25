@@ -5,25 +5,31 @@ import labo from 'config/constants/labo'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import useI18n from 'hooks/useI18n'
 import styled from 'styled-components';
+import { FaWallet } from 'react-icons/fa';
 
 const StyledBtn = styled.button`
-  -webkit-box-align: center;
-  align-items: center;
-  background-color: #292C44;
-  border: 0px;
-  border-style: solid !important;
-  border-color: #ffff !important;
-  border-radius: 10px;
-  color: #FFFF;
-  font-size: 15px;
-  font-weight: 500;
-  width: 100%;
-  display: inline-flex;
-  min-height: 18px;
-  max-height: 30px;
-  max-width: 150px;
-  padding: 20px;
-  box-shadow: 0px 0px 5px #ccc;
+display: inline-flex;
+align-items: center;
+background-image: linear-gradient(#2F324A, #2F324A);
+border-radius: 10px;
+border: 1px solid #CECECE;
+height: 42px;
+width: 200px;
+color: #FFFF;
+font-size: 13.5px;
+font-weight: 400;
+padding: 15px;
+margin-top: 0px;  
+margin-bottom: 0px;
+&:hover:not(:disabled),
+&:active:not(:disabled),
+&:focus  {
+  outline: 0;
+  border-color: #FFFF;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px #fff;
+  text-shadow: 0px 0px 10px #fff;
+}
 `
 
 const UnlockButton = (props) => {
@@ -37,7 +43,7 @@ const UnlockButton = (props) => {
         style={{ justifyContent:"center" }}
         disabled={ labo.isLocked.unlockWalletButton } 
         onClick={onPresentConnectModal} {...props}>
-        {TranslateString(2192, 'Connect')}
+        {TranslateString(2192, 'Connect')}&nbsp;<FaWallet/>
       </StyledBtn>
     </span>
   )

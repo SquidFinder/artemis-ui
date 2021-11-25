@@ -13,6 +13,10 @@ const Farms = lazy(() => import('./views/Farms'))
 const Pools2 = lazy(() => import('./views/Pools2'))
 const Ifos = lazy(() => import('./views/Ifos'))
 const NotFound = lazy(() => import('./views/NotFound'))
+const ComingIDO = lazy(() => import('./views/ComingSoon'))
+
+const SingleStake = lazy(() => import('./views/SingleStake'))
+
 
 // This config is required for number formating
 BigNumber.config({
@@ -55,6 +59,14 @@ const App: React.FC = () => {
 
             <Route path="/artemispad">
               <Ifos/>
+            </Route>
+
+            <Route path="/automis">
+              <SingleStake/>
+            </Route> 
+            
+            <Route path="/comingsoon">
+              <ComingIDO/>
             </Route> 
 
             <Route component={NotFound} />

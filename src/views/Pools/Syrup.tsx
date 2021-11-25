@@ -23,64 +23,41 @@ import { QuoteToken, PoolCategory } from 'config/constants/types'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
 import Dashboard from 'views/Dashboard'
-
 import { FaQuestionCircle , FaUserCheck, FaLock, FaHistory, FaExchangeAlt, FaWater, FaProjectDiagram } from 'react-icons/fa'
 import Coming from './components/Coming'
 import PoolCard from './components/PoolCard'
 import PoolTabButtons from './components/PoolTabButtons'
 import Hero2 from './components/Hero'
 
-const Title = styled.p`
-  font-size: 1.1em;
-  margin-bottom: 40px;
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-  color: #2E2E2E;
-
-`
-
-const Features = styled.div`
-  display: flex;
-  flex-flow: row;
-  width: 100%;
+const StyledButton = styled.div`
+  -webkit-box-align: center;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  @media screen and (max-width: 680px){
-    flex-flow: column;
+  background-image: linear-gradient(#2F324A, #2F324A);
+  background: #2F324A;
+  border-radius: 15px;
+  border:1px solid #CECECE;
+  border-color: #ffff !important;
+  border-radius: 10px;
+  color: #FFFF;
+  font-size: 13px;
+  font-weight: 300;
+  display: inline-flex;
+  height: 11px;
+  width: 70px;
+  padding: 14px;
+  box-shadow: 0px 0px 2px #ccc;
+  text-shadow: 0px 0px 0px #ccc;
+
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    color: #ffff;
+    outline: 0;
+    border-color: #FFFF;
+    box-shadow: 0px 0px 6px #cccc;
   }
 `
 
-const Sub = styled.p`
-  font-size: 1em;
-  color: #6E4EED;
-`
-
-const Feature = styled.div`
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-  margin: 19px;
-  font-size: 1.1em !important;
-  max-width: 180px;
-  text-align: center;
-
-
-  @media screen and (max-width: 680px){
-    max-width: 64%;
-    flex-flow: row;
-    align-items: flex-start;
-    & > svg{
-      width: 42px;
-    }
-    & > p{
-      text-align: left;
-      margin-left: 15px;
-    }
-  
-`
 const ActionsWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -89,41 +66,14 @@ const ActionsWrapper = styled.div`
   @media all and (max-width: 480px) {
       flex-flow: column;
   }
-  
-  
 `
 
-
-const Blablabla = styled.div`
-  text-color: red;
-  margin: 0px 18px;
-  margin-bottom: 50px;
-`
-const GuideLink = styled.span`
-  color: #0073ff;
-`
-const Divider = styled.div`
-background-color: #4c68ef;
-height: 3px;
-margin-left: auto;
-margin-right: auto;
-margin-top: 25px;
-margin-bottom: 25px;
-width: 20%;
-
-`
-
-const SvgHero = styled.div`
+const Wrapper = styled.div`
   display: flex;
-  flex-flow: row;
-  flex-wrap: wrap;
-
   justify-content: center;
-  padding: 42px 12px;
-
-  @media all and (max-width: 1350px) { 
-    max-width: 100%;
-  }
+  align-items: center;
+  flex-flow: column;
+  margin-bottom: 25px;
 `
 
 const Farm: React.FC = () => {
@@ -148,7 +98,6 @@ const Farm: React.FC = () => {
   }
 
   const poolsWithApy = pools.map((pool) => {
-
     let quoteTokens = new BigNumber(pool.quoteTokenPerLp).times(pool.totalStaked).div(new BigNumber(10).pow(18))
     if (pool.sousId === 4) {
         // Handle single staking pools
@@ -173,14 +122,14 @@ const Farm: React.FC = () => {
     if (pool.sousId === 16) {
       // Handle single staking pools
       quoteTokens = new BigNumber(pool.totalStaked).div(new BigNumber(10).pow(18)).div(2)
-  }
-  console.log(quoteTokens)
-    const tvl = getTotalValueFromQuoteTokens(quoteTokens, pool.quoteTokenSymbol, prices)
+    }
+    
+    console.log(quoteTokens)
 
+    const tvl = getTotalValueFromQuoteTokens(quoteTokens, pool.quoteTokenSymbol, prices)
     // console.log("APY", pool, tvl && tvl.toNumber())
     const rewardTokenPrice = lookupPrice(pool.tokenName, prices)
     // console.log("price", pool.tokenName, rewardTokenPrice && rewardTokenPrice.toNumber())
-
     const totalRewardPricePerYear = rewardTokenPrice.times(pool.tokenPerBlock).times(BLOCKS_PER_YEAR)
     // const totalStakingTokenInPool = stakingTokenPriceInBNB.times(getBalanceNumber(pool.totalStaked))
     const apy = totalRewardPricePerYear.div(tvl).times(100)
@@ -200,16 +149,18 @@ const Farm: React.FC = () => {
 
   return (
     <Page>
+
       <Dashboard/>
 
       <FlexLayout>
         <Route exact path={`${path}`}>
           <>
-            {orderBy(openPools, ['sortOrder']).map((pool) => (
-              <PoolCard key={pool.sousId} pool={pool} />))}
-            <Coming />
+          {orderBy(openPools, ['sortOrder']).map((pool) => (
+            <PoolCard key={pool.sousId} pool={pool} />))}
+            {/* <Coming /> */ }
           </>
         </Route>
+
         <Route path={`${path}/history`}>
           {orderBy(finishedPools, ['sortOrder']).map((pool) => (
             <PoolCard key={pool.sousId} pool={pool}/>))}
@@ -217,33 +168,20 @@ const Farm: React.FC = () => {
       </FlexLayout>
 
       <Wrapper>
-        <ButtonMenu activeIndex={isExact ? 0 : 1} size="sm">
-          <ButtonMenuItem as={Link} to={`${url}`} >
-            {TranslateString(698, 'Active')}
-          </ButtonMenuItem>
-          <ButtonMenuItem as={Link} to={`${url}/history`}>
-            {TranslateString(700, 'Inactive')}
-          </ButtonMenuItem>
-        </ButtonMenu>
+        <ActionsWrapper style={{ marginTop: '0px', alignItems:'center'}}>
+          <ButtonMenu activeIndex={isExact ? 0 : 1} size="sm">
+            <StyledButton style={{justifyContent:'center'}} as={Link} to={`${url}`}>
+              {TranslateString(6198, 'Active')}
+            </StyledButton>
+            <StyledButton style={{justifyContent:'center', marginLeft:'5px'}} as={Link} to={`${url}/history`}>
+              {TranslateString(7010, 'Inactive')}
+            </StyledButton>
+          </ButtonMenu>
+        </ActionsWrapper>
       </Wrapper>
+
     </Page>
   )
 }
-
-const Hero = styled.div`
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-  padding-bottom: 33px;
-`
-
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column;
-  margin-bottom: 25px;
-  
-`
 
 export default Farm

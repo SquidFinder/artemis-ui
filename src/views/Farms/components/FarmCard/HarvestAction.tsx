@@ -40,26 +40,32 @@ const BalanceAndCompound = styled.div`
 `
 
 const StyledBtn = styled.button`
-  -webkit-box-align: center;
   align-items: center;
-  background-color: #292C44;
-  border: 0px;
-  border-style: solid !important;
-  border-color: #ffff !important;
-  border-radius: 10px;
-  color: #FFFF;
-  font-size: 14px;
-  font-weight: 500;
-  width: 100%;
-  display: inline-flex;
-  min-height: 18px;
-  max-height: 30px;
-  min-width: 95px;
-  max-width: 150px;
-  padding: 20px;
-  box-shadow: 0px 0px 5px #ccc;
-  text-shadow: 0px 0px 5px #ccc;
+  background-image: linear-gradient(#2F324A, #2F324A);
 
+  border:1px solid #CECECE;
+  border-color: #FFFF;
+  border-radius: 10px;
+
+  color: #FFFF;
+  font-size: 13px;
+  font-weight: 300;
+  display: inline-flex;
+
+  height: 11px;
+  width: 80px;
+  padding: 17px;
+  box-shadow: 0px 0px 0px #ccc;
+  text-shadow: 0px 0px 10px #ccc;
+
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px #fff;
+  }
 `
 
 const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
@@ -68,22 +74,20 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
   const { onReward } = useHarvest(pid)
   const { onStake } = useStake(pid)
   const cakePrice = usePriceCakeBusd()
-
+  const Earned = new BigNumber(getBalanceNumber(earnings))
   const rawEarningsBalance = getBalanceNumber(earnings)
-  const displayBalance = rawEarningsBalance.toLocaleString('en-us',{ maximumFractionDigits: 2, minimumFractionDigits: 2 })
+  const displayBalance = rawEarningsBalance.toLocaleString('en-us',{ maximumFractionDigits: 1, minimumFractionDigits: 1 })
   const rawEarningsUsdBalance = getBalanceNumber(earnings.times(cakePrice), )
   const displayBalanceUsd = rawEarningsUsdBalance.toLocaleString('en-us',{ maximumFractionDigits: 2, minimumFractionDigits: 2 })
 
   return (
     <Flex mb='6px' justifyContent='space-between' alignItems='center'>
-      <Heading style={{fontSize:'17px'}} color={rawEarningsBalance === 0 ? 'textDisabled' : 'text'}>
-          <Staked style={{ textShadow:'0px 0px 5px #fff'}}>
-              {displayBalance}
-          </Staked>
-          {earnings.gt(0) && <USDStaked>${displayBalanceUsd}</USDStaked>}
+
+      <Heading style={{fontSize:'15px'}} color={rawEarningsBalance === 0 ? 'textDisabled' : 'text'}>
+        <Staked style={{ textShadow:'0px 0px 0px #fff'}}>{displayBalance} MIS</Staked>
+        <USDStaked>Earned</USDStaked>
+        {/* {earnings.gt(0) && <USDStaked>${displayBalanceUsd}</USDStaked>} */ }
       </Heading>
-
-
 
       <BalanceAndCompound>
         {pid === labo.pids.pidLabo ?
@@ -107,6 +111,7 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
             {TranslateString(999, 'Compound')}
           </Button>
           : null}
+        {/* {Earned.gt(0) &&  */ }
         <StyledBtn
           disabled={rawEarningsBalance === 0 || pendingTx}
           onClick={async () => {
@@ -116,9 +121,11 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
           }}        
           style={{ justifyContent:"center" }}
         >
-          {TranslateString(999, 'Settle')}
+          {TranslateString(999, 'Claim')}
         </StyledBtn>
       </BalanceAndCompound>
+
+
     </Flex>
   )
 }

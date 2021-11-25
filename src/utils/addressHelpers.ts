@@ -35,3 +35,6 @@ export const getLotteryTicketAddress = () => {
 export const getIfoAddress = () => {
   return addresses.ifo[chainId]
 }
+export const getAutoRvrsAddress = () => {
+  return addresses.autoRVRS[chainId]
+}
