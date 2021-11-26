@@ -1,24 +1,19 @@
 import React, { useEffect, Suspense, lazy } from 'react'
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { ResetCSS } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js'
 import { useFetchPublicData } from 'state/hooks'
-import Pools from 'views/Pools'
 import GlobalStyle from './style/Global'
 import NavBar from './components/NavBar'
 
-const Home = lazy(() => import('./views/Home'))
-const Farms = lazy(() => import('./views/Farms'))
-const Pools2 = lazy(() => import('./views/Pools2'))
-const Ifos = lazy(() => import('./views/Ifos'))
+const LiqPools = lazy(() => import('./views/Pools'))
+const Incubator = lazy(() => import('./views/Incubator'))
+const ArtemisPad = lazy(() => import('./views/ArtemisPad'))
 const NotFound = lazy(() => import('./views/NotFound'))
-const ComingIDO = lazy(() => import('./views/ComingSoon'))
-
+const ComingSoon = lazy(() => import('./views/ComingSoon'))
 const SingleStake = lazy(() => import('./views/SingleStake'))
 
-
-// This config is required for number formating
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
   DECIMAL_PLACES: 80,
@@ -36,43 +31,41 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <ResetCSS />
-      <GlobalStyle />
-        <NavBar>
-          .
-        </NavBar>
+      <ResetCSS/>
+      <GlobalStyle/>
+      <NavBar/>
+
+      <Suspense fallback>
+        <Switch>
+
+          <Route path="/" exact>
+            <LiqPools/>
+          </Route>
+
+          <Route path="/pools">
+            <LiqPools/>
+          </Route>
       
-        <Suspense fallback>
-          <Switch>
+          <Route path="/incubator">
+            <Incubator/>
+          </Route>
 
-            <Route path="/" exact>
-              <Pools/>
-            </Route>
-            
-            <Route path="/pools">
-              <Farms/>
-            </Route>
-            
-            <Route path="/incubator">
-              <Pools/>
-            </Route>
+          <Route path="/artemispad">
+            <ArtemisPad/>
+          </Route>
 
-            <Route path="/artemispad">
-              <Ifos/>
-            </Route>
+          <Route path="/stake">
+            <SingleStake/>
+          </Route> 
+          
+          <Route path="/comingsoon">
+            <ComingSoon/>
+          </Route> 
 
-            <Route path="/stake">
-              <SingleStake/>
-            </Route> 
-            
-            <Route path="/comingsoon">
-              <ComingIDO/>
-            </Route> 
+          <Route component={NotFound} />
 
-            <Route component={NotFound} />
-
-          </Switch>
-        </Suspense>
+        </Switch>
+      </Suspense>
     </Router>
   )
 }
