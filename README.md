@@ -24,7 +24,7 @@ If you'd like to contribute (hugely appreciated), pull from the beta branch, we'
     hooks: contains generic hooks.
     utils: contains generic utilities functions.
 
-#### Project structure
+#### Tests
 
     Run tests with yarn test.
 
