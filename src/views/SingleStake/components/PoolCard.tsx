@@ -241,10 +241,10 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const TVL = pool.tvl && pool.tvl.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const APY = apy && apy.toNumber().toLocaleString('en-us', { maximumFractionDigits: 0, minimumFractionDigits: 0 })
   const APR = apr && apr.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
-  const WeeklyROI = apr && apr.div(52).times(7).toNumber().toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 })
+  const WeeklyROI = apr.div(52).toNumber().toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 })
   const StakedUSDBalance = getBalanceNumber(stakedBalanceUsd).toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 })
   const StakedBalance = getBalanceNumber(stakedBalance).toLocaleString('en-us', { maximumFractionDigits: 2, minimumFractionDigits: 2 })
-  const ExpectedBalanceMonth = apr.div(12).times(getBalanceNumber(stakedBalanceUsd)).times(0.01).plus(getBalanceNumber(stakedBalanceUsd)).toNumber().toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 });
+  const ExpectedBalanceWeek = apr.div(52).times(getBalanceNumber(stakedBalanceUsd)).times(0.01).plus(getBalanceNumber(stakedBalanceUsd)).toNumber().toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 });
 
   return (
     <StakeCard isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
@@ -258,7 +258,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
 
         <Flex justifyContent='space-between'>
           <LightText>tAPY</LightText>
-          <Quote>{APY}%</Quote>
+          <Quote>{APR}%</Quote>
         </Flex>
 
         <Flex justifyContent='space-between'>
@@ -267,7 +267,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         </Flex>
 
         <Flex justifyContent='space-between'>
-          <LightText>Total Staked MIS</LightText>
+          <LightText>TVL</LightText>
           <Quote>${TVL}</Quote>
         </Flex>
 
@@ -284,8 +284,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         </Flex>
         
         <Flex justifyContent='space-between'>
-          <Quote2>Expected Balance (Month)</Quote2>
-          <Quote2>${ExpectedBalanceMonth}</Quote2>
+          <Quote2>Expected Balance (Week)</Quote2>
+          <Quote2>${ExpectedBalanceWeek}</Quote2>
         </Flex>
 
         <Flex style={{ justifyContent:"center", marginTop: '20px', marginBottom: '10px'}}>
@@ -305,7 +305,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
 
           <div>
             <StyledUnstake 
-              style={{ justifyContent:"center", marginTop: '20px', marginRight:'10px' }}
+              style={{ justifyContent:"center", marginTop: '5px', marginRight:'10px' }}
               disabled={stakedBalance.eq(new BigNumber(0)) || pendingTx}
               onClick={ isOldSyrup ? async () => {
                 setPendingTx(true)

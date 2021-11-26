@@ -1,11 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Image, Button, LinkExternal } from '@pancakeswap-libs/uikit'
-import { CommunityTag } from 'components/Tags'
+import { Button } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
-import { FaBuilding, FaMountain, FaRegBuilding, FaToolbox, FaTools } from 'react-icons/fa'
+import { FaTools } from 'react-icons/fa'
 import Card from './Card'
-import CardTitle from './CardTitle'
 
 
 const Label2 = styled.p`
