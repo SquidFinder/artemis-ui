@@ -248,15 +248,19 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   return (
     <IncubatorCard isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
       <div>
-
+{/*
         <div style={{justifyContent:'center'}}>
           <SvgHero>
             <object 
               type="image/svg+xml" 
-              data={`/images/incubator/${EarnToken}.svg`}
-              style={{  flexWrap:'wrap', maxWidth:'240px', justifyContent:'center'}}>&nbsp;</object>
+              data={`/images/incubator/${EarnToken}.png`}
+              style={{  flexWrap:'wrap', width:'250px',  height:'135px', justifyContent:'center'}}>&nbsp;</object>
           </SvgHero>
-        </div>
+</div> */ }
+
+        <Flex justifyContent='left' marginBottom='20px'>
+          <object type="image/svg+xml" data={`/images/incubator/${EarnToken}.svg`} style={{  flexWrap:'wrap', width:'250px', justifyContent:'center'}}>&nbsp;</object> 
+        </Flex>
 
         <Flex justifyContent='space-between' marginTop='5px'>
           <LightText>tAPR</LightText>
