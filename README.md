@@ -1,9 +1,10 @@
 # Artemis Frontend v2
 
 App: https://app.artemisprotocol.one/
+
 Beta: https://beta.artemisprotocol.one/
 
-Products
+Products:
 - Pools
 - Staking
 - ArtemisPad
