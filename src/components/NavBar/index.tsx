@@ -100,7 +100,7 @@ const Expand = styled.p`
   background-image: linear-gradient(#2F324A, #2F324A);
   border: 1px #2F324A;
   border-style: solid !important;
-  border-color: #2F324A !important;
+  border-color: #FFF !important;
   border-radius: 10px;
   color: #ffff;
   font-size: 14px;
