@@ -189,7 +189,7 @@ const NavBar = (props) => {
               <ul className="nav-tabs">
 
                 <li className="nav-tab">
-                  <Link to="/comingsoon" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                  <Link to="/artemispad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                     <Quote>ArtemisPad</Quote>
                   </Link>
                 </li>
@@ -273,7 +273,7 @@ const NavBar = (props) => {
                   </li>
                   <li className="nav-tab">
                     <a target="_blanK" rel="noreferrer" href="https://paladinsec.co/projects/artemis-ifo/" className="nav-links">
-                      <span className="dditem">Audit</span>
+                      <span className="dditem">IDO Audit</span>
                     </a>
                   </li>
                   <li className="nav-tab">
@@ -297,7 +297,7 @@ const NavBar = (props) => {
                     </a>
                   </li>
                   <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://github.com/ArtemisProtocol/artemis-frontend" className="nav-links">
+                    <a target="_blanK" rel="noreferrer" href="https://github.com/ArtemisProtocol/" className="nav-links">
                       <span className="dditem">Github</span>
                     </a>
                   </li>
