@@ -11,3 +11,5 @@ Products
     yarn
 
     yarn start  
+
+If you'd like to contribute (hugely appreciated), pull from the beta branch, we'll then merge to main!
