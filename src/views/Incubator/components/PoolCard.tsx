@@ -211,6 +211,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const isCardActive = isFinished && accountHasStakedBalance
   const convertedLimit = new BigNumber(stakingLimit).multipliedBy(new BigNumber(10).pow(tokenDecimals))
 
+
   const [onPresentDeposit] = useModal(
     <DepositModal
       max={stakingLimit && stakingTokenBalance.isGreaterThan(convertedLimit) ? convertedLimit : stakingTokenBalance}
@@ -242,6 +243,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const TVL = pool.tvl && pool.tvl.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const staked = getBalanceNumber(stakedBalance).toLocaleString('en-us', { maximumFractionDigits: 4, minimumFractionDigits: 4 });
   const earned = getBalanceNumber(earnings, tokenDecimals).toLocaleString('en-us', { maximumFractionDigits: 4, minimumFractionDigits: 4 });
+  const EarnToken = earnToken.toLocaleString();
 
   return (
     <IncubatorCard isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
@@ -251,12 +253,10 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           <SvgHero>
             <object 
               type="image/svg+xml" 
-              data={`/images/incubator/${earnToken}.svg`}
-              style={{  flexWrap:'wrap', maxWidth:'220px', justifyContent:'center'}}>&nbsp;</object>
+              data={`/images/incubator/${EarnToken}.svg`}
+              style={{  flexWrap:'wrap', maxWidth:'240px', justifyContent:'center'}}>&nbsp;</object>
           </SvgHero>
         </div>
-
-        <object type="image/svg+xml"  data={`/images/incubator/${earnToken}.svg`} width="50px">&nbsp;</object> 
 
         <Flex justifyContent='space-between' marginTop='5px'>
           <LightText>tAPR</LightText>
