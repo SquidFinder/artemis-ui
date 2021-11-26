@@ -204,22 +204,22 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.UST,
     quoteTokenAdresses: contracts.ust,
   },
-  /* {
-    pid:labo.pids.pidList[12],
+  {
+    pid:labo.pids.pidList[13],
     risk: 3,
-    lpSymbol: 'MIS',
+    lpSymbol: 'WBTC/1ETH',
     lpAddresses: {
-      1666700000: '0xD74433B187Cf0ba998Ad9Be3486B929c76815215',
-      1666600000: '0xD74433B187Cf0ba998Ad9Be3486B929c76815215',
+      1666700000: '0x997f00485b238c83f7e58c2ea1866dfd79f04a4b',
+      1666600000: '0x997f00485b238c83f7e58c2ea1866dfd79f04a4b',
     },
-    tokenSymbol: 'ONE',
+    tokenSymbol: 'WBTC',
     tokenAddresses: {
-      1666700000: '0xcf664087a5bb0237a0bad6742852ec6c8d69a27a',
-      1666600000: '0xcf664087a5bb0237a0bad6742852ec6c8d69a27a',
+      1666700000: '0x3095c7557bcb296ccc6e363de01b760ba031f2d9',
+      1666600000: '0x3095c7557bcb296ccc6e363de01b760ba031f2d9',
     },
-    quoteTokenSymbol: QuoteToken.MIS,
-    quoteTokenAdresses: contracts.cake,
-  }, */
+    quoteTokenSymbol: QuoteToken.ONEETH,
+    quoteTokenAdresses: contracts.oneeth,
+  },
  
 ]
 
