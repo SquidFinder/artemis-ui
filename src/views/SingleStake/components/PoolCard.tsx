@@ -17,40 +17,19 @@ import { Pool, Pool3 } from 'state/types'
 import useTokenBalance from 'hooks/useTokenBalance'
 import { getCakeAddress } from 'utils/addressHelpers'
 import { FaExternalLinkAlt, FaGithub, FaLongArrowAltRight } from 'react-icons/fa'
+import ExpandableSectionButton from 'components/ExpandableSectionButton'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
 import Card from './Card'
 import {usePriceCakeBusd} from "../../../state/hooks";
 
-const Quote = styled.p`
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 6px;
-  text-shadow: 0px 0px 10px #ccc;
-`
 
-const Quote2 = styled.p`
-  font-size: 14px;
-  font-weight: 300;
-  margin-bottom: 6px;
-  text-shadow: 0px 0px 0px #ccc;
-  color: #8E8E8E;
-  margin-left: 5px;
-`
-
-const LightText = styled.p`
-  font-size: 14px;
-  font-weight: 300;
-  margin-bottom: 0px;
-  text-shadow: 0px 0px 0px #ccc;
-  color: #8E8E8E;
-`
 
 const StakeTitle = styled.p`
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 0px;
-  text-shadow: 0px 0px 5px #ccc;
+  text-shadow: 0px 0px 2px #ccc;
   color: #ffff;
   margin-left: 10px;
   margin-top: 3px;
@@ -119,8 +98,7 @@ const EnableBTN = styled.button`
   font-size: 13.5px;
   font-weight: 400;
   padding: 15px;
-  margin-top: 0px;  
-  margin-bottom: 0px;
+
   &:hover:not(:disabled),
   &:active:not(:disabled),
   &:focus  {
@@ -154,11 +132,16 @@ const StakeCard = styled.div<{ isActive?: boolean; isFinished?: boolean }>`
 
 const Divider = styled.div`
   background-color: #FFFF;
-  margin-bottom: 15px;
-  margin-top: 7px;
-  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 0px;
+  width: 0%;
   height: 1px;
-  box-shadow: 0px 0px 3px #ffff;
+  box-shadow: 0px 0px 0px #ffff;
+`
+
+const ExpandingWrapper = styled.div<{ expanded: boolean }>`
+  height: ${(props) => (props.expanded ? '100%' : '0px')};
+  overflow: hidden;
 `
 
 interface PoolWithApy extends Pool3 {
@@ -194,6 +177,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const { onUnstake } = useSousUnstake3(sousId);
   const { onReward } = useSousHarvest3(sousId, isBnbPool);
 
+  const misBalance = getBalanceNumber(useTokenBalance(getCakeAddress())).toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const MISPrice = usePriceCakeBusd();
   const [requestedApproval, setRequestedApproval] = useState(false);
   const [pendingTx, setPendingTx] = useState(false);
@@ -207,6 +191,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const needsApproval = !accountHasStakedBalance && !allowance.toNumber() && !isBnbPool;
   const isCardActive = isFinished && accountHasStakedBalance;
   const convertedLimit = new BigNumber(stakingLimit).multipliedBy(new BigNumber(10).pow(tokenDecimals));
+  const [showExpandableSection, setShowExpandableSection] = useState(false);
+
 
   // Deposit
   const [onPresentDeposit] = useModal(
@@ -238,19 +224,23 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
 
 
   // Frontend Calculations
+  const misBalanceUSD = new BigNumber(getBalanceNumber(useTokenBalance(getCakeAddress()))).times(MISPrice).toNumber().toLocaleString('en-us', { maximumFractionDigits: 0, minimumFractionDigits: 0 })
+  const totalMIS = new BigNumber(getBalanceNumber(stakedBalance)).plus(getBalanceNumber(useTokenBalance(getCakeAddress()))).toNumber().toLocaleString('en-us', { maximumFractionDigits: 0, minimumFractionDigits: 0 })
+  const totalMISusd = new BigNumber(getBalanceNumber(stakedBalance)).plus(getBalanceNumber(useTokenBalance(getCakeAddress()))).times(MISPrice).toNumber().toLocaleString('en-us', { maximumFractionDigits: 0, minimumFractionDigits: 0 })
   const TVL = pool.tvl && pool.tvl.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const APY = apy && apy.toNumber().toLocaleString('en-us', { maximumFractionDigits: 0, minimumFractionDigits: 0 })
   const APR = apr && apr.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const WeeklyROI = apr.div(52).toNumber().toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 })
   const StakedUSDBalance = getBalanceNumber(stakedBalanceUsd).toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 })
-  const StakedBalance = getBalanceNumber(stakedBalance).toLocaleString('en-us', { maximumFractionDigits: 2, minimumFractionDigits: 2 })
+  const StakedBalance = getBalanceNumber(stakedBalance).toLocaleString('en-us', { maximumFractionDigits: 0, minimumFractionDigits: 0 })
   const ExpectedBalanceWeek = apr.div(52).times(getBalanceNumber(stakedBalanceUsd)).times(0.01).plus(getBalanceNumber(stakedBalanceUsd)).toNumber().toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 });
+
 
   return (
     <StakeCard isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
       <div>
         <div>
-          <Flex justifyContent='left' marginBottom='20px'>
+          <Flex justifyContent='left' marginBottom='25px'>
             <object type="image/svg+xml" data='/images/core/logo2.svg' width="30px">&nbsp;</object> 
             <StakeTitle>MIS Staking</StakeTitle>
           </Flex>
@@ -267,26 +257,27 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         </Flex>
 
         <Flex justifyContent='space-between'>
-          <LightText>TVL</LightText>
+          <LightText>Value Locked</LightText>
           <Quote>${TVL}</Quote>
         </Flex>
 
         <Divider/>
 
-        <Flex justifyContent='space-between'>
-          <Quote>Your Staked MIS</Quote>
-          <Quote>{StakedBalance}</Quote>
+        <Flex justifyContent='left'>
+          <Bal2>You have {StakedBalance} MIS</Bal2>
         </Flex>
 
-        <Flex justifyContent='space-between'>
-          <Quote2>USD Balance</Quote2>
-          <Quote2>${StakedUSDBalance}</Quote2>
+        <Flex justifyContent='left'>
+          <Bal>= {StakedBalance} Staked + {misBalance} Stakeable</Bal>
         </Flex>
-        
-        <Flex justifyContent='space-between'>
-          <Quote2>Expected Balance (Week)</Quote2>
-          <Quote2>${ExpectedBalanceWeek}</Quote2>
+
+        <Flex justifyContent='left'>
+          <Bal>= ${StakedUSDBalance} Staked + ${misBalanceUSD} Stakeable</Bal>
         </Flex>
+
+
+
+ 
 
         <Flex style={{ justifyContent:"center", marginTop: '20px', marginBottom: '10px'}}>
           { /* {!account && <UnlockButton />} */ }
@@ -326,9 +317,67 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           </> ))}
 
         </Flex>
+
       </div>
     </StakeCard>
   )
 }
 
 export default PoolCard
+
+
+const Bal = styled.p`
+font-size: 13px;
+font-weight: 300;
+margin-bottom: 6px;
+text-shadow: 0px 0px 0px #ccc;
+color: #8E8E8E;
+`
+
+const Bal2 = styled.p`
+font-size: 13px;
+font-weight: 400;
+margin-bottom: 6px;
+text-shadow: 0px 0px 0px #ccc;
+color: #ffff;
+`
+
+const Bal3 = styled.p`
+font-size: 13px;
+font-weight: 400;
+margin-bottom: 6px;
+text-shadow: 0px 0px 0px #ccc;
+color: #EEEEEE;
+`
+
+const Quote = styled.p`
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  text-shadow: 0px 0px 10px #ccc;
+`
+
+const Quote2 = styled.p`
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 6px;
+  text-shadow: 0px 0px 0px #ccc;
+  color: #8E8E8E;
+  margin-left: 5px;
+`
+
+const LightText = styled.p`
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 0px;
+  color: #8E8E8E;
+
+`
+
+const Disclaimer = styled.p`
+  font-size: 13px;
+  font-weight: 300;
+  margin-bottom: 0px;
+  text-shadow: 0px 0px 0px #ccc;
+  color: #8E8E8E;
+`
