@@ -27,6 +27,7 @@ const DashboardPage2 = styled.div`
   margin-right: auto;
   min-width: 350px;
   max-width: 900px;
+  margin-bottom: 0px;
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-top: 20px;
     padding-bottom: 10px;
