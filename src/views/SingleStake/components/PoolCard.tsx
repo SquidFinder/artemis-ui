@@ -289,7 +289,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         </Flex>
 
         <Flex style={{ justifyContent:"center", marginTop: '20px', marginBottom: '10px'}}>
-          {!account && <UnlockButton />}
+          { /* {!account && <UnlockButton />} */ }
           {account && (needsApproval && !isOldSyrup ? (
 
           <div>

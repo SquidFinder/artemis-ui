@@ -50,9 +50,11 @@ const App: React.FC = () => {
             <Incubator/>
           </Route>
 
+          { /*
           <Route path="/artemispad">
             <ArtemisPad/>
           </Route>
+          */ }
 
           <Route path="/stake">
             <SingleStake/>

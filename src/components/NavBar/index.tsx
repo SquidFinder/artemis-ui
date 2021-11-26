@@ -189,7 +189,7 @@ const NavBar = (props) => {
               <ul className="nav-tabs">
 
                 <li className="nav-tab">
-                  <Link to="/artemispad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                  <Link to="/comingsoon" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                     <Quote>ArtemisPad</Quote>
                   </Link>
                 </li>

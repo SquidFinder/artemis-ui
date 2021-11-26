@@ -18,19 +18,22 @@ import useTokenBalance, { useTotalSupply, useBurnedBalance } from 'hooks/useToke
 import { Link } from 'react-router-dom'
 import ExpandableSectionButton from 'components/ExpandableSectionButton'
 import Container from 'components/layout/Container'
+import DashboardContainer from 'components/layout/DashboardContainer'
 import { getCakeAddress } from '../../utils/addressHelpers'
 
 
-const DashboardPage2 = styled(Container)`
-  min-height: calc(1vh - 64px);
-  max-width: 500px;
+const DashboardPage2 = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 350px;
+  max-width: 900px;
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-top: 20px;
-    padding-bottom: 24px;
+    padding-bottom: 10px;
   }
   ${({ theme }) => theme.mediaQueries.lg} {
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 `
 
