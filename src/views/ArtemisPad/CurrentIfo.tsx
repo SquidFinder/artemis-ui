@@ -61,13 +61,12 @@ const Ifo = () => {
         <IfoCards>
           <IfoCard ifo={activeIfo} />
         </IfoCards>   
-        {/*
         <IfoCards>
           <IfoCard ifo={activeIfo2} />
         </IfoCards>   
         <IfoCards>
           <IfoCard ifo={activeIfo3} />
-        </IfoCards>   */ } 
+        </IfoCards>
 
     </LaunchpadLayout>
   )

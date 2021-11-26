@@ -11,6 +11,14 @@ const Container = styled.div`
     padding-left: 24px;
     padding-right: 24px;
   }
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  & > * {
+    margin: 40px;
+    margin-top: 15px;
+  }
 `
 
 export default Container
