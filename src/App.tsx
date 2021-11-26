@@ -7,7 +7,7 @@ import { useFetchPublicData } from 'state/hooks'
 import GlobalStyle from './style/Global'
 import NavBar from './components/NavBar'
 
-const LiqPools = lazy(() => import('./views/Pools'))
+const LiqPools = lazy(() => import('./views/LiqPools'))
 const Incubator = lazy(() => import('./views/Incubator'))
 const ArtemisPad = lazy(() => import('./views/ArtemisPad'))
 const NotFound = lazy(() => import('./views/NotFound'))
