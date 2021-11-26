@@ -45,14 +45,13 @@ const LightText = styled.p`
 
 const SvgHero = styled.div`
   display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
   justify-content: center;
-  flex-wrap: wrap
 
-  @media and all (max-width: 100px) {
-    max-width: 50%;
-  }
-  
+
 `
+
 
 const StyledPlusMinusBTN = styled.button`
   align-items: center;
@@ -248,13 +247,15 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   return (
     <IncubatorCard isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
       <div>
-        <SvgHero>
-          <object 
-            type="image/svg+xml" 
-            data={`/images/incubator/${earnToken}.svg`}
-            className="labhero"
-            style={{  flexWrap:'wrap', maxWidth:'240px', justifyContent:'center'}}>&nbsp;</object>
-        </SvgHero>
+
+        <div style={{justifyContent:'center'}}>
+          <SvgHero>
+            <object 
+              type="image/svg+xml" 
+              data={`/images/incubator/${earnToken}.svg`}
+              style={{  flexWrap:'wrap', maxWidth:'240px', justifyContent:'center'}}>&nbsp;</object>
+          </SvgHero>
+        </div>
 
         <Flex justifyContent='space-between' marginTop='5px'>
           <LightText>tAPR</LightText>
