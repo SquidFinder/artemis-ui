@@ -49,7 +49,7 @@ const App: React.FC = () => {
               <Pools/>
             </Route>
             
-            <Route path="/farm">
+            <Route path="/pools">
               <Farms/>
             </Route>
             
@@ -61,7 +61,7 @@ const App: React.FC = () => {
               <Ifos/>
             </Route>
 
-            <Route path="/automis">
+            <Route path="/stake">
               <SingleStake/>
             </Route> 
             

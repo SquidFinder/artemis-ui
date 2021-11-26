@@ -15,46 +15,29 @@ interface DepositModalProps {
 }
 
 const StyledBtn = styled.button`
-  -webkit-box-align: center;
+  display: inline-flex;
   align-items: center;
-  background-color: rgba(0, 0, 0,0) !important;
-  border: 1px;
-  border-style: solid !important;
-  border-color: #ffff !important;
+  background-image: linear-gradient(#2F324A, #2F324A);
   border-radius: 10px;
-  color: #ffff;
-  font-size: 15px;
+  border: 1px solid #CECECE;
+  height: 45px;
+  width: 100px;
+  color: #FFFF;
+  font-size: 14px;
   font-weight: 400;
-  width: 100%;
-  display: inline-flex;
-  min-height: 18px;
-  max-height: 30px;
-  max-width: 100px;
-  padding: 25px;
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    cursor: pointer;
+  }
   `
 
-  const StyledBtn2 = styled.button`
-  -webkit-box-align: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0,0) !important;
-  border: 1px;
-  border-style: solid !important;
-  border-color: #ffff !important;
-  border-radius: 10px;
-  color: #ffff;
-  font-size: 15px;
-  font-weight: 600;
-  width: 100%;
-  display: inline-flex;
-  min-height: 18px;
-  max-height: 30px;
-  max-width: 100px;
-  padding: 25px;
 
-  text-shadow: 0px 0px 10px #fff;
-
-  box-shadow: 0px 0px 8px #fff;
-  `
 
 const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, tokenName = '' }) => {
   const [val, setVal] = useState('')
@@ -90,7 +73,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
         onClick={onDismiss}>
           {TranslateString(462, 'Cancel')}
         </StyledBtn>
-        <StyledBtn2
+        <StyledBtn
           disabled={pendingTx}
           style={{justifyContent:"center" }}
 
@@ -101,8 +84,8 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
             onDismiss()
           }}
         >
-          {pendingTx ? TranslateString(4288, '.....') : TranslateString(4264, 'Stake')}
-        </StyledBtn2>
+          {pendingTx ? TranslateString(4288, '...') : TranslateString(4264, 'Confirm')}
+        </StyledBtn>
       </ModalActions>
     </Modal>
   )
