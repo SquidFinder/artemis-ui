@@ -35,7 +35,15 @@ const DCard = styled.div`
   justify-content: space-around;
   padding: 24px;
   position: relative;
-  box-shadow: 0px 0px 10px #ccc;
+  box-shadow: 0px 0px 5px #ccc;
+
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    box-shadow: 0px 0px 10px #cccc;
+  }
 ` 
 
 const DCard2 = styled.div`

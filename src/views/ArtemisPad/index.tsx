@@ -34,33 +34,12 @@ const Feature = styled.div`
     }
   
 `
-
-const SvgHero = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-`
-
-const StyledNotFound = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`
-const Sub = styled.p`
-  font-size: 20px;
-  color: #ffff;
-  margin-top: 0px;
-  margin-bottom: 30px;
-  margin-top: 20px;
-  text-shadow: 0px 0px 5px #fff;`
-
 const Ifos = () => {
   const { path } = useRouteMatch()
 
   return (
     <>
-      {/* <Hero/> */ }
+      {/* <Hero/>
 
       <StyledNotFound>
         <Sub>{TranslateString(999, 'Upcoming IDOs...')}</Sub>
@@ -73,7 +52,7 @@ const Ifos = () => {
           className="labhero"
           style={{  maxWidth:'300px', marginBottom: '20px'}} 
           >&nbsp;</object>
-      </SvgHero>
+      </SvgHero> */ }
 
       <Container>
         <Route exact path={`${path}`}>
@@ -83,11 +62,11 @@ const Ifos = () => {
           <PastIfo />
         </Route>
 
-        <FlexLayout style={{marginTop:'20px'}}>
+      {/*   <FlexLayout style={{marginTop:'20px'}}>
           <Feature >
             <IfoTabButtons />
           </Feature>
-        </FlexLayout>
+        </FlexLayout>  */ }
 
       </Container>
     </>

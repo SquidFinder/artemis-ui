@@ -21,29 +21,29 @@ export interface IfoCardProps {
 }
 
 const StyledIfoCard = styled(Card)<{ ifoId: string }>`
+  width: 100%;
+  align-self: baseline;
+
   background-image: linear-gradient(#2F324A, #33364D);
-  background-repeat: no-repeat;
   border-radius: 20px;
   border: 2px solid #CECECE;
-  background-size: contain;
-  max-width: 440px;
-  width: 110%;
-  box-shadow: 0px 0px 5px #ccc;
-  padding: 10px;
-`
-
-const FCard = styled.div`
-  align-self: baseline;
-  background: #2F324A;
-  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  padding: 33px;
+  justify-content: center;
+  padding: 12px;
   position: relative;
-  text-align: center;
-  box-shadow: 0px 0px 3px #fff;
+
+  margin-bottom: -10px;
+
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    box-shadow: 0px 0px 3px #cccc;
+  }
 `
+
 
 const Column = styled.div`
   margin-top: 10px;
@@ -51,21 +51,7 @@ const Column = styled.div`
 
 `
 
-const StyledCardContentInner = styled(Card)<{ ifoId: string }>`
-  align-items: center;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: space-between;
-  background-image: url('/images/bg.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: 112px;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 500px;
-  width: 100%;
-`
+
 
 const getStatus = (currentBlock: number, startBlock: number, endBlock: number): IfoStatus | null => {
   if (currentBlock < startBlock) {
