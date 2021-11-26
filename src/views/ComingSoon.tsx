@@ -31,17 +31,8 @@ const NotFound = () => {
     <Page>
 
     <StyledNotFound>
-        <Sub>{TranslateString(999, 'Next IDOs...')}</Sub>
+        <Sub>{TranslateString(999, 'Coming Soon...')}</Sub>
       </StyledNotFound>
-      <SvgHero>
-        <object 
-          type="image/svg+xml" 
-          data='/images/comingIDO/coming.svg'
-          className="labhero"
-          style={{  maxWidth:'300px'
-          }} 
-          >&nbsp;</object>
-        </SvgHero>
 
     </Page>
   )
