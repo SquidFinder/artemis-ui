@@ -5,10 +5,10 @@ App: https://app.artemisprotocol.one/
 Beta: https://beta.artemisprotocol.one/
 
 Products:
-- Pools
-- Staking
-- ArtemisPad
-- Incubator
+- Pools (MasterchefV2)
+- Staking (Vaults on MIS Pool)
+- ArtemisPad (Launchpad)
+- Incubator (Smartchef)
 
 If you'd like to contribute (hugely appreciated), pull from the beta branch, we'll then merge to main! We offer bounties in MIS tokens. Read the guidelines below...
 
