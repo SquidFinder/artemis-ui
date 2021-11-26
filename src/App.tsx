@@ -45,12 +45,13 @@ const App: React.FC = () => {
           <Route path="/pools">
             <LiqPools/>
           </Route>
-      
+          
+          { /*
           <Route path="/incubator">
             <Incubator/>
           </Route>
 
-          { /*
+
           <Route path="/artemispad">
             <ArtemisPad/>
           </Route>
