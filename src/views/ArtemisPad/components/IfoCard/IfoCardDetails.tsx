@@ -18,7 +18,7 @@ export interface IfoCardDetailsProps {
 
 
 const Divider = styled.div`
-  background-color: #4c68ef;
+  background-color: #2F324A;
   height: 3px;
   margin-left: 100;
   margin-right: 0px;

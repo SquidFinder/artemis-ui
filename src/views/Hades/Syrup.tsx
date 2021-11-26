@@ -90,7 +90,7 @@ const GuideLink = styled.span`
   color: #0073ff;
 `
 const Divider = styled.div`
-background-color: #4c68ef;
+background-color: #2F324A;
 height: 3px;
 margin-left: auto;
 margin-right: auto;

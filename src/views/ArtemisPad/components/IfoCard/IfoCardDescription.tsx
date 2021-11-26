@@ -14,7 +14,7 @@ const StyledIfoCardDescription = styled.div`
 `
 
 const Divider = styled.div`
-  background-color: #4C68EF;
+  background-color: #2F324A;
   height: 2px;
   margin-left: auto;
   margin-right: auto;

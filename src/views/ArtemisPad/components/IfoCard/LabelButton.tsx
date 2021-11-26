@@ -33,7 +33,7 @@ const LabelButton: React.FC<Props> = ({ value, label, buttonLabel, onClick, disa
         <Text bold fontSize="20px">
           {value}
         </Text>
-        <Button onClick={onClick} disabled={disabled} style={{color:'#fff', background:'#4C68EF', boxShadow:'0px 0px 10px #ccc'}} >
+        <Button onClick={onClick} disabled={disabled} style={{color:'#fff', background:'#2F324A', boxShadow:'0px 0px 10px #ccc'}} >
           {buttonLabel}
         </Button>
       </ButtonWrapper>

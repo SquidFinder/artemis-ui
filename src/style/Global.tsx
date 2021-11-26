@@ -36,9 +36,11 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1em !important
   }
 
-
+  .eUjdK {
+    background-color: #FFFFFF;
+  }
   h2 {
-    color: #A4A4A4 !important;
+    color: #FFFFFF !important;
   }
 
   button {
@@ -114,11 +116,11 @@ const GlobalStyle = createGlobalStyle`
 
 #wallet-connect-tokenpocket{
   background-color: #FFF !important;
-  border: 1px solid #f2f2f2
+  border: 1px solid #2F324A
 }
 
 #wallet-connect-tokenpocket:hover{
-  background-color: #f2f2f2 !important;
+  background-color: #2F324A !important;
 }
 
 #wallet-connect-walletconnect{
@@ -132,24 +134,35 @@ const GlobalStyle = createGlobalStyle`
 
 button[id='wallet-connect-binance chain wallet']{
   background-color: #FFF !important;
-  border: 1px solid #f2f2f2
+  border: 1px solid #2F324A
 }
 
 button:hover[id='wallet-connect-binance chain wallet']{
-  background-color: #f2f2f2 !important;
+  background-color: #2F324A !important;
   border: 0px
 }
 
 button[aria-label="Close the dialog"] {
-  background-color: #f2f2f2 !important;
-  border: 1px solid #f2f2f2
+  background-color: #2F324A !important;
+  border: 1px solid #2F324A
 }
 
 button:hover[aria-label="Close the dialog"] {
-  background-color: #f2f2f2 !important;
+  background-color: #2F324A !important;
   border: 0px
 }
+.cNViQN {
+  fill: #FFFFFF;
+}
 
+.fXrOVP {
+  fill: #FFFFFF;
+}
+
+button[aria-label="Close the dialog"] {
+  background-color: #2F324A !important;
+  border: 1px solid #FFFFFF;
+}
 
 a[variant="subtle"]{
   background-color: #729ec2;

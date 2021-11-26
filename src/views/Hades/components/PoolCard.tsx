@@ -40,7 +40,7 @@ interface HarvestProps {
 }
 
 const Divider = styled.div`
-background-color: #4c68ef;
+background-color: #2F324A;
 height: 2px;
 margin-left: auto;
 margin-right: auto;
@@ -50,7 +50,7 @@ width: 100%;
 `
 
 const Divider2 = styled.div`
-background-color: #4c68ef;
+background-color: #2F324A;
 height: 2px;
 margin-left: auto;
 margin-right: auto;

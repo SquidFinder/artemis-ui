@@ -144,7 +144,7 @@ const FarmedStakingCard = () => {
               disabled={balancesWithValue.length <= 0 || pendingTx}
               onClick={harvestAllFarms}
               fullWidth
-              style={{'color': 'white', 'borderRadius': '5px !important', 'background': '#4c68ef'}}
+              style={{'color': 'white', 'borderRadius': '5px !important', 'background': '#2F324A'}}
             >
               {pendingTx
                 ? TranslateString(999, 'Settling MIS')
