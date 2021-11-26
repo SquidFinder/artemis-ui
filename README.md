@@ -6,7 +6,7 @@ Products
 - ArtemisPad
 - Incubator
 
-If you'd like to contribute (hugely appreciated), pull from the beta branch, we'll then merge to main! Read the guidelines below...
+If you'd like to contribute (hugely appreciated), pull from the beta branch, we'll then merge to main! We offer bounties in MIS tokens. Read the guidelines below...
 
 #### Install dependencies and run locally
 
