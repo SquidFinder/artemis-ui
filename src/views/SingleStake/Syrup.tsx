@@ -59,7 +59,7 @@ const Farm: React.FC = () => {
     const rewardTokenPrice = lookupPrice(pool.tokenName, prices)
     // console.log("price", pool.tokenName, rewardTokenPrice && rewardTokenPrice.toNumber())
     const vikingPerBlock = 2000000000000000000
-    const poolWeight = 0.01
+    const poolWeight = 0.14
     const totalRewardPricePerYear = rewardTokenPrice.times(vikingPerBlock).div(BIG_TEN.pow(18)).times(poolWeight).times(BLOCKS_PER_YEAR)
     // const totalStakingTokenInPool = stakingTokenPriceInBNB.times(getBalanceNumber(pool.totalStaked))
     const apr = totalRewardPricePerYear.div(tvl).times(100)
