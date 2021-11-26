@@ -2,6 +2,7 @@ import BigNumber from 'bignumber.js'
 import React, { useCallback, useMemo, useState } from 'react'
 import { Button, Modal } from '@pancakeswap-libs/uikit'
 import ModalActions from 'components/ModalActions'
+import styled from 'styled-components'
 import TokenInput from '../../../components/TokenInput'
 import useI18n from '../../../hooks/useI18n'
 import { getFullDisplayBalance } from '../../../utils/formatBalance'
@@ -13,6 +14,29 @@ interface DepositModalProps {
   tokenName?: string
 }
 
+const StyledBtn = styled.button`
+  display: inline-flex;
+  align-items: center;
+  background-image: linear-gradient(#2F324A, #2F324A);
+  border-radius: 10px;
+  border: 1px solid #CECECE;
+  height: 45px;
+  width: 100px;
+  color: #FFFF;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    cursor: pointer;
+  }
+  `
+  
 const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, tokenName = '' }) => {
   const [val, setVal] = useState('')
   const [pendingTx, setPendingTx] = useState(false)
@@ -33,7 +57,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
   }, [fullBalance, setVal])
 
   return (
-    <Modal title={`${TranslateString(316, 'Deposit')} ${tokenName} Tokens`} onDismiss={onDismiss}>
+    <Modal title={`${TranslateString(316, 'Deposit')} ${tokenName}`} onDismiss={onDismiss}>
       <TokenInput
         value={val}
         onSelectMax={handleSelectMax}
@@ -42,11 +66,11 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
         symbol={tokenName}
       />
       <ModalActions>
-        <Button fullWidth variant="secondary" onClick={onDismiss}>
+        <StyledBtn style={{justifyContent:"center" }} onClick={onDismiss}>
           {TranslateString(462, 'Cancel')}
-        </Button>
-        <Button
-          fullWidth
+        </StyledBtn>
+        <StyledBtn
+          style={{justifyContent:"center" }}
           disabled={pendingTx}
           onClick={async () => {
             setPendingTx(true)
@@ -55,8 +79,8 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
             onDismiss()
           }}
         >
-          {pendingTx ? TranslateString(488, 'Pending Confirmation') : TranslateString(464, 'Confirm')}
-        </Button>
+          {pendingTx ? TranslateString(488, '...') : TranslateString(464, 'Confirm')}
+        </StyledBtn>
       </ModalActions>
     </Modal>
   )

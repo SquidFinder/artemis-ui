@@ -17,25 +17,26 @@ interface DepositModalProps {
 }
 
 const StyledBtn = styled.button`
-  -webkit-box-align: center;
-  align-items: center;
-  background-color: #292C44;
-  border: 1px;
-  border-style: solid !important;
-  border-color: #ffff !important;
-  border-radius: 10px;
-  color: #FFFF;
-  font-size: 14px;
-  font-weight: 500;
-  width: 100%;
-  display: inline-flex;
-  min-height: 25px;
-  max-height: 35px;
-  min-width: 95px;
-  max-width: 100px;
-  padding: 20px;
-  box-shadow: 0px 0px 2px #ccc;
-  text-shadow: 0px 0px 2px #ccc;
+display: inline-flex;
+align-items: center;
+background-image: linear-gradient(#2F324A, #2F324A);
+border-radius: 10px;
+border: 1px solid #CECECE;
+height: 45px;
+width: 100px;
+color: #FFFF;
+font-size: 14px;
+font-weight: 400;
+padding: 15px;
+margin-top: 15px;
+margin-bottom: 10px;
+&:hover:not(:disabled),
+&:active:not(:disabled),
+&:focus  {
+  outline: 0;
+  border-color: #FFFF;
+  cursor: pointer;
+}
 `
 
 const DepositModal: React.FC<DepositModalProps> = (
@@ -83,7 +84,7 @@ const DepositModal: React.FC<DepositModalProps> = (
             await onConfirm(val)
             setPendingTx(false)
             onDismiss()}}>
-          {pendingTx ? TranslateString(488, '...') : TranslateString(4614, 'Stake')}
+          {pendingTx ? TranslateString(488, '...') : TranslateString(4614, 'Confirm')}
         </StyledBtn>
       </ModalActions>
     </Modal>

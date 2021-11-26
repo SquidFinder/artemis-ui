@@ -14,18 +14,22 @@ const ModalActions: React.FC = ({ children }) => {
         </>
       ))}
     </StyledModalActions>
+
   )
 }
 
 const StyledModalActions = styled.div`
   align-items: center;
-  background-color: ${(props) => props.theme.colors.primaryDark}00;
+  background-color: #2F324A;
   display: flex;
   margin: 0;
-  padding: ${(props) => props.theme.spacing[4]}px;
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
 `
 
 const StyledModalAction = styled.div`
+  background-color: #2F324A;
   flex: 1;
   text-align: center;
 `

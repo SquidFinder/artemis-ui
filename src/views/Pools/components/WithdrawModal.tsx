@@ -14,6 +14,29 @@ interface WithdrawModalProps {
   tokenName?: string
 }
 
+const StyledBtn = styled.button`
+  display: inline-flex;
+  align-items: center;
+  background-image: linear-gradient(#2F324A, #2F324A);
+  border-radius: 10px;
+  border: 1px solid #CECECE;
+  height: 45px;
+  width: 100px;
+  color: #FFFF;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    cursor: pointer;
+  }
+  `
+
 const WithdrawModal: React.FC<WithdrawModalProps> = ({ onConfirm, onDismiss, max, tokenName = '' }) => {
   const [val, setVal] = useState('')
   const [pendingTx, setPendingTx] = useState(false)
@@ -33,6 +56,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({ onConfirm, onDismiss, max
     setVal(fullBalance)
   }, [fullBalance, setVal])
 
+
   return (
     <Modal title={`Withdraw ${tokenName}` } onDismiss={onDismiss}>
     {/* <WarningWithdraw>
@@ -49,10 +73,10 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({ onConfirm, onDismiss, max
         symbol={tokenName}
       />
       <ModalActions>
-        <Button variant="secondary" onClick={onDismiss}>
+        <StyledBtn style={{justifyContent:"center" }} onClick={onDismiss}>
           {TranslateString(462, 'Cancel')}
-        </Button>
-        <Button
+        </StyledBtn>
+        <StyledBtn style={{justifyContent:"center" }}
           disabled={pendingTx}
           onClick={async () => {
             setPendingTx(true)
@@ -61,8 +85,8 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({ onConfirm, onDismiss, max
             onDismiss()
           }}
         >
-          {pendingTx ? TranslateString(488, 'Pending Confirmation') : TranslateString(464, 'Confirm')}
-        </Button>
+          {pendingTx ? TranslateString(4881, '...') : TranslateString(464, 'Confirm')}
+        </StyledBtn>
       </ModalActions>
     </Modal>
   )
