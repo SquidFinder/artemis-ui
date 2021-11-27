@@ -249,6 +249,12 @@ export const usePriceTranqb = (): BigNumber => {
   return new BigNumber(priceMis).times(pool.tokenPriceVsQuote);
 }
 
+export const usePriceWbtc = (): BigNumber => {
+  const pid = 4 // BUSD-BNB LP
+  const farm = useFarmFromPid(pid)
+  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
+} 
+
 export const usePriceCakeBusd = (): BigNumber => {
   // const pid = 1 // CAKE-BNB LP
   // const bnbPriceUSD = usePriceBnbBusd()
@@ -282,6 +288,7 @@ export const usePrices = () => {
   const foxPrice = usePriceFox()
   const bossPrice = usePriceBoss()
   const rvrsPrice = usePriceRvrs()
+  const wbtcPrice = usePriceWbtc()
 
   return [
       {name: QuoteToken.MIS, price: misPrice},
@@ -299,6 +306,7 @@ export const usePrices = () => {
       {name: QuoteToken.FOX, price: foxPrice},
       {name: QuoteToken.BOSS, price: bossPrice},
       {name: QuoteToken.RVRS, price: rvrsPrice},
+      {name: QuoteToken.WBTC, price: wbtcPrice},
   ]
 }
 

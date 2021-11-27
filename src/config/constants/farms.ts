@@ -61,18 +61,18 @@ const farms: FarmConfig[] = [
   {
     pid:labo.pids.pidList[13],
     risk: 3,
-    lpSymbol: '1BTC/1ETH',
+    lpSymbol: 'WBTC/1ETH',
     lpAddresses: {
       1666700000: '0x997f00485b238c83f7e58c2ea1866dfd79f04a4b',
       1666600000: '0x997f00485b238c83f7e58c2ea1866dfd79f04a4b',
     },
-    tokenSymbol: 'WBTC',
+    tokenSymbol: '1ETH',
     tokenAddresses: {
-      1666700000: '0x3095c7557bcb296ccc6e363de01b760ba031f2d9',
-      1666600000: '0x3095c7557bcb296ccc6e363de01b760ba031f2d9',
+      1666700000: '0x6983d1e6def3690c4d616b13597a09e6193ea013',
+      1666600000: '0x6983d1e6def3690c4d616b13597a09e6193ea013',
     },
-    quoteTokenSymbol: QuoteToken.ONEETH,
-    quoteTokenAdresses: contracts.oneeth,
+    quoteTokenSymbol: QuoteToken.WBTC,
+    quoteTokenAdresses: contracts.wbtc,
   },
 
   {
