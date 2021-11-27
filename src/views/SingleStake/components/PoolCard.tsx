@@ -177,7 +177,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const { onUnstake } = useSousUnstake3(sousId);
   const { onReward } = useSousHarvest3(sousId, isBnbPool);
 
-  const misBalance = getBalanceNumber(useTokenBalance(getCakeAddress())).toLocaleString('en-us',{ maximumFractionDigits: 0 });
+  const misBalance = getBalanceNumber(useTokenBalance(getCakeAddress())).toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 })
   const MISPrice = usePriceCakeBusd();
   const [requestedApproval, setRequestedApproval] = useState(false);
   const [pendingTx, setPendingTx] = useState(false);
@@ -224,15 +224,15 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
 
 
   // Frontend Calculations
-  const misBalanceUSD = new BigNumber(getBalanceNumber(useTokenBalance(getCakeAddress()))).times(MISPrice).toNumber().toLocaleString('en-us', { maximumFractionDigits: 0, minimumFractionDigits: 0 })
-  const totalMIS = new BigNumber(getBalanceNumber(stakedBalance)).plus(getBalanceNumber(useTokenBalance(getCakeAddress()))).toNumber().toLocaleString('en-us', { maximumFractionDigits: 0, minimumFractionDigits: 0 })
-  const totalMISusd = new BigNumber(getBalanceNumber(stakedBalance)).plus(getBalanceNumber(useTokenBalance(getCakeAddress()))).times(MISPrice).toNumber().toLocaleString('en-us', { maximumFractionDigits: 0, minimumFractionDigits: 0 })
+  const misBalanceUSD = new BigNumber(getBalanceNumber(useTokenBalance(getCakeAddress()))).times(MISPrice).toNumber().toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 })
+  const totalMIS = new BigNumber(getBalanceNumber(stakedBalance)).plus(getBalanceNumber(useTokenBalance(getCakeAddress()))).toNumber().toLocaleString('en-us', { maximumFractionDigits: 2, minimumFractionDigits: 2 })
+  const totalMISusd = new BigNumber(getBalanceNumber(stakedBalance)).plus(getBalanceNumber(useTokenBalance(getCakeAddress()))).times(MISPrice).toNumber().toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 })
   const TVL = pool.tvl && pool.tvl.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const APY = apy && apy.toNumber().toLocaleString('en-us', { maximumFractionDigits: 0, minimumFractionDigits: 0 })
   const APR = apr && apr.toNumber().toLocaleString('en-us',{ maximumFractionDigits: 0 });
   const WeeklyROI = apr.div(52).toNumber().toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 })
   const StakedUSDBalance = getBalanceNumber(stakedBalanceUsd).toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 })
-  const StakedBalance = getBalanceNumber(stakedBalance).toLocaleString('en-us', { maximumFractionDigits: 0, minimumFractionDigits: 0 })
+  const StakedBalance = getBalanceNumber(stakedBalance).toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 })
   const ExpectedBalanceWeek = apr.div(52).times(getBalanceNumber(stakedBalanceUsd)).times(0.01).plus(getBalanceNumber(stakedBalanceUsd)).toNumber().toLocaleString('en-us', { maximumFractionDigits: 1, minimumFractionDigits: 1 });
 
 
@@ -247,8 +247,13 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         </div>
 
         <Flex justifyContent='space-between'>
-          <LightText>tAPY</LightText>
+          <LightText>tAPR</LightText>
           <Quote>{APR}%</Quote>
+        </Flex>
+
+        <Flex justifyContent='space-between'>
+          <LightText>tAPY</LightText>
+          <Quote>...</Quote>
         </Flex>
 
         <Flex justifyContent='space-between'>
@@ -264,7 +269,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         <Divider/>
 
         <Flex justifyContent='left'>
-          <Bal2>You have {StakedBalance} MIS</Bal2>
+          <Bal2>You have {totalMIS} MIS</Bal2>
         </Flex>
 
         <Flex justifyContent='left'>
