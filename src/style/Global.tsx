@@ -14,7 +14,7 @@ declare module 'styled-components' {
 
 const GlobalStyle = createGlobalStyle`
   * {
-    font-family: 'Inter', sans-serif !important;
+    font-family: 'Fira Sans', sans-serif; !important;
     font-weight: 450;
     
   }
@@ -22,13 +22,10 @@ const GlobalStyle = createGlobalStyle`
   #root {
     background-image: url('/images/core/bg.png');
     background-repeat: no-repeat;
-
     height: 100%;
-
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
   }
 
   div {

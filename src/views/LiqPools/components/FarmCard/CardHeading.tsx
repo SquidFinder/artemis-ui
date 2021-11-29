@@ -55,7 +55,9 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
 
         <Flex justifyContent="left">
           <Link style={{color:'#A5A5A5'}} external href='https://app.farmersonly.fi/vaults/'>
-            <HeadingText style={{color:'#A5A5A5'}}>Enter Vaults</HeadingText> 
+            <HeadingText 
+            style={{color:'#A5A5A5', fontSize:'14px', fontWeight:'lighter', marginTop:'-3px', borderBottom:'1px dotted #A5A5A5' }}
+            >Enter Vaults</HeadingText> 
           </Link>
         </Flex>
 

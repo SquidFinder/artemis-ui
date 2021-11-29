@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import BigNumber from 'bignumber.js'
-import { Flex } from '@pancakeswap-libs/uikit'
+import { Flex, Link } from '@pancakeswap-libs/uikit'
 import { Farm } from 'state/types'
 import { provider } from 'web3-core'
 import useI18n from 'hooks/useI18n'
@@ -28,12 +28,13 @@ const FCard = styled.div`
   padding: 25px;
   position: relative;
   text-align: center;
+
   &:hover:not(:disabled),
   &:active:not(:disabled),
   &:focus  {
     outline: 0;
     border-color: #FFFF;
-    box-shadow: 0px 0px 3px #cccc;
+    box-shadow: 0px 0px 4px #cccc;
   }
 `
 
@@ -50,6 +51,15 @@ const LightText = styled.p`
   margin-bottom: 0px;
   text-shadow: 0px 0px 0px #ccc;
   color: #8E8E8E; 
+  }
+`
+
+const LightLink = styled.p`
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 0px;
+  text-shadow: 0px 0px 0px #ccc;
+  color: #FFFFF; 
   }
 `
 
@@ -132,9 +142,19 @@ const FarmCard: React.FC<FarmCardProps> = ({
 
       {!removed && (
       <Flex justifyContent="space-between">
-        <LightText>Liquidity</LightText>
+        <Flex justifyContent='left'>
+          <LightText>Liquidity&nbsp;</LightText>
+          <LightLink>(</LightLink>
+          <Link 
+            external href={`https://app.defikingdoms.com/#/add/${liquidityUrlPathParts}`}
+            style={{color:'#FFFF', fontSize:'14px', fontWeight:'lighter', marginTop:'-6px', borderBottom:'1px dotted #FFFF' }}
+            >Add
+          </Link>
+          <LightLink>)</LightLink>
+        </Flex>
         <Quote>{totalValueFormated}</Quote>
       </Flex>)}
+
 
       <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />
 

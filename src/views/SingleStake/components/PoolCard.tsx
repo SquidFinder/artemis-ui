@@ -253,7 +253,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
 
         <Flex justifyContent='space-between'>
           <LightText>tAPY</LightText>
-          <Quote>...</Quote>
+          <Quote>{APY}%</Quote>
         </Flex>
 
         <Flex justifyContent='space-between'>
@@ -262,7 +262,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         </Flex>
 
         <Flex justifyContent='space-between'>
-          <LightText>Value Locked</LightText>
+          <LightText>Total MIS Locked</LightText>
           <Quote>${TVL}</Quote>
         </Flex>
 
@@ -280,9 +280,13 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           <Bal>= ${StakedUSDBalance} Staked + ${misBalanceUSD} Stakeable</Bal>
         </Flex>
 
+        <Flex justifyContent='left'>
+          <Bal2>Expected USD Balance (7 Days)</Bal2>
+        </Flex>
 
-
- 
+        <Flex justifyContent='left'>
+          <Bal>= ${ExpectedBalanceWeek} in Staked MIS</Bal>
+        </Flex>
 
         <Flex style={{ justifyContent:"center", marginTop: '20px', marginBottom: '10px'}}>
           { /* {!account && <UnlockButton />} */ }

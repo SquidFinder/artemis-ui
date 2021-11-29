@@ -267,18 +267,18 @@ const NavBar = (props) => {
                     </a>
                   </li>
                   <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://gov.harmony.one/#/artemis" className="nav-links">
-                      <span className="dditem">Forum</span>
+                    <a target="_blanK" rel="noreferrer" href="https://www.artemisforum.one/" className="nav-links">
+                      <span className="dditem">Artemis Forum</span>
                     </a>
                   </li>
                   <li className="nav-tab">
                     <a target="_blanK" rel="noreferrer" href="https://paladinsec.co/projects/artemis-ifo/" className="nav-links">
-                      <span className="dditem">IDO Audit</span>
+                      <span className="dditem">ArtemisPad Audit</span>
                     </a>
                   </li>
                   <li className="nav-tab">
                     <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/" className="nav-links">
-                      <span className="dditem">Docs</span>
+                      <span className="dditem">Documentation</span>
                     </a>
                   </li>
                   <li className="nav-tab">
@@ -297,10 +297,16 @@ const NavBar = (props) => {
                     </a>
                   </li>
                   <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://github.com/ArtemisProtocol/" className="nav-links">
-                      <span className="dditem">Github</span>
+                    <a target="_blanK" rel="noreferrer" href="https://artemisprotocol.medium.com/" className="nav-links">
+                      <span className="dditem">Medium</span>
                     </a>
                   </li>
+                  <li className="nav-tab">
+                    <a target="_blanK" rel="noreferrer" href="https://github.com/ArtemisProtocol/" className="nav-links">
+                      <span className="dditem">Github (Open)</span>
+                    </a>
+                  </li>
+
                 </ul>
               </li>
           </ul>

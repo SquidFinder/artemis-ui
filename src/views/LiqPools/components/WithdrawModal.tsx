@@ -97,7 +97,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = (
               onDismiss()
             }}
           >
-            {pendingTx ? TranslateString(488, '...') : TranslateString(464, 'Confirm')}
+            {pendingTx ? TranslateString(4088, '...') : TranslateString(464, 'Confirm')}
           </StyledBtn>
         </ModalActions>
       </Box>
