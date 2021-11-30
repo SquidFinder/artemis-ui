@@ -114,11 +114,12 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }
       : 
       (
       <span>
-        <StyledBtn 
+        <StyledBtn  
         style={{justifyContent:'center'}} 
         disabled={requestedApproval || labo.isLocked.unlockWalletButton} 
         onClick={handleApprove}>
-          {TranslateString(999, 'Enable')}&nbsp;{lpName}&nbsp;
+          {TranslateString(999, 'Enable')}
+          &nbsp;<span style={{'borderBottom':'1px dotted #FFFF' }}>{lpName}</span>
         </StyledBtn>
       </span>
       )
