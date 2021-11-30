@@ -46,12 +46,12 @@ const App: React.FC = () => {
             <LiqPools/>
           </Route>
           
-          { /*
+
           <Route path="/incubator">
             <Incubator/>
           </Route>
 
-
+          { /*
           <Route path="/artemispad">
             <ArtemisPad/>
           </Route>

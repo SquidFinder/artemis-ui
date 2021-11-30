@@ -297,11 +297,11 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
               style={{ justifyContent:"center"}}
               disabled={isFinished || requestedApproval}
               onClick={handleApprove}>
-              Enable MIS
+              Enable&nbsp;<span style={{'borderBottom':'1px dotted #FFFF' }}>MIS</span>
             </EnableBTN>
           </div>
 
-          ) : ( <>
+          ) : ( <>  
 
           <div>
             <StyledUnstake 

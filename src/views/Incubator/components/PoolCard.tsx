@@ -248,7 +248,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   return (
     <IncubatorCard isActive={isCardActive} isFinished={isFinished && sousId !== 0}>
       <div>
-{/*
+      {/*
         <div style={{justifyContent:'center'}}>
           <SvgHero>
             <object 
@@ -256,13 +256,16 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
               data={`/images/incubator/${EarnToken}.png`}
               style={{  flexWrap:'wrap', width:'250px',  height:'135px', justifyContent:'center'}}>&nbsp;</object>
           </SvgHero>
-</div> */ }
+      </div> */ }
 
-        <Flex justifyContent='left' marginBottom='20px'>
-          <object type="image/svg+xml" data={`/images/incubator/${EarnToken}.svg`} style={{  flexWrap:'wrap', width:'250px', justifyContent:'center'}}>&nbsp;</object> 
+        <Flex justifyContent='left' marginBottom='0px'>
+          <object 
+            type="image/svg+xml" data={`/images/incubatorPNG/${EarnToken}.png`} 
+            style={{flexWrap:'wrap', width:'250px', justifyContent:'center'}}>&nbsp;
+          </object> 
         </Flex>
 
-        <Flex justifyContent='space-between' marginTop='5px'>
+        <Flex justifyContent='space-between' marginTop='0px'>
           <LightText>tAPR</LightText>
           <Quote>{APR}%</Quote>
         </Flex>
