@@ -17,26 +17,26 @@ interface DepositModalProps {
 }
 
 const StyledBtn = styled.button`
-display: inline-flex;
-align-items: center;
-background-image: linear-gradient(#2F324A, #2F324A);
-border-radius: 10px;
-border: 1px solid #CECECE;
-height: 45px;
-width: 100px;
-color: #FFFF;
-font-size: 14px;
-font-weight: 400;
-padding: 15px;
-margin-top: 15px;
-margin-bottom: 10px;
-&:hover:not(:disabled),
-&:active:not(:disabled),
-&:focus  {
-  outline: 0;
-  border-color: #FFFF;
-  cursor: pointer;
-}
+  display: inline-flex;
+  align-items: center;
+  background-image: linear-gradient(#2F324A, #2F324A);
+  border-radius: 10px;
+  border: 1px solid #CECECE;
+  height: 45px;
+  width: 100px;
+  color: #FFFF;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    cursor: pointer;
+  }
 `
 
 const DepositModal: React.FC<DepositModalProps> = (

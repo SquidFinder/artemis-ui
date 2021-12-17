@@ -89,7 +89,7 @@ const IDODashboard: React.FC = () => {
     <Page>
       <FlexStaking>
         <CurrentIdoCard>
-          <Link to="/artemispad/lumen" className="nav-links">
+          <Link to="/lumen" className="nav-links">
             <div>
               <div>
                 <Flex justifyContent='left' marginBottom='20px'>

@@ -52,7 +52,7 @@ const App: React.FC = () => {
             <Incubator/>
           </Route>
 
-          <Route path="/artemispad/lumen">
+          <Route path="/lumen">
             <ArtemisPad/>
           </Route>
 
