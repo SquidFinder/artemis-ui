@@ -16,22 +16,11 @@ const StyledProgress = styled.div`
   margin-bottom: 14px;
 `
 
-const Item = styled.div`
-  align-items: center;
-  
-  color: ${({ theme }) => theme.colors.secondary};
-  display: flex;
-  margin-bottom: 10px;
-`
-
-const Display = styled(Text)`
-  flex: 1;
-`
-
 const IfoCardProgress: React.FC<IfoCardProgressProps> = ({ progress, launchDate, launchTime, endDate, endTime }) => {
   const TranslateString = useI18n()
   return (
     <StyledProgress style={{marginTop:'10px', marginBottom:'10px'}}>
+      {/*
       <Item>
           <Display bold  ><FaClock/> {TranslateString(5822, 'Start Time')}</Display>
           <Text style={{textShadow:'0px 0px 5px #fff'}} >
@@ -40,7 +29,7 @@ const IfoCardProgress: React.FC<IfoCardProgressProps> = ({ progress, launchDate,
           </Text>
         </Item>
         
-        {/*
+        
         <Item>
         <Display bold><FaHourglassEnd/> {TranslateString(5822, 'Presale End')}</Display>
            <Text>
@@ -55,9 +44,9 @@ const IfoCardProgress: React.FC<IfoCardProgressProps> = ({ progress, launchDate,
                {endTime}
              </Link>
           </Text>
-        </Item>
-        */}
-      <Progress primaryStep={progress} />
+        </Item> */}
+        
+      <Progress primaryStep={progress}/> 
       
     </StyledProgress>
   )

@@ -1,6 +1,7 @@
 import React, { ButtonHTMLAttributes } from 'react'
 import styled from 'styled-components'
 import { Button, Text } from '@pancakeswap-libs/uikit'
+import { FaBorderAll } from 'react-icons/fa'
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   value: string
@@ -13,13 +14,21 @@ const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: solid 1px;
-  border-radius: 8px;
-  border-color: #ccc;
+  border: solid 2px;
+  border-radius: 12px;
+  border-color: #fff;
   padding-left: 16px;
-  box-shadow: 0px 0px 10px #ccc;
 
 `
+const Txt = styled.p`
+  color: #D4D4D4;
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 0px;
+  margin-top: 2px;
+  text-shadow: 0px 0px 0px #D4D4D4;
+`
+
 
 const LabelButton: React.FC<Props> = ({ value, label, buttonLabel, onClick, disabled = false }) => {
   return (
@@ -30,10 +39,19 @@ const LabelButton: React.FC<Props> = ({ value, label, buttonLabel, onClick, disa
         </Text>
       )}
       <ButtonWrapper>
-        <Text bold fontSize="20px">
+        <Txt>
           {value}
-        </Text>
-        <Button onClick={onClick} disabled={disabled} style={{color:'#fff', background:'#2F324A', boxShadow:'0px 0px 10px #ccc'}} >
+        </Txt>
+        <Button onClick={onClick} disabled={disabled} 
+          style={{
+            color:'#fff', 
+            background:'#2F324A', 
+            fontSize:'13px',
+            boxShadow:'0px 0px 3px #fff',
+            height:'40px',
+            width:'100px',
+            fontWeight:'normal',
+            }}>
           {buttonLabel}
         </Button>
       </ButtonWrapper>

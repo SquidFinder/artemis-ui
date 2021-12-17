@@ -13,9 +13,6 @@ const PastIfo = () => {
         <IfoCard key={ifo.id} ifo={ifo} />
       ))}
 
-
-
-    
     </IfoCards>
   )
 }

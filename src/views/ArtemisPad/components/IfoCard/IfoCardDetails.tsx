@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
-import { Text, Link } from '@pancakeswap-libs/uikit'
+import { Text, Link, Flex } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import { FaArrowCircleUp, FaArrowRight, FaBook, FaLink, FaLock, FaLockOpen, FaQuestionCircle, FaUserLock, FaWallet } from 'react-icons/fa'
 
@@ -28,22 +28,15 @@ const Divider = styled.div`
 `
 
 const DCard = styled.div`
-  background: #3E4266;
+  background: #474B70;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 24px;
+  padding: 15px;
   position: relative;
-  box-shadow: 0px 0px 5px #ccc;
+  box-shadow: 0px 0px 2px #FFFF;
 
-  &:hover:not(:disabled),
-  &:active:not(:disabled),
-  &:focus  {
-    outline: 0;
-    border-color: #FFFF;
-    box-shadow: 0px 0px 10px #cccc;
-  }
 ` 
 
 const DCard2 = styled.div`
@@ -52,9 +45,7 @@ const DCard2 = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 24px;
-  position: relative;
-  margin-top: 5px;
+  padding: 15px;
 `
 
 
@@ -63,14 +54,22 @@ const StyledIfoCardDetails = styled.div`
   padding:0px;
 `
 
-const Item = styled.div`
-  align-items: center;
-  color: ${({ theme }) => theme.colors.secondary};
-  display: flex;
-`
 
-const Display = styled(Text)`
-  flex: 1;
+const Sub = styled.p`
+  color: #FFFF;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  margin-top: 2px;
+  text-shadow: 0px 0px 0px #4E5C6D;
+`
+const Sub2 = styled.p`
+  color: #D4D4D4;
+  font-size: 13px;
+  font-weight: 300;
+  margin-bottom: 0px;
+  margin-top: 2px;
+  text-shadow: 0px 0px 0px #D4D4D4;
 `
 
 const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
@@ -87,61 +86,38 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
   return (
     <>
       <StyledIfoCardDetails>
-      <DCard>
-        {/* 
-        <Item>
-          <Display bold><FaArrowCircleUp/> {TranslateString(5824, 'Tier')}</Display>
-          <Text>{tier}</Text>
-        </Item> */}
+        <DCard>
 
-        <Item>
-          <Display bold>{TranslateString(999, 'Collateral Required')}</Display>
-          <Text>{misAmount}</Text>
-        </Item>
-
-        <Item>
-          <Display >{TranslateString(999, 'About the ArtemisPad')}</Display>
-          <Link href='https://reverse.gitbook.io/docs/launch-procedure' ><FaArrowRight/></Link>
-        </Item>
+          <Flex justifyContent="space-between" marginTop='0px' alignItems="center">
+            <Sub>Tier</Sub>
+            <Sub2>{tier}</Sub2>
+          </Flex>
+          <Flex justifyContent="space-between" marginTop='5px' alignItems="center">
+            <Sub>Collateral Required</Sub>
+            <Sub2>{misAmount}</Sub2>
+          </Flex>
         </DCard>
-
         <Divider/>
-
-        <DCard2 >
-
-        <Item>
-        <Display style={{textShadow:'0px 0px 5px #fff'}}>{TranslateString(5824, 'Token Price')}</Display>
-          <Text style={{textShadow:'0px 0px 5px #fff'}}>{cakeToBurn}</Text>
-        </Item>
-
-        <Item>
-        <Display>{TranslateString(5824, 'Tokens For Sale')}</Display>
-          <Text>{saleAmount}</Text>
-        </Item>
-
-        <Item>
-          <Display>{TranslateString(999, 'USD To Raise')}</Display>
-          <Text>{raiseAmount}</Text>
-        </Item>
-
-
-        <Item>
-          <Display>{TranslateString(999, 'USD Raised')}</Display>
-          <Text>{`${totalAmount.div(raisingAmount).times(100).toFixed(0)}%`}</Text>
-        </Item>
-
-
-
+        <DCard2>
+          <Flex justifyContent="space-between" marginTop='0px' alignItems="center">
+            <Sub>Token Price</Sub>
+            <Sub2>{cakeToBurn}</Sub2>
+            </Flex>
+          <Flex justifyContent="space-between" marginTop='5px' alignItems="center">
+            <Sub>Tokens For Sale</Sub>
+            <Sub2>{saleAmount}</Sub2>
+            </Flex>
+          <Flex justifyContent="space-between" marginTop='5px' alignItems="center">
+            <Sub>wONE To Raise</Sub>
+            <Sub2>{raiseAmount}</Sub2>
+            </Flex>
+          <Flex justifyContent="space-between" marginTop='5px' alignItems="center">
+            <Sub>wONE Raised</Sub>
+            <Sub2>{`${totalAmount.div(raisingAmount).times(100).toFixed(0)}%`}</Sub2>
+            </Flex>
         </DCard2>
-
-
       </StyledIfoCardDetails>
-
-
     </>
-
-
-
   )
 }
 

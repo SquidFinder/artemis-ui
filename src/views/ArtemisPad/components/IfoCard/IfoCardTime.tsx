@@ -17,9 +17,9 @@ export interface IfoCardTimeProps {
 const Details = styled.div`
   align-items: center;
   display: flex;
-  height: 24px;
+  height: 0px;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 `
 
 const Countdown = styled.div`
@@ -30,6 +30,14 @@ const Countdown = styled.div`
   margin-top: 10px;
 `
 
+const Sub = styled.p`
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  margin-top: 15px;
+  text-shadow: 0px 0px 0px #D4D4D4;
+`
 
 const IfoCardTime: React.FC<IfoCardTimeProps> = ({ isLoading, status, secondsUntilStart, secondsUntilEnd, block, address }) => {
   const TranslateString = useI18n()
@@ -38,13 +46,13 @@ const IfoCardTime: React.FC<IfoCardTimeProps> = ({ isLoading, status, secondsUnt
   const suffix = status === 'coming_soon' ? 'Start' : 'Finish'
 
   if (isLoading) {
-    return <Details >{TranslateString(656, 'Loading...')}</Details>
+    return <Sub >{TranslateString(656, 'Loading...')}</Sub>
   }
 
   if (countdownToUse <= 0) {
     return (
       <Details>
-        <Text bold>{TranslateString(999, 'Finished')}</Text>
+        <Sub>{TranslateString(999, 'Finished')}</Sub>
 
       </Details>
     )
@@ -53,7 +61,7 @@ const IfoCardTime: React.FC<IfoCardTimeProps> = ({ isLoading, status, secondsUnt
   return (
     <Details>
       <div>
-       <Countdown  style={{textShadow:'0px 0px 10px #fff'}}>{`${timeUntil.days}d, ${timeUntil.hours}h, ${timeUntil.minutes}m`} Remaining</Countdown>
+       <Sub>{`${timeUntil.days}d, ${timeUntil.hours}h, ${timeUntil.minutes}m`} Remaining</Sub>
        
        {/* <div style={{display: 'flex', justifyContent: 'center'}}>
         <LinkExternal href={`https://explorer.harmony.one/block/${block}`} target="blank" rel="noopener noreferrer" mt="10px">

@@ -13,6 +13,8 @@ const ArtemisPad = lazy(() => import('./views/ArtemisPad'))
 const NotFound = lazy(() => import('./views/NotFound'))
 const ComingSoon = lazy(() => import('./views/ComingSoon'))
 const SingleStake = lazy(() => import('./views/SingleStake'))
+const IDODashboard = lazy(() => import('./views/IDODashboard'))
+
 
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
@@ -45,17 +47,14 @@ const App: React.FC = () => {
           <Route path="/pools">
             <LiqPools/>
           </Route>
-          
 
           <Route path="/incubator">
             <Incubator/>
           </Route>
 
-          { /*
-          <Route path="/artemispad">
+          <Route path="/artemispad/lumen">
             <ArtemisPad/>
           </Route>
-          */ }
 
           <Route path="/stake">
             <SingleStake/>
@@ -63,6 +62,10 @@ const App: React.FC = () => {
           
           <Route path="/comingsoon">
             <ComingSoon/>
+          </Route>
+
+          <Route path="/artemispad">
+            <IDODashboard/>
           </Route> 
 
           <Route component={NotFound} />
