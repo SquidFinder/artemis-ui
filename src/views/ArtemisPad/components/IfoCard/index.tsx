@@ -21,20 +21,18 @@ export interface IfoCardProps {
 }
 
 const StyledIfoCard = styled(Card)<{ ifoId: string }>`
-  width: 100%;
   align-self: baseline;
-
-  background-image: linear-gradient(#2F324A, #33364D);
+  background: #2F324A;
   border-radius: 20px;
   border: 2px solid #CECECE;
   display: flex;
+  background-repeat: no-repeat;
   flex-direction: column;
-  justify-content: center;
-  padding: 12px;
+  background-size: contain;
+  justify-content: space-around;
+  padding: 0px;
   position: relative;
-
-  margin-bottom: -10px;
-
+  box-shadow: 0px 0px 4px #ccc;
   &:hover:not(:disabled),
   &:active:not(:disabled),
   &:focus  {
@@ -50,8 +48,6 @@ const Column = styled.div`
   align-items: center;
 
 `
-
-
 
 const getStatus = (currentBlock: number, startBlock: number, endBlock: number): IfoStatus | null => {
   if (currentBlock < startBlock) {
@@ -166,20 +162,17 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
   return (
     <StyledIfoCard ifoId={id} ribbon={Ribbon} isActive={isActive}>
       <CardBody>
+
         <Column>
-          
           {/* <IfoCardHeader ifoId={id} name={name} subTitle={subTitle} projectSiteUrl={projectSiteUrl} /> */ }
           <IfoCardProgress progress={state.progress} launchDate={launchDate} launchTime={launchTime} endDate={endDate} endTime={endTime} />
-
           <IfoCardTime
             isLoading={state.isLoading}
             status={state.status}
             secondsUntilStart={state.secondsUntilStart}
             secondsUntilEnd={state.secondsUntilEnd}
             block={isActive || isFinished ? state.endBlockNum : state.startBlockNum}
-            address={address}
-          />
-
+            address={address}/>
         </Column>
         
         <IfoCardDescription description={description} />

@@ -31,17 +31,17 @@ const Description = styled(Text)`
 const IfoCardHeader: React.FC<IfoCardHeaderProps> = ({ ifoId, name, subTitle, projectSiteUrl }) => {
   const TranslateString = useI18n()
   return (
-    <StyledIfoCardHeader mb="24px" alignItems="center">
+    <StyledIfoCardHeader mb="0px" alignItems="center">
       
-      <object type="image/svg+xml" data={`/images/ifos/${ifoId}.svg`} width="85px">&nbsp;</object>
+      {/* <object type="image/svg+xml" data={`/images/idoHeader/${ifoId}.svg`} width="300px">&nbsp;</object>
 
+      
       <div>
-
         <Link href={projectSiteUrl} style={{ marginLeft: '110px', marginBottom: '4px', textAlign: 'right', fontSize: '20px', color: 'white'  }}>
         {TranslateString(999, name)}<FaArrowRight/>
         </Link>
-  <Description>{subTitle}</Description> *
-      </div>
+        <Description>{subTitle}</Description> *
+      </div> */ }
     </StyledIfoCardHeader>
   )
 }

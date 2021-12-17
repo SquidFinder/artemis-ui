@@ -10,8 +10,10 @@ import  { useIfoCollatLock }  from 'hooks/useStake'
 import { IfoStatus } from 'config/constants/types'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { FaCheck, FaCheckCircle, FaFlagCheckered, FaLock, FaUserCheck } from 'react-icons/fa'
+import styled from 'styled-components'
 import LabelButton from './LabelButton'
 import ContributeModal from './ContributeModal'
+
 
 
 export interface Props {
@@ -26,6 +28,56 @@ export interface Props {
   misAmount: string
   tokenDecimals: number
 }
+
+const StyledButton = styled.button`
+  align-items: center;
+  background-image: linear-gradient(#2F324A, #2F324A);
+  border:1px solid #CECECE;
+  border-color: #FFFF;
+  border-radius: 10px;
+  color: #FFFF;
+  font-size: 14px;
+  font-weight: 300;
+  display: inline-flex;
+  height: 14px;
+  width: 150px;
+  padding: 17px;
+  box-shadow: 0px 0px 0px #ccc;
+  text-shadow: 0px 0px 10px #ccc;
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px #fff;
+  }
+`
+
+const LockMisButton = styled.button`
+  align-items: center;
+  background-image: linear-gradient(#2F324A, #2F324A);
+  border:1px solid #CECECE;
+  border-color: #FFFF;
+  border-radius: 10px;
+  color: #FFFF;
+  font-size: 14px;
+  font-weight: 300;
+  display: inline-flex;
+  height: 14px;
+  width: 220px;
+  padding: 17px;
+  box-shadow: 0px 0px 0px #ccc;
+  text-shadow: 0px 0px 10px #ccc;
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &:focus  {
+    outline: 0;
+    border-color: #FFFF;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px #fff;
+  }
+`
 
 const IfoCardContribute: React.FC<Props> = ({
   address,
@@ -89,8 +141,8 @@ const IfoCardContribute: React.FC<Props> = ({
 
   if (!isFinished && allowance <= 0) {
     return (
-      <Button
-        style={{color:'white', boxShadow:'0px 0px 10px #fff'}}
+      <StyledButton
+        style={{justifyContent:'center'}}
         disabled={pendingTx || isFinished}
         onClick={async () => {
           try {
@@ -103,16 +155,16 @@ const IfoCardContribute: React.FC<Props> = ({
           }
         }}
       >
-        <FaCheck/>&nbsp;Approve WONE
-      </Button>
+        <FaCheck/>&nbsp;Approve wONE
+      </StyledButton>
     )
   }
 
   if (!isFinished && collatallowance <= 0) {
     return (
       <>
-      <Button
-        style={{color:'white', boxShadow:'0px 0px 10px #fff'}}
+      <StyledButton
+        style={{justifyContent:'center'}}
         disabled={pendingTx || isFinished}
         onClick={async () => {
           try {
@@ -129,7 +181,7 @@ const IfoCardContribute: React.FC<Props> = ({
         }}
       >
         <FaCheck/>&nbsp;Approve MIS 
-      </Button>
+      </StyledButton>
 
     </>
     )
@@ -138,8 +190,8 @@ const IfoCardContribute: React.FC<Props> = ({
   if (!isFinished && !hasCollat && mislocked <=0) {
     return (
       <>
-      <Button
-        style={{color:'white', boxShadow:'0px 0px 10px #fff'}}
+      <LockMisButton
+        style={{justifyContent:'center'}}
         disabled={pendingTx || isFinished}
         onClick={async () => {
           try {
@@ -155,7 +207,7 @@ const IfoCardContribute: React.FC<Props> = ({
         }}
       >
         <FaLock/>&nbsp;Lock {misAmount} Collateral  
-      </Button>
+      </LockMisButton>
 
     </>
     )
@@ -179,13 +231,24 @@ const IfoCardContribute: React.FC<Props> = ({
         }
         onClick={isFinished ? claim : onPresentContributeModal}
       />
-      <Text  style={{ textShadow:'0px 0px 5px #fff'}} marginLeft='5px' marginTop='4px' fontSize="14px" color="textSubtle">
+      <Sub style={{marginTop:'10px', marginLeft:'5px'}}>
         {isFinished
           ? ``
-          : `${currency} Contributed: ${percentOfUserContribution.toFixed(5)}% Of Total`}
-      </Text>
+          : `${currency} Contributed: ${percentOfUserContribution.toFixed(4)}% Of Total`}
+      </Sub>
     </>
   )
 }
+
+const Sub = styled.p`
+  color: #D4D4D4;
+  font-size: 13px;
+  font-weight: 300;
+  margin-bottom: 0px;
+  margin-top: 2px;
+  text-shadow: 0px 0px 0px #D4D4D4;
+`
+
+
 
 export default IfoCardContribute

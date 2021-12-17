@@ -8,46 +8,30 @@ import IfoCard from './components/IfoCard'
 import Title from './components/Title'
 import IfoCards from './components/IfoCards'
 
-const LaunchIfoCallout = styled(BaseLayout)`
-  border-top: 0px solid ${({ theme }) => theme.colors.textSubtle};
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 32px;
-  margin: 0 auto;
-  padding: 32px 0;
-
-  ${({ theme }) => theme.mediaQueries.sm} {
-    grid-template-columns: 1fr 1fr;
-  }
-`
-
-const List = styled.ul`
-  color: ${({ theme }) => theme.colors.text};
-  margin-bottom: 16px;
-
-  & > li {
-    line-height: 1.4;
-    margin-bottom: 8px;
-  }
-`
-
 const LaunchpadLayout = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   & > * {
-    min-width: 280px;
+    min-width: 200px;
     max-width: 47%;
-    width: 90%;
+    width: 50%;
     margin: 0 8px;
     margin-bottom: 28px;
   }
 `
 
+const Layout = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  & > * {
+    width: 365px;
+    
+  }
 
-/**
- * Note: currently there should be only 1 active IFO at a time
- */
+`
+
 const activeIfo = ifosConfig.find((ifo) => ifo.tier === '1')
 const activeIfo2 = ifosConfig.find((ifo) => ifo.tier === '2')
 const activeIfo3 = ifosConfig.find((ifo) => ifo.tier === '3')
@@ -56,8 +40,7 @@ const Ifo = () => {
   const TranslateString = useI18n()
 
   return (
-    <LaunchpadLayout>
-
+    <Layout>
         <IfoCards>
           <IfoCard ifo={activeIfo} />
         </IfoCards>   
@@ -67,9 +50,9 @@ const Ifo = () => {
         <IfoCards>
           <IfoCard ifo={activeIfo3} />
         </IfoCards>
-
-    </LaunchpadLayout>
+    </Layout>
   )
+  
 }
 
 export default Ifo

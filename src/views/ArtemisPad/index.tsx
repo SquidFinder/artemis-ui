@@ -5,70 +5,49 @@ import { FaProjectDiagram, FaRocket } from 'react-icons/fa'
 import FlexLayout from 'components/layout/Flex'
 import styled from 'styled-components'
 import { TranslateString } from 'utils/translateTextHelpers'
+import Page from 'components/layout/Page'
 import IfoTabButtons from './components/IfoTabButtons'
-import Hero from './components/Hero'
 import CurrentIfo from './CurrentIfo'
 import PastIfo from './PastIfo'
 
-const Feature = styled.div`
+const SvgHero = styled.div`
   display: flex;
-  flex-flow: column;
-  align-items: center;
+  flex-flow: row;
   justify-content: center;
-
-  font-size: 1.1em !important;
-  max-width: 180px;
-  text-align: center;
-
-
-  @media screen and (max-width: 680px){
-    max-width: 64%;
-    flex-flow: row;
-    align-items: flex-start;
-    & > svg{
-      width: 42px;
-    }
-    & > p{
-      text-align: left;
-      margin-left: 15px;
-    }
-  
+  @media all and (max-width: 1350px) { 
+    max-width: 100%;
+  }
 `
+
 const Ifos = () => {
   const { path } = useRouteMatch()
 
   return (
     <>
-      {/* <Hero/>
-
-      <StyledNotFound>
-        <Sub>{TranslateString(999, 'Upcoming IDOs...')}</Sub>
-      </StyledNotFound>
-
       <SvgHero>
         <object 
           type="image/svg+xml" 
-          data='/images/comingIDO/coming.svg'
+          data='/images/idoHero/lumen.svg'
           className="labhero"
-          style={{  maxWidth:'300px', marginBottom: '20px'}} 
-          >&nbsp;</object>
-      </SvgHero> */ }
-
-      <Container>
+          style={{  maxWidth:'220px', marginBottom: '10px', marginTop:'10px'}} 
+          >&nbsp;
+        </object>
+      </SvgHero> 
+      <Page>
         <Route exact path={`${path}`}>
           <CurrentIfo />
         </Route>
         <Route path={`${path}/history`}>
           <PastIfo />
         </Route>
-
-      {/*   <FlexLayout style={{marginTop:'20px'}}>
-          <Feature >
-            <IfoTabButtons />
+        {/* 
+        <FlexLayout style={{marginTop:'20px'}}>
+          <Feature>
+            <IfoTabButtons/>
           </Feature>
-        </FlexLayout>  */ }
-
-      </Container>
+        </FlexLayout> 
+        */}
+      </Page>
     </>
   )
 }

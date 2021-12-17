@@ -5,14 +5,11 @@ interface IfoCardWrapperProps {
 }
 
 const IfoCardWrapper = styled.div<IfoCardWrapperProps>`
-
   display: grid;
   grid-template-columns: 20fr;
   grid-gap: 32px;
-  padding-bottom: 10px;
-  padding-top: 30px;
-  
-
+  padding-bottom: 0px;
+  padding: 15px;
   ${({ theme }) => theme.mediaQueries.md} {
     grid-template-columns: 10fr;
   }
