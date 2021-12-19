@@ -22,7 +22,7 @@ export interface IfoCardProps {
 
 const StyledIfoCard = styled(Card)<{ ifoId: string }>`
   align-self: baseline;
-  background: #2F324A;
+  background: #33364D;
   border-radius: 20px;
   border: 2px solid #CECECE;
   display: flex;
@@ -185,7 +185,7 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
           misAmount={misAmount}
           tier={tier}
         />
-        {!account && <UnlockButton fullWidth />}
+        {/* {!account && <UnlockButton fullWidth />} */ }
         {(isActive || isFinished) && (
           <IfoCardContribute
             address={address}
