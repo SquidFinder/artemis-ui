@@ -29,7 +29,7 @@ const Ifos = () => {
           type="image/svg+xml" 
           data='/images/idoHero/lumen.svg'
           className="labhero"
-          style={{  maxWidth:'220px', marginBottom: '10px', marginTop:'10px'}} 
+          style={{  maxWidth:'250px', marginBottom: '10px', marginTop:'10px'}} 
           >&nbsp;
         </object>
       </SvgHero> 

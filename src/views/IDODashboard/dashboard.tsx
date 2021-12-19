@@ -2,8 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { Flex,  } from '@pancakeswap-libs/uikit'
 import { Link } from 'react-router-dom'
-import FlexStaking from 'components/layout/FlexStaking'
 import Page from 'components/layout/Page'
+import { FaArrowRight } from 'react-icons/fa'
+import FlexIdoDashboard from 'components/layout/FlexIdoDashboard'
+import { Container } from 'react-bootstrap'
+import Upcoming from './upcoming'
 
 const IdoCard = styled.div`
   align-self: baseline;
@@ -11,39 +14,36 @@ const IdoCard = styled.div`
   border-radius: 20px;
   border: 2px solid #CECECE;
   display: flex;
+  margin-top: 0px;
+  padding: 5px;
   flex-direction: column;
   justify-content: space-around;
-  padding: 25px;
   position: relative;
   text-align: center;
+`
 
+const ProjectCard = styled.div`
+  align-self: baseline;
+  background-image: linear-gradient(#2F324A, #33364D);
+  border-radius: 20px;
+  border: 0px solid #CECECE;
+  display: flex;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 15px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0px 0px 0px #ccc;
+  
   &:hover:not(:disabled),
   &:active:not(:disabled),
   &:focus  {
     outline: 0;
     border-color: #FFFF;
     box-shadow: 0px 0px 0px #cccc;
-  }
-`
-
-const CurrentIdoCard = styled.div`
-  align-self: baseline;
-  background-image: linear-gradient(#2F324A, #33364D);
-  border-radius: 20px;
-  border: 2px solid #CECECE;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 25px;
-  position: relative;
-  text-align: center;
-  box-shadow: 0px 0px 4px #ccc;
-  &:hover:not(:disabled),
-  &:active:not(:disabled),
-  &:focus  {
-    outline: 0;
-    border-color: #FFFF;
-    box-shadow: 0px 0px 3px #cccc;
+    background-image: linear-gradient(#404360, #404360);
   }
 `
 
@@ -75,26 +75,112 @@ const Text = styled.p`
   text-shadow: 0px 0px 0px #D4D4D4;
 `
 
+const IDO = styled.p`
+  color: #D4D4D4;
+  font-size: 15px;
+  font-weight: 500;
+  text-shadow: 0px 0px 0px #D4D4D4;
+`
+
 const Divider = styled.div`
   background-color: #FFFF;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  width: 100%;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  width: 0%;
   height: 1px;
   box-shadow: 0px 0px 0px #ffff;
+`
+
+const TitleDivider = styled.div`
+  background-color: #FFFF;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  width: 100%;
+  height: 0.5px;
+  box-shadow: 0px 0px 0px #ffff;
+`
+
+const IDOs = styled.p`
+  font-size: 15px;
+  font-weight: 500;
+  padding-top: 10px;
+  text-shadow: 0px 0px 20px #ccc;
+  color: #ffff;
+  margin-left: 10px;
+  margin-top: 8px;
+`
+const Ignore = styled.p`
+  font-size: 0px;
+  font-weight: 0;
+  padding-top: 10px;
+  color: #ffff;
+  margin-left: 10px;
+  margin-top: 8px;
 `
 
 const IDODashboard: React.FC = () => {
   return (
     <Page>
-      <FlexStaking>
-        <CurrentIdoCard>
+      <Container>
+      <FlexIdoDashboard>
+        <IdoCard>
+          <div>
+            <Flex justifyContent='center' marginBottom='0px'>
+              <IDOs>Current</IDOs>
+            </Flex>
+          </div>
+          <TitleDivider/>
+
+          {/*
+          <ProjectCard>
+            <Ignore>xx</Ignore>
+          </ProjectCard>
+          */ }
+
           <Link to="/lumen" className="nav-links">
+            <ProjectCard>
+                <div>
+                  <Flex justifyContent='left' marginBottom='10px'>
+                    <object type="image/svg+xml" data='/images/idoDashboard/lumen.svg' width="30px">&nbsp;</object> 
+                    <Title>Tranquility City</Title>
+                  </Flex>
+                </div>
+                <div>
+                  <Flex justifyContent="space-between" marginTop='5px' alignItems="center">
+                    <Flex flexDirection="column" alignItems='center'> 
+                      <Text>IDO Price</Text>
+                      <Sub>$0.15</Sub>
+                    </Flex>
+                    <Flex flexDirection="column" alignItems='center'>
+                      <Text>ATH</Text>
+                      <Sub>TBA</Sub> 
+                    </Flex>
+                    <Flex flexDirection="column" alignItems='center'>
+                      <Text>Overflow</Text>
+                      <Sub>TBA</Sub>
+                    </Flex>
+                    <Flex flexDirection="column" alignItems='center'>
+                      <Text>Net Raised</Text>
+                      <Sub>TBA</Sub>
+                    </Flex>
+                  </Flex>
+                </div>
+            </ProjectCard>
+          </Link>
+        </IdoCard>
+        <IdoCard>
+          <div>
             <div>
+              <Flex justifyContent='center' marginBottom='0px'>
+                <IDOs>Completed</IDOs>
+              </Flex>
+            </div>
+            <TitleDivider/>
+            <ProjectCard>
               <div>
-                <Flex justifyContent='left' marginBottom='20px'>
-                  <object type="image/svg+xml" data='/images/idoDashboard/lumen.svg' width="30px">&nbsp;</object> 
-                  <Title>Tranquility City ($LUMEN)</Title>
+                <Flex justifyContent='left' marginBottom='10px'>
+                  <object type="image/svg+xml" data='/images/idoDashboard/rvrs.svg' width="30px">&nbsp;</object> 
+                  <Title>Reverse DAO</Title>
                 </Flex>
               </div>
               <div>
@@ -104,71 +190,57 @@ const IDODashboard: React.FC = () => {
                     <Sub>TBA</Sub>
                   </Flex>
                   <Flex flexDirection="column" alignItems='center'>
-                    <Text>Token ATH</Text>
+                    <Text>ATH</Text>
                     <Sub>TBA</Sub> 
                   </Flex>
                   <Flex flexDirection="column" alignItems='center'>
-                    <Text>Total Raised</Text>
+                    <Text>Overflow</Text>
+                    <Sub>TBA</Sub>
+                  </Flex>
+                  <Flex flexDirection="column" alignItems='center'>
+                    <Text>Net Raised</Text>
                     <Sub>TBA</Sub>
                   </Flex>
                 </Flex>
               </div>
-            </div>
-          </Link>
-        </CurrentIdoCard>
-        <IdoCard>
-          <div>
-            <div>
-              <Flex justifyContent='left' marginBottom='20px'>
-                <object type="image/svg+xml" data='/images/idoDashboard/rvrs.svg' width="30px">&nbsp;</object> 
-                <Title>Reverse Protocol ($RVRS)</Title>
-              </Flex>
-            </div>
-            <div>
-              <Flex justifyContent="space-between" marginTop='5px' alignItems="center">
-                <Flex flexDirection="column" alignItems='center'> 
-                  <Text>IDO Price</Text>
-                  <Sub>TBA</Sub>
-                </Flex>
-                <Flex flexDirection="column" alignItems='center'>
-                  <Text>Token ATH</Text>
-                  <Sub>TBA</Sub> 
-                </Flex>
-                <Flex flexDirection="column" alignItems='center'>
-                  <Text>Total Raised</Text>
-                  <Sub>TBA</Sub>
-                </Flex>
-              </Flex>
-            </div>
+            </ProjectCard>
           </div>
           <Divider/>
           <div>
-            <div>
-              <Flex justifyContent='left' marginBottom='20px'>
-                <object type="image/svg+xml" data='/images/idoDashboard/mis.svg' width="30px">&nbsp;</object> 
-                <Title>Artemis Protocol ($MIS)</Title>
-              </Flex>
-            </div>
-            <div>
-              <Flex justifyContent="space-between" marginTop='5px' alignItems="center">
-                <Flex flexDirection="column" alignItems='center'> 
-                  <Text>IDO Price</Text>
-                  <Sub>TBA</Sub>
+            <ProjectCard>
+              <div>
+                <Flex justifyContent='left' marginBottom='10px'>
+                  <object type="image/svg+xml" data='/images/idoDashboard/mis.svg' width="30px">&nbsp;</object> 
+                  <Title>Artemis Protocol</Title>
                 </Flex>
-                <Flex flexDirection="column" alignItems='center'>
-                  <Text>Token ATH</Text>
-                  <Sub>TBA</Sub> 
+              </div>
+              <div>
+                <Flex justifyContent="space-between" marginTop='5px' alignItems="center">
+                  <Flex flexDirection="column" alignItems='center'> 
+                    <Text>IDO Price</Text>
+                    <Sub>TBA</Sub>
+                  </Flex>
+                  <Flex flexDirection="column" alignItems='center'>
+                    <Text>ATH</Text>
+                    <Sub>TBA</Sub> 
+                  </Flex>
+                  <Flex flexDirection="column" alignItems='center'>
+                    <Text>Overflow</Text>
+                    <Sub>TBA</Sub>
+                  </Flex>
+                  <Flex flexDirection="column" alignItems='center'>
+                    <Text>Net Raised</Text>
+                    <Sub>TBA</Sub>
+                  </Flex>
                 </Flex>
-                <Flex flexDirection="column" alignItems='center'>
-                  <Text>Total Raised</Text>
-                  <Sub>TBA</Sub>
-                </Flex>
-              </Flex>
-            </div>
+              </div>
+            </ProjectCard>
           </div>
         </IdoCard>
-      </FlexStaking>
+      </FlexIdoDashboard>
+      </Container>
     </Page>
+    
   )
 }
 export default IDODashboard
