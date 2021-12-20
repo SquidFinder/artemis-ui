@@ -184,14 +184,7 @@ const Farm: React.FC = () => {
         <p>Disclaimer: Since MIS deposits will be burned, you will need an average of 100% ROI to break even <FaFireAlt /></p>
       </Alert>
       </div>
-       <SvgHero>
-          <object 
-          type="image/svg+xml" 
-          data="images/hades/hero.svg" 
-          className="labhero" 
-          style={{maxWidth: '600px', marginLeft: '0px'}}
-          >&nbsp;</object>
-        </SvgHero> 
+
 
 {/*
       <Wrapper>
@@ -217,10 +210,6 @@ const Farm: React.FC = () => {
             <FaHistory /><br />
             <p>ROI is not fixed and will change over time</p>
           </Feature>
-          <Feature>
-          <FaQuestionCircle/><br />
-             <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/the-protocol/artemis-earn/hades-pools"> Learn more about Hades here</a>
-          </Feature> 
         </Features>
         </div>    
 
@@ -230,7 +219,7 @@ const Farm: React.FC = () => {
             {orderBy(openPools, ['sortOrder']).map((pool2) => (
               <PoolCard key={pool2.sousId} pool2={pool2} />
             ))}
-            <Coming />
+            
           </>
         </Route>
         <Route path={`${path}/history`}>
@@ -240,15 +229,6 @@ const Farm: React.FC = () => {
         </Route>
       </FlexLayout>
 
-      <FlexLayout>
-          <Feature >
-            <FaFireAlt /><br /> Hades
-
-
-
-
-          </Feature>
-      </FlexLayout>
           
     </Page>
   )

@@ -119,7 +119,7 @@ const Upcoming: React.FC = () => {
               </Flex>
               <Flex justifyContent='right'>
                 <Description>Dec. 21st</Description>&nbsp;&nbsp;&nbsp;
-                <Description>Tiers 500/5000/10,000 MIS</Description>
+                <Description>Tiers 500/5,000/10,000 MIS</Description>
               </Flex>
             </Flex>
           </ProjectCard>

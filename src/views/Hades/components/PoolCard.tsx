@@ -175,9 +175,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
       {sousId === 0 && <PoolFinishedSash />}
 
       <div style={{padding: '34px'}}>
-          <object type="image/svg+xml" data={`/images/burn/${tokenName}.png`} width="300px">&nbsp;</object>
 
-        <Divider2/>
         
 
         {/*
@@ -187,14 +185,15 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
         </Flex> 
         */}
 
+        <Flex justifyContent='space-between' marginBottom='20px'>
+              <span>MIS Hades Pool</span>
+            </Flex>
+
           <Flex justifyContent='space-between' marginTop='6px'>
-              <span><FaTractor/> ROI</span>
+              <span>ROI</span>
               <Quote>{ROI}%</Quote>
             </Flex>
-            <Flex justifyContent='space-between' marginTop='6px'>
-              <span><FaSeedling/> Daily ROI</span>
-              <Quote>{DailyROI}%</Quote>
-            </Flex>         
+       
 
 
             {/* <Flex justifyContent='space-between' marginTop='6px'>
@@ -206,13 +205,13 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
 
             
           <Flex justifyContent='space-between' marginTop='6px'>
-            <span><FaScroll/> MIS Burnt</span>
+            <span>MIS Burned</span>
             <Quote>${TVL} </Quote>
           </Flex> 
 
 
           <Flex justifyContent='space-between' marginTop='6px'>
-              <span><FaClock/> Ends In</span>
+              <span>Ends In</span>
               <Quote>~{daysRemaining} Days  </Quote>
             </Flex>
 
@@ -223,12 +222,12 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
 
       
         <Flex justifyContent='space-between' marginTop='25px'>
-          <span><FaFireAlt/> Your Burnt MIS</span>
+          <span>Your Burned MIS</span>
           <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
         </Flex>
 
         <Flex marginTop='0px' justifyContent='space-between'>
-          <span><FaSeedling/> Pending Rewards</span>
+          <span>Pending Rewards</span>
           <Balance value={getBalanceNumber(earnings, tokenDecimals)} isDisabled={isFinished} />
 
           {sousId === 0 && account && harvest && (
@@ -260,7 +259,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool2 }) => {
 
         <StyledCardActions  >
           
-          {!account && <UnlockButton />}
+        
           {account &&
             (needsApproval && !isOldSyrup ? (
               <div style={{ flex: 1 }}>
