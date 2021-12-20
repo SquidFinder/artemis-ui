@@ -101,7 +101,8 @@ const labo = {
             11, // CAKE-BNB LP [10] */
             12,
             13,
-            14, // pidLabo, // Labo [3]
+            14,
+            15, // pidLabo, // Labo [3]
             /* 10, // BUSD [12]
             11, // WBNB [13]
             12, // EGG [14]
