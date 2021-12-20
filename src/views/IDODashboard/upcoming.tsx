@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, } from '@pancakeswap-libs/uikit'
+import { Flex, LinkExternal, } from '@pancakeswap-libs/uikit'
 import { Link } from 'react-router-dom'
 import Page from 'components/layout/Page'
 import { Container } from 'react-bootstrap'
@@ -73,22 +73,22 @@ const Title = styled.p`
 
 const Description = styled.p`
   font-size: 13px;
-  font-weight: 200;
+  font-weight: 400;
   margin-bottom: 0px;
   text-shadow: 0px 0px 0px #ccc;
   color: #ffff;
-  margin-top: 8px;
+  margin-top: 10px;
 `
 
 const Upcoming: React.FC = () => {
   return (
     <FlexUpcoming>
       <IdoCard>
-        <Link to="/" className="nav-links">
+        <a href="https://twitter.com/slothfi">
           <ProjectCard>
             <Flex justifyContent='space-between'>
               <Flex justifyContent='left'>
-                <object type="image/svg+xml" data='/images/idoDashboard/lumen.svg' width="30px">&nbsp;</object>
+                <object type="image/svg+xml" data='/images/idoDashboard/sloth.svg' width="30px">&nbsp;</object>
                 <Title>SlothFi</Title>
               </Flex>
               <Flex justifyContent='right'>
@@ -96,12 +96,12 @@ const Upcoming: React.FC = () => {
               </Flex>
             </Flex>
           </ProjectCard>
-        </Link>
-        <Link to="/" className="nav-links">
+        </a>
+        <a href="https://twitter.com/XenonFinance">
         <ProjectCard>
             <Flex justifyContent='space-between'>
               <Flex justifyContent='left'>
-                <object type="image/svg+xml" data='/images/idoDashboard/lumen.svg' width="30px">&nbsp;</object>
+                <object type="image/svg+xml" data='/images/idoDashboard/xenon.svg' width="30px">&nbsp;</object>
                 <Title>Xenon Finance</Title>
               </Flex>
               <Flex justifyContent='right'>
@@ -109,21 +109,21 @@ const Upcoming: React.FC = () => {
               </Flex>
             </Flex>
           </ProjectCard>
-        </Link>
-        <Link to="/" className="nav-links">
+          </a>
+          <a href="https://twitter.com/one_immortl">
           <ProjectCard>
             <Flex justifyContent='space-between'>
               <Flex justifyContent='left'>
-                <object type="image/svg+xml" data='/images/idoDashboard/lumen.svg' width="30px">&nbsp;</object>
-                <Title>Immortl ONE</Title>
+                <object type="image/svg+xml" data='/images/idoDashboard/immortl.svg' width="30px">&nbsp;</object>
+                <Title>ONE Immortl</Title>
               </Flex>
               <Flex justifyContent='right'>
-                <Description>Dec. 21</Description>&nbsp;&nbsp;&nbsp;
+                <Description>Dec. 21st</Description>&nbsp;&nbsp;&nbsp;
                 <Description>Tiers 500/5000/10,000 MIS</Description>
               </Flex>
             </Flex>
           </ProjectCard>
-        </Link>
+          </a>
       </IdoCard>
     </FlexUpcoming>
   )
