@@ -306,7 +306,11 @@ const NavBar = (props) => {
                       <span className="dditem">Github (Open)</span>
                     </a>
                   </li>
-
+                  <li className="nav-tab">
+                    <Link to="/hades" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                      <span className="dditem">Hades</span>
+                    </Link>
+                  </li>
                 </ul>
               </li>
           </ul>
