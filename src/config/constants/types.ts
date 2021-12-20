@@ -58,31 +58,32 @@ export enum QuoteToken {
   'MIS' = 'MIS',
   'ONEETH' = 'ONEETH',
   'ONE' = 'ONE',
-  'MISONE' = 'MIS-ONE',
-  'MISTRANQ' = 'MIS-TRANQ',
-  'MISXYA' = 'MIS-XYA',
+  'MISONE' = 'MIS/ONE',
+  'MISTRANQ' = 'MIS/TRANQ',
+  'MISXYA' = 'MIS/XYA',
   'TRANQ' = 'TRANQ',
   'XYA' = 'XYA',
   'COSMIC' = 'COSMIC',
-  'MISMAGIC' = 'MIS-MAGIC',
+  'MISMAGIC' = 'MIS/MAGIC',
   'MAGIC' = 'MAGIC',
-  'MISLBLOX' = 'MIS-LBLOX',
+  'MISLBLOX' = 'MIS/LBLOX',
   'LBLOX' = 'LBLOX',
-  'MISCOINK' = 'MIS-COINK',
+  'MISCOINK' = 'MIS/COINK',
   'TROLL' = 'TROLL',
-  'MISTROLL' = 'MIS-TROLL',
-  'MISLUNA' = 'MIS-LUNA',
+  'MISTROLL' = 'MIS/TROLL',
+  'MISLUNA' = 'MIS/LUNA',
   'LUNA' = 'LUNA',
   'TRANQB' = 'TRANQB',
-  'MISKURO' = 'MIS-KURO',
+  'MISKURO' = 'MIS/KURO',
   'KURO' = 'KURO',
   'SONIC' = 'SONIC',
-  'MISSONIC' = 'MIS-SONIC',
-  'MISFOX' = 'MIS-FOX',
+  'MISSONIC' = 'MIS/SONIC',
+  'MISFOX' = 'MIS/FOX',
   'FOX' = 'FOX',
-  'MISBOSS' = 'MIS-BOSS',
+  'MISBOSS' = 'MIS/BOSS',
   'BOSS' = 'BOSS',
   'RVRS' = 'RVRS',
+  'WBTC' = 'WBTC',
 }
 
 export enum PoolCategory {
@@ -171,6 +172,29 @@ export interface Pool2Config {
   tokenDecimals: number
   isDepositFinished?: boolean
   lockBlock: number
+}
+
+export interface Pool3Config {
+  sousId?: number
+  image?: string
+  tokenName: string
+  quoteTokenSymbol: QuoteToken
+  stakingTokenName: QuoteToken
+  stakingLimit?: number
+  stakingTokenAddress?: string
+  tokenPoolAddress?: string
+  quoteTokenPoolAddress?: string
+  contractAddress: Address
+  poolCategory: PoolCategory
+  projectLink: string
+  tokenPerBlock: string
+  startBlock?: number
+  endBlock?: number
+  sortOrder?: number
+  harvest?: boolean
+  isFinished?: boolean
+  tokenDecimals: number
+  earnToken?: string
 }
 
 export type Images = {

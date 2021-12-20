@@ -23,7 +23,7 @@ const ExpandableSectionButton: React.FC<ExpandableSectionButtonProps> = ({ onCli
   return (
     <Wrapper aria-label="Hide or show expandable content" role="button" onClick={() => onClick()}>
       <Text color="FFFF">Expand</Text>
-      <FaChevronDown style={{'color':'white'}}/>
+
     </Wrapper>
   )
 }

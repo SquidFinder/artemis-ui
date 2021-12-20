@@ -14,7 +14,7 @@ declare module 'styled-components' {
 
 const GlobalStyle = createGlobalStyle`
   * {
-    font-family: 'Inter', sans-serif !important;
+    font-family: 'Fira Sans', sans-serif; !important;
     font-weight: 450;
     
   }
@@ -22,25 +22,26 @@ const GlobalStyle = createGlobalStyle`
   #root {
     background-image: url('/images/core/bg.png');
     background-repeat: no-repeat;
-
     height: 100%;
-
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
   }
 
   div {
-    color: #FAFAFA !important;
+    color: #FFF !important;
     font-size: 1em !important
   }
 
-
-  h2 {
-    color: #A4A4A4 !important;
+  .eUjdK {
+    background-color: #FFFFFF;
   }
-
+  h2 {
+    color: #FFFFFF !important;
+  }
+  .jwzowM {
+    color: #2F324A;
+  }
   button {
     background-color: #3D3D3D;
   }
@@ -86,70 +87,81 @@ const GlobalStyle = createGlobalStyle`
 
 
 #wallet-connect-metamask{
-  background-color: #3D3D3D !important;
-  border: 1px solid #3D3D3D
+  background-color: #FFF !important;
+  border: 1px solid #FFF
 }
 
 #wallet-connect-metamask:hover{
-  background-color: #3D3D3D !important;
+  background-color: #FFF !important;
 }
 
 #wallet-connect-trustwallet{
-  background-color: #3D3D3D !important;
-  border: 1px solid #3D3D3D
+  background-color: #2F324A !important;
+  border: 1px solid #2F324A
 }
 
 #wallet-connect-trustwallet:hover{
-  background-color: #3D3D3D !important;
+  background-color: ##2F324A !important;
 }
 
 #wallet-connect-mathwallet{
-  background-color: #3D3D3D !important;
-  border: 1px solid #3D3D3D
+  background-color: #2F324A !important;
+  border: 1px solid #2F324A
 }
 
 #wallet-connect-mathwallet:hover{
-  background-color: #3D3D3D !important;
+  background-color: #2F324A !important;
 }
 
 #wallet-connect-tokenpocket{
   background-color: #FFF !important;
-  border: 1px solid #f2f2f2
+  border: 1px solid #2F324A
 }
 
 #wallet-connect-tokenpocket:hover{
-  background-color: #f2f2f2 !important;
+  background-color: #2F324A !important;
 }
 
 #wallet-connect-walletconnect{
-  background-color: #3D3D3D !important;
-  border: 1px solid #3D3D3D
+  background-color: #FFF !important;
+  border: 1px solid #FFF
 }
 
 #wallet-connect-walletconnect:hover{
-  background-color: #3D3D3D !important;
+  background-color: #FFF !important;
 }
 
 button[id='wallet-connect-binance chain wallet']{
   background-color: #FFF !important;
-  border: 1px solid #f2f2f2
+  border: 1px solid #2F324A
 }
 
 button:hover[id='wallet-connect-binance chain wallet']{
-  background-color: #f2f2f2 !important;
+  background-color: #2F324A !important;
   border: 0px
 }
 
 button[aria-label="Close the dialog"] {
-  background-color: #f2f2f2 !important;
-  border: 1px solid #f2f2f2
+  background-color: #2F324A !important;
+  border: 1px solid #2F324A
 }
 
 button:hover[aria-label="Close the dialog"] {
-  background-color: #f2f2f2 !important;
+  background-color: #2F324A !important;
   border: 0px
 }
+.cNViQN {
+  fill: #FFFFFF;
+}
 
+.fXrOVP {
+  fill: #FFFFFF;
+}
+
+button[aria-label="Close the dialog"] {
+  background-color: #2F324A !important;
+  border: 1px solid #FFFFFF;
+}
 
 a[variant="subtle"]{
   background-color: #729ec2;
@@ -378,6 +390,9 @@ div.warningAlert > div > div.sc-jSgupP.gMeKF{
   background-color: #3D3D3D;
 }
 
+div.metamask > div > div.sc-gtsrHT.Nbnud{
+  color: #2F324A;
+}
 
 .nftCardFront{
   border-radius: 15px !important;

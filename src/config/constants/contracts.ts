@@ -6,11 +6,11 @@ export default {
     1666700000: labo.addr.LaboAddrTestnet,
   },
   masterChef: {
-    1666600000: labo.addr.masterChef, // cambiar
+    1666600000: labo.addr.masterChef,
     1666700000: labo.addr.masterChefTestnet,
   },
   sousChef: {
-    1666600000: '0xC2B1FC77e49BE0a99520EAd73da3a76AF533482D', // cambiar
+    1666600000: '0xC2B1FC77e49BE0a99520EAd73da3a76AF533482D',
     1666700000: '0x736E9c99cb9f9c39e25eF61181eeC83d484F9120',
   },
   wheel: {
@@ -70,5 +70,13 @@ export default {
   ifo: {
     1666600000: '0x6983d1e6def3690c4d616b13597a09e6193ea013',
     1666700000: '0x1e120b3b4af96e7f394ecaf84375b1c661830013',
+  },
+  autoRVRS: {
+    1666600000: '0x6AAEA0A742056e5A6AA1a428A8EC403C1B964609',
+    1666700000: '0x6AAEA0A742056e5A6AA1a428A8EC403C1B964609',
+  },
+  wbtc: {
+    1666600000: '0x3095c7557bcb296ccc6e363de01b760ba031f2d9',
+    1666700000: '0x3095c7557bcb296ccc6e363de01b760ba031f2d9',
   },
 }

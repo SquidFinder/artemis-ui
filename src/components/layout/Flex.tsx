@@ -5,11 +5,10 @@ const FlexLayout = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   & > * {
-    min-width: 280px;
-    max-width: 38%;
+    min-width: 260px;
+    max-width: 34%;
     width: 100%;
-    margin: 0 6px;
-    margin-bottom: 18px;
+
   }
 `
 
