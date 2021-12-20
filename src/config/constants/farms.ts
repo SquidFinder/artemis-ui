@@ -228,6 +228,22 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
   },
+  {
+    pid:labo.pids.pidList[15],
+    risk: 5,
+    lpSymbol: 'MIS/LUMEN',
+    lpAddresses: {
+      1666700000: '0xfd3ab633de7a747ceacafdad6575df1d737d659e',
+      1666600000: '0xfd3ab633de7a747ceacafdad6575df1d737d659e',
+    },
+    tokenSymbol: 'LUMEN',
+    tokenAddresses: {
+      1666700000: '0x6523688efd8212b83bc30a4e2af98389a9014ed5',
+      1666600000: '0x6523688efd8212b83bc30a4e2af98389a9014ed5',
+    },
+    quoteTokenSymbol: QuoteToken.MIS,
+    quoteTokenAdresses: contracts.cake,
+  },
   
 ]
 
