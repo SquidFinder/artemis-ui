@@ -14,7 +14,7 @@ const NotFound = lazy(() => import('./views/NotFound'))
 const ComingSoon = lazy(() => import('./views/ComingSoon'))
 const SingleStake = lazy(() => import('./views/SingleStake'))
 const IDODashboard = lazy(() => import('./views/IDODashboard'))
-
+const Hades = lazy(() => import('./views/Hades'))
 
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
@@ -66,6 +66,10 @@ const App: React.FC = () => {
 
           <Route path="/artemispad">
             <IDODashboard/>
+          </Route> 
+
+          <Route path="/hades">
+            <Hades/>
           </Route> 
 
           <Route component={NotFound} />
