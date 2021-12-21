@@ -35,6 +35,8 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
+    isDfkLP: false,
+
   },
   {
     pid:labo.pids.pidList[8],
