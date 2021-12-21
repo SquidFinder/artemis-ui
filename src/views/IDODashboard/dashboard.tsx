@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Flex,  } from '@pancakeswap-libs/uikit'
 import { Link } from 'react-router-dom'
 import Page from 'components/layout/Page'
-import { FaArrowRight } from 'react-icons/fa'
+import { FaArrowRight, FaCheck, FaCross, FaThumbsUp } from 'react-icons/fa'
 import FlexIdoDashboard from 'components/layout/FlexIdoDashboard'
-import { Container } from 'react-bootstrap'
+import { Alert, Container } from 'react-bootstrap'
+import { usePriceBnbBusd, usePriceCakeBusd } from 'state/hooks'
+import BigNumber from 'bignumber.js'
 import Upcoming from './upcoming'
 
 const IdoCard = styled.div`
@@ -118,9 +120,37 @@ const Ignore = styled.p`
   margin-top: 8px;
 `
 
+const AlertTxt = styled.p`
+  font-size: 13px;
+  font-weight: 0;
+  color: #ffff;
+`
+
 const IDODashboard: React.FC = () => {
+  const onePrice = usePriceBnbBusd()
+  const misPrice = usePriceCakeBusd()
+  const oneToRaiseImrtl = 6300000
+  const usdToRaiseImrtl = new BigNumber(oneToRaiseImrtl).times(onePrice).toNumber().toLocaleString('en-us', { maximumFractionDigits: 0, minimumFractionDigits: 0 })
+  const priceImrtl = new BigNumber(0.00386).times(onePrice).toNumber().toLocaleString('en-us', { maximumFractionDigits: 5, minimumFractionDigits: 3 })
+  const marketCapImrtl = new BigNumber(0.00386).times(onePrice).times(2500000000).toNumber().toLocaleString('en-us', { maximumFractionDigits: 0, minimumFractionDigits: 0 })
+  const [modalOpen, setModalOpen] = useState(true) 
+  const handleModal = async () => {
+    setModalOpen(!modalOpen)
+  }  
   return (
     <Page>
+      <div style={{'display': ( modalOpen ? 'block' : 'none' )}}>
+      <Alert style={{backgroundColor:'#BF0000'}} onClick={handleModal}>
+        <Flex justifyContent='space-between'>
+          <AlertTxt>Disclaimer</AlertTxt>
+          <FaCheck/>
+        </Flex>
+          <hr/>
+          <AlertTxt>
+            The Artemis Protocol IDO Launchpad is not available to residents of the United States of America. In using the Artemis Protocol, you confirm that you are not located in, incorporated or otherwise established in, or a citizen or resident of, a Prohibited Jurisdiction.
+          </AlertTxt>
+        </Alert>
+        </div>
       <Container>
       <Upcoming/>
       <FlexIdoDashboard>
@@ -132,12 +162,38 @@ const IDODashboard: React.FC = () => {
           </div>
           <TitleDivider/>
 
+          {/*
           <ProjectCard>
             <Ignore>xx</Ignore>
-          </ProjectCard>
+          </ProjectCard> */}
 
+          <Link to="/immortl" className="nav-links">
+            <ProjectCard>
+                <div>
+                  <Flex justifyContent='left' marginBottom='10px'>
+                    <object type="image/svg+xml" data='/images/idoDashboard/immortl.svg' width="30px">&nbsp;</object> 
+                    <Title>Immortl ONE</Title>
+                  </Flex>
+                </div>
+                <div>
+                  <Flex justifyContent="space-between" marginTop='5px' alignItems="center">
+                    <Flex flexDirection="column" alignItems='center'>
+                      <Text>IDO Price</Text>
+                      <Sub>${priceImrtl}</Sub> 
+                    </Flex>
+                    <Flex flexDirection="column" alignItems='center'> 
+                      <Text>Est. Market Cap</Text>
+                      <Sub>${marketCapImrtl}</Sub>
+                    </Flex>
+                    <Flex flexDirection="column" alignItems='center'>
+                      <Text>To Raise</Text>
+                      <Sub>${usdToRaiseImrtl}</Sub>
+                    </Flex>
+                  </Flex>
+                </div>
+            </ProjectCard>
+          </Link>
 
-         
         </IdoCard>
         <IdoCard>
           <div>
