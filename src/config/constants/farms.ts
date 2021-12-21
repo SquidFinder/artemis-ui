@@ -21,6 +21,22 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.cake,
   },
   {
+    pid:labo.pids.pidList[17],
+    risk: 5,
+    lpSymbol: 'MIS/stONE',
+    lpAddresses: {
+      1666700000: '0x281ced1a3ee6d454dda3d212235a6fe5c834e28f',
+      1666600000: '0x281ced1a3ee6d454dda3d212235a6fe5c834e28f',
+    },
+    tokenSymbol: 'stONE',
+    tokenAddresses: {
+      1666700000: '0x22d62b19b7039333ad773b7185bb61294f3adc19',
+      1666600000: '0x22d62b19b7039333ad773b7185bb61294f3adc19',
+    },
+    quoteTokenSymbol: QuoteToken.MIS,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
     pid:labo.pids.pidList[8],
     risk: 5,
     lpSymbol: '1USDC/UST',
