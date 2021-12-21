@@ -14,6 +14,7 @@ const NotFound = lazy(() => import('./views/NotFound'))
 const ComingSoon = lazy(() => import('./views/ComingSoon'))
 const SingleStake = lazy(() => import('./views/SingleStake'))
 const IDODashboard = lazy(() => import('./views/IDODashboard'))
+const Immortl = lazy(() => import('./views/Immortl'))
 const Hades = lazy(() => import('./views/Hades'))
 
 BigNumber.config({
@@ -39,41 +40,34 @@ const App: React.FC = () => {
 
       <Suspense fallback>
         <Switch>
-
           <Route path="/" exact>
             <LiqPools/>
           </Route>
-
           <Route path="/pools">
             <LiqPools/>
           </Route>
-
           <Route path="/incubator">
             <Incubator/>
           </Route>
-
           <Route path="/lumen">
             <ArtemisPad/>
           </Route>
-
           <Route path="/stake">
             <SingleStake/>
           </Route> 
-          
           <Route path="/comingsoon">
             <ComingSoon/>
           </Route>
-
           <Route path="/artemispad">
             <IDODashboard/>
           </Route> 
-
           <Route path="/hades">
             <Hades/>
           </Route> 
-
+          <Route path="/immortl">
+            <Immortl/>
+          </Route> 
           <Route component={NotFound} />
-
         </Switch>
       </Suspense>
     </Router>
