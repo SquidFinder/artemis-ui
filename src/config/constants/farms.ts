@@ -23,7 +23,7 @@ const farms: FarmConfig[] = [
   {
     pid:labo.pids.pidList[17],
     risk: 5,
-    lpSymbol: 'MIS/stONE',
+    lpSymbol: 'MIS/stONE (SLP)',
     lpAddresses: {
       1666700000: '0x281ced1a3ee6d454dda3d212235a6fe5c834e28f',
       1666600000: '0x281ced1a3ee6d454dda3d212235a6fe5c834e28f',
@@ -35,6 +35,8 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
+    isDfkLP: false,
+
   },
   {
     pid:labo.pids.pidList[8],

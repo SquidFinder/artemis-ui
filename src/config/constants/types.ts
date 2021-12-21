@@ -122,6 +122,7 @@ export interface FarmConfig {
     earnLabel: string
     endBlock: number
   }
+  isDfkLP?: boolean
 }
 
 export interface CoinPriceConfig {
