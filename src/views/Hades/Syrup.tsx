@@ -179,39 +179,8 @@ const Farm: React.FC = () => {
 
   return (
     <Page>
-      <div className="warningAlert" style={{'display': ( modalOpen ? 'block' : 'none' )}}>
-      <Alert title="" variant="warning" onClick={handleModal}>
-        <p>Disclaimer: Since MIS deposits will be burned, you will need an average of 100% ROI to break even <FaFireAlt /></p>
-      </Alert>
-      </div>
 
 
-{/*
-      <Wrapper>
-      <ButtonMenu activeIndex={isExact ? 0 : 1} size="sm">
-          <ButtonMenuItem as={Link} to={`${url}`} >
-            {TranslateString(698, 'Active')}
-          </ButtonMenuItem>
-          <ButtonMenuItem as={Link} to={`${url}/history`}>
-            {TranslateString(700, 'Inactive')}
-          </ButtonMenuItem>
-        </ButtonMenu>
-      </Wrapper> */ }
-
-
-
-<div>
-        <Features >
-           <Feature>
-            <FaBurn /><br />
-            <p>Your deposited MIS will be burned</p>
-          </Feature>
-          <Feature>
-            <FaHistory /><br />
-            <p>ROI is not fixed and will change over time</p>
-          </Feature>
-        </Features>
-        </div>    
 
       <FlexLayout>
         <Route exact path={`${path}`}>
