@@ -110,20 +110,6 @@ const Upcoming: React.FC = () => {
             </Flex>
           </ProjectCard>
           </a>
-          <a href="https://twitter.com/one_immortl">
-          <ProjectCard>
-            <Flex justifyContent='space-between'>
-              <Flex justifyContent='left'>
-                <object type="image/svg+xml" data='/images/idoDashboard/immortl.svg' width="30px">&nbsp;</object>
-                <Title>ONE Immortl</Title>
-              </Flex>
-              <Flex justifyContent='right'>
-                <Description>Dec. 21st</Description>&nbsp;&nbsp;&nbsp;
-                <Description>Tiers 500/5,000/10,000 MIS</Description>
-              </Flex>
-            </Flex>
-          </ProjectCard>
-          </a>
       </IdoCard>
     </FlexUpcoming>
   )

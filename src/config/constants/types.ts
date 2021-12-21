@@ -25,6 +25,7 @@ export interface Ifo {
   isTier2?: boolean
   collatAddr?: string
   collateralAmnt?: string
+  wonePrice?: number
 }
 
 export interface MoneyWheelBet {
