@@ -19,6 +19,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
+    isDfkLP: true,
   },
   {
     pid:labo.pids.pidList[17],
@@ -36,7 +37,6 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
     isDfkLP: false,
-
   },
   {
     pid:labo.pids.pidList[8],
@@ -53,6 +53,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.UST,
     quoteTokenAdresses: contracts.ust,
+    isDfkLP: true,
   },
   {
     pid:labo.pids.pidList[0],
@@ -69,6 +70,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.UST,
     quoteTokenAdresses: contracts.ust,
+    isDfkLP: true,
   },
   {
     pid:labo.pids.pidList[13],
@@ -85,6 +87,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.WBTC,
     quoteTokenAdresses: contracts.wbtc,
+    isDfkLP: true,
   },
   {
     pid:labo.pids.pidList[5],
@@ -101,6 +104,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
+    isDfkLP: true,
   },
   {
     pid:labo.pids.pidList[3],
@@ -117,6 +121,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
+    isDfkLP: true,
   },
   {
     pid:labo.pids.pidList[7],
@@ -133,6 +138,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
+    isDfkLP: true,
   },
   {
     pid:labo.pids.pidList[10],
@@ -149,6 +155,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
+    isDfkLP: true,
   },
   {
     pid:labo.pids.pidList[4],
@@ -165,6 +172,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
+    isDfkLP: true,
   },
   {
     pid:labo.pids.pidList[9],
@@ -181,6 +189,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
+    isDfkLP: true,
   },
   {
     pid:labo.pids.pidList[15],
@@ -197,6 +206,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
+    isDfkLP: true,
   },
   {
     pid:labo.pids.pidList[6],
@@ -213,6 +223,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
+    isDfkLP: true,
   },
   {
     pid:labo.pids.pidList[11],
@@ -229,6 +240,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
+    isDfkLP: true,
   },
   {
     pid:labo.pids.pidList[1],
@@ -245,6 +257,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.UST,
     quoteTokenAdresses: contracts.ust,
+    isDfkLP: true,
   },
   {
     pid:labo.pids.pidList[14],
@@ -252,7 +265,7 @@ const farms: FarmConfig[] = [
     lpSymbol: 'MIS/COINKX',
     lpAddresses: {
       1666700000: '0xc593893ed4b5f97cb64808c640e48b18a80e61ff',
-      1666600000: '0xc593893ed4b5f97cb64808c640e48b18a80e61ff', // ( MIS-UST LP)
+      1666600000: '0xc593893ed4b5f97cb64808c640e48b18a80e61ff', 
     },
     tokenSymbol: 'COINKX',
     tokenAddresses: {
@@ -261,6 +274,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.MIS,
     quoteTokenAdresses: contracts.cake,
+    isDfkLP: true,
   },
 
   
