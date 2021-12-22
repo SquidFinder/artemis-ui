@@ -152,7 +152,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
             href={farm.isDfkLP ?
               `https://app.defikingdoms.com/#/add/${liquidityUrlPathParts}` 
               :
-              `https://app.sushi.com/add/0x22D62b19b7039333ad773b7185BB61294F3AdC19/0xD74433B187Cf0ba998Ad9Be3486B929c76815215` 
+              `https://app.sushi.com/add/${liquidityUrlPathParts}` 
             }
             style={{color:'#FFFF', fontSize:'14px', fontWeight:'lighter', marginTop:'-6px', borderBottom:'1px dotted #FFFF' }}
             >Add
