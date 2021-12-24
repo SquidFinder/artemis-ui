@@ -219,7 +219,7 @@ const IDODashboard: React.FC = () => {
                       </Flex>
                       <Flex flexDirection="column" alignItems='center'>
                         <Text>ATH</Text>
-                        <Sub>$0.45</Sub> 
+                        <Sub>$0.89</Sub> 
                       </Flex>
                       <Flex flexDirection="column" alignItems='center'>
                         <Text>Overflow</Text>

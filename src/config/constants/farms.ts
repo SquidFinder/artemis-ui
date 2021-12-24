@@ -141,6 +141,23 @@ const farms: FarmConfig[] = [
     isDfkLP: true,
   },
   {
+    pid:labo.pids.pidList[18],
+    risk: 5,
+    lpSymbol: 'MIS/IMRTL',
+    lpAddresses: {
+      1666700000: '0x3b200557a1884ff3ee21486d4250a9571be6f81e',
+      1666600000: '0x3b200557a1884ff3ee21486d4250a9571be6f81e',
+    },
+    tokenSymbol: 'IMRTL',
+    tokenAddresses: {
+      1666700000: '0x550d9923693998a6fe20801abe3f1a78e0d75089',
+      1666600000: '0x550d9923693998a6fe20801abe3f1a78e0d75089',
+    },
+    quoteTokenSymbol: QuoteToken.MIS,
+    quoteTokenAdresses: contracts.cake,
+    isDfkLP: true,
+  },
+  {
     pid:labo.pids.pidList[10],
     risk: 5,
     lpSymbol: 'MIS/rFTM',
