@@ -87,49 +87,25 @@ const labo = {
         pidLabo,
         pidBnbBusd,
         pidList: [
-            pidLaboUst, // MIS-UST LP [0]
-            pidBnbBusd, // Labo-BNB LP [1]
-            pidLaboBnb, // Labo [2]
-            3, // BNB-BUSD LP [3]
-            4, // ONE-1ETH LP [4]
-            5, // BTCB-BNB LP [4]
-            6, // ETH-BNB LP [5]
-            7, // DAI-BUSD LP [6]
-            8, // USDC-BUSD LP [7]
-            9, // DOT-BNB LP [8]
-            10, // CAKE-BUSD LP [9]
-            11, // CAKE-BNB LP [10] */
+            pidLaboUst, 
+            pidBnbBusd, 
+            pidLaboBnb, 
+            3, 
+            4, 
+            5, 
+            6, 
+            7,
+            8, 
+            9, 
+            10, 
+            11, 
             12,
             13,
             14,
-            15, // pidLabo, // Labo [3]
+            15, 
             16,
             17,
-            /* 10, // BUSD [12]
-            11, // WBNB [13]
-            12, // EGG [14]
-            18, // BTCB [15]
-            14, // ETH [16]
-            15, // DAI [17]
-            16, // USDC [18]
-            17, // DOT [19]
-            19, // BSCX [20]
-            13, // AUTO [21]
-            22, // Labo-GYA [22]
-            23, // Labo-DSL [23]
-            24, // Labo-BUSD LP V2 [24]
-            25, // Labo-BNB LP V2 [25]
-            26, // BUSD-BNB LP V2 [26]
-            27, // USDT-BUSD LP V2 [27]
-            28, // BTCB-BNB LP V2 [28] 
-            29, // ETH-BNB LP V2 [29]
-            30, // DAI-BUSD LP V2 [30] 
-            31, // USDC-BUSD LP V2 [31]
-            31, // DOT-BNB LP V2 [32]
-            32, // CAKE-BNB LP V2 [33]
-            33, // ADA-WBNB LP V2 [34] */
-
-
+            18,
         ],
     },
     strings: {
