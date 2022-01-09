@@ -153,9 +153,9 @@ const IDODashboard: React.FC = () => {
         </div>
       <Container>
       <Upcoming/>
-      <FlexIdoDashboard>
+     <FlexIdoDashboard>
         <IdoCard>
-          <div>
+           <div>
             <Flex justifyContent='center' marginBottom='0px'>
               <IDOs>Current</IDOs>
             </Flex>
@@ -168,7 +168,7 @@ const IDODashboard: React.FC = () => {
           </ProjectCard> */}
 
           <Link to="/immortl" className="nav-links">
-            <ProjectCard>
+           {/* <ProjectCard>
                 <div>
                   <Flex justifyContent='left' marginBottom='10px'>
                     <object type="image/svg+xml" data='/images/idoDashboard/immortl.svg' width="30px">&nbsp;</object> 
@@ -191,10 +191,10 @@ const IDODashboard: React.FC = () => {
                     </Flex>
                   </Flex>
                 </div>
-            </ProjectCard>
+            </ProjectCard> */}
           </Link>
 
-        </IdoCard>
+        </IdoCard>  
         <IdoCard>
           <div>
             <div>
@@ -204,6 +204,37 @@ const IDODashboard: React.FC = () => {
             </div>
             <TitleDivider/>
             <Link to="/lumen" className="nav-links">
+            <Divider/>
+          <div>
+            <ProjectCard>
+              <div>
+                <Flex justifyContent='left' marginBottom='10px'>
+                  <object type="image/svg+xml" data='/images/idoDashboard/immortl.svg' width="30px">&nbsp;</object> 
+                  <Title>Immortl One</Title>
+                </Flex>
+              </div>
+              <div>
+                <Flex justifyContent="space-between" marginTop='5px' alignItems="center">
+                  <Flex flexDirection="column" alignItems='center'> 
+                    <Text>IDO Price</Text>
+                    <Sub>$0.00117</Sub>
+                  </Flex>
+                  <Flex flexDirection="column" alignItems='center'>
+                    <Text>ATH</Text>
+                    <Sub>$0.00117</Sub> 
+                  </Flex>
+                  <Flex flexDirection="column" alignItems='center'>
+                    <Text>Overflow</Text>
+                    <Sub>N/A</Sub>
+                  </Flex>
+                  <Flex flexDirection="column" alignItems='center'>
+                    <Text>Net Raised</Text>
+                    <Sub>$1.15m</Sub>
+                  </Flex>
+                </Flex>
+              </div>
+            </ProjectCard>
+          </div>
               <ProjectCard>
                   <div>
                     <Flex justifyContent='left' marginBottom='10px'>
@@ -219,7 +250,7 @@ const IDODashboard: React.FC = () => {
                       </Flex>
                       <Flex flexDirection="column" alignItems='center'>
                         <Text>ATH</Text>
-                        <Sub>$0.89</Sub> 
+                        <Sub>$2.05</Sub> 
                       </Flex>
                       <Flex flexDirection="column" alignItems='center'>
                         <Text>Overflow</Text>
