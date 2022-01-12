@@ -174,14 +174,14 @@ const NavBar = (props) => {
 
             <object 
                 type="image/svg+xml" 
-                data="/images/core/logo2.svg" 
+                data="/images/core/logo.svg" 
                 width="0px" 
                 style={{'marginTop': '10px', 'marginBottom': '0px', 'marginRight': '10px'}}>&nbsp;
               </object>
 
               <object 
                 type="image/svg+xml" 
-                data="/images/core/logo2.svg" 
+                data="/images/core/logo.svg" 
                 width="45px" 
                 style={{'marginTop': '0px', 'marginBottom': '0px', 'marginRight': '10px'}}>&nbsp;
               </object>
@@ -206,6 +206,11 @@ const NavBar = (props) => {
                 <li className="nav-tab">
                   <Link to="/comingsoon" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                     <Quote>Incubator</Quote>
+                  </Link>
+                </li>
+               <li className="nav-tab">
+                <Link to="/hades" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                    <Quote>Hades</Quote>
                   </Link>
                 </li>
               </ul>
