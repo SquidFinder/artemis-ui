@@ -241,7 +241,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       <div>
         <div>
           <Flex justifyContent='left' marginBottom='25px'>
-            <object type="image/svg+xml" data='/images/core/logo2.svg' width="30px">&nbsp;</object> 
+            <object type="image/svg+xml" data='/images/core/logo.svg' width="30px">&nbsp;</object> 
             <StakeTitle>MIS Staking</StakeTitle>
           </Flex>
         </div>
