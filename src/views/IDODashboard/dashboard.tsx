@@ -203,7 +203,7 @@ const IDODashboard: React.FC = () => {
               </Flex>
             </div>
             <TitleDivider/>
-            <Link to="/lumen" className="nav-links">
+            
             <Divider/>
           <div>
             <ProjectCard>
@@ -263,7 +263,7 @@ const IDODashboard: React.FC = () => {
                     </Flex>
                   </div>
               </ProjectCard>
-            </Link>
+            
             <ProjectCard>
               <div>
                 <Flex justifyContent='left' marginBottom='10px'>
