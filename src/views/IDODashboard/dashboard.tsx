@@ -206,6 +206,7 @@ const IDODashboard: React.FC = () => {
             
             <Divider/>
           <div>
+          <a href="https://www.one-immortl.com/">
             <ProjectCard>
               <div>
                 <Flex justifyContent='left' marginBottom='10px'>
@@ -234,7 +235,9 @@ const IDODashboard: React.FC = () => {
                 </Flex>
               </div>
             </ProjectCard>
+            </a>
           </div>
+          <a href="https://tranquilitycity.one/">
               <ProjectCard>
                   <div>
                     <Flex justifyContent='left' marginBottom='10px'>
@@ -263,7 +266,8 @@ const IDODashboard: React.FC = () => {
                     </Flex>
                   </div>
               </ProjectCard>
-            
+              </a>
+            <a href="https://app.reverseprotocol.one/">
             <ProjectCard>
               <div>
                 <Flex justifyContent='left' marginBottom='10px'>
@@ -292,9 +296,11 @@ const IDODashboard: React.FC = () => {
                 </Flex>
               </div>
             </ProjectCard>
+            </a>
           </div>
           <Divider/>
           <div>
+          <a href="https://app.artemisprotocol.one/">
             <ProjectCard>
               <div>
                 <Flex justifyContent='left' marginBottom='10px'>
@@ -323,6 +329,7 @@ const IDODashboard: React.FC = () => {
                 </Flex>
               </div>
             </ProjectCard>
+            </a>
           </div>
         </IdoCard>
       </FlexIdoDashboard>
