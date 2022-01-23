@@ -1,296 +1,341 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { useWallet } from '@binance-chain/bsc-use-wallet'
-import { Toggle, useModal } from '@pancakeswap-libs/uikit'
-import { usePriceCakeBusd } from 'state/hooks'
-import {Link} from "react-router-dom";
-import './index.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import UnlockButton from 'components/UnlockButton'
-import {Accordion, Button, Card, useAccordionToggle} from 'react-bootstrap';
-import { FaChartLine, FaTelegramPlane, FaTwitter, FaDiscord, FaFileAlt, FaGithub, FaTicketAlt, FaChartBar, FaMoneyBillAlt, FaTractor, FaHome, FaPrescriptionBottleAlt, FaTumblrSquare, FaCode, FaFlask, FaBook, FaReddit, FaRocketchat, FaRocket, FaBroadcastTower, FaLayerGroup, FaSeedling, FaExclamationTriangle, FaBootstrap, FaLandmark, FaGamepad, FaCircle, FaParachuteBox, FaVoteYea, FaProjectDiagram, FaShieldAlt, FaFire, FaCloud, FaPlayCircle, FaClipboard, FaUser, FaPlus, FaExpandArrowsAlt, FaExpand, FaExchangeAlt } from 'react-icons/fa';
-import ReactTooltip from 'react-tooltip';
-import { getBalanceNumber } from 'utils/formatBalance'
-import useTokenBalance from 'hooks/useTokenBalance'
-import { getCakeAddress } from 'utils/addressHelpers'
-import { Address } from 'config/constants/types'
+import { Flex,  } from '@pancakeswap-libs/uikit'
+import { Link } from 'react-router-dom'
+import Page from 'components/layout/Page'
+import { FaArrowRight, FaCheck, FaCross, FaThumbsUp } from 'react-icons/fa'
+import FlexIdoDashboard from 'components/layout/FlexIdoDashboard'
+import { Alert, Container } from 'react-bootstrap'
+import { usePriceBnbBusd, usePriceCakeBusd } from 'state/hooks'
+import BigNumber from 'bignumber.js'
+import Upcoming from './upcoming'
 
-
-
-
-function getWindowDimensions() {
-  const { innerWidth: viewportWidth, innerHeight: viewportHeight } = window;
-  return {
-    viewportWidth,
-    viewportHeight
-  };
-}
-
-
-const {viewportWidth, viewportHeight} = getWindowDimensions()
-const isOnPhone = viewportWidth < 680
-const Price = styled.p`
-  -webkit-box-align: center;
-  align-items: center;
-  background-image: linear-gradient(transparent, transparent);
-  border: 0px;
-  border-style: solid !important;
-  border-color: #ffff !important;
-  border-radius: 10px;
-  color: #ffff;
-  font-size: 14px;
-  font-weight: 400;
-  width: 100%;
-  display: inline-flex;
-  min-height: 32px;
-  max-height: 37px;
-  padding: 10px;
-  margin-top: 16px;
-  margin-left: 0px;
+const IdoCard = styled.div`
+  align-self: baseline;
+  background-image: linear-gradient(#2F324A, #33364D);
+  border-radius: 20px;
+  border: 2px solid #CECECE;
+  display: flex;
+  margin-top: 0px;
+  padding: 5px;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  text-align: center;
 `
 
-const Chain = styled.p`
-  -webkit-box-align: center;
-  align-items: center;
-  background-color: transparent;
-  border: 0px;
-  border-style: solid !important;
-  border-color: transparent !important;
-  border-radius: 10px;
-  color: #0094C6;
-  font-size: 14px;
-  font-weight: 500;
-  width: 100%;
-  display: inline-flex;
-  min-height: 32px;
-  max-height: 37px;
-  padding: 10px;
-  margin-top: 16px;
+const ProjectCard = styled.div`
+  align-self: baseline;
+  background-image: linear-gradient(#2F324A, #33364D);
+  border-radius: 20px;
+  border: 0px solid #CECECE;
+  display: flex;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 15px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0px 0px 0px #ccc;
+  
   &:hover:not(:disabled),
   &:active:not(:disabled),
   &:focus  {
     outline: 0;
-    border-color: transparent
-    cursor: pointer;
-    text-shadow: 0px 0px 10px #0094C6;
+    border-color: #FFFF;
+    box-shadow: 0px 0px 0px #cccc;
+    background-image: linear-gradient(#404360, #404360);
   }
 `
 
-const Balance = styled.p`
-  -webkit-box-align: center;
-  align-items: center;
-  background-image: linear-gradient(transparent, transparent);
-  border: 0px;
-  border-style: solid !important;
-  border-color: #transparent !important;
-  border-radius: 10px;
-  color: #ffff;
-  font-size: 14px;
+const Sub = styled.p`
+  color: #FFFF;
+  font-size: 13px;
   font-weight: 500;
-  width: 100%;
-  display: inline-flex;
-  min-height: 32px;
-  max-height: 37px;
-  padding: 10px;
-  margin-right: 10px;
-  margin-left: -8px;
+  margin-bottom: 0px;
+  margin-top: 2px;
+  text-shadow: 0px 0px 0px #4E5C6D;
 `
 
-
-const Expand = styled.p`
-  -webkit-box-align: center;
-  align-items: center;
-  background-image: linear-gradient(#394454, #394454);
-  border: 1px #fff;
-  border-style: solid !important;
-  border-color: #fff !important;
-  border-radius: 10px;
-  color: #ffff;
-  font-size: 14px;
-  font-weight: 500;
-  width: 120%;
-  display: inline-flex;
-  min-height: 32px;
-  max-height: 37px;
-  padding: 10px;
-  margin-top: 16px;
-  box-shadow: 0px 0px 3px #FFF;
-`
-
-const Quote = styled.p`
+const Title = styled.p`
   font-size: 15px;
   font-weight: 500;
-  text-shadow: 0px 0px 10px #ccc;
-  &:hover:not(:disabled),
-  &:active:not(:disabled),
-  &:focus  {
-    outline: 0;
-    font-weight: 500;
-    cursor: pointer;
-    text-shadow: 0px 0px 4px #CCCC;
-  }
+  margin-bottom: 0px;
+  text-shadow: 0px 0px 0px #ccc;
+  color: #ffff;
+  margin-left: 10px;
+  margin-top: 8px;
 `
 
-const NavBar = (props) => {
-  const { account, connect, reset } = useWallet()
-  const cakePriceUsd = usePriceCakeBusd()
-  const [isChecked, setIsChecked] = useState(false);
-  const cakeBalance = getBalanceNumber(useTokenBalance(getCakeAddress())).toLocaleString('en-us',{ maximumFractionDigits: 2 });
+const Text = styled.p`
+  color: #D4D4D4;
+  font-size: 13px;
+  font-weight: 300;
+  margin-bottom: 0px;
+  margin-top: 2px;
+  text-shadow: 0px 0px 0px #D4D4D4;
+`
 
-  const LightSwitch = () => {
-    const toggle = () => setIsChecked(!isChecked);
-  
-    return (
-      <>
-        <div style={{ marginBottom: "32px" }}>
-          <Toggle checked={isChecked} onChange={toggle} />
-        </div>
-      </>
-    );
-  }
+const IDO = styled.p`
+  color: #D4D4D4;
+  font-size: 15px;
+  font-weight: 500;
+  text-shadow: 0px 0px 0px #D4D4D4;
+`
 
-  function CustomToggle({ eventKey }) {
-    const decoratedOnClick = useAccordionToggle(eventKey);
-  
-    return (
-        <li className="nav-tab dropdown">
-        <Link to="/" className="nav-links" onClick={decoratedOnClick}>
-          About
-        </Link>
-        </li>);
-  }
+const Divider = styled.div`
+  background-color: #FFFF;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  width: 0%;
+  height: 1px;
+  box-shadow: 0px 0px 0px #ffff;
+`
 
+const TitleDivider = styled.div`
+  background-color: #FFFF;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  width: 100%;
+  height: 0.5px;
+  box-shadow: 0px 0px 0px #ffff;
+`
+
+const IDOs = styled.p`
+  font-size: 15px;
+  font-weight: 500;
+  padding-top: 10px;
+  text-shadow: 0px 0px 20px #ccc;
+  color: #ffff;
+  margin-left: 10px;
+  margin-top: 8px;
+`
+const Ignore = styled.p`
+  font-size: 0px;
+  font-weight: 0;
+  padding-top: 10px;
+  color: #ffff;
+  margin-left: 10px;
+  margin-top: 8px;
+`
+
+const AlertTxt = styled.p`
+  font-size: 13px;
+  font-weight: 0;
+  color: #ffff;
+`
+
+const IDODashboard: React.FC = () => {
+  const onePrice = usePriceBnbBusd()
+  const misPrice = usePriceCakeBusd()
+  const oneToRaiseImrtl = 6300000
+  const usdToRaiseImrtl = new BigNumber(oneToRaiseImrtl).times(onePrice).toNumber().toLocaleString('en-us', { maximumFractionDigits: 0, minimumFractionDigits: 0 })
+  const priceImrtl = new BigNumber(0.00386).times(onePrice).toNumber().toLocaleString('en-us', { maximumFractionDigits: 5, minimumFractionDigits: 3 })
+  const marketCapImrtl = new BigNumber(0.00386).times(onePrice).times(2500000000).toNumber().toLocaleString('en-us', { maximumFractionDigits: 0, minimumFractionDigits: 0 })
+  const [modalOpen, setModalOpen] = useState(true) 
+  const handleModal = async () => {
+    setModalOpen(!modalOpen)
+  }  
   return (
-    <div>
-      <header>
-        <div className="nav-wrapper">
-          <nav>
-          <object
-              type="image/svg+xml"
-              data="/images/banner.svg"
-              width="230px"
-              style={{'marginTop': '50px',
-                      'marginBottom': '15px',
-                      'marginLeft': '10px'}}>
-              &nbsp;
-            </object>
-            <input className="hidden" type="checkbox" checked={isChecked} id="menuToggle"/>
-            <button type="button" className="menu-btn" onClick={()=>{setIsChecked(!isChecked)}}>
-              <div className="menu"/>
-              <div className="menu"/>
-              <div className="menu"/>
-            </button>
-    
-            
-            <div className="nav-container">
-
-            
-
-              
-              <ul className="nav-tabs">
-
-                <li className="nav-tab">
-                  <Link to="/stake" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                    <Quote>Stake</Quote>
-                  </Link>
-                </li>
-                <li className="nav-tab">
-                  <Link to="/farm" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                    <Quote>Farm</Quote>
-                  </Link>
-                </li>
-                <li className="nav-tab">
-                  <Link to="/reverseum" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                    <Quote>Bond</Quote>
-                  </Link>
-                </li>
-                
-              </ul>
-
-              <ul className="web3buttons">
-
-                <li className="web3li insideMainNav">
-                  {account != null && account.length > 1? 
-                    <Price style={{justifyContent:'center'}}>
-                      {account.substring(0,( isOnPhone ? 8 : 8))} 
-                      <p style={{'color': 'white'}}>...</p></Price>:
-                    <UnlockButton style={{
-                      fontSize: '14px',
-                      marginTop: '15px',
-                      width: '100%',
-                      minHeight:'21px',
-                      maxHeight:'37px'}}>Connect
-                    </UnlockButton>
-                  }
-                </li>
-
-              </ul>
-            </div>
-          </nav>
-
-            <ul className="nav-tabs outsideMainNav">
-
-             <li className="web3li">
-                <Chain>Harmony</Chain> 
-              </li>
-
-              <li className="web3li">
-                {account != null && account.length > 1? 
-                <Price style={{justifyContent:'center'}}> 
-                  <Balance>{cakeBalance} RVRS</Balance>{account.substring(0,6)}...
-                </Price>
-                :
-                <UnlockButton style={{
-                  fontSize: '14px',
-                  marginTop: '15px',
-                  width: '100%',
-                  minHeight:'21px',
-                  maxHeight:'37px'}}>Connect
-                </UnlockButton>
-                }
-              </li>
-
-              <li style={{marginTop:'5px'}} className="nav-tab dropdown" id="wheelToggleDesktop">
-                <Expand style={{justifyContent:'center'}}><FaExpand/></Expand>
-                <ul className="dropdown-content dropdown-items">
-                <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://app.sushi.com/swap?outputCurrency=0xed0b4b0f0e2c17646682fc98ace09feb99af3ade" className="nav-links">
-                      <span className="dditem"><FaExchangeAlt/> Purchase</span>
-                    </a>
-                  </li>
-                  <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://gov.harmony.one/#/reverse" className="nav-links">
-                      <span className="dditem"><FaVoteYea /> Govern</span>
-                    </a>
-                  </li>
-                  <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://twitter.com/RVRSProtocol" className="nav-links">
-                      <span className="dditem"><FaTwitter/> Twitter</span>
-                    </a>
-                  </li>
-                  <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://reverse.gitbook.io/docs/" className="nav-links">
-                      <span className="dditem"><FaClipboard /> Gitbook</span>
-                    </a>
-                  </li>
-                  <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://discord.gg/J6fTxACe" className="nav-links">
-                      <span className="dditem"><FaDiscord /> Discord</span>
-                    </a>
-                  </li>
-                  <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://github.com/ReverseProtocol/" className="nav-links">
-                      <span className="dditem"><FaGithub /> Github</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-          </ul>
+    <Page>
+      <div style={{'display': ( modalOpen ? 'block' : 'none' )}}>
+      <Alert style={{backgroundColor:'#BF0000'}} onClick={handleModal}>
+        <Flex justifyContent='space-between'>
+          <AlertTxt>Disclaimer</AlertTxt>
+          <FaCheck/>
+        </Flex>
+          <hr/>
+          <AlertTxt>
+            The Artemis Protocol IDO Launchpad is not available to residents of the United States of America. In using the Artemis Protocol, you confirm that you are not located in, incorporated or otherwise established in, or a citizen or resident of, a Prohibited Jurisdiction.
+          </AlertTxt>
+        </Alert>
         </div>
-      </header>
-    </div>
+      <Container>
+      <Upcoming/>
+     <FlexIdoDashboard>
+        <IdoCard>
+           <div>
+            <Flex justifyContent='center' marginBottom='0px'>
+              <IDOs>Current</IDOs>
+            </Flex>
+          </div>
+          <TitleDivider/>
+
+          {/*
+          <ProjectCard>
+            <Ignore>xx</Ignore>
+          </ProjectCard> */}
+
+          <Link to="/immortl" className="nav-links">
+           {/* <ProjectCard>
+                <div>
+                  <Flex justifyContent='left' marginBottom='10px'>
+                    <object type="image/svg+xml" data='/images/idoDashboard/immortl.svg' width="30px">&nbsp;</object> 
+                    <Title>Immortl ONE</Title>
+                  </Flex>
+                </div>
+                <div>
+                  <Flex justifyContent="space-between" marginTop='5px' alignItems="center">
+                    <Flex flexDirection="column" alignItems='center'>
+                      <Text>IDO Price</Text>
+                      <Sub>${priceImrtl}</Sub> 
+                    </Flex>
+                    <Flex flexDirection="column" alignItems='center'> 
+                      <Text>Est. Market Cap</Text>
+                      <Sub>${marketCapImrtl}</Sub>
+                    </Flex>
+                    <Flex flexDirection="column" alignItems='center'>
+                      <Text>To Raise</Text>
+                      <Sub>${usdToRaiseImrtl}</Sub>
+                    </Flex>
+                  </Flex>
+                </div>
+            </ProjectCard> */}
+          </Link>
+
+        </IdoCard>  
+        <IdoCard>
+          <div>
+            <div>
+              <Flex justifyContent='center' marginBottom='0px'>
+                <IDOs>Completed</IDOs>
+              </Flex>
+            </div>
+            <TitleDivider/>
+            
+            <Divider/>
+          <div>
+          <a href="https://www.one-immortl.com/">
+            <ProjectCard>
+              <div>
+                <Flex justifyContent='left' marginBottom='10px'>
+                  <object type="image/svg+xml" data='/images/idoDashboard/immortl.svg' width="30px">&nbsp;</object> 
+                  <Title>Immortl One</Title>
+                </Flex>
+              </div>
+              <div>
+                <Flex justifyContent="space-between" marginTop='5px' alignItems="center">
+                  <Flex flexDirection="column" alignItems='center'> 
+                    <Text>IDO Price</Text>
+                    <Sub>$0.00117</Sub>
+                  </Flex>
+                  <Flex flexDirection="column" alignItems='center'>
+                    <Text>ATH</Text>
+                    <Sub>$0.00117</Sub> 
+                  </Flex>
+                  <Flex flexDirection="column" alignItems='center'>
+                    <Text>Overflow</Text>
+                    <Sub>N/A</Sub>
+                  </Flex>
+                  <Flex flexDirection="column" alignItems='center'>
+                    <Text>Net Raised</Text>
+                    <Sub>$1.15m</Sub>
+                  </Flex>
+                </Flex>
+              </div>
+            </ProjectCard>
+            </a>
+          </div>
+          <a href="https://tranquilitycity.one/">
+              <ProjectCard>
+                  <div>
+                    <Flex justifyContent='left' marginBottom='10px'>
+                      <object type="image/svg+xml" data='/images/idoDashboard/lumen.svg' width="30px">&nbsp;</object> 
+                      <Title>Tranquility City</Title>
+                    </Flex>
+                  </div>
+                  <div>
+                    <Flex justifyContent="space-between" marginTop='5px' alignItems="center">
+                      <Flex flexDirection="column" alignItems='center'> 
+                        <Text>IDO Price</Text>
+                        <Sub>$0.15</Sub>
+                      </Flex>
+                      <Flex flexDirection="column" alignItems='center'>
+                        <Text>ATH</Text>
+                        <Sub>$2.05</Sub> 
+                      </Flex>
+                      <Flex flexDirection="column" alignItems='center'>
+                        <Text>Overflow</Text>
+                        <Sub>$6m</Sub>
+                      </Flex>
+                      <Flex flexDirection="column" alignItems='center'>
+                        <Text>Net Raised</Text>
+                        <Sub>$625k</Sub>
+                      </Flex>
+                    </Flex>
+                  </div>
+              </ProjectCard>
+              </a>
+            <a href="https://app.reverseprotocol.one/">
+            <ProjectCard>
+              <div>
+                <Flex justifyContent='left' marginBottom='10px'>
+                  <object type="image/svg+xml" data='/images/idoDashboard/rvrs.svg' width="30px">&nbsp;</object> 
+                  <Title>Reverse DAO</Title>
+                </Flex>
+              </div>
+              <div>
+                <Flex justifyContent="space-between" marginTop='5px' alignItems="center">
+                  <Flex flexDirection="column" alignItems='center'> 
+                    <Text>IDO Price</Text>
+                    <Sub>$0.4</Sub>
+                  </Flex>
+                  <Flex flexDirection="column" alignItems='center'>
+                    <Text>ATH</Text>
+                    <Sub>$14</Sub> 
+                  </Flex>
+                  <Flex flexDirection="column" alignItems='center'>
+                    <Text>Overflow</Text>
+                    <Sub>$40m</Sub>
+                  </Flex>
+                  <Flex flexDirection="column" alignItems='center'>
+                    <Text>Net Raised</Text>
+                    <Sub>$650k</Sub>
+                  </Flex>
+                </Flex>
+              </div>
+            </ProjectCard>
+            </a>
+          </div>
+          <Divider/>
+          <div>
+          <a href="https://app.artemisprotocol.one/">
+            <ProjectCard>
+              <div>
+                <Flex justifyContent='left' marginBottom='10px'>
+                  <object type="image/svg+xml" data='/images/idoDashboard/mis.svg' width="30px">&nbsp;</object> 
+                  <Title>Artemis Protocol</Title>
+                </Flex>
+              </div>
+              <div>
+                <Flex justifyContent="space-between" marginTop='5px' alignItems="center">
+                  <Flex flexDirection="column" alignItems='center'> 
+                    <Text>IDO Price</Text>
+                    <Sub>$0.3</Sub>
+                  </Flex>
+                  <Flex flexDirection="column" alignItems='center'>
+                    <Text>ATH</Text>
+                    <Sub>$6.4</Sub> 
+                  </Flex>
+                  <Flex flexDirection="column" alignItems='center'>
+                    <Text>Overflow</Text>
+                    <Sub>$1.5m</Sub>
+                  </Flex>
+                  <Flex flexDirection="column" alignItems='center'>
+                    <Text>Net Raised</Text>
+                    <Sub>$150k</Sub>
+                  </Flex>
+                </Flex>
+              </div>
+            </ProjectCard>
+            </a>
+          </div>
+        </IdoCard>
+      </FlexIdoDashboard>
+      </Container>
+    </Page>
+    
   )
 }
-
-
-export default NavBar
+export default IDODashboard
