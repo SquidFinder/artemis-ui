@@ -15,11 +15,11 @@ h1 {
 	align-items: center;
 	justify-content: space-between;
 	margin: auto;
-	width: 42%;
+	width: 55%;
 	height: 110px;
 	z-index: 81;
 	border-bottom: 0px solid rgba(255, 255, 255, 0.664);
-	margin-bottom: 1px;
+	margin-bottom: 20px;
 }
 
 .logo-container {
@@ -37,7 +37,6 @@ h1 {
 
 .web3buttons{
 	margin-bottom: 12px;
-	background: transparent;
 }
 
 .logo {
@@ -74,11 +73,11 @@ h1 {
 	display: none;
 	position: absolute;
 	border-radius: 16px;
-	background-color: #394454;
+	background-color: #282B43;
 	z-index: 1;
 	font-size: 14px;
 	margin-top: 5px;
-	padding: 5px 5px;
+	padding: 20px 5px;
 	margin-left: 0px;
 	box-shadow: 0px 0px 3px #ffff;
 }
@@ -94,7 +93,7 @@ h1 {
 
 .dropdown-items li{
 	padding: 15px 16px;
-	width: 130px;
+	width: 160px;
 	border-radius: 30px;
 	display: flex;
 }
@@ -168,9 +167,9 @@ h1 {
 	z-index: -1;
 	top: 0;
 	right: 0;
-	width: 150px;
+	width: 222px;
 	height: 100%;
-	background-color: #394454;
+	background-color: #2F324A;
 	flex-flow: column;
 }
 
@@ -258,10 +257,7 @@ h1 {
 
 .web3li{
 	padding: 5px;
-	
 }
-
-
 
 .menu-btn{
 	background: transparent !important;
@@ -281,7 +277,7 @@ h1 {
         padding: 0;
         height: 20px;
         width: 20px;
-        margin-top: -45px;
+        margin-top: 15px;
     }
     #root .nav-wrapper button.menu-btn:hover{
         background-color:transparent;
