@@ -173,14 +173,14 @@ const NavBar = (props) => {
 
             <object 
                 type="image/svg+xml" 
-                data="/images/core/logo2.svg" 
+                data="/images/core/logo.svg" 
                 width="0px" 
                 style={{'marginTop': '10px', 'marginBottom': '0px', 'marginRight': '10px'}}>&nbsp;
               </object>
 
               <object 
                 type="image/svg+xml" 
-                data="/images/core/logo2.svg" 
+                data="/images/core/logo.svg" 
                 width="45px" 
                 style={{'marginTop': '0px', 'marginBottom': '0px', 'marginRight': '10px'}}>&nbsp;
               </object>
