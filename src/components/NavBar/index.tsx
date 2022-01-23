@@ -203,11 +203,6 @@ const NavBar = (props) => {
                   </Link>
                 </li>
                 <li className="nav-tab">
-                  <Link to="/incubator" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                    <Quote>Incubator</Quote>
-                  </Link>
-                </li>
-                <li className="nav-tab">
                   <Link to="/hades" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                     <Quote>Hades</Quote>
                   </Link>
