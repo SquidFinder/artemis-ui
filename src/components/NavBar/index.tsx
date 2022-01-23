@@ -207,6 +207,11 @@ const NavBar = (props) => {
                     <Quote>Incubator</Quote>
                   </Link>
                 </li>
+                <li className="nav-tab">
+                  <Link to="/hades" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                    <Quote>Hades</Quote>
+                  </Link>
+                </li>
               </ul>
 
               <ul className="web3buttons">
