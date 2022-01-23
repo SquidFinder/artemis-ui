@@ -17,6 +17,7 @@ import { Address } from 'config/constants/types'
 
 
 
+
 function getWindowDimensions() {
   const { innerWidth: viewportWidth, innerHeight: viewportHeight } = window;
   return {
@@ -25,12 +26,13 @@ function getWindowDimensions() {
   };
 }
 
+
 const {viewportWidth, viewportHeight} = getWindowDimensions()
 const isOnPhone = viewportWidth < 680
 const Price = styled.p`
   -webkit-box-align: center;
   align-items: center;
-  background-image: linear-gradient(#555977, #32354D);
+  background-image: linear-gradient(transparent, transparent);
   border: 0px;
   border-style: solid !important;
   border-color: #ffff !important;
@@ -47,33 +49,13 @@ const Price = styled.p`
   margin-left: 0px;
 `
 
-const Balance = styled.p`
-  -webkit-box-align: center;
-  align-items: center;
-  background-image: linear-gradient(#2F324A, #2F324A);
-  border: 0px;
-  border-style: solid !important;
-  border-color: #ffff !important;
-  border-radius: 10px;
-  color: #ffff;
-  font-size: 14px;
-  font-weight: 500;
-  width: 100%;
-  display: inline-flex;
-  min-height: 32px;
-  max-height: 37px;
-  padding: 10px;
-  margin-right: 10px;
-  margin-left: -8px;
-`
-
 const Chain = styled.p`
   -webkit-box-align: center;
   align-items: center;
-  background-color: #213550;
-  border: 1px;
+  background-color: transparent;
+  border: 0px;
   border-style: solid !important;
-  border-color: #213550 !important;
+  border-color: transparent !important;
   border-radius: 10px;
   color: #0094C6;
   font-size: 14px;
@@ -88,19 +70,40 @@ const Chain = styled.p`
   &:active:not(:disabled),
   &:focus  {
     outline: 0;
-    border-color: #FFFF;
+    border-color: transparent
     cursor: pointer;
     text-shadow: 0px 0px 10px #0094C6;
   }
 `
 
+const Balance = styled.p`
+  -webkit-box-align: center;
+  align-items: center;
+  background-image: linear-gradient(transparent, transparent);
+  border: 0px;
+  border-style: solid !important;
+  border-color: #transparent !important;
+  border-radius: 10px;
+  color: #ffff;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  display: inline-flex;
+  min-height: 32px;
+  max-height: 37px;
+  padding: 10px;
+  margin-right: 10px;
+  margin-left: -8px;
+`
+
+
 const Expand = styled.p`
   -webkit-box-align: center;
   align-items: center;
-  background-image: linear-gradient(#2F324A, #2F324A);
-  border: 1px #2F324A;
+  background-image: linear-gradient(#394454, #394454);
+  border: 1px #fff;
   border-style: solid !important;
-  border-color: #FFF !important;
+  border-color: #fff !important;
   border-radius: 10px;
   color: #ffff;
   font-size: 14px;
@@ -118,7 +121,6 @@ const Quote = styled.p`
   font-size: 15px;
   font-weight: 500;
   text-shadow: 0px 0px 10px #ccc;
-
   &:hover:not(:disabled),
   &:active:not(:disabled),
   &:focus  {
@@ -163,56 +165,46 @@ const NavBar = (props) => {
       <header>
         <div className="nav-wrapper">
           <nav>
+          <object
+              type="image/svg+xml"
+              data="/images/banner.svg"
+              width="230px"
+              style={{'marginTop': '50px',
+                      'marginBottom': '15px',
+                      'marginLeft': '10px'}}>
+              &nbsp;
+            </object>
             <input className="hidden" type="checkbox" checked={isChecked} id="menuToggle"/>
             <button type="button" className="menu-btn" onClick={()=>{setIsChecked(!isChecked)}}>
               <div className="menu"/>
               <div className="menu"/>
               <div className="menu"/>
             </button>
+    
             
             <div className="nav-container">
 
-            <object 
-                type="image/svg+xml" 
-                data="/images/core/logo.svg" 
-                width="0px" 
-                style={{'marginTop': '10px', 'marginBottom': '0px', 'marginRight': '10px'}}>&nbsp;
-              </object>
+            
 
-              <object 
-                type="image/svg+xml" 
-                data="/images/core/logo.svg" 
-                width="45px" 
-                style={{'marginTop': '0px', 'marginBottom': '0px', 'marginRight': '10px'}}>&nbsp;
-              </object>
-
+              
               <ul className="nav-tabs">
 
-                <li className="nav-tab">
-                  <Link to="/artemispad" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                    <Quote>ArtemisPad</Quote>
-                  </Link>
-                </li>
                 <li className="nav-tab">
                   <Link to="/stake" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
                     <Quote>Stake</Quote>
                   </Link>
                 </li>
                 <li className="nav-tab">
-                  <Link to="/pools" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                    <Quote>Pools</Quote>
+                  <Link to="/farm" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                    <Quote>Farm</Quote>
                   </Link>
                 </li>
                 <li className="nav-tab">
-                  <Link to="/comingsoon" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                    <Quote>Incubator</Quote>
+                  <Link to="/reverseum" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
+                    <Quote>Bond</Quote>
                   </Link>
                 </li>
-               <li className="nav-tab">
-                <Link to="/hades" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                    <Quote>Hades</Quote>
-                  </Link>
-                </li>
+                
               </ul>
 
               <ul className="web3buttons">
@@ -238,14 +230,14 @@ const NavBar = (props) => {
 
             <ul className="nav-tabs outsideMainNav">
 
-              <li className="web3li">
+             <li className="web3li">
                 <Chain>Harmony</Chain> 
               </li>
 
               <li className="web3li">
                 {account != null && account.length > 1? 
                 <Price style={{justifyContent:'center'}}> 
-                  <Balance>{cakeBalance} MIS</Balance>{account.substring(0,6)}...
+                  <Balance>{cakeBalance} RVRS</Balance>{account.substring(0,6)}...
                 </Price>
                 :
                 <UnlockButton style={{
@@ -262,59 +254,34 @@ const NavBar = (props) => {
                 <Expand style={{justifyContent:'center'}}><FaExpand/></Expand>
                 <ul className="dropdown-content dropdown-items">
                 <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://app.defikingdoms.com/#/marketplace?outputCurrency=0xd74433b187cf0ba998ad9be3486b929c76815215" className="nav-links">
-                      <span className="dditem"><FaExchangeAlt/> Get MIS</span>
+                    <a target="_blanK" rel="noreferrer" href="https://app.sushi.com/swap?outputCurrency=0xed0b4b0f0e2c17646682fc98ace09feb99af3ade" className="nav-links">
+                      <span className="dditem"><FaExchangeAlt/> Purchase</span>
                     </a>
                   </li>
                   <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://gov.harmony.one/#/artemis" className="nav-links">
-                      <span className="dditem">Governance</span>
+                    <a target="_blanK" rel="noreferrer" href="https://gov.harmony.one/#/reverse" className="nav-links">
+                      <span className="dditem"><FaVoteYea /> Govern</span>
                     </a>
                   </li>
                   <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://www.artemisforum.one/" className="nav-links">
-                      <span className="dditem">Artemis Forum</span>
+                    <a target="_blanK" rel="noreferrer" href="https://twitter.com/RVRSProtocol" className="nav-links">
+                      <span className="dditem"><FaTwitter/> Twitter</span>
                     </a>
                   </li>
                   <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://paladinsec.co/projects/artemis-ifo/" className="nav-links">
-                      <span className="dditem">ArtemisPad Audit</span>
+                    <a target="_blanK" rel="noreferrer" href="https://reverse.gitbook.io/docs/" className="nav-links">
+                      <span className="dditem"><FaClipboard /> Gitbook</span>
                     </a>
                   </li>
                   <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://artemis-protocol.gitbook.io/artemis/" className="nav-links">
-                      <span className="dditem">Documentation</span>
+                    <a target="_blanK" rel="noreferrer" href="https://discord.gg/J6fTxACe" className="nav-links">
+                      <span className="dditem"><FaDiscord /> Discord</span>
                     </a>
                   </li>
                   <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://discord.gg/7z5qQgnZHE" className="nav-links">
-                      <span className="dditem">Discord</span>
+                    <a target="_blanK" rel="noreferrer" href="https://github.com/ReverseProtocol/" className="nav-links">
+                      <span className="dditem"><FaGithub /> Github</span>
                     </a>
-                  </li>
-                  <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://t.me/protocolartemis" className="nav-links">
-                      <span className="dditem">Telegram</span>
-                    </a>
-                  </li>
-                  <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://twitter.com/ArtemisProtoco1" className="nav-links">
-                      <span className="dditem">Twitter</span>
-                    </a>
-                  </li>
-                  <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://artemisprotocol.medium.com/" className="nav-links">
-                      <span className="dditem">Medium</span>
-                    </a>
-                  </li>
-                  <li className="nav-tab">
-                    <a target="_blanK" rel="noreferrer" href="https://github.com/ArtemisProtocol/" className="nav-links">
-                      <span className="dditem">Github (Open)</span>
-                    </a>
-                  </li>
-                  <li className="nav-tab">
-                    <Link to="/hades" className="nav-links" onClick={()=>{setIsChecked(!isChecked)}}>
-                      <span className="dditem">Hades</span>
-                    </Link>
                   </li>
                 </ul>
               </li>
