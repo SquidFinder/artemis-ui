@@ -58,10 +58,12 @@ const GlobalStyle = createGlobalStyle`
   a{
     color: #FAFAFA;
   }
-
+  
+  
   a:hover{
     text-decoration: none !important;
   }
+ 
 
   .nav-links:hover{
     color: #FAFAFA;
@@ -85,18 +87,25 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 8px;
 }
 
+.fhNLne {
+   color: white;
+}
+
+.fXmckB {
+   color: white;
+}
 
 #wallet-connect-metamask{
-  background-color: #FFF !important;
+  background-color: #5b5b5b !important;
   border: 1px solid #FFF
 }
 
 #wallet-connect-metamask:hover{
-  background-color: #FFF !important;
+  background-color: #2F324A !important;
 }
 
 #wallet-connect-trustwallet{
-  background-color: #2F324A !important;
+  background-color: #5b5b5b !important;
   border: 1px solid #2F324A
 }
 
@@ -105,7 +114,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 #wallet-connect-mathwallet{
-  background-color: #2F324A !important;
+  background-color: #5b5b5b !important;
   border: 1px solid #2F324A
 }
 
@@ -114,7 +123,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 #wallet-connect-tokenpocket{
-  background-color: #FFF !important;
+  background-color: #fff !important;
   border: 1px solid #2F324A
 }
 
@@ -123,16 +132,16 @@ const GlobalStyle = createGlobalStyle`
 }
 
 #wallet-connect-walletconnect{
-  background-color: #FFF !important;
+  background-color: #5b5b5b !important;
   border: 1px solid #FFF
 }
 
 #wallet-connect-walletconnect:hover{
-  background-color: #FFF !important;
+  background-color: #2F324A !important;
 }
 
 button[id='wallet-connect-binance chain wallet']{
-  background-color: #FFF !important;
+  background-color: #5b5b5b !important;
   border: 1px solid #2F324A
 }
 
@@ -159,7 +168,7 @@ button:hover[aria-label="Close the dialog"] {
 }
 
 button[aria-label="Close the dialog"] {
-  background-color: #2F324A !important;
+  background-color: #5b5b5b !important;
   border: 1px solid #FFFFFF;
 }
 
